@@ -117,5 +117,9 @@ def help_commands(bot, msg):
 
 
 def loc(bot, msg):
-    # TODO: run cloc on Linux to count LOC
-    bot.sendMessage(msg['chat']['id'], f"Lines of Code (as per 17.01.2020): 705")
+    try:
+        with open("../data/loc.json", "r") as f:
+            data = json.load(f)
+            bot.sendMessage(msg['chat']['id'], f"Lines of Code: {data['header']['n_lines']}")
+    except FileNotFoundError:
+        print("Error - File Not Found")
