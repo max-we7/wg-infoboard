@@ -58,9 +58,13 @@ def get_schedule():
         mins += 10
         if mins > 59:
             mins %= 60
+            if -1 < mins < 10:
+                mins = "0" + str(mins)
             hour += 1
         if hour > 23:
             hour %= 24
+            if hour == 0:
+                hour = str(hour) + "0"
         tz_ankunft = f"{hour}:{mins}"
         # check if there is an additional bus in the connection, usually Tram only
         no_bus = False
