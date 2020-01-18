@@ -7,7 +7,7 @@
     $bad_intervall = $json['bad']['intervall_tage'];
     $bad_verbleibend = $bad_intervall - $bad_vergangen;
     if ($bad_verbleibend > 1)
-        $bad_faellig = "in " + $bad_verbleibend + " Tagen";
+        $bad_faellig = "in " . $bad_verbleibend . " Tagen";
 ?>
 
 	<table class="putzplan">
