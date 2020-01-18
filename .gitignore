@@ -5,5 +5,4 @@ venv/
 putzplan_erstellen.py
 test.py
 config.py
-putzplan.json
-einkaufsliste.json
+data/
