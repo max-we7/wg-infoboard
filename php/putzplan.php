@@ -16,7 +16,7 @@
     elseif ($bad_verbleibend == -1)
         $bad_faellig = "<span class='overdue'>gestern</span>";
     else
-        $bad_faellig = "<span class='overdue'>seit " . abs($bad_verbleibend) . " Tagen</span>"
+        $bad_faellig = "<span class='overdue'>seit " . abs($bad_verbleibend) . " Tagen</span>";
 
     # kueche
     $kueche_vergangen = $json['kueche']['tage_vergangen'];
@@ -31,7 +31,7 @@
     elseif ($kueche_verbleibend == -1)
         $kueche_faellig = "<span class='overdue'>gestern</span>";
     else
-        $kueche_faellig = "<span class='overdue'>seit " . abs($kueche_verbleibend) . " Tagen</span>"
+        $kueche_faellig = "<span class='overdue'>seit " . abs($kueche_verbleibend) . " Tagen</span>";
 
     # saugen
     $saugen_vergangen = $json['saugen']['tage_vergangen'];
@@ -46,7 +46,7 @@
     elseif ($saugen_verbleibend == -1)
         $saugen_faellig = "<span class='overdue'>gestern</span>";
     else
-        $saugen_faellig = "<span class='overdue'>seit " . abs($saugen_verbleibend) . " Tagen</span>"
+        $saugen_faellig = "<span class='overdue'>seit " . abs($saugen_verbleibend) . " Tagen</span>";
 
     # handtuecher
     $handtuecher_vergangen = $json['handtuecher']['tage_vergangen'];
@@ -61,7 +61,7 @@
     elseif ($handtuecher_verbleibend == -1)
         $handtuecher_faellig = "<span class='overdue'>gestern</span>";
     else
-        $handtuecher_faellig = "<span class='overdue'>seit " . abs($handtuecher_verbleibend) . " Tagen</span>"
+        $handtuecher_faellig = "<span class='overdue'>seit " . abs($handtuecher_verbleibend) . " Tagen</span>";
 
     # duschvorhang
     $duschvorhang_vergangen = $json['duschvorhang']['tage_vergangen'];
@@ -76,7 +76,7 @@
     elseif ($duschvorhang_verbleibend == -1)
         $duschvorhang_faellig = "<span class='overdue'>gestern</span>";
     else
-        $duschvorhang_faellig = "<span class='overdue'>seit " . abs($duschvorhang_verbleibend) . " Tagen</span>"
+        $duschvorhang_faellig = "<span class='overdue'>seit " . abs($duschvorhang_verbleibend) . " Tagen</span>";
 ?>
 
 	<table class="putzplan">
