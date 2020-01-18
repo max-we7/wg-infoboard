@@ -1,9 +1,9 @@
 # Default ignored files
 /workspace.xml
 *.log
+*.json
 venv/
 putzplan_erstellen.py
 test.py
 config.py
-data/
-loc.json
+
