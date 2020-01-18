@@ -19,7 +19,7 @@ def web_request():
     hour = int(now.strftime("%H"))
     mins = int(now.strftime("%M"))
     # add 12 mins to current time
-    mins += 12
+    mins += 8
     # check for time overflow
     if mins > 59:
         mins %= 60
