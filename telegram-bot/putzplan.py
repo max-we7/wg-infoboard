@@ -123,7 +123,6 @@ def kueche(bot, msg):
 
 
 def saugen(bot, msg):
-    # TODO: implement
     putzplan = load_putzplan()
     if msg['text'].lower()[8:] == "erledigt":
         index = putzplan["saugen"]["reihenfolge"].index(putzplan["saugen"]["dran"])
@@ -160,13 +159,78 @@ def saugen(bot, msg):
 
 
 def handtuecher(bot, msg):
-    # TODO: implement
-    return 0
+    putzplan = load_putzplan()
+    if msg['text'].lower()[13:] == "erledigt":
+        index = putzplan["handtuecher"]["reihenfolge"].index(putzplan["handtuecher"]["dran"])
+        putzplan["handtuecher"]["dran"] = putzplan["handtuecher"]["reihenfolge"][(index + 1) % 4]
+        putzplan["handtuecher"]["tage_vergangen"] = 0
+        bot.sendMessage(msg['chat']['id'], f"Handtücher waschen wurde erledigt. <b>{putzplan['handtuecher']['dran']}"
+                                           f"</b> ist als nächster dran.", parse_mode="html")
+    elif len(msg['text']) == 7:
+        bot.sendMessage(msg['chat']['id'], f"<b>{putzplan['handtuecher']['dran']}</b> ist aktuell mit Handtücher "
+                                           f"waschen dran.", parse_mode="html")
+    elif msg['text'].lower()[13:22] == "intervall":
+        try:
+            days = int(msg['text'].lower()[22:])
+            putzplan["handtuecher"]["intervall_tage"] = days
+            bot.sendMessage(msg['chat']['id'], f"Intervall der Aufgabe Handtücher waschen wurde auf <b>"
+                                               f"{days}</b> Tage gesetzt.",
+                            parse_mode="html")
+        except ValueError:
+            bot.sendMessage(msg['chat']['id'], 'Unbekannter Parameter. Intervall setzen mit "/handtuecher '
+                                               'intervall X".')
+    elif msg['text'].lower()[13:22] == "vergangen":
+        try:
+            days = int(msg['text'].lower()[22:])
+            putzplan["handtuecher"]["tage_vergangen"] = days
+            bot.sendMessage(msg['chat']['id'], f"Vergangene Tage der Aufgabe Handtücher waschen wurden auf <b>"
+                                               f"{putzplan['handtuecher']['tage_vergangen']}</b> Tage gesetzt.",
+                            parse_mode="html")
+        except ValueError:
+            bot.sendMessage(msg['chat']['id'], 'Unbekannter Parameter. Vergangene Tage setzen mit "/handtuecher '
+                                               'vergangen X".')
+    else:
+        bot.sendMessage(msg['chat']['id'], 'Unbekannter Parameter. Wenn du die Aufgabe Handtücher waschen erledigt '
+                                           'hast, bestätige das bitte mit dem Befehl "/handtuecher erledigt".')
+    dump_putzplan(putzplan)
 
 
 def duschvorhang(bot, msg):
-    # TODO: implement
-    return 0
+    putzplan = load_putzplan()
+    if msg['text'].lower()[14:] == "erledigt":
+        index = putzplan["duschvorhang"]["reihenfolge"].index(putzplan["duschvorhang"]["dran"])
+        putzplan["duschvorhang"]["dran"] = putzplan["duschvorhang"]["reihenfolge"][(index + 1) % 4]
+        putzplan["duschvorhang"]["tage_vergangen"] = 0
+        bot.sendMessage(msg['chat']['id'], f"Duschvorhänge waschen wurde erledigt. <b>"
+                                           f"{putzplan['duschvorhang']['dran']}</b> ist als nächster dran.",
+                        parse_mode="html")
+    elif len(msg['text']) == 7:
+        bot.sendMessage(msg['chat']['id'], f"<b>{putzplan['duschvorhang']['dran']}</b> ist aktuell mit Duschvorhänge "
+                                           f"waschen dran.", parse_mode="html")
+    elif msg['text'].lower()[14:23] == "intervall":
+        try:
+            days = int(msg['text'].lower()[23:])
+            putzplan["duschvorhang"]["intervall_tage"] = days
+            bot.sendMessage(msg['chat']['id'], f"Intervall der Aufgabe Duschvorhänge waschen wurde auf <b>"
+                                               f"{days}</b> Tage gesetzt.",
+                            parse_mode="html")
+        except ValueError:
+            bot.sendMessage(msg['chat']['id'], 'Unbekannter Parameter. Intervall setzen mit "/duschvorhang '
+                                               'intervall X".')
+    elif msg['text'].lower()[14:23] == "vergangen":
+        try:
+            days = int(msg['text'].lower()[23:])
+            putzplan["duschvorhang"]["tage_vergangen"] = days
+            bot.sendMessage(msg['chat']['id'], f"Vergangene Tage der Aufgabe Duschvorhang waschen wurden auf <b>"
+                                               f"{putzplan['duschvorhang']['tage_vergangen']}</b> Tage gesetzt.",
+                            parse_mode="html")
+        except ValueError:
+            bot.sendMessage(msg['chat']['id'], 'Unbekannter Parameter. Vergangene Tage setzen mit "/duschvorhang '
+                                               'vergangen X".')
+    else:
+        bot.sendMessage(msg['chat']['id'], 'Unbekannter Parameter. Wenn du die Aufgabe Duschvorhänge waschen erledigt '
+                                           'hast, bestätige das bitte mit dem Befehl "/duschvorhang erledigt".')
+    dump_putzplan(putzplan)
 
 
 def update_putzplan():

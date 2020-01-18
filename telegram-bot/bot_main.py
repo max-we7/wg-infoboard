@@ -16,6 +16,8 @@ bot = telepot.Bot(API_KEY)
 def handle(msg):
     print(msg)
     content_type, chat_type, chat_id = telepot.glance(msg)
+    if msg['from']['first_name'] == "Louis":
+        bot.sendMessage(msg['chat']['id'], "Hallo Louis, du kleine Ratte!")
     if content_type == 'text' and chat_type == "private":
         if str(chat_id) in LEGIT_IDS:
             choose_command(bot, msg)
