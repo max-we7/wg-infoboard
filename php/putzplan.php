@@ -11,7 +11,7 @@
     elseif ($bad_verbleibend == 1)
         $bad_faellig = "morgen";
     elseif ($bad_verbleibend == 0)
-        $bad_faellig = "heute";
+        $bad_faellig = "<span class='highlight'>heute</span>";
     elseif ($bad_verbleibend == -1)
         $bad_faellig = "gestern";
     else

@@ -42,6 +42,10 @@ footer {
 	padding: 5px 10px 10px 10px;
 }
 
+.highlight{
+    background-color: red;
+}
+
 .einkaufsliste{
 	color: #fff;
 	background-color: #000;
