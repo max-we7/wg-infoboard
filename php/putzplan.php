@@ -11,11 +11,11 @@
     elseif ($bad_verbleibend == 1)
         $bad_faellig = "morgen";
     elseif ($bad_verbleibend == 0)
-        $bad_faellig = "<span class='highlight'>heute</span>";
+        $bad_faellig = "<span class='due'>heute</span>";
     elseif ($bad_verbleibend == -1)
-        $bad_faellig = "gestern";
+        $bad_faellig = "<span class='overdue'>gestern</span>";
     else
-        $bad_faellig = "seit " . abs($bad_verbleibend) . " Tagen"
+        $bad_faellig = "<span class='overdue'>seit " . abs($bad_verbleibend) . " Tagen</span>"
 ?>
 
 	<table class="putzplan">

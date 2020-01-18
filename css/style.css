@@ -42,8 +42,12 @@ footer {
 	padding: 5px 10px 10px 10px;
 }
 
-.highlight{
-    background-color: red;
+.due{
+    background-color: #fe0000;
+}
+
+.overdue{
+    background-color: #fe2d00;
 }
 
 .einkaufsliste{
