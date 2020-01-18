@@ -28,6 +28,9 @@
 		<div class="inner_flexbox">
 			<div id="einkaufen"></div>
 		</div>
+		<div class="inner_flexbox">
+		    <div id="putzen"></div>
+		</div>
 	</div> <!-- flexbox -->
 
 	<footer>

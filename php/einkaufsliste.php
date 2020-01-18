@@ -1,5 +1,5 @@
 <?php
-	# Load timetable from JSON
+	# Load einkaufsliste from JSON
     $str = file_get_contents('../data/einkaufsliste.json');
     $json = json_decode($str, true);
 ?>

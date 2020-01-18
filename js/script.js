@@ -5,6 +5,7 @@ $(document).ready(function() {
 	 $("#regionalverkehr").load("php/regionalverkehr.php");
 	 $("#clock").load("php/clock.php");
 	 $("#einkaufen").load("php/einkaufsliste.php");
+	 $("#putzen").load("php/putzplan.php");
 
     return false;
     });

@@ -40,14 +40,14 @@ def glas(bot, msg):
     if msg['text'].lower()[6:] == "erledigt":
         index = putzplan["glas"]["reihenfolge"].index(putzplan["glas"]["dran"])
         putzplan["glas"]["dran"] = putzplan["glas"]["reihenfolge"][(index + 1) % 4]
-        bot.sendMessage(msg['chat']['id'], f"Glas wurde weg gebracht. <b>{putzplan['glas']['dran']}</b> ist als "
+        bot.sendMessage(msg['chat']['id'], f"Glas wurde weggebracht. <b>{putzplan['glas']['dran']}</b> ist als "
                                            f"nächster dran.", parse_mode="html")
         dump_putzplan(putzplan)
     elif len(msg['text']) == 5:
-        bot.sendMessage(msg['chat']['id'], f"<b>{putzplan['glas']['dran']}</b> ist aktuell mit Glas weg bringen "
+        bot.sendMessage(msg['chat']['id'], f"<b>{putzplan['glas']['dran']}</b> ist aktuell mit Glas wegbringen "
                                            f"dran.", parse_mode="html")
     else:
-        bot.sendMessage(msg['chat']['id'], 'Unbekannter Parameter. Wenn du Glas weg gebracht hast, bestätige '
+        bot.sendMessage(msg['chat']['id'], 'Unbekannter Parameter. Wenn du Glas weggebracht hast, bestätige '
                                            'das bitte mit dem Befehl "/glas erledigt".')
 
 
