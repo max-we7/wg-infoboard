@@ -1,0 +1,7 @@
+# Default ignored files
+/workspace.xml
+*.log
+venv/
+putzplan_erstellen.py
+test.py
+config.py
