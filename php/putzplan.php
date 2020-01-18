@@ -8,6 +8,14 @@
     $bad_verbleibend = $bad_intervall - $bad_vergangen;
     if ($bad_verbleibend > 1)
         $bad_faellig = "in " . $bad_verbleibend . " Tagen";
+    elseif ($bad_verbleibend == 1)
+        $bad_faellig = "morgen";
+    elseif ($bad_verbleibend == 0)
+        $bad_faellig = "heute";
+    elseif ($bad_verbleibend == -1)
+        $bad_faellig = "gestern";
+    else
+        $bad_faellig = "seit " . abs($bad_verbleibend) . " Tagen"
 ?>
 
 	<table class="putzplan">
