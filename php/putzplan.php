@@ -11,7 +11,7 @@
 	        <th>Fällig</th>
 		<tr>
 		    <th>Müll rausbringen</th>
-		    <td></td>
+		    <td><?php echo $json['muell']['dran'] ?></td>
 		    <td></td>
 		</tr>
 		<tr>
