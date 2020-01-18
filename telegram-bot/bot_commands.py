@@ -113,6 +113,9 @@ def insult(bot, msg):
 
 
 def help_commands(bot, msg):
+    """
+    TODO: update list of available commands
+    """
     bot.sendMessage(msg['chat']['id'], f"Available commands:\n/help\n/einkaufen\n/eingekauft\n/insult")
 
 
