@@ -34,7 +34,7 @@
 		<td>an: <?php echo $fahrt1_ankunft;?></td>
 		<td><?php echo $fahrt1_duration;?></td>
 		<td><?php if (count($fahrt1_line) == 2){ echo $fahrt1_line[0]; echo ", "; echo $fahrt1_line[1];}
-		    elseif (count($fahrt1_line) == 3){ echo $fahrt1_line[0]; echo ", "; echo $fahrt1_line[1]; echo ",";
+		    elseif (count($fahrt1_line) == 3){ echo $fahrt1_line[0]; echo ", "; echo $fahrt1_line[1]; echo ", ";
 		    echo $fahrt1_line[2];} else{ echo $fahrt1_line[0];}?>
 		</td>
 	</tr>
@@ -43,7 +43,7 @@
 		<td>an: <?php echo $fahrt2_ankunft;?></td>
 		<td><?php echo $fahrt2_duration;?></td>
 		<td><?php if (count($fahrt2_line) == 2){ echo $fahrt2_line[0]; echo ", "; echo $fahrt2_line[1];}
-		    elseif (count($fahrt2_line) == 3){ echo $fahrt2_line[0]; echo ", "; echo $fahrt2_line[1]; echo ",";
+		    elseif (count($fahrt2_line) == 3){ echo $fahrt2_line[0]; echo ", "; echo $fahrt2_line[1]; echo ", ";
 		    echo $fahrt2_line[2];} else{ echo $fahrt2_line[0];}?>
 	</tr>
 	<tr>
