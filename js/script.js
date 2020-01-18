@@ -10,7 +10,7 @@ $(document).ready(function() {
     });
 	
   $("#refresh_tenminutes").click(function() {
-     $("#weather").load("php/weather.php");
+     $("#weather").load("php/weather.html");
 
     return false;
     });
