@@ -71,6 +71,8 @@ def get_schedule_nahverkehr():
             hour %= 24
             if hour == 0:
                 hour = str(hour) + "0"
+        if len(str(hour)) == 1:
+            hour = "0" + str(hour)
         tz_ankunft = f"{hour}:{mins}"
         # check if there is an additional bus in the connection, usually Tram only
         no_bus = False
