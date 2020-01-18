@@ -84,39 +84,47 @@
 	        <th>Aufgabe</th>
 	        <th>Wer?</th>
 	        <th>Fällig</th>
+	        <th>Chatbot-Befehl</th>
 		<tr>
 		    <th>Müll rausbringen</th>
 		    <td><?php echo $json['muell']['dran']; ?></td>
 		    <td>bei Bedarf</td>
+		    <td>/muell</td>
 		</tr>
 		<tr>
 		    <th>Glas wegbringen</th>
 		    <td><?php echo $json['glas']['dran']; ?></td>
 		    <td>bei Bedarf</td>
+		    <td>/glas</td>
 		</tr>
 		<tr>
 		    <th>Bäder putzen</th>
 		    <td><?php echo $json['bad']['dran']; ?></td>
 		    <td><?php echo $bad_faellig; ?></td>
+		    <td>/bad</td>
 		</tr>
 		<tr>
 		    <th>Küche putzen</th>
 		    <td><?php echo $json['kueche']['dran']; ?></td>
 		    <td><?php echo $kueche_faellig; ?></td>
+		    <td>/kueche</td>
 		</tr>
 		<tr>
 		    <th>Staubsaugen</th>
 		    <td><?php echo $json['saugen']['dran']; ?></td>
 		    <td><?php echo $saugen_faellig; ?></td>
+		    <td>/saugen</td>
 		</tr>
 		<tr>
 		    <th>Handtücher waschen</th>
 		    <td><?php echo $json['handtuecher']['dran']; ?></td>
 		    <td><?php echo $handtuecher_faellig; ?></td>
+		    <td>/handtuecher</td>
 		</tr>
 		<tr>
 		    <th>Duschvorhänge waschen</th>
 		    <td><?php echo $json['duschvorhang']['dran']; ?></td>
 		    <td><?php echo $duschvorhang_faellig; ?></td>
+		    <td>/duschvorhang</td>
 		</tr>
 	</table>
