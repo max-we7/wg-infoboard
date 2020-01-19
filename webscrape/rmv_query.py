@@ -142,5 +142,5 @@ def dump_to_json(data, regio=False):
 
 
 if __name__ == '__main__':
-    # dump_to_json(get_schedule_nahverkehr())
+    dump_to_json(get_schedule_nahverkehr())
     dump_to_json(get_schedule_regio(), regio=True)
