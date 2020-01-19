@@ -106,8 +106,8 @@ def get_schedule_regio():
         logging.error("Less than 3 trips detected")
     for i in range(len(schedule_raw)):
         lines = re.findall(r'title=".{2,10}" width', str(lines_raw[i]))
-        for i in range(len(lines)):
-            lines[i] = lines[i][7:-7]
+        for j in range(len(lines)):
+            lines[j] = lines[j][7:-7]
         abfahrt = str(schedule_raw[i])[21:26]
         ankunft = str(schedule_raw[i])[35:40]
         duration = str(durations_raw[i])[-10:-6]
@@ -142,5 +142,5 @@ def dump_to_json(data, regio=False):
 
 
 if __name__ == '__main__':
-    dump_to_json(get_schedule_nahverkehr())
+    # dump_to_json(get_schedule_nahverkehr())
     dump_to_json(get_schedule_regio(), regio=True)
