@@ -27,8 +27,12 @@ footer {
 	color: #b9b9b9;
 	font-size: 1.5rem;
 	padding: 0px;
-	border-bottom-width: 2px;
+	border-bottom-width: 20px;
 	border-bottom-color: #fff;
+}
+
+#korrektur{
+    padding: 5px 10px 10px 10px;
 }
 
 .fahrttabelle{

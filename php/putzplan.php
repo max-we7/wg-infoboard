@@ -86,7 +86,7 @@
 	        <th>Fällig</th>
 	        <th>Chatbot-Befehl</th>
 		<tr>
-		    <th>Müll rausbringen</th>
+		    <th id="korrektur">Müll rausbringen</th>
 		    <td><?php echo $json['muell']['dran']; ?></td>
 		    <td>bei Bedarf</td>
 		    <td>/muell</td>
