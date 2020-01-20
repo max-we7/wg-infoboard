@@ -37,7 +37,7 @@
 	</div> <!-- flexbox -->
 
 	<marquee>Newsticker: This is a newsticker prototype ;-) ++ Breaking WG News: Bad wurde geputzt ++
-	  ++ WG Party am kommenden Samstag ++ </marquee>
+	  WG Party am kommenden Samstag ++ Coming soon: Abfallkalender ++ Coming soon: ECHTE NEWS ++ </marquee>
 
 	<footer>
 		<p>&copy; <?php echo date("Y");?> Designed and Engineered by Max Werner</p>
