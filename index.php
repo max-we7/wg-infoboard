@@ -33,7 +33,7 @@
 		</div> <!-- inner_flexbox -->
 		<div class="inner_flexbox">
 		    <div id="xkcd">
-		    <img src="imgs.xkcd.com/comics/unsubscribe_message.png"/>
+		    <img src="https://imgs.xkcd.com/comics/unsubscribe_message.png"/>
 		    </div>
 		</div> <!-- inner_flexbox -->
 	</div> <!-- flexbox -->
