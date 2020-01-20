@@ -27,14 +27,18 @@
 		</div> <!-- inner_flexbox -->
 		<div class="inner_flexbox">
 			<div id="einkaufen"></div>
-		</div>
+		</div> <!-- inner_flexbox -->
 		<div class="inner_flexbox">
 		    <div id="putzen"></div>
-		</div>
+		</div> <!-- inner_flexbox -->
+		<div class="inner_flexbox">
+		    <div id="xkcd">
+		    <img src="imgs.xkcd.com/comics/unsubscribe_message.png"/>
+		    </div>
+		</div> <!-- inner_flexbox -->
 	</div> <!-- flexbox -->
 
-	<p>Aktuelle Nachrichten vom 20.02.08</p>
-    <input type="text" name="newsticker">
+	<marquee>Newsticker</marquee>
 
 	<footer>
 		<p>&copy; <?php echo date("Y");?> Designed and Engineered by Max Werner</p>
