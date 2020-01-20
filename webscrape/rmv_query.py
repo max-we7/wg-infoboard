@@ -20,6 +20,7 @@ def web_request(regio=False):
     hour = int(now.strftime("%H"))
     mins = int(now.strftime("%M"))
     if regio:
+        # FIXME: adjust to an appropriate value
         mins += 18
     else:
         # add 8 mins to current time
