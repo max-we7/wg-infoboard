@@ -36,7 +36,7 @@
 	<marquee scrollamount="5" scrolldelay="100">Nachrichtenticker: test test test test test test test test test
 	test test test test test test test test test test test test test test test test test test test test test
 	test test test test test test test test test test test test test test test test test test test test test
-	test test test test test test test test test test test test test test test test test test test test </marquee>
+	test test test test test test test test test test test test test test test test test test test ende </marquee>
 
 	<footer>
 		<p>&copy; <?php echo date("Y");?> Designed and Engineered by Max Werner</p>
