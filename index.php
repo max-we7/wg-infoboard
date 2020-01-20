@@ -33,6 +33,7 @@
 		</div> <!-- inner_flexbox -->
 		<div class="inner_flexbox">
 		    <div id="xkcd">
+		    "Today's XKCD"
 		    <img src="https://imgs.xkcd.com/comics/unsubscribe_message.png"/>
 		    </div>
 		</div> <!-- inner_flexbox -->
