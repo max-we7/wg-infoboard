@@ -4,6 +4,6 @@
     $json = json_decode($str, true);
 ?>
 
-<?php echo str;?>
+<?php echo $str;?>
 Today's XKCD
 <img src="https://imgs.xkcd.com/comics/unsubscribe_message.png"/>
