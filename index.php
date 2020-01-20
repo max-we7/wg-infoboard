@@ -13,7 +13,7 @@
   <a href="#" id="refresh_tenminutes" hidden="">refresh</a>
 
 </head>
-<body>
+<body onLoad="lauftext()">
 	<div id="flexbox">
 		<div class="inner_flexbox">
 			<div id="nahverkehr"></div>
@@ -33,10 +33,8 @@
 		</div>
 	</div> <!-- flexbox -->
 
-	<marquee scrollamount="5" scrolldelay="100">Nachrichtenticker: test test test test test test test test test
-	test test test test test test test test test test test test test test test test test test test test test
-	test test test test test test test test test test test test test test test test test test test test test
-	test test test test test test test test test test test test test test test test test test test ende </marquee>
+	<p>Aktuelle Nachrichten vom 20.02.08</p>
+    <input type="text" name="newsticker">
 
 	<footer>
 		<p>&copy; <?php echo date("Y");?> Designed and Engineered by Max Werner</p>
