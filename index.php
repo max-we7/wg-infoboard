@@ -33,7 +33,7 @@
 		</div>
 	</div> <!-- flexbox -->
 
-	<marquee scrollamount="50" scrolldelay="1000">Nachrichtenticker: test test test test test test test test test
+	<marquee scrollamount="25" scrolldelay="400">Nachrichtenticker: test test test test test test test test test
 	test test test test test test test test test test test test test test test test test test test test test
 	test test test test test test test test test test test test test test test test test test test test test
 	test test test test test test test test test test test test test test test test test test test test </marquee>
