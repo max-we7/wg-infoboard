@@ -32,6 +32,7 @@ def extract_data():
     start_index = str(pic).index("imgs.xkcd.com")
     end_index = str(pic).index("srcset=")
     url = str(pic)[start_index:end_index - 2]
+    url = "https://" + url
     dump_to_json(url)
 
 

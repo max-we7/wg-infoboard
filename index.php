@@ -36,7 +36,7 @@
 		</div> <!-- inner_flexbox -->
 	</div> <!-- flexbox -->
 
-	<marquee>Newsticker: This is a newsticker prototype ;-)         ++ Breaking WG News: Bad wurde geputzt ++
+	<marquee>Newsticker: This is a newsticker prototype ;-) ++ Breaking WG News: Bad wurde geputzt ++
 	  ++ WG Party am kommenden Samstag ++ </marquee>
 
 	<footer>
