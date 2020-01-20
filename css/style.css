@@ -102,4 +102,6 @@ th {
 marquee{
     color: white;
     font-size: 2rem;
+    position: fixed;
+    bottom: 200;
 }
