@@ -33,7 +33,9 @@
 		</div>
 	</div> <!-- flexbox -->
 
-	<marquee>Nachrichtenticker</marquee>
+	<marquee>Nachrichtenticker: test test test test test test test test test test test test test test test test
+	test test test test test test test test test test test test test test test test test test test test
+	test test test test test test test test test test test test test test test test test test test test </marquee>
 
 	<footer>
 		<p>&copy; <?php echo date("Y");?> Designed and Engineered by Max Werner</p>
