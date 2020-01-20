@@ -38,7 +38,7 @@
 		</div> <!-- inner_flexbox -->
 	</div> <!-- flexbox -->
 
-	<marquee>Newsticker</marquee>
+	<marquee>Newsticker: This is a newsticker prototype ;-)</marquee>
 
 	<footer>
 		<p>&copy; <?php echo date("Y");?> Designed and Engineered by Max Werner</p>
