@@ -19,8 +19,11 @@ def web_request(regio=False):
     now = datetime.now()
     hour = int(now.strftime("%H"))
     mins = int(now.strftime("%M"))
-    # add 8 mins to current time
-    mins += 8
+    if regio:
+        mins += 18
+    else:
+        # add 8 mins to current time
+        mins += 8
     # check for time overflow
     if mins > 59:
         mins %= 60
