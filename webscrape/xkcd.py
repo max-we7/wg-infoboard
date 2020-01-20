@@ -39,7 +39,7 @@ def dump_to_json(data):
     """
     write to JSON file
     """
-    path = "../data/xkcd.json"
+    path = "../data/xkcd.txt"
     try:
         with open(path, "w") as f:
             json.dump(data, f, indent=2)
