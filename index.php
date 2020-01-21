@@ -26,7 +26,7 @@
 
 		<div id="footer">
 		<div class="marquee" id="mycrawler">
-            <?php echo $var;?>
+            <?php echo $test;?>
 		</div>
 		</div>
 
