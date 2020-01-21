@@ -15,7 +15,7 @@
 
   <div id="newsbanner">
 	<div class="marquee" id="mycrawler">
-	    <div id="testtest">ttttttttttttttttttttttttttttest</div>
+	    <div id="testtest"></div>
 	</div>
 	</div>
 	<script type="text/javascript">
