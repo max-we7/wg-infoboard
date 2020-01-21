@@ -15,8 +15,8 @@
 
   <div id="newsbanner">
 	<div class="marquee" id="mycrawler">
-	test
-			</div>
+	    test +++++++++++++++++++++++++++++++++++++++ ++++++++++++++++++++++++++++++++++++++++ test
+	</div>
 	</div>
 	<script type="text/javascript">
 		marqueeInit({
