@@ -7,6 +7,7 @@ $(document).ready(function() {
 	 $("#einkaufen").load("php/einkaufsliste.php");
 	 $("#putzen").load("php/putzplan.php");
 	 $("#xkcd").load("php/xkcd.php");
+	 $("#zaw").load("php/muell.php");
 
     return false;
     });
