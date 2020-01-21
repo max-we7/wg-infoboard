@@ -6,7 +6,7 @@
 ?>
 
 <div id="xkcd_title">
-    <p>Today's XKCD</p>
+    Today's XKCD
 </div>
 <div>
     <img src="<?php echo $link;?>"/>
