@@ -5,6 +5,4 @@
 
 ?>
 
-<div id="news">
-     test test test test
-</div>
+test test test test
