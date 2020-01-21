@@ -44,9 +44,9 @@
 	    </div>
 
 
-	<div id="newsbanner">
+	<div id="newsbanner2">
 	<div class="marquee" id="mycrawler">
-	    <div id="testtest">Newsticker: </div>
+	    <div id="newsbanner">Newsticker: </div>
 	</div>
 	</div>
 	<script type="text/javascript">
