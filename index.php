@@ -37,6 +37,7 @@
 		</script>
 
 </head>
+<body>
 	<div id="flexbox">
 		<div class="inner_flexbox">
 			<div id="nahverkehr"></div>
