@@ -124,5 +124,5 @@ marquee{
     color: white;
     background-color: black;
     font-size: 1.8rem;
-    align: center;
+    text-align: center;
 }
