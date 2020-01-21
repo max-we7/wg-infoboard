@@ -8,7 +8,7 @@ $(document).ready(function() {
 	 $("#putzen").load("php/putzplan.php");
 	 $("#xkcd").load("php/xkcd.php");
 	 $("#zaw").load("php/muell.php");
-	 $("#testtest").load("php/news.php");
+	 $("#mycrawler").load("php/news.php");
 
     return false;
     });
