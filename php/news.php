@@ -1,3 +1,1 @@
-
-
-<p>IT WORKS</p>
+<?php echo "IT WORKS"?>
