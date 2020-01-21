@@ -15,7 +15,7 @@
 
   <div id="newsbanner">
 	<div class="marquee" id="mycrawler">
-	    test +++++++++++++++++++++++++++++++++++++++ ++++++++++++++++++++++++++++++++++++++++ test
+	    <div id="testtest"></div>
 	</div>
 	</div>
 	<script type="text/javascript">
@@ -62,7 +62,7 @@
             <div id="zaw"></div>
 		</div> <!-- inner_flexbox -->
 		<div class="inner_flexbox">
-		    <div id="testtest"></div>
+
 	    </div>
 	</div> <!-- flexbox -->
 
