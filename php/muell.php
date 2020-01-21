@@ -10,28 +10,28 @@
     if ($schwarz > 1)
         $schwarz_faellig = "in " . $schwarz . " Tagen";
     elseif ($schwarz == 1)
-        $schwarz_faellig = "<span class='overdue'>morge</span>";
+        $schwarz_faellig = "<span class='due'>morge</span>";
     elseif ($schwarz == 0)
         $schwarz_faellig = "<span class='overdue'>heute</span>";
 
     if ($gelb > 1)
         $gelb_faellig = "in " . $gelb . " Tagen";
     elseif ($gelb == 1)
-        $gelb_faellig = "<span class='overdue'>morge</span>";
+        $gelb_faellig = "<span class='due'>morge</span>";
     elseif ($gelb == 0)
         $gelb_faellig = "<span class='overdue'>heute</span>";
 
     if ($blau > 1)
         $blau_faellig = "in " . $blau . " Tagen";
     elseif ($blau == 1)
-        $blau_faellig = "<span class='overdue'>morge</span>";
+        $blau_faellig = "<span class='due'>morge</span>";
     elseif ($blau == 0)
         $blau_faellig = "<span class='overdue'>heute</span>";
 
     if ($gruen > 1)
         $gruen_faellig = "in " . $gruen . " Tagen";
     elseif ($gruen == 1)
-        $gruen_faellig = "<span class='overdue'>morge</span>";
+        $gruen_faellig = "<span class='due'>morge</span>";
     elseif ($gruen == 0)
         $gruen_faellig = "<span class='overdue'>heute</span>";
 ?>
