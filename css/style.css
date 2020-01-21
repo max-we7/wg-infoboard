@@ -120,7 +120,7 @@ marquee{
     font-size: 1.8rem;
 }
 
-.xkcd_title{
+#xkcd_title{
     color: white;
     background-color: black;
     font-size: 1.8rem;
