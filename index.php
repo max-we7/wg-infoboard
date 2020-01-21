@@ -12,7 +12,8 @@
   <!-- Hidden refresh links -->
   <a href="#" id="refresh_onesecond" hidden="">refresh</a>
   <a href="#" id="refresh_tenminutes" hidden="">refresh</a>
-  <a href="#" id="hidemyass" hidden=""></a>
+  <a href="#" id="hidemyass" hidden=""><?php $test = "Those confounded friars dully buzz that faltering jay. An appraising tongue acutely causes our courageous hogs. Their fitting submarines deftly break your approving improvisations. Her downcast taxonomies actually box up those disgusted turtles.";?>
+</a>
 
 
 		<div id="footer">
