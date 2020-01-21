@@ -133,11 +133,11 @@ marquee{
     bottom: 50px;
     left: 0px;
     right: 0px;
-    width: 100%;
+    width: 1920px;
     font-size: 2rem;
 
 }
 
 .marquee{
-    width: 100%;
+    width: 1920px;
 }
