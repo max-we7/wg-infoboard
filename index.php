@@ -12,22 +12,10 @@
   <!-- Hidden refresh links -->
   <a href="#" id="refresh_onesecond" hidden="">refresh</a>
   <a href="#" id="refresh_tenminutes" hidden="">refresh</a>
-  <a href="#" id="hidemyass" hidden=""><?php $test = "Those confounded" . "friars dully buzz that faltering jay. An appraising tongue acutely causes our courageous hogs. Their fitting submarines deftly break your approving improvisations. Her downcast taxonomies actually box up those disgusted turtles.";?>
 
-    <?php
-        # Load from JSON
-        $str = file_get_contents('../data/news.json');
-        $json = json_decode($str, true);
-        $var = "";
-        $good = $json[0] . "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
-        foreach($json as $item) {
-            $var = $var . $item;
-        }
-    ?>
-</a>
 		<div id="footer">
 		<div class="marquee" id="mycrawler">
-            <?php echo $good;?>
+			Those confounded friars dully buzz that faltering jay. An appraising tongue acutely causes our courageous hogs. Their fitting submarines deftly break your approving improvisations. Her downcast taxonomies actually box up those disgusted turtles.
 		</div>
 		</div>
 

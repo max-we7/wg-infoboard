@@ -6,7 +6,7 @@ $(document).ready(function() {
 	 $("#clock").load("php/clock.php");
 	 $("#einkaufen").load("php/einkaufsliste.php");
 	 $("#putzen").load("php/putzplan.php");
-	 $("#xkcd").load("php/news.php");
+	 $("#xkcd").load("php/xkcd.php");
 	 $("#zaw").load("php/muell.php");
 
     return false;
