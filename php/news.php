@@ -6,7 +6,5 @@
 ?>
 
 <div id="news">
-    <?php foreach($json as $item) {?>
-		+++ <?php echo $item;?
-	<?php }	?>
+     test test test test
 </div>
