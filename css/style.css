@@ -128,19 +128,10 @@ marquee{
     text-align: center;
 }
 
-#newsbanner{
+newsbanner{
     position: fixed;
     bottom: 50px;
     left: 0px;
     right: 0px;
-    width: 100%;
     font-size: 2rem;
-}
-
-head{
-    width: 100%;
-}
-
-.marquee{
-    width: 100%;
 }
