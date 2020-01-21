@@ -15,7 +15,7 @@
 
 		<div id="footer">
 		<div class="marquee" id="mycrawler">
-            <div id="testtest"></div>
+            <?php echo "Those confounded friars dully buzz that faltering jay. An appraising tongue acutely causes our courageous hogs. Their fitting submarines deftly break your approving improvisations. Her downcast taxonomies actually box up those disgusted turtles.";?>
 		</div>
 		</div>
 
