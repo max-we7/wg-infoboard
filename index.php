@@ -63,8 +63,8 @@
 		</div> <!-- inner_flexbox -->
 	</div> <!-- flexbox -->
 
-//	<marquee>Newsticker: This is a newsticker prototype ;-) ++ Breaking WG News: Bad wurde geputzt ++
-//	  WG Party am kommenden Samstag ++ Coming soon: Abfallkalender ++ Coming soon: ECHTE NEWS ++ </marquee>
+<!-- <marquee>Newsticker: This is a newsticker prototype ;-) ++ Breaking WG News: Bad wurde geputzt ++ -->
+<!-- WG Party am kommenden Samstag ++ Coming soon: Abfallkalender ++ Coming soon: ECHTE NEWS ++ </marquee> -->
 
 
 	<footer>
