@@ -127,11 +127,3 @@ marquee{
     font-size: 1.8rem;
     text-align: center;
 }
-
-#newsbanner{
-    position: fixed;
-    bottom: 50px;
-    left: 0px;
-    right: 0px;
-    font-size: 2rem;
-}

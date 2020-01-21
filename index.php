@@ -7,37 +7,12 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="http://code.jquery.com/jquery-latest.js"></script>
   <script src="js/script.js"></script>
-  <script src="js/newsbanner.js"></script>
   
   <!-- Hidden refresh links -->
   <a href="#" id="refresh_onesecond" hidden="">refresh</a>
   <a href="#" id="refresh_tenminutes" hidden="">refresh</a>
 
-  <div id="newsbanner">
-	<div class="marquee" id="mycrawler">
-	    teeeeeeeeeeeeeeeeeest tttttttttttttttttttttzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
-	</div>
-	</div>
-	<script type="text/javascript">
-		marqueeInit({
-			uniqueid: 'mycrawler',
-			style: {
-				'padding': '5px',
-				'width': '100%',
-				'background': 'black',
-				'color': 'white',
-			},
-			inc: 5, //speed - pixel increment for each iteration of this marquee's movement
-			mouse: 'cursor driven', //mouseover behavior ('pause' 'cursor driven' or false)
-			moveatleast: 2,
-			neutral: 150,
-			persist: true,
-			savedirection: true
-		});
-		</script>
-
 </head>
-<body>
 	<div id="flexbox">
 		<div class="inner_flexbox">
 			<div id="nahverkehr"></div>
@@ -61,15 +36,10 @@
 		<div class="inner_flexbox">
             <div id="zaw"></div>
 		</div> <!-- inner_flexbox -->
-		<div class="inner_flexbox">
-
-	    </div>
 	</div> <!-- flexbox -->
 
-
-<!-- <marquee>Newsticker: This is a newsticker prototype ;-) ++ Breaking WG News: Bad wurde geputzt ++ -->
-<!-- WG Party am kommenden Samstag ++ Coming soon: Abfallkalender ++ Coming soon: ECHTE NEWS ++ </marquee> -->
-
+	<marquee>Newsticker: This is a newsticker prototype ;-) ++ Breaking WG News: Bad wurde geputzt ++
+	  WG Party am kommenden Samstag ++ Coming soon: Abfallkalender ++ Coming soon: ECHTE NEWS ++ </marquee>
 
 	<footer>
 		<p>&copy; <?php echo date("Y");?> Designed and Engineered by Max Werner</p>
