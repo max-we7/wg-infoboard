@@ -7,6 +7,6 @@
 
 <div id="news">
     <?php foreach($json as $item) {?>
-		+++ <?php echo $item;>?
+		+++ <?php echo $item;?>
 	<?php }	?>
 </div>
