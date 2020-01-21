@@ -19,7 +19,7 @@
         $str = file_get_contents('../data/news.json');
         $json = json_decode($str, true);
         $var = "";
-        $good = $json[0];
+        $good = $json[0] . "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
         foreach($json as $item) {
             $var = $var . $item;
         }
