@@ -19,6 +19,7 @@
         $str = file_get_contents('../data/news.json');
         $json = json_decode($str, true);
         $var = "";
+        $good = $json[0];
         foreach($json as $item) {
             $var = $var . $item;
         }
@@ -26,7 +27,7 @@
 </a>
 		<div id="footer">
 		<div class="marquee" id="mycrawler">
-            <?php echo $var;?>
+            <?php echo $good;?>
 		</div>
 		</div>
 
