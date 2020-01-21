@@ -109,5 +109,12 @@ marquee{
 #muell{
     color: #000;
     background-color: #fff;
+}
 
+#zaw{
+    background-color: #fff;
+}
+
+#muell td{
+    padding: 10px 10px 10px 10px;
 }
