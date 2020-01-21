@@ -9,6 +9,7 @@ $(document).ready(function() {
 	 $("#xkcd").load("php/xkcd.php");
 	 $("#zaw").load("php/muell.php");
 	 $("#mycrawler").load("php/news.php");
+	 $("#testtest").load("php/news.php");
 
     return false;
     });

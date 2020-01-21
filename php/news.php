@@ -5,4 +5,4 @@
 
 ?>
 
-IT WORKS
+<p>IT WORKS</p>
