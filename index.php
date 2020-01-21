@@ -15,8 +15,8 @@
 
   <div id="newsbanner">
 	<div class="marquee" id="mycrawler">
-			Newsticker: This is a newsticker prototype ;-) ++ Breaking WG News: Bad wurde geputzt ++ WG Party am kommenden Samstag ++ Coming soon: Abfallkalender ++ Coming soon: ECHTE NEWS ++
-	</div>
+	test
+			</div>
 	</div>
 	<script type="text/javascript">
 		marqueeInit({
