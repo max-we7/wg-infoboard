@@ -5,7 +5,7 @@
     $link = $json["img"]
 ?>
 
-<div>
+<div id="xkcd_title">
     <p>Today's XKCD</p>
 </div>
 <div>

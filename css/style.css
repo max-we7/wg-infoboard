@@ -119,3 +119,10 @@ marquee{
     padding: 10px 10px 10px 10px;
     font-size: 1.8rem;
 }
+
+.xkcd_title{
+    color: white;
+    background-color: black;
+    font-size: 1.8rem;
+    align: center;
+}
