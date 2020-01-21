@@ -61,10 +61,11 @@
 		<div class="inner_flexbox">
             <div id="zaw"></div>
 		</div> <!-- inner_flexbox -->
-	</div> <!-- flexbox -->
-	<div id="testest">
+		<div id="testest">
 
-	</div>
+	    </div>
+	</div> <!-- flexbox -->
+
 
 <!-- <marquee>Newsticker: This is a newsticker prototype ;-) ++ Breaking WG News: Bad wurde geputzt ++ -->
 <!-- WG Party am kommenden Samstag ++ Coming soon: Abfallkalender ++ Coming soon: ECHTE NEWS ++ </marquee> -->
