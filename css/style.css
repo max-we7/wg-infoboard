@@ -137,3 +137,7 @@ marquee{
     font-size: 2rem;
 
 }
+
+.marquee div{
+    width: 100%;
+}
