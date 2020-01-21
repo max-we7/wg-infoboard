@@ -15,7 +15,7 @@
 
 		<div id="footer">
 		<div class="marquee" id="mycrawler">
-            <span id="testtest"></span>
+            <div id="testtest"></div>
 		</div>
 		</div>
 
