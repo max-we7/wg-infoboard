@@ -5,10 +5,10 @@ $(document).ready(function() {
 	 $("#regionalverkehr").load("php/regionalverkehr.php");
 	 $("#clock").load("php/clock.php");
 	 $("#einkaufen").load("php/einkaufsliste.php");
-	 $("#putzen").load("php/news.php");
+	 $("#putzen").load("php/putzplan.php");
 	 $("#xkcd").load("php/xkcd.php");
 	 $("#zaw").load("php/muell.php");
-	 $("#testtest").load("php/muell.php");
+	 $("#testtest").load("php/news.php");
 
     return false;
     });
