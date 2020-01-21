@@ -10,5 +10,5 @@
     <p>Today's XKCD</p>
 </div>
 <div>
-    <img style="height:25%;max-width:40%;" src=<?php echo $link;?"/>
+    <img style="height:25%;max-width:40%;" src="<?php echo $link;?>"/>
 </div>
