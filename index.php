@@ -7,13 +7,12 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="http://code.jquery.com/jquery-latest.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/crawler.js"></script>
   
   <!-- Hidden refresh links -->
   <a href="#" id="refresh_onesecond" hidden="">refresh</a>
   <a href="#" id="refresh_tenminutes" hidden="">refresh</a>
 
-  <script type="text/javascript" src="crawler.js"></script>
-		<link rel="stylesheet" href="style.css">
 		<div id="footer">
 		<div class="marquee" id="mycrawler">
 			Those confounded friars dully buzz that faltering jay. An appraising tongue acutely causes our courageous hogs. Their fitting submarines deftly break your approving improvisations. Her downcast taxonomies actually box up those disgusted turtles.
