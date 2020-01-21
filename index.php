@@ -61,8 +61,8 @@
 		<div class="inner_flexbox">
             <div id="zaw"></div>
 		</div> <!-- inner_flexbox -->
-		<div id="testest">
-            HELLO
+		<div class="inner_flexbox">
+		    <div id="testest"></div>
 	    </div>
 	</div> <!-- flexbox -->
 
