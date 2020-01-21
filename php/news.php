@@ -1,1 +1,1 @@
-<?php echo "testy";?>
+<?php echo "Trump mal wieder völlig eskaliert sheesh";?>
