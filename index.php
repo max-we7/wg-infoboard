@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="http://code.jquery.com/jquery-latest.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/newsbanner.js"></script>
   
   <!-- Hidden refresh links -->
   <a href="#" id="refresh_onesecond" hidden="">refresh</a>
@@ -38,8 +39,29 @@
 		</div> <!-- inner_flexbox -->
 	</div> <!-- flexbox -->
 
-	<marquee>Newsticker: This is a newsticker prototype ;-) ++ Breaking WG News: Bad wurde geputzt ++
-	  WG Party am kommenden Samstag ++ Coming soon: Abfallkalender ++ Coming soon: ECHTE NEWS ++ </marquee>
+//	<marquee>Newsticker: This is a newsticker prototype ;-) ++ Breaking WG News: Bad wurde geputzt ++
+//	  WG Party am kommenden Samstag ++ Coming soon: Abfallkalender ++ Coming soon: ECHTE NEWS ++ </marquee>
+	<div class="marquee" id="mycrawler">
+			Those confounded friars dully buzz that faltering jay. An appraising tongue acutely causes our courageous hogs. Their fitting submarines deftly break your approving improvisations. Her downcast taxonomies actually box up those disgusted turtles.
+	</div>
+	<script type="text/javascript">
+		marqueeInit({
+			uniqueid: 'mycrawler',
+			style: {
+				'padding': '5px',
+				'width': '100%',
+				<!-- 'font-size': '1.5rem', -->
+				'background': 'black',
+				'color': 'white',
+			},
+			inc: 5, //speed - pixel increment for each iteration of this marquee's movement
+			mouse: 'cursor driven', //mouseover behavior ('pause' 'cursor driven' or false)
+			moveatleast: 2,
+			neutral: 150,
+			persist: true,
+			savedirection: true
+		});
+		</script>
 
 	<footer>
 		<p>&copy; <?php echo date("Y");?> Designed and Engineered by Max Werner</p>
