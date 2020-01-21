@@ -15,7 +15,8 @@
 
 		<div id="footer">
 		<div class="marquee" id="mycrawler">
-			Those confounded friars dully buzz that faltering jay. An appraising tongue acutely causes our courageous hogs. Their fitting submarines deftly break your approving improvisations. Her downcast taxonomies actually box up those disgusted turtles.
+			Newsticker: This is a newsticker prototype ;-) ++ Breaking WG News: Bad wurde geputzt ++
+	        WG Party am kommenden Samstag ++ Coming soon: ECHTE NEWS ++
 		</div>
 		</div>
 
