@@ -16,8 +16,8 @@
 
 		<div id="footer">
 		<div class="marquee" id="mycrawler">
-			Newsticker: This is a newsticker prototype ;-) ++ Breaking WG News: Bad wurde geputzt ++
-	        WG Party am kommenden Samstag ++ Coming soon: ECHTE NEWS ++
+
+	        <?php include('news.json'); ?>
 		</div>
 		</div>
 
