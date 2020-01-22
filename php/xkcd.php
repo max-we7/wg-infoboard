@@ -9,5 +9,5 @@
     Today's XKCD
 </div>
 <div id="meme">
-    <img src="http://192.168.178.52:5555/wg-infoboard/data/trump.jpg" width="20%"/>
+    <img src="http://192.168.178.52:5555/wg-infoboard/data/trump.jpg" width="50%"/>
 </div>
