@@ -3,6 +3,7 @@
   <title>Infoboard WG68</title>
   <meta charset="utf-8" />
   <meta name="author" content="Maximilian Werner"/>
+  <meta name="google" content="notranslate">
   <link href="https://fonts.googleapis.com/css?family=PT+Serif|Josefin+Sans" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <script src="http://code.jquery.com/jquery-latest.js"></script>
