@@ -8,6 +8,6 @@
 <div id="xkcd_title">
     Today's XKCD
 </div>
-<div>
-    <img src="http://192.168.178.52:5555/wg-infoboard/data/trump.jpg"/>
+<div id="meme">
+    <img src="http://192.168.178.52:5555/wg-infoboard/data/trump.jpg" max-width="20%"/>
 </div>
