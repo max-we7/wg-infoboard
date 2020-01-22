@@ -9,5 +9,5 @@
     Today's XKCD
 </div>
 <div>
-    <img src="<?php echo $link;?>"/>
+    <img src="../data/trump.jpg"/>
 </div>
