@@ -22,24 +22,6 @@
 		</div>
 		</div>
 
-		<script type="text/javascript">
-		marqueeInit({
-			uniqueid: 'mycrawler',
-			style: {
-				'padding': '5px',
-				'width': '100%',
-				<!-- 'font-size': '1.5rem', -->
-				'background': 'black',
-				'color': 'white',
-			},
-			inc: 5, //speed - pixel increment for each iteration of this marquee's movement
-			mouse: 'cursor driven', //mouseover behavior ('pause' 'cursor driven' or false)
-			moveatleast: 2,
-			neutral: 150,
-			persist: true,
-			savedirection: true
-		});
-		</script>
 
 </head>
 	<div id="flexbox">
