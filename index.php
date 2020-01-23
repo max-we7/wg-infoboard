@@ -72,9 +72,7 @@
 
 
 
-	<footer>
-		<p>&copy; <?php echo date("Y");?> Designed and Engineered by Max Werner</p>
-	</footer>
+
 
 </body>
 </html>
