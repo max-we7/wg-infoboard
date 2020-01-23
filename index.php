@@ -9,16 +9,16 @@
   <script src="http://code.jquery.com/jquery-latest.js"></script>
   <script src="js/script.js"></script>
   <script src="js/crawler.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/dynamic-marquee@1"></script>
   
   <!-- Hidden refresh links -->
   <a href="#" id="refresh_onesecond" hidden="">refresh</a>
   <a href="#" id="refresh_tenminutes" hidden="">refresh</a>
 
 		<div id="footer">
-		<div class="marquee" id="mycrawler">
-			Newsticker: This is a newsticker prototype ;-) ++ Breaking WG News: Bad wurde geputzt ++
-	        WG Party am kommenden Samstag ++ Coming soon: ECHTE NEWS ++
 
+			<div id="marquee"></div>
+		    <div id="test"></div>
 		</div>
 		</div>
 
