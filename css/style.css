@@ -146,12 +146,11 @@ th {
 }
 
 #zweizwei{
-	background-color: white;
-	background-image: url("data/bin.jpg");
+	background-color: black;
 	top: 25%;
 	left: 60%;
 	width: 40%;
-	padding: 2% 0 0 0;
+	padding: 2% 2% 0 2%;
 }
 
 
