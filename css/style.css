@@ -100,7 +100,7 @@ th {
 	text-align: center;
 }
 
-marquee{
+.marquee{
     color: white;
     font-size: 2rem;
     position: fixed;
@@ -138,18 +138,4 @@ marquee{
 
 .xkcd{
     max-width: 60%;
-}
-
-#marquee {
-        position: fixed;
-        overflow: hidden;
-        margin: 0;
-        padding: 7px 0;
-        font-size: 20px;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background-color: #c80000;
-        color: #ffffff;
-        font-family: Verdana, Geneva, sans-serif;
 }

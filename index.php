@@ -9,23 +9,18 @@
   <script src="http://code.jquery.com/jquery-latest.js"></script>
   <script src="js/script.js"></script>
   <script src="js/crawler.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/dynamic-marquee@1"></script>
   
   <!-- Hidden refresh links -->
   <a href="#" id="refresh_onesecond" hidden="">refresh</a>
   <a href="#" id="refresh_tenminutes" hidden="">refresh</a>
 
 		<div id="footer">
-
-			<div id="marquee"></div>
-		    <div id="test">
-
-
-
-
-		    </div>
+		<marquee>
+			Newsticker: This is a newsticker prototype ;-) ++ Breaking WG News: Bad wurde geputzt ++
+	        WG Party am kommenden Samstag ++ Coming soon: ECHTE NEWS ++
+        </marquee>
 		</div>
-		</div>
+
 
 
 </head>
@@ -56,7 +51,9 @@
 
 
 
-
+	<footer>
+		<p>&copy; <?php echo date("Y");?> Designed and Engineered by Max Werner</p>
+	</footer>
 
 </body>
 </html>
