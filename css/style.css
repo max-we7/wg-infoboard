@@ -138,32 +138,25 @@ th {
 	background-color: black;
 	top: 0;
 	left: 0;
-	width: 70%;
+	width: 75%;
 }
 
 #einszwei{
 	background-color: green;
 	top: 0;
-	left: 70%;
-	width: 30%;
+	left: 75%;
+	width: 25%;
 }
 
 #zweieins{
 	background-color: black;
 	top: 25%;
 	left: 0;
-	width: 55%;
+	width: 60%;
 }
 
 #zweizwei{
 	background-color: purple;
-	top: 25%;
-	left: 55%;
-	width: 5%;
-}
-
-#zweidrei{
-	background-color: brown;
 	top: 25%;
 	left: 60%;
 	width: 40%;
