@@ -30,7 +30,8 @@ html {
 	color: #fff;
 	background-color: #000;
 	padding: 5px 10px 10px 10px;
-	position: left;
+	position: absolute;
+	left: 10%;
 }
 
 .putzplan{
@@ -124,7 +125,7 @@ th {
 }
 
 #einseins{
-	background-color: red;
+	background-color: black;
 	top: 0;
 	left: 0;
 	width: 60%;
@@ -138,7 +139,7 @@ th {
 }
 
 #zweieins{
-	background-color: black;
+	background-color: white;
 	top: 25%;
 	left: 0;
 	width: 40%;
