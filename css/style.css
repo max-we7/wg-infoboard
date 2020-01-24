@@ -100,18 +100,8 @@ th {
 	text-align: center;
 }
 
-#muell{
-    color: white;
-    background-color: black;
-}
-
 #zaw{
     background-color: white;
-}
-
-#muell td{
-    padding: 10px 10px 10px 10px;
-    font-size: 1.8rem;
 }
 
 #xkcd_title{
@@ -160,7 +150,7 @@ th {
 	top: 25%;
 	left: 60%;
 	width: 40%;
-	padding: 5% 0 0 0;
+	padding: 3% 0 0 0;
 }
 
 
