@@ -32,4 +32,4 @@ $("#refresh_tenminutes").click();
 }
 
 setInterval(refresh_onesecond, 1000); // jede Sekunde
-setInterval(refresh_tenminutes, 300000); // alle 10 min (600000)
+setInterval(refresh_tenminutes, 30000); // alle 10 min (600000)
