@@ -2,17 +2,6 @@ html {
 	background-color: #000;
 }
 
-footer {
-	color: #fff;
-	background-color: #555;	
-	padding: 0px;
-	text-align: center;
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-}
-
 .fahrt{
 	color: #fff;
 	background-color: #000;
@@ -100,14 +89,6 @@ th {
 	text-align: center;
 }
 
-marquee{
-    color: white;
-    background-color: black;
-    font-size: 2rem;
-    position: fixed;
-    bottom: 10%;
-}
-
 #muell{
     color: white;
     background-color: black;
@@ -129,14 +110,115 @@ marquee{
     text-align: center;
 }
 
-#footer{
-	position: fixed;
-	bottom: 50;
-	left: 0;
-	width: 100%;
-	font-size: 1.5rem;
-}
-
 .xkcd{
     max-width: 60%;
+}
+
+
+.box{
+	position: fixed;
+	width: 25%;
+	height: 25%;
+	margin: 0;
+	padding: 0;
+}
+
+#einseins{
+	background-color: red;
+	top: 0;
+	left: 0;
+	width: 60%;
+}
+
+#einszwei{
+	background-color: green;
+	top: 0;
+	left: 60%;
+	width: 40%;
+}
+
+#zweieins{
+	background-color: black;
+	top: 25%;
+	left: 0;
+	width: 40%;
+}
+
+#zweizwei{
+	background-color: purple;
+	top: 25%;
+	left: 40%;
+	width: 20%;
+}
+
+#zweidrei{
+	background-color: brown;
+	top: 25%;
+	left: 60%;
+	width: 40%;
+}
+
+
+#dreieins{
+	background-color: gold;
+	top: 50%;
+	left: 0;
+	height: 40%;
+}
+
+#dreizwei{
+	background-color: silver;
+	top: 50%;
+	left: 25%;
+	height: 40%;
+}
+
+#dreidrei{
+	background-color: lime;
+	top: 50%;
+	left: 50%;
+}
+
+
+#dreivier{
+	background-color: aqua;
+	top: 50%;
+	left: 75%;
+}
+
+footer{
+	color: #fff;
+	background-color: #555;
+	padding: 0.8% 0 0.8% 0;
+	margin: 0;
+	text-align: center;
+	position: fixed;
+	bottom: 0;
+	height: 2%;
+	left: 0;
+	width: 100%;
+	font-size: 1.1vw;
+}
+
+footer p{
+	margin: 0;
+	padding: 0;
+}
+
+marquee{
+	color: white;
+	background-color: black;
+	position: fixed;
+	top: 90%;
+	left: 0;
+	height: 8%;
+	width: 100%;
+	font-size: 1.7vw;
+	margin: 0;
+	padding: 0.6% 0 0.6% 0;
+}
+
+marquee p{
+	margin: 0;
+	padding: 0;
 }
