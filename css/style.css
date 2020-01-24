@@ -191,6 +191,7 @@ th {
 
 #dreieins{
 	background-color: gold;
+	display: inline-block;
 	top: 50%;
 	left: 0;
 	height: 30%;
