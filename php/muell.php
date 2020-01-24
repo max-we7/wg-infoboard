@@ -38,8 +38,12 @@
 
 <table class="fahrttabelle">
     <tr>
-        <td>Restmüll:<br><?php echo $schwarz_faellig;?></td>
-        <td>Papiermüll:<br><?php echo $blau_faellig;?></td>
+        <th>Restmüll:</th>
+        <th>Papiermüll:</th>
+    </tr>
+    <tr>
+        <td><?php echo $schwarz_faellig;?></td>
+        <td><?php echo $blau_faellig;?></td>
     </tr>
     <tr>
         <td>Biomüll:<br><?php echo $gruen_faellig;?></td>
