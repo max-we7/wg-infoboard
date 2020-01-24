@@ -35,7 +35,6 @@
 	<div class="box" id="dreieins"></div>
 	<div class="box" id="dreizwei"></div>
 	<div class="box" id="dreidrei"></div>
-	<div class="box" id="dreivier"></div>
 
 
 	<marquee>
