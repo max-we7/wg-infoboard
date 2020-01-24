@@ -194,6 +194,7 @@ th {
 	top: 50%;
 	left: 0;
 	height: 30%;
+	overflow: hidden;
 	width: 45%;
 }
 
