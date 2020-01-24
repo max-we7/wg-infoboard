@@ -36,7 +36,7 @@
         $gruen_faellig = "<span class='overdue'>heute</span>";
 ?>
 
-<table class="fahrttabelle">
+<table class="muelltabelle">
     <tr>
         <th>Restmüll:</th>
         <th>Papiermüll:</th>
