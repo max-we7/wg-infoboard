@@ -44,7 +44,7 @@
 	    <div id="einkaufen"></div>
 	</div>
 	<div class="box" id="dreivier">
-	    <div id="neuesfeature">Hier entsteht ein neues Feature - coming soon</div>
+	    <div id="neuesfeature">Hier entsteht ein neues Feature<br> - <br>coming soon...</div>
 	</div>
 
 
