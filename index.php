@@ -19,7 +19,9 @@
 	<div class="box" id="einseins">
 	    <div id="nahverkehr"></div>
 	</div>
-	<div class="box" id="einszwei"></div>
+	<div class="box" id="einszwei">
+	    <div id="clock"></div>
+	</div>
 
 	<div class="box" id="zweieins">
 	    <div id="regionalverkehr"></div>
