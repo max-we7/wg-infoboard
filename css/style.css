@@ -35,6 +35,10 @@ html {
 	width: 100%;
 }
 
+.fahrttabelle tr{
+    width: 20%;
+}
+
 .putzplan{
     color: #fff;
 	background-color: #000;
