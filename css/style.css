@@ -246,7 +246,7 @@ marquee{
 	font-size: 1.7vw;
 	margin: 0;
 	padding: 0.6% 0 0.6% 0;
-	animation: marquee 12s linear;
+	animation: marquee 12s linear infinite;
 }
 
 marquee p{
