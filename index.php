@@ -48,7 +48,7 @@
 	</div>
 
 
-	<marquee behavior=slide id="news">
+	<marquee id="news">
 	<p>Breaking WG News: coming soon</p>
 	</marquee>
 

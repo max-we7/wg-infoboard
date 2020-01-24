@@ -15,7 +15,7 @@ $(document).ready(function() {
     });
 	
   $("#refresh_tenminutes").click(function() {
-     $("#weather").load("php/weather.html");
+
      $("#news").load("php/news.php");
 
     return false;
