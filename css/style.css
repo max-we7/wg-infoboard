@@ -14,8 +14,8 @@ html {
 #table_header{
 	font-weight: bold;
 	color: #b9b9b9;
-	font-size: 1.5rem;
-	padding: 0px;
+	font-size: 1.3vw;
+	padding: 1% 0 0 1%;
 }
 
 .putzplan th{
