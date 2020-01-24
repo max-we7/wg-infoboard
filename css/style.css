@@ -254,3 +254,8 @@ marquee p{
 .task{
     width: 34%;
 }
+
+#weather{
+    background-color: white;
+    width: 100%;
+}
