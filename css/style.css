@@ -83,10 +83,9 @@ html {
 	color: #fff;
 	background-color: #000;
 	padding: 10px 10px 10px 10px;
-	position: right;
 	font-size: 7vw;
 	text-align: center;
-	vertical-align: middle;
+	top: 10%;
 }
 
 td {
@@ -140,7 +139,6 @@ th {
 	top: 0;
 	left: 0;
 	width: 75%;
-	padding: 0 0 1% 0;
 }
 
 #einszwei{
