@@ -8,7 +8,7 @@ $(document).ready(function() {
 	 $("#putzen").load("php/putzplan.php");
 	 $("#xkcd").load("php/xkcd.php");
 	 $("#zaw").load("php/muell.php");
-	 $("#news").load("php/news.php");
+
 
 
     return false;
@@ -16,6 +16,7 @@ $(document).ready(function() {
 	
   $("#refresh_tenminutes").click(function() {
      $("#weather").load("php/weather.html");
+     $("#news").load("php/news.php");
 
     return false;
     });
@@ -31,4 +32,4 @@ $("#refresh_tenminutes").click();
 }
 
 setInterval(refresh_onesecond, 1000); // jede Sekunde
-setInterval(refresh_tenminutes, 600000); // alle 10 min
+setInterval(refresh_tenminutes, 300000); // alle 10 min (600000)
