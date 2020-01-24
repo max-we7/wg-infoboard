@@ -60,6 +60,7 @@ html {
 }
 
 .muelltabelle td{
+    width: 22%;
     font-size: 1.5vw;
 }
 
@@ -244,4 +245,8 @@ marquee{
 marquee p{
 	margin: 0;
 	padding: 0;
+}
+
+.task{
+    width: 34%;
 }
