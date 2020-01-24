@@ -54,11 +54,12 @@
     $json = json_decode($str, true);
 
 ?>
-
-	<marquee id="news">
-            <?php foreach($json as $item) {?>
+<?php foreach($json as $item) {?>
                 +++ <?php echo $item;?>
             <?php }	?>
+
+	<marquee id="news">
+            hi
 	</marquee>
 
 	<footer>
