@@ -37,7 +37,7 @@
 	</div>
 	<div class="box" id="dreizwei">
 	    <div id="weather">
-	        <div id="wcom-82d5e81c8529ca7eab7a4b2c15ecefd4" class="wcom-default w300x250" style="border: 0px none; width: 100%; height: 100%; background-color: rgb(0, 0, 0); border-radius: 5px; color: rgb(255, 255, 255);"><div class="wcom-city"><a style="color: rgb(255, 255, 255);" href="https://www.wetter.com/deutschland/griesheim/DE0003699.html" target="_blank" rel="nofollow" aria-label="Wetter Berlin" title="Wetter Griesheim">Wetter Griesheim</a></div><div id="wcom-82d5e81c8529ca7eab7a4b2c15ecefd4-weather"></div><script type="text/javascript" src="//cs3.wettercomassets.com/woys/5/js/w.js"></script><script type="text/javascript">_wcomWidget({id: 'wcom-82d5e81c8529ca7eab7a4b2c15ecefd4',location: 'DE0003699',format: '300x250',type: 'spaces'});</script></div>
+	        <a class="weatherwidget-io" href="https://forecast7.com/de/49d868d55/64347/" data-label_1="Griesheim" data-label_2="Wetter" data-font="Noto Serif" data-icons="Climacons Animated" data-days="5" data-theme="dark" >Griesheim Wetter</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');</script>
 	    </div>
 	</div>
 	<div class="box" id="dreidrei"></div>
