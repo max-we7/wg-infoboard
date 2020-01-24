@@ -43,7 +43,9 @@
 	<div class="box" id="dreidrei">
 	    <div id="einkaufen"></div>
 	</div>
-	<div class="box" id="dreivier"></div>
+	<div class="box" id="dreivier">
+	    <div> id="neuesfeature">Hier entsteht ein neues Feature - coming soon</div>
+	</div>
 
 
 	<marquee>
