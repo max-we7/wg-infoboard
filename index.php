@@ -40,7 +40,7 @@
 
 
 	<marquee>
-	<p>This text is FLYING</p>
+	<p>Breaking WG News: coming soon</p>
 	</marquee>
 
 	<footer>
