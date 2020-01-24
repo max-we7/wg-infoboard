@@ -201,16 +201,17 @@ th {
 
 #dreizwei{
 	background-color: silver;
-	top: 50%;
+	top: 53%;
 	left: 50%;
-	height: 40%;
+	height: 37%;
 }
 
 #dreidrei{
 	background-color: lime;
-	top: 50%;
+	top: 53%;
 	left: 75%;
 	width: 25%;
+	height: 37%;
 }
 
 footer{
