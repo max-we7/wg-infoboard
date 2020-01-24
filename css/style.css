@@ -32,6 +32,7 @@ html {
 	padding: 5px 10px 10px 10px;
 	position: absolute;
 	display: inline-block;
+	width: auto;
 }
 
 .putzplan{
