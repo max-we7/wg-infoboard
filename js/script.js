@@ -13,6 +13,8 @@ $(document).ready(function() {
 
     return false;
     });
+
+    $("#news").load("php/news.php");
 	
   $("#refresh_tenminutes").click(function() {
 

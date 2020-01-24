@@ -48,18 +48,7 @@
 	</div>
 
 
-<?php
-	# Load from JSON
-    $str = file_get_contents('../data/news.json');
-    $json = json_decode($str, true);
-
-?>
-
-
 	<marquee id="news">
-            <p><?php foreach($json as $item) {?>
-                +++ <?php echo $item;?>
-            <?php }	?><p>
 	</marquee>
 
 	<footer>
