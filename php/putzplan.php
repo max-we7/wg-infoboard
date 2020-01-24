@@ -79,7 +79,7 @@
         $duschvorhang_faellig = "<span class='overdue'>seit " . abs($duschvorhang_verbleibend) . " Tagen</span>";
 ?>
 
-	<table class="putzplan">
+	<table class="putztabelle">
 	    <tr>
 	        <th>Aufgabe</th>
 	        <th>Wer?</th>
