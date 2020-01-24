@@ -105,6 +105,10 @@ html {
 	width: 100%;
 }
 
+.einkaufsliste th{
+    display: center;
+}
+
 #flexbox{
 	display: flex;
 	flex-direction: row;
