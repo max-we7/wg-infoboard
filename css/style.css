@@ -85,6 +85,7 @@ html {
 .putztabelle td{
     font-size: 1.5vw;
     padding 0;
+    margin: 0;
 }
 
 .due{
