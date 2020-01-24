@@ -178,20 +178,21 @@ th {
 	top: 50%;
 	left: 0;
 	height: 40%;
-	width: 50%;
+	width: 400%;
 }
 
 #dreizwei{
 	background-color: silver;
 	top: 50%;
-	left: 50%;
+	left: 40%;
 	height: 40%;
 }
 
 #dreidrei{
 	background-color: lime;
 	top: 50%;
-	left: 75%;
+	left: 65%;
+	width: 35%;
 }
 
 footer{
