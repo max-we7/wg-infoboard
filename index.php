@@ -32,7 +32,9 @@
 	<div class="box" id="zweidrei">
 	</div>
 
-	<div class="box" id="dreieins"></div>
+	<div class="box" id="dreieins">
+	    <div id="putzen"></div>
+	</div>
 	<div class="box" id="dreizwei"></div>
 	<div class="box" id="dreidrei"></div>
 
