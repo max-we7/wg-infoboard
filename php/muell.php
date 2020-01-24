@@ -46,7 +46,11 @@
         <td><?php echo $blau_faellig;?></td>
     </tr>
     <tr>
-        <td>Biomüll:<br><?php echo $gruen_faellig;?></td>
-        <td>Gelber Sack:<br><?php echo $gelb_faellig;?></td>
+        <th>Biomüll:</th>
+        <th>Gelber Sack:</th>
+    </tr>
+    <tr>
+        <td><?php echo $gruen_faellig;?></td>
+        <td><?php echo $gelb_faellig;?></td>
     </tr>
 </table>
