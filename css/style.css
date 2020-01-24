@@ -209,10 +209,10 @@ th {
 
 #dreidrei{
 	background-color: lime;
-	top: 53%;
-	left: 75%;
-	width: 25%;
-	height: 37%;
+	top: 51.5%;
+	left: 65%;
+	width: 35%;
+	height: 38.5%;
 }
 
 footer{
@@ -257,7 +257,7 @@ marquee p{
 }
 
 #weather{
-    background-color: white;
+    background-color: black;
     width: 100%;
     height: 80%;
 }
