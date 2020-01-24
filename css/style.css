@@ -193,10 +193,10 @@ th {
 
 #dreieins{
 	background-color: gold;
+	padding: 5% 0 0 0;
 	top: 50%;
 	left: 0;
 	height: 40%;
-	overflow: hidden;
 	width: 45%;
 }
 
