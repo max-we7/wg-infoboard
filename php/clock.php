@@ -1,6 +1,7 @@
 <?php
 	# Date and Clock
 	date_default_timezone_set('Europe/Berlin');
+	setlocale(LC_ALL, 'de_DE');
 	$time = date('H:i');
 	$date = date('d. M Y');
 	//$days = array('Sonntag', 'Montag', 'Dienstag', 'Mittwoch','Donnerstag','Freitag', 'Samstag');
