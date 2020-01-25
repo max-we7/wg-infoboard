@@ -6,7 +6,7 @@ def dump_to_json(data):
     """
     write news to JSON file
     """
-    path = "../data/news.json"
+    path = "../data/news_unsanitized.json"
     try:
         with open(path, "w") as f:
             json.dump(data, f, indent=2)
@@ -29,4 +29,7 @@ dump_to_json(titles)
 # print(len(titles))
 
 
-
+with open("../data/news_unsanitized.json", "r", encoding="utf-8") as input:
+    with open("../data/news.json", "w", encoding="utf-8") as output:
+        document = json.load(input)
+        json.dump(document, output, ensure_ascii=False, indent=2)
