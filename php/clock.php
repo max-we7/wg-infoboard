@@ -11,4 +11,4 @@
 
 <?php echo $time;?>
 <br>
-<?php echo $date;?>
+<div id="date"><?php echo $date;?></div>
