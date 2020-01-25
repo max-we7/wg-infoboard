@@ -28,7 +28,7 @@
   
 <table class="fahrttabelle">
 	<tr>
-		<th>HKP/Am Markt</th>
+		<th>HKP/Am Markt (zu Fuß: 10min)</th>
 		<th>TZ Rhein Main (HBF)</th>
 		<th>Darmstadt Schloss</th>
 		<th>Dauer</th>
