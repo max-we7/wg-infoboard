@@ -1,7 +1,7 @@
 <?php
 	# Date and Clock
 	date_default_timezone_set('Europe/Berlin');
-	setlocale(LC_ALL, 'de_DE');
+	setlocale(LC_ALL, 'de_DE.utf8');
 	$time = date('H:i');
 	//$date = date('d. F Y');
 	$date = strftime("%A, %e. %B %Y");
