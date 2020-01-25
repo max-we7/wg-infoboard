@@ -67,10 +67,10 @@ html {
 .putztabelle{
     color: #fff;
 	background-color: black;
-	padding: 5px 10px 10px 10px;
+	padding: 0px 10px 10px 10px;
 	margin: 0;
-	position: fixed;
-	top: 50%;
+	position: relative;
+	top: 0;
 	width: 100%;
 	height: 50%;
 }
