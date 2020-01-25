@@ -44,7 +44,7 @@
 	    <div id="einkaufen"></div>
 	</div>
 	<div class="box" id="dreivier">
-	    <div id="neuesfeature">Hier entsteht ein neues Feature<br> - <br>coming soon...</div>
+	    <div id="neuesfeature"><iframe src="https://giphy.com/embed/kyLYXonQYYfwYDIeZl" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/sesamestreet-sesame-street-50th-anniversary-kyLYXonQYYfwYDIeZl">via GIPHY</a></p></div>
 	</div>
 
 
