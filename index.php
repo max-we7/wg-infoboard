@@ -44,7 +44,7 @@
 	    <div id="einkaufen"></div>
 	</div>
 	<div class="box" id="dreivier">
-	    <iframe src="https://giphy.com/embed/5UKCYVAaYUPcFreMPI" width="480" height="269" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/aceventura-jimcarrey-whennaturecalls-shikaka-5UKCYVAaYUPcFreMPI">via GIPHY</a></p>
+	    <iframe src="https://giphy.com/embed/hu3Z1fwuOZh3a" width="323" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/hu3Z1fwuOZh3a">via GIPHY</a></p>
 	</div>
 
 
