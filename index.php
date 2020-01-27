@@ -8,8 +8,7 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="http://code.jquery.com/jquery-latest.js"></script>
   <script src="js/script.js"></script>
-  <script src="js/crawler.js"></script>
-  
+
   <!-- Hidden refresh links -->
   <a href="#" id="refresh_onesecond" hidden="">refresh</a>
   <a href="#" id="refresh_tenminutes" hidden="">refresh</a>
@@ -44,7 +43,7 @@
 	    <div id="einkaufen"></div>
 	</div>
 	<div class="box" id="dreivier">
-	    <iframe src="https://giphy.com/embed/hu3Z1fwuOZh3a" width="323" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/hu3Z1fwuOZh3a">via GIPHY</a></p>
+	    <div id="image"></div>
 	</div>
 
 
