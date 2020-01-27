@@ -6,6 +6,7 @@ from telepot.loop import MessageLoop
 from bot_commands import choose_command
 from putzplan import update_putzplan
 from config import API_KEY, LEGIT_IDS
+from gif_handler import handle_gif, handle_img
 
 logging.basicConfig(filename="bot.log", filemode="a+", format='%(asctime)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
@@ -16,8 +17,15 @@ bot = telepot.Bot(API_KEY)
 def handle(msg):
     print(msg)
     content_type, chat_type, chat_id = telepot.glance(msg)
-    if msg['from']['first_name'] == "Louis":
-        bot.sendMessage(msg['chat']['id'], "Hallo Louis, du kleine Ratte!")
+    try:
+        if msg['animation']:
+            print("Animation detected!")
+            handle_gif(msg, bot)
+        elif msg["photo"]:
+            handle_img(msg, bot)
+            print("Image detected!")
+    except KeyError:
+        pass
     if content_type == 'text' and chat_type == "private":
         if str(chat_id) in LEGIT_IDS:
             choose_command(bot, msg)
