@@ -63,15 +63,26 @@ def bad(bot, msg):
         bot.sendMessage(msg['chat']['id'], f"<b>{putzplan['bad']['dran']}</b> ist aktuell mit Bäder putzen "
                                            f"dran.", parse_mode="html")
     elif msg['text'].lower()[5:14] == "intervall":
-        try:
-            days = int(msg['text'].lower()[14:])
-            putzplan["bad"]["intervall_tage"] = days
-            bot.sendMessage(msg['chat']['id'], f"Intervall der Aufgabe Bad putzen wurde auf <b>"
-                                               f"{days}</b> Tage gesetzt.",
+        # TODO: test
+        if len(msg['text']) == 14:
+            bot.sendMessage(msg['chat']['id'], f"Intervall der Aufgabe Bad putzen ist aktuell auf <b>"
+                                               f"{putzplan['bad']['intervall_tage']}</b> Tage gesetzt.",
                             parse_mode="html")
-        except ValueError:
-            bot.sendMessage(msg['chat']['id'], 'Unbekannter Parameter. Intervall setzen mit "/bad intervall X".')
+        else:
+            try:
+                days = int(msg['text'].lower()[14:])
+                putzplan["bad"]["intervall_tage"] = days
+                bot.sendMessage(msg['chat']['id'], f"Intervall der Aufgabe Bad putzen wurde auf <b>"
+                                                   f"{days}</b> Tage gesetzt.",
+                                parse_mode="html")
+            except ValueError:
+                bot.sendMessage(msg['chat']['id'], 'Unbekannter Parameter. Intervall setzen mit "/bad intervall X".')
     elif msg['text'].lower()[5:14] == "vergangen":
+        # TODO: test
+        if len(msg['text']) == 14:
+            bot.sendMessage(msg['chat']['id'], f"Vergangene Tage der Aufgabe Bad putzen sind aktuell auf <b>"
+                                               f"{putzplan['bad']['tage_vergangen']}</b> Tage gesetzt.",
+                            parse_mode="html")
         try:
             days = int(msg['text'].lower()[14:])
             putzplan["bad"]["tage_vergangen"] = days
@@ -98,6 +109,7 @@ def kueche(bot, msg):
         bot.sendMessage(msg['chat']['id'], f"<b>{putzplan['kueche']['dran']}</b> ist aktuell mit Küche putzen "
                                            f"dran.", parse_mode="html")
     elif msg['text'].lower()[8:17] == "intervall":
+        # TODO: implement Intervallabfrage
         try:
             days = int(msg['text'].lower()[17:])
             putzplan["kueche"]["intervall_tage"] = days
@@ -107,6 +119,7 @@ def kueche(bot, msg):
         except ValueError:
             bot.sendMessage(msg['chat']['id'], 'Unbekannter Parameter. Intervall setzen mit "/kueche intervall X".')
     elif msg['text'].lower()[8:17] == "vergangen":
+        # TODO: implement Abfrage
         try:
             days = int(msg['text'].lower()[17:])
             putzplan["kueche"]["tage_vergangen"] = days
@@ -134,6 +147,7 @@ def saugen(bot, msg):
         bot.sendMessage(msg['chat']['id'], f"<b>{putzplan['saugen']['dran']}</b> ist aktuell mit Staubsaugen "
                                            f"dran.", parse_mode="html")
     elif msg['text'].lower()[8:17] == "intervall":
+        # TODO: implement Intervallabfrage
         try:
             days = int(msg['text'].lower()[17:])
             putzplan["saugen"]["intervall_tage"] = days
@@ -143,6 +157,7 @@ def saugen(bot, msg):
         except ValueError:
             bot.sendMessage(msg['chat']['id'], 'Unbekannter Parameter. Intervall setzen mit "/saugen intervall X".')
     elif msg['text'].lower()[8:17] == "vergangen":
+        # TODO: implement Abfrage
         try:
             days = int(msg['text'].lower()[17:])
             putzplan["saugen"]["tage_vergangen"] = days
@@ -170,6 +185,7 @@ def handtuecher(bot, msg):
         bot.sendMessage(msg['chat']['id'], f"<b>{putzplan['handtuecher']['dran']}</b> ist aktuell mit Handtücher "
                                            f"waschen dran.", parse_mode="html")
     elif msg['text'].lower()[13:22] == "intervall":
+        # TODO: implement Intervallabfrage
         try:
             days = int(msg['text'].lower()[22:])
             putzplan["handtuecher"]["intervall_tage"] = days
@@ -180,6 +196,7 @@ def handtuecher(bot, msg):
             bot.sendMessage(msg['chat']['id'], 'Unbekannter Parameter. Intervall setzen mit "/handtuecher '
                                                'intervall X".')
     elif msg['text'].lower()[13:22] == "vergangen":
+        # TODO: implement Abfrage
         try:
             days = int(msg['text'].lower()[22:])
             putzplan["handtuecher"]["tage_vergangen"] = days
@@ -208,6 +225,7 @@ def duschvorhang(bot, msg):
         bot.sendMessage(msg['chat']['id'], f"<b>{putzplan['duschvorhang']['dran']}</b> ist aktuell mit Duschvorhänge "
                                            f"waschen dran.", parse_mode="html")
     elif msg['text'].lower()[14:23] == "intervall":
+        # TODO: implement Intervallabfrage
         try:
             days = int(msg['text'].lower()[23:])
             putzplan["duschvorhang"]["intervall_tage"] = days
@@ -218,6 +236,7 @@ def duschvorhang(bot, msg):
             bot.sendMessage(msg['chat']['id'], 'Unbekannter Parameter. Intervall setzen mit "/duschvorhang '
                                                'intervall X".')
     elif msg['text'].lower()[14:23] == "vergangen":
+        # TODO: implement Abfrage
         try:
             days = int(msg['text'].lower()[23:])
             putzplan["duschvorhang"]["tage_vergangen"] = days

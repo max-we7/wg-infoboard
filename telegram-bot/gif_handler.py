@@ -8,7 +8,6 @@ def handle_gif(msg, bot):
     bot.download_file(msg['document']['file_id'], '../data/video.mp4')
     # convert_to_gif()
     print("downloaded")
-    pass
 
 
 def handle_img(msg, bot):

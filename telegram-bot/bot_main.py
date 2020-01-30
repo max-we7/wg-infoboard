@@ -39,7 +39,7 @@ def handle(msg):
                 else:
                     logging.info(f"Not in legit IDs: {msg['chat']['title']}, {msg['chat']['id']}")
         except KeyError:
-            {}
+            pass
     else:
         logging.debug("Invalid input given")
 

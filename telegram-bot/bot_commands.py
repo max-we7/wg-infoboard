@@ -27,6 +27,8 @@ def choose_command(bot, msg):
         duschvorhang(bot, msg)
     if msg['text'].lower().startswith("/loc"):
         loc(bot, msg)
+    if msg['text'].lower().startswith("/bahn"):
+        bahn(bot, msg)
 
 
 def einkaufen(bot, msg):
@@ -46,6 +48,9 @@ def einkaufen(bot, msg):
 
 
 def return_einkaufsliste(bot, msg):
+    """
+    sends user the list of current items on shopping list
+    """
     einkaufsliste = load_einkaufsliste()
     if len(einkaufsliste) > 0:
         liste_pretty = "<b>Einkaufsliste:</b>\n"
@@ -58,6 +63,9 @@ def return_einkaufsliste(bot, msg):
 
 
 def eingekauft(bot, msg):
+    """
+    removes given items from the shopping list
+    """
     einkaufsliste = load_einkaufsliste()
     if len(msg['text']) == 11:
         bot.sendMessage(msg['chat']['id'], "Löschen eines Artikels von der Einkaufsliste mit <b>/eingekauft X"
@@ -77,6 +85,44 @@ def eingekauft(bot, msg):
             bot.sendMessage(msg['chat']['id'], f"{msg['from']['first_name']} hat <b>{item}</b> von der Einkaufsliste "
                                                f"entfernt", parse_mode='html')
             dump_einkaufsliste(einkaufsliste)
+
+
+def bahn(bot, msg):
+    """
+    returns current train times to user
+    TODO: test
+    """
+    train_times = []
+    try:
+        with open("../data/timetable.json", "r") as f:
+            data = json.load(f)
+            for item in data['trips']:
+                train_times.append(item)
+    except FileNotFoundError:
+        print("Error - File Not Found")
+    message = "Nahverkehr:\n"
+    for entry in train_times:
+        if type(entry['line']) == type(str()):
+            lines = entry['line']
+        else:
+            lines_raw = [line for line in entry['line']]
+            lines = ", ".join(lines_raw)
+        message += f"{entry['ab']}  {entry['an']}  {lines}\n"
+    bot.sendMessage(msg['chat']['id'], message)
+    regio_times = []
+    try:
+        with open("../data/timetable_regio.json", "r") as f:
+            data = json.load(f)
+            for item in data['trips']:
+                regio_times.append(item)
+    except FileNotFoundError:
+        print("Error - File Not Found")
+    message = "Regionalverkehr:\n"
+    for entry in regio_times:
+        lines_raw = [line for line in entry['line']] if len(entry['line']) == 2 else entry['line']
+        lines = ", ".join(lines_raw)
+        message += f"{entry['ab']}  {entry['an']}  {lines}\n"
+    bot.sendMessage(msg['chat']['id'], message)
 
 
 def load_einkaufsliste():
@@ -109,6 +155,9 @@ def dump_einkaufsliste(einkaufsliste):
 
 
 def insult(bot, msg):
+    """
+    insults given person, usage "/insult person"
+    """
     bot.sendMessage(msg['chat']['id'], f"{msg['text'].lower()[8:]} ist ein kleiner Hurensohn")
 
 
@@ -120,6 +169,9 @@ def help_commands(bot, msg):
 
 
 def loc(bot, msg):
+    """
+    returns current Lines of Code of the WG-Infoboard project
+    """
     try:
         with open("../data/loc.json", "r") as f:
             data = json.load(f)
