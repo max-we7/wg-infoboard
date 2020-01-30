@@ -100,7 +100,7 @@ def bahn(bot, msg):
                 train_times.append(item)
     except FileNotFoundError:
         print("Error - File Not Found")
-    message = "Nahverkehr:\n"
+    message = "Griesheim --> DA:\n"
     for entry in train_times:
         if type(entry['line']) == type(str()):
             lines = entry['line']
@@ -117,7 +117,7 @@ def bahn(bot, msg):
                 regio_times.append(item)
     except FileNotFoundError:
         print("Error - File Not Found")
-    message = "Regionalverkehr:\n"
+    message = "DA --> Wiesbaden:\n"
     for entry in regio_times:
         lines_raw = [line for line in entry['line']] if len(entry['line']) == 2 else entry['line']
         lines = ", ".join(lines_raw)
