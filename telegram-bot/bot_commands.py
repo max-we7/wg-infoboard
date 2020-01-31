@@ -165,7 +165,14 @@ def help_commands(bot, msg):
     """
     TODO: update list of available commands
     """
-    bot.sendMessage(msg['chat']['id'], f"Available commands:\n/help\n/einkaufen\n/eingekauft\n/insult")
+    bot.sendMessage(msg['chat']['id'], f"Available commands:\n"
+                                       f"/help - shows this info\n"
+                                       f"/einkaufen - \n"
+                                       f"/eingekauft - \n"
+                                       f"/bahn - returns current train schedule\n"
+                                       f"/loc - returns current lines of code of the WG-Infoboard project\n"
+                                       f"/insult - "
+                    )
 
 
 def loc(bot, msg):

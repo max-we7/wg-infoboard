@@ -15,6 +15,9 @@ bot = telepot.Bot(API_KEY)
 
 
 def handle(msg):
+    """
+    handles all incoming messages
+    """
     print(msg)
     content_type, chat_type, chat_id = telepot.glance(msg)
     try:
@@ -22,8 +25,8 @@ def handle(msg):
             print("Animation detected!")
             handle_gif(msg, bot)
         elif msg["photo"]:
-            handle_img(msg, bot)
             print("Image detected!")
+            handle_img(msg, bot)
     except KeyError:
         pass
     if content_type == 'text' and chat_type == "private":
