@@ -11,7 +11,7 @@ def handle_gif(msg, bot):
     bot.sendMessage(msg['chat']['id'], "downloading... done")
     convert_to_gif(msg, bot)
     if platform.system() == "Linux":
-        subprocess.run(["sudo", "rm", "-rf", "~/.cache/chromium."])
+        subprocess.run(["sudo", "service", "kiosk.sh", "restart"])
         bot.sendMessage(msg['chat']['id'], "flushing browser cache...")
     bot.sendMessage(msg['chat']['id'], "done.")
 
