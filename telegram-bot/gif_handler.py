@@ -5,8 +5,10 @@ import sys
 
 def handle_gif(msg, bot):
     print("starting download")
+    bot.sendMessage(msg['chat']['id'], "starting download")
     bot.download_file(msg['document']['file_id'], '../data/video.mp4')
-    # convert_to_gif()
+    convert_to_gif()
+    bot.sendMessage(msg['chat']['id'], "downloaded")
     print("downloaded")
 
 
