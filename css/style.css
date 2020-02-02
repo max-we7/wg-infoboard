@@ -277,3 +277,8 @@ marquee{
 #date{
     font-size: 1.5vw;
 }
+
+#giffy{
+    max-width: 80%;
+    max-height: 80%;
+}
