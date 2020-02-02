@@ -1,5 +1,6 @@
 from putzplan import muell, glas, bad, kueche, saugen, handtuecher, duschvorhang
 import json
+import telepot
 
 
 def choose_command(bot, msg):
