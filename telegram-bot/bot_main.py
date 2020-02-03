@@ -24,8 +24,12 @@ def handle(msg):
         if msg['animation']:
             print("Animation detected!")
             handle_gif(msg, bot)
-        elif msg["photo"]:
+    except KeyError:
+        pass
+    try:
+        if msg['photo']:
             print("Image detected!")
+            # print(msg['photo'][0]['file_id'])
             handle_img(msg, bot)
     except KeyError:
         pass
@@ -44,6 +48,9 @@ def handle(msg):
         except KeyError:
             pass
     else:
+        bot.sendMessage(msg['chat']['id'], f"It seems you do not have access rights to this bot.\n\nYour Telegram ID "
+                                           f"is: <b>{msg['from']['id']}</b>.\n\nUse it to ask for permission to use "
+                                           f"this bot.", parse_mode="html")
         logging.debug("Invalid input given")
 
 

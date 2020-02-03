@@ -18,7 +18,7 @@ def handle_gif(msg, bot):
 
 
 def handle_img(msg, bot):
-    bot.download_file(msg['document']['file_id'], '../data/video.gif')
+    bot.download_file(msg['photo'][0]['file_id'], '../data/video.gif')
     bot.sendMessage(msg['chat']['id'], "downloading file... done!")
     if platform.system() == "Linux":
         subprocess.run(["sudo", "service", "kiosk.sh", "restart"])
