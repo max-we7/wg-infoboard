@@ -20,6 +20,7 @@ def handle(msg):
     """
     print(msg)
     content_type, chat_type, chat_id = telepot.glance(msg)
+    # hi
     # if str(chat_id) not in LEGIT_IDS:
     #     bot.sendMessage(msg['chat']['id'], f"It seems you do not have access rights to this bot.\n\nYour Telegram ID "
     #                                        f"is: <b>{msg['from']['id']}</b>.\n\nUse it to ask for permission to use "
