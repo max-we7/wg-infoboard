@@ -1,5 +1,7 @@
 from putzplan import muell, glas, bad, kueche, saugen, handtuecher, duschvorhang
 import json
+from insults import insults
+import random
 import telepot
 
 
@@ -159,7 +161,8 @@ def insult(bot, msg):
     """
     insults given person, usage "/insult person"
     """
-    bot.sendMessage(msg['chat']['id'], f"{msg['text'].lower()[8:]} ist ein kleiner Hurensohn")
+    random_insult = random.choice(insults)
+    bot.sendMessage(msg['chat']['id'], f"{msg['text'][8:]} du {random_insult}")
 
 
 def help_commands(bot, msg):

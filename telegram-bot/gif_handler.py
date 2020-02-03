@@ -28,6 +28,7 @@ def handle_img(msg, bot):
 
 
 def convert_to_gif(msg, bot):
+    # noinspection PyBroadException
     try:
         inputpath = "../data/video.mp4"
         target_format = ".gif"

@@ -271,7 +271,7 @@ def duschvorhang(bot, msg):
                 bot.sendMessage(msg['chat']['id'], 'Unbekannter Parameter. Intervall setzen mit "/duschvorhang '
                                                    'intervall X".')
     elif msg['text'].lower()[14:23] == "vergangen":
-        # TODO: implement Abfrage
+        # TODO: test
         if len(msg['text']) == 22:
             bot.sendMessage(msg['chat']['id'], f"Vergangene Tage der Aufgabe Duschvorhänge waschen ist aktuell auf <b>"
                                                f"{putzplan['duschvorhang']['tage_vergangen']}</b> Tage gesetzt.",
