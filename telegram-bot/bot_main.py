@@ -47,10 +47,11 @@ def handle(msg):
                     logging.info(f"Not in legit IDs: {msg['chat']['title']}, {msg['chat']['id']}")
         except KeyError:
             pass
-    else:
+    elif str(chat_id) not in LEGIT_IDS:
         bot.sendMessage(msg['chat']['id'], f"It seems you do not have access rights to this bot.\n\nYour Telegram ID "
                                            f"is: <b>{msg['from']['id']}</b>.\n\nUse it to ask for permission to use "
                                            f"this bot.", parse_mode="html")
+    else:
         logging.debug("Invalid input given")
 
 
