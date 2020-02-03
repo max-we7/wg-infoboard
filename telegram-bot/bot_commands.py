@@ -169,14 +169,19 @@ def help_commands(bot, msg):
     """
     TODO: update list of available commands
     """
-    bot.sendMessage(msg['chat']['id'], f"Available commands:\n"
-                                       f"/help - shows this info\n"
-                                       f"/einkaufen - \n"
-                                       f"/eingekauft - \n"
-                                       f"/bahn - returns current train schedule\n"
-                                       f"/loc - returns current lines of code of the WG-Infoboard project\n"
-                                       f"/insult - "
-                    )
+    bot.sendMessage(msg['chat']['id'], f"Verfügbare Befehle:\n"
+                                       f"<b>/einkaufen</b> - zeige Einkaufsliste an\n"
+                                       f"<b>/einkaufen X</b> - setze X auf die Einkaufsliste\n"
+                                       f"<b>/eingekauft X</b> - lösche X von der Einkaufsliste\n"
+                                       f"<b>/eingekauft all</b> - lösche alle Artikel von der Einkaufsliste\n"
+                                       f"<b>/bahn</b> - zeige aktuelle Zugverbindungen\n"
+                                       f"<b>/muell, /glas, /bad, /kueche, /saugen, /handtuecher, /duschvorhang</b> - "
+                                       f"abhaken mit 'erledigt', Intervall (in Tagen) anzeigen mit "
+                                       f"'intervall', Intervall setzen mit 'intervall X', vergangene Tage "
+                                       f"anzeigen mit 'vergangen', vergangene Tage setzen mit 'vergangen X'"
+                                       f"<b>/loc</b> - zeige Anzahl Codezeilen des WG Infoboard Projekts\n"
+                                       f"<b>/insult</b> - "
+                    , parse_mode="html")
 
 
 def loc(bot, msg):
