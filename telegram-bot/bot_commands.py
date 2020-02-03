@@ -178,9 +178,9 @@ def help_commands(bot, msg):
                                        f"<b>/muell, /glas, /bad, /kueche, /saugen, /handtuecher, /duschvorhang</b> - "
                                        f"abhaken mit 'erledigt', Intervall (in Tagen) anzeigen mit "
                                        f"'intervall', Intervall setzen mit 'intervall X', vergangene Tage "
-                                       f"anzeigen mit 'vergangen', vergangene Tage setzen mit 'vergangen X'"
+                                       f"anzeigen mit 'vergangen', vergangene Tage setzen mit 'vergangen X'\n"
                                        f"<b>/loc</b> - zeige Anzahl Codezeilen des WG Infoboard Projekts\n"
-                                       f"<b>/insult</b> - "
+                                       f"<b>/insult X</b> - Beleidige X mit zufälliger Beleidigung ;)"
                     , parse_mode="html")
 
 
