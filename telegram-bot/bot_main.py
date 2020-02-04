@@ -60,10 +60,13 @@ def handle(msg):
         logging.debug("Invalid input given")
 
 
-MessageLoop(bot, handle).run_as_thread()
-schedule.every().day.at("00:02").do(update_putzplan)
+try:
+    MessageLoop(bot, handle).run_as_thread()
+    schedule.every().day.at("00:02").do(update_putzplan)
 
-
-while True:
-    schedule.run_pending()
-    time.sleep(10)
+    while True:
+        schedule.run_pending()
+        time.sleep(10)
+except Exception as e:
+    logging.error("Program failure!")
+    logging.error(e.with_traceback())
