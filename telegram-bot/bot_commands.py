@@ -209,6 +209,7 @@ def reboot(bot, msg):
     """
     if msg['from']['id'] in ADMIN_IDS:
         if platform.system() == "Linux":
+            bot.sendMessage(msg['chat']['id'], "Rebooting...")
             subprocess.run(["sudo", "reboot"])
         else:
             bot.sendMessage(msg['chat']['id'], "Platform does not seem to be Linux.")
@@ -222,6 +223,7 @@ def reload(bot, msg):
     """
     if msg['from']['id'] in ADMIN_IDS:
         if platform.system() == "Linux":
+            bot.sendMessage(msg['chat']['id'], "Reloading service kiosk.sh...")
             subprocess.run(["sudo", "service", "kiosk.sh", "restart"])
         else:
             bot.sendMessage(msg['chat']['id'], "Platform does not seem to be Linux.")
