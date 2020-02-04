@@ -45,9 +45,14 @@ def handle(msg):
 try:
     MessageLoop(bot, handle).run_as_thread()
     schedule.every().day.at("00:02").do(update_putzplan)
+    schedule.every().day.at("14:00").do(testf)
     while True:
         schedule.run_pending()
         time.sleep(10)
 except Exception as e:
     logging.error("Program failure!")
     logging.error(e.with_traceback())
+
+
+def testf():
+    pass
