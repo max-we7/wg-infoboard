@@ -2,6 +2,9 @@ from putzplan import muell, glas, bad, kueche, saugen, handtuecher, duschvorhang
 import json
 from insults import insults
 import random
+import platform
+import subprocess
+from config import ADMIN_IDS
 import telepot
 
 
@@ -32,6 +35,10 @@ def choose_command(bot, msg):
         loc(bot, msg)
     if msg['text'].lower().startswith("/bahn"):
         bahn(bot, msg)
+    if msg['text'].lower().startswith("/reboot"):
+        reboot(bot, msg)
+    if msg['text'].lower().startswith("/reload"):
+        reload(bot, msg)
 
 
 def einkaufen(bot, msg):
@@ -194,3 +201,29 @@ def loc(bot, msg):
             bot.sendMessage(msg['chat']['id'], f"Lines of Code: {data['header']['n_lines']}")
     except FileNotFoundError:
         print("Error - File Not Found")
+
+
+def reboot(bot, msg):
+    """
+    reboot machine remotely via Telegram
+    """
+    if msg['from']['id'] in ADMIN_IDS:
+        if platform.system() == "Linux":
+            subprocess.run(["sudo", "reboot"])
+        else:
+            bot.sendMessage(msg['chat']['id'], "Platform does not seem to be Linux.")
+    else:
+        bot.sendMessage(msg['chat']['id'], "You do not have permission to use this command.")
+
+
+def reload(bot, msg):
+    """
+    reload kiosk.sh service remotely via Telegram
+    """
+    if msg['from']['id'] in ADMIN_IDS:
+        if platform.system() == "Linux":
+            subprocess.run(["sudo", "service", "kiosk.sh", "restart"])
+        else:
+            bot.sendMessage(msg['chat']['id'], "Platform does not seem to be Linux.")
+    else:
+        bot.sendMessage(msg['chat']['id'], "You do not have permission to use this command.")
