@@ -207,7 +207,7 @@ def reboot(bot, msg):
     """
     reboot machine remotely via Telegram
     """
-    if msg['from']['id'] in ADMIN_IDS:
+    if str(msg['from']['id']) in ADMIN_IDS:
         if platform.system() == "Linux":
             bot.sendMessage(msg['chat']['id'], "Rebooting...")
             subprocess.run(["sudo", "reboot"])
@@ -221,7 +221,7 @@ def reload(bot, msg):
     """
     reload kiosk.sh service remotely via Telegram
     """
-    if msg['from']['id'] in ADMIN_IDS:
+    if str(msg['from']['id']) in ADMIN_IDS:
         if platform.system() == "Linux":
             bot.sendMessage(msg['chat']['id'], "Reloading service kiosk.sh...")
             subprocess.run(["sudo", "service", "kiosk.sh", "restart"])
