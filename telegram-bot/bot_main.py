@@ -42,6 +42,7 @@ def handle(msg):
         logging.info(f"Not in legit IDs: {msg['from']['first_name']}, {msg['from']['id']}")
 
 
+# noinspection PyBroadException
 try:
     MessageLoop(bot, handle).run_as_thread()
     schedule.every().day.at("00:02").do(update_putzplan)
