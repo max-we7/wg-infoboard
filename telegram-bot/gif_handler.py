@@ -7,6 +7,7 @@ import platform
 
 
 def handle_gif(msg, bot):
+    # TODO: flush browser cache before reloading
     bot.download_file(msg['document']['file_id'], '../data/video.mp4')
     bot.sendMessage(msg['chat']['id'], "downloading file... done!")
     convert_to_gif(msg, bot)
