@@ -3,7 +3,7 @@ import telepot
 import schedule
 import logging
 from telepot.loop import MessageLoop
-from bot_commands import choose_command
+from bot_commands import choose_command, dinner_poll
 from putzplan import update_putzplan
 from config import API_KEY, LEGIT_IDS
 from gif_handler import handle_gif, handle_img
@@ -46,13 +46,10 @@ def handle(msg):
 try:
     MessageLoop(bot, handle).run_as_thread()
     schedule.every().day.at("00:02").do(update_putzplan)
-    # schedule.every().day.at("14:00").do(testf)
+    schedule.every().monday.at("14:00").do(dinner_poll)
+    schedule.every().tuesday.at("14:00").do(dinner_poll)
     while True:
         schedule.run_pending()
         time.sleep(10)
 except Exception as e:
     logging.error("Program failure!")
-
-
-def testf():
-    pass
