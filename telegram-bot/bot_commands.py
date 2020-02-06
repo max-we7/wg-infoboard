@@ -40,6 +40,8 @@ def choose_command(bot, msg):
         reboot(bot, msg)
     if msg['text'].lower().startswith("/reload"):
         reload(bot, msg)
+    if msg['text'].lower().startswith("/git pull"):
+        git_pull(bot, msg)
 
 
 def einkaufen(bot, msg):
@@ -211,6 +213,11 @@ def loc(bot, msg):
             bot.sendMessage(msg['chat']['id'], f"Lines of Code: {data['header']['n_lines']}")
     except FileNotFoundError:
         print("Error - File Not Found")
+
+
+def git_pull(bot, msg):
+    # TODO: implement
+    pass
 
 
 def reboot(bot, msg):
