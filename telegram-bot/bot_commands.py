@@ -5,7 +5,6 @@ import random
 import platform
 import subprocess
 from config import ADMIN_IDS
-from pattern.de import pluralize
 import telepot
 
 
