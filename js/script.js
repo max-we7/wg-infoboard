@@ -16,10 +16,12 @@ $(document).ready(function() {
     });
 
     $("#news").load("php/news.php");
-	
+    $("#weather").load("php/weather.html");
+
   $("#refresh_tenminutes").click(function() {
 
      $("#news").load("php/news.php");
+     $("#weather").load("php/weather.html");
 
     return false;
     });
@@ -35,4 +37,4 @@ $("#refresh_tenminutes").click();
 }
 
 setInterval(refresh_onesecond, 1000); // jede Sekunde
-setInterval(refresh_tenminutes, 3600000); // alle 60 min
+setInterval(refresh_tenminutes, 3000000); // alle 60 min
