@@ -5,7 +5,6 @@ import random
 import platform
 import subprocess
 from config import ADMIN_IDS
-import telepot
 
 
 def choose_command(bot, msg):
@@ -174,13 +173,13 @@ def insult(bot, msg):
     bot.sendMessage(msg['chat']['id'], f"{msg['text'][8:]} du {random_insult}")
 
 
-def dinner_poll(bot, msg):
-    insults_filtered = []
+def dinner_poll(bot):
+    insults_plural = []
     for insulty in insults:
         if str(insulty).endswith("er") or str(insulty).endswith("en"):
-            insults_filtered.append(insulty)
-    random_insult = random.choice(insults_filtered)
-    bot.sendMessage(msg['chat']['id'], f"Hallo ihr {random_insult}! Wer ist heute beim Abendessen am Start?")
+            insults_plural.append(insulty)
+    random_insult = random.choice(insults_plural)
+    bot.sendMessage("-348933535", f"Hallo ihr {random_insult}! Wer ist heute beim Abendessen am Start?")
 
 
 def help_commands(bot, msg):

@@ -42,12 +42,16 @@ def handle(msg):
         logging.info(f"Not in legit IDs: {msg['from']['first_name']}, {msg['from']['id']}")
 
 
+def dinner():
+    dinner_poll(bot)
+
+
 # noinspection PyBroadException
 try:
     MessageLoop(bot, handle).run_as_thread()
     schedule.every().day.at("00:02").do(update_putzplan)
-    schedule.every().monday.at("14:00").do(dinner_poll)
-    schedule.every().tuesday.at("14:00").do(dinner_poll)
+    schedule.every().monday.at("14:00").do(dinner)
+    schedule.every().tuesday.at("14:00").do(dinner)
     while True:
         schedule.run_pending()
         time.sleep(10)
