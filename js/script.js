@@ -21,6 +21,7 @@ $(document).ready(function() {
   $("#refresh_tenminutes").click(function() {
 
      $("#news").load("php/news.php");
+     $("#weather").empty();
      $("#weather").load("php/weather.html");
 
     return false;
