@@ -222,10 +222,9 @@ def git_pull(bot, msg):
     if str(msg['from']['id']) in ADMIN_IDS:
         if platform.system() == "Linux":
             message_id = bot.sendMessage(msg['chat']['id'], "Pulling Git Repository...")
-            os.chdir("/var/www/rmw/wg-infoboard")
-            subprocess.run(["sudo", "git", "pull", "https://github.com/max-we7/wg-infoboard.git"])
-            bot.editMessageText(message_id, "Pulling Git Repository... Done!\n\n...Rebooting!")
-            subprocess.run(["sudo", "reboot"])
+            # os.chdir("/var/www/rmw/wg-infoboard")
+            subprocess.Popen(["sudo", "git", "pull", "https://github.com/max-we7/wg-infoboard.git"], cwd="/var/www/rmw/wg-infoboard")
+            bot.editMessageText(message_id, "Pulling Git Repository... Done!")
         else:
             bot.sendMessage(msg['chat']['id'], "Platform does not seem to be Linux.")
     else:
