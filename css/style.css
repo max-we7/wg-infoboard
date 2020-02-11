@@ -203,6 +203,8 @@ th {
 	left: 80%;
 	width: 20%;
 	height: 38.5%;
+	align-items: center;
+	justify-content: center;
 }
 
 footer{
