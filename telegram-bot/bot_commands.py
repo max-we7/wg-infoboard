@@ -1,3 +1,5 @@
+import os
+
 from putzplan import muell, glas, bad, kueche, saugen, handtuecher, duschvorhang
 import json
 from insults import insults
@@ -220,8 +222,8 @@ def git_pull(bot, msg):
     if str(msg['from']['id']) in ADMIN_IDS:
         if platform.system() == "Linux":
             message_id = bot.sendMessage(msg['chat']['id'], "Pulling Git Repository...")
-            subprocess.run(["cd", "/var/www/rmw/wg-infoboard", "&&", "sudo", "git", "pull",
-                            "https://github.com/max-we7/wg-infoboard.git"])
+            os.chdir("/var/www/rmw/wg-infoboard")
+            subprocess.run(["sudo", "git", "pull", "https://github.com/max-we7/wg-infoboard.git"])
             bot.editMessageText(message_id, "Pulling Git Repository... Done!\n\n...Rebooting!")
             subprocess.run(["sudo", "reboot"])
         else:
