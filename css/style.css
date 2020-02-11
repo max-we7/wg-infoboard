@@ -203,8 +203,6 @@ th {
 	left: 80%;
 	width: 20%;
 	height: 38.5%;
-	align-items: center;
-	justify-content: center;
 }
 
 footer{
@@ -262,6 +260,11 @@ marquee{
 	margin: 0 1% 0 0;
 	position: absolute;
 	width: 100%;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 #date{
