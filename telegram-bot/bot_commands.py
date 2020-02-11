@@ -101,7 +101,6 @@ def eingekauft(bot, msg):
 def bahn(bot, msg):
     """
     returns current train times to user
-    TODO: test
     """
     train_times = []
     try:
@@ -184,7 +183,7 @@ def dinner_poll(bot):
 
 def help_commands(bot, msg):
     """
-    TODO: update list of available commands
+    show user available commands
     """
     bot.sendMessage(msg['chat']['id'], f"Verfügbare Befehle:\n"
                                        f"<b>/einkaufen</b> - zeige Einkaufsliste an\n"
@@ -215,6 +214,21 @@ def loc(bot, msg):
 
 def git_pull(bot, msg):
     # TODO: implement
+    """
+    pull current version remotely via Telegram
+    """
+    if str(msg['from']['id']) in ADMIN_IDS:
+        if platform.system() == "Linux":
+            message_id = bot.sendMessage(msg['chat']['id'], "Pulling Git Repository...")
+            subprocess.run(["cd", "/var/www/rmw/wg-infoboard", "&&", "sudo", "git", "pull",
+                            "https://github.com/max-we7/wg-infoboard.git"])
+            bot.editMessageText(message_id, "Pulling Git Repository... Done!\n\n...Rebooting!")
+            subprocess.run(["sudo", "reboot"])
+        else:
+            bot.sendMessage(msg['chat']['id'], "Platform does not seem to be Linux.")
+    else:
+        bot.sendMessage(msg['chat']['id'], "You do not have permission to use this command.")
+
     pass
 
 
