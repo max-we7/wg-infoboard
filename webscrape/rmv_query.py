@@ -21,10 +21,10 @@ def web_request(regio=False):
     mins = int(now.strftime("%M"))
     if regio:
         # FIXME: adjust to an appropriate value
-        mins += 18
+        mins += 28
     else:
         # add 8 mins to current time
-        mins += 8
+        mins += 12
     # check for time overflow
     if mins > 59:
         mins %= 60

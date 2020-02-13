@@ -219,17 +219,16 @@ def git_pull(bot, msg):
     """
     pull current version remotely via Telegram
     """
-    if str(msg['from']['id']) in ADMIN_IDS:
-        if platform.system() == "Linux":
-            message_id = bot.sendMessage(msg['chat']['id'], "Pulling Git Repository...")
-            # os.chdir("/var/www/rmw/wg-infoboard")
-            subprocess.Popen(["sudo", "git", "pull", "https://github.com/max-we7/wg-infoboard.git"], cwd="/var/www/rmw/wg-infoboard")
-            bot.editMessageText(message_id, "Pulling Git Repository... Done!")
-        else:
-            bot.sendMessage(msg['chat']['id'], "Platform does not seem to be Linux.")
-    else:
-        bot.sendMessage(msg['chat']['id'], "You do not have permission to use this command.")
-
+    # if str(msg['from']['id']) in ADMIN_IDS:
+    #     if platform.system() == "Linux":
+    #         message_id = bot.sendMessage(msg['chat']['id'], "Pulling Git Repository...")
+    #         # os.chdir("/var/www/rmw/wg-infoboard")
+    #         subprocess.Popen(["sudo", "git", "pull", "https://github.com/max-we7/wg-infoboard.git"], cwd="/var/www/rmw/wg-infoboard")
+    #         bot.editMessageText(message_id, "Pulling Git Repository... Done!")
+    #     else:
+    #         bot.sendMessage(msg['chat']['id'], "Platform does not seem to be Linux.")
+    # else:
+    #     bot.sendMessage(msg['chat']['id'], "You do not have permission to use this command.")
     pass
 
 
