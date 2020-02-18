@@ -22,7 +22,10 @@ titles = []
 for i in range(len(entry)):
     # print(entry.keys())
     # print(entry[i].title)
-    titles.append(entry[i].title)
+    if not str(entry[i].title).__contains__("BILD"):
+        titles.append(entry[i].title)
+    else:
+        titles.append("An dieser Stelle wurde ein BILD-Artikel zensiert ;-)")
 
 dump_to_json(titles)
 # print(titles)
