@@ -1,5 +1,6 @@
 import feedparser
 import json
+from random import shuffle
 
 
 def dump_to_json(data):
@@ -14,23 +15,27 @@ def dump_to_json(data):
         print("Error")
 
 
-NewsFeed = feedparser.parse("https://news.google.com/news/rss?hl=de&gl=DE&ceid=DE%3Asv")
-entry = NewsFeed.entries
+# Topics: WORLD NATION BUSINESS TECHNOLOGY ENTERTAINMENT SPORTS SCIENCE HEALTH
+# https://news.google.com/rss/topics/{id}?hl={lang}
+# NewsFeed = feedparser.parse("https://news.google.com/news/rss?hl=de&gl=DE&ceid=DE%3Asv")
+feed1 = feedparser.parse("https://news.google.com/news/rss/headlines/section/topic/WORLD?hl=de&gl=DE&ceid=DE%3Asv").entries
+feed2 = feedparser.parse("https://news.google.com/news/rss/headlines/section/topic/NATION?hl=de&gl=DE&ceid=DE%3Asv").entries
+feed3 = feedparser.parse("https://news.google.com/news/rss/headlines/section/topic/BUSINESS?hl=de&gl=DE&ceid=DE%3Asv").entries
+feed4 = feedparser.parse("https://news.google.com/news/rss/headlines/section/topic/TECHNOLOGY?hl=de&gl=DE&ceid=DE%3Asv").entries
+feed5 = feedparser.parse("https://news.google.com/news/rss/headlines/section/topic/SCIENCE?hl=de&gl=DE&ceid=DE%3Asv").entries
 
 titles = []
 
-for i in range(len(entry)):
-    # print(entry.keys())
-    # print(entry[i].title)
-    if not str(entry[i].title).__contains__("BILD"):
-        titles.append(entry[i].title)
-    else:
-        titles.append("An dieser Stelle wurde ein BILD-Artikel zensiert ;-)")
+for feed in [feed1, feed2, feed3, feed4, feed5]:
+    for i in range(len(feed)):
+        if not str(feed[i].title).__contains__("BILD"):
+            titles.append(feed[i].title)
+        else:
+            titles.append("An dieser Stelle wurde ein BILD-Artikel zensiert ;-)")
+
+shuffle(titles)
 
 dump_to_json(titles)
-# print(titles)
-# print(len(titles))
-
 
 with open("../data/news_unsanitized.json", "r", encoding="utf-8") as input:
     with open("../data/news.json", "w", encoding="utf-8") as output:
