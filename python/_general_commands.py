@@ -109,7 +109,7 @@ def load_einkaufsliste(self):
     """
     einkaufsliste = []
     try:
-        with open("data/einkaufsliste.json", "r") as f:
+        with open("../data/einkaufsliste.json", "r") as f:
             data = json.load(f)
             for item in data['liste']:
                 einkaufsliste.append(item)
@@ -128,7 +128,7 @@ def dump_einkaufsliste(self, einkaufsliste):
     for i in range(len(einkaufsliste)):
         data["liste"].append(einkaufsliste[i])
     try:
-        with open("data/einkaufsliste.json", "w") as f:
+        with open("../data/einkaufsliste.json", "w") as f:
             json.dump(data, f, indent=2)
     except FileNotFoundError as exception:
         logging.error("Error - File Not Found, #3002")
