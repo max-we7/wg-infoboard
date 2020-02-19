@@ -45,6 +45,8 @@ def choose_command(bot, msg):
         reload(bot, msg)
     if msg['text'].lower().startswith("/git pull"):
         git_pull(bot, msg)
+    if msg['text'].lower().startswith("/mensa"):
+        speiseplan(bot, msg)
 
 
 def einkaufen(bot, msg):
@@ -180,6 +182,7 @@ def insult(bot, msg):
 def speiseplan(bot, msg):
     tu_stadtmitte = "173"
     tu_lichtwiese = "174"
+    message = ""
     if str(msg['text']).startswith("liwi"):
         message = get_food(tu_lichtwiese)
     elif len(msg['text']) == 6:
