@@ -183,7 +183,7 @@ def speiseplan(bot, msg):
     tu_stadtmitte = "173"
     tu_lichtwiese = "174"
     message = ""
-    if str(msg['text']).startswith("liwi"):
+    if str(msg['text']).startswith("/mensa liwi"):
         message = get_food(tu_lichtwiese)
     elif len(msg['text']) == 6:
         message = get_food(tu_stadtmitte)
