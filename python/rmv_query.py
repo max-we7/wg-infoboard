@@ -8,8 +8,7 @@ import logging
 import json
 import re
 
-logging.basicConfig(filename="rmv.log", filemode="a+", format='%(asctime)s - %(levelname)s - %(message)s',
-                    level=logging.INFO)
+# TODO: --------------------------- REMAKE -----------------------------------
 
 
 def web_request(regio=False):
@@ -145,6 +144,6 @@ def dump_to_json(data, regio=False):
         logging.exception("Stack Trace:", exception)
 
 
-if __name__ == '__main__':
+def update_bahn():
     dump_to_json(get_schedule_nahverkehr())
     dump_to_json(get_schedule_regio(), regio=True)

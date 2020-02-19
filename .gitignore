@@ -6,4 +6,5 @@ venv/
 putzplan_erstellen.py
 test.py
 config.py
+google_sheets_creds.json
 
