@@ -226,6 +226,7 @@ footer p{
 
 marquee{
 	color: white;
+	marquee-speed:fast;
 	background-color: black;
 	position: fixed;
 	top: 90%;
