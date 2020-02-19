@@ -106,11 +106,11 @@ try:
     # noinspection PyBroadException
     try:
         schedule.every().day.at("00:02").do(update_putzplan)
-        schedule.every().day.at("00:02").do(update_muell())
+        schedule.every().day.at("00:02").do(update_muell)
         schedule.every().monday.at("14:00").do(dinner_poll)
         schedule.every().tuesday.at("14:00").do(dinner_poll)
-        schedule.every(4).minutes.do(update_bahn())
-        schedule.every(10).minutes.do(update_news())
+        schedule.every(4).minutes.do(update_bahn)
+        schedule.every(10).minutes.do(update_news)
     except Exception:
         logging.error("Error running scheduled tasks in main, #0002")
         telepot.Bot(API_KEY).sendMessage("341986116", "Error running scheduled tasks, #0002")
