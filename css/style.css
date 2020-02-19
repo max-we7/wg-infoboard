@@ -2,6 +2,10 @@ html {
 	background-color: #000;
 }
 
+body{
+    marquee-speed:fast;
+}
+
 .fahrt{
 	color: #fff;
 	background-color: #000;
@@ -236,10 +240,6 @@ marquee{
 	font-size: 1.7vw;
 	margin: 0;
 	padding: 0.6% 0 0.6% 0;
-}
-
-#news{
-    marquee-speed:fast;
 }
 
 .task{
