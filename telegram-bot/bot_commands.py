@@ -1,5 +1,8 @@
 import os
+from collections import defaultdict
+from datetime import datetime
 
+import requests
 from putzplan import muell, glas, bad, kueche, saugen, handtuecher, duschvorhang
 import json
 from insults import insults
@@ -172,6 +175,42 @@ def insult(bot, msg):
     """
     random_insult = random.choice(insults)
     bot.sendMessage(msg['chat']['id'], f"{msg['text'][8:]} du {random_insult}")
+
+
+def speiseplan(bot, msg):
+    tu_stadtmitte = "173"
+    tu_lichtwiese = "174"
+    if str(msg['text']).startswith("liwi"):
+        message = get_food(tu_lichtwiese)
+    elif len(msg['text']) == 6:
+        message = get_food(tu_stadtmitte)
+    bot.sendMessage(msg['chat']['id'], message, parse_mode='html')
+
+
+def get_food(mensa_id, date="today"):
+    base_url = "https://openmensa.org/api/v2/canteens/"
+
+    now = datetime.now()
+    day = now.strftime("%Y-%m-%d") if date == "today" else date
+    request = requests.get(base_url + mensa_id + "/days/" + day + "/meals")
+
+    meal_plan_raw = request.json()
+
+    meals = defaultdict(list)
+
+    for meal in meal_plan_raw:
+        if float(meal['prices']['students'] > 1):
+            category = meal['category']
+            meals[category].append(f"{meal['name']}\n<b>Preis: {meal['prices']['students']}0€</b>\n")
+
+    message = "-- Das gibt es heute zu essen --\n\n"
+    for key in meals.keys():
+        message += f"<b>{key}:</b>\n\n"
+        for i in range(len(meals[key])):
+            message += f"{meals[key][i]}\n"
+        message += "\n"
+
+    return message
 
 
 def dinner_poll(bot):
