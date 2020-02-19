@@ -49,10 +49,7 @@ class MessageHandler(telepot.helper.ChatHandler):
         # msg['chat']['first_name'] = "Max"
         ###################################
 
-        print(msg)
-        print(telepot.flavor(msg))
         content_type, chat_type, chat_id = telepot.glance(msg)
-        print(content_type)
         if str(chat_id) in LEGIT_IDS:
             if content_type == "document":
                 handle_gif(self, msg)
