@@ -7,13 +7,13 @@ import telepot.helper
 from telepot.loop import MessageLoop
 from telepot.delegate import create_open, pave_event_space, include_callback_query_chat_id, per_chat_id
 from _putzplan import update_putzplan
-from python.insults import insults
-from python.zaw_query import update_muell
-from python.rmv_query import update_bahn
-from python.read_rss import update_news
-from python.config import API_KEY, LEGIT_IDS, GROUP_ID
-from python.media_handler import handle_img, handle_gif
-from python._commandhandler import choose_command, choose_callback_command
+from insults import insults
+from zaw_query import update_muell
+from rmv_query import update_bahn
+from read_rss import update_news
+from config import API_KEY, LEGIT_IDS, GROUP_ID
+from media_handler import handle_img, handle_gif
+from _commandhandler import choose_command, choose_callback_command
 
 # TODO: git_pull(), handle_img()
 

@@ -1,8 +1,8 @@
-from python._putzplan import chores
-from python._general_commands import insult, einkaufen, eingekauft, bahn, help_commands, reload, reboot, git_pull, loc
-from python._finances import geld, show_balance, make_transaction, neuer_einkauf, show_history, delete_last_record
+from _putzplan import chores
+from _general_commands import insult, einkaufen, eingekauft, bahn, help_commands, reload, reboot, git_pull, loc
+from _finances import geld, show_balance, make_transaction, neuer_einkauf, show_history, delete_last_record
 import logging
-from python.speiseplan import speiseplan
+from speiseplan import speiseplan
 
 
 def choose_command(self, msg):

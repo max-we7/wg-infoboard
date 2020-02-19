@@ -2,10 +2,10 @@ import telepot
 from telepot.namedtuple import ReplyKeyboardRemove
 import re
 import logging
-from python.keyboards import kb_finance_start, kb_teilnehmer, kb_ja_nein, kb_wg_bewohner
-from python.sheets_connector import get_balances, get_history, add_entry, delete_entry, get_balances_raw
+from keyboards import kb_finance_start, kb_teilnehmer, kb_ja_nein, kb_wg_bewohner
+from sheets_connector import get_balances, get_history, add_entry, delete_entry, get_balances_raw
 import random
-from python.config import GROUP_ID
+from config import GROUP_ID
 
 
 def geld(self):

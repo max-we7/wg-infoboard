@@ -1,9 +1,9 @@
 import random
 import json
-from python.insults import insults
+from insults import insults
 import platform
 import subprocess
-from python.config import ADMIN_IDS
+from config import ADMIN_IDS
 import logging
 
 
