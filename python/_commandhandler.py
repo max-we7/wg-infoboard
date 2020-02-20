@@ -3,6 +3,7 @@ from _general_commands import insult, einkaufen, eingekauft, bahn, help_commands
 from _finances import geld, show_balance, make_transaction, neuer_einkauf, show_history, delete_last_record
 import logging
 from speiseplan import speiseplan
+from config import LEGIT_IDS
 
 
 def choose_command(self, msg):
@@ -18,7 +19,7 @@ def choose_command(self, msg):
     if self.empfaenger_flag or self.betrag_flag:
         make_transaction(self, msg)
         return
-    if self.command[0] == "/einkaufen":
+    if self.command[0] == "/einkaufen" and self.chatid in LEGIT_IDS:
         # noinspection PyBroadException
         try:
             einkaufen(self, msg)
@@ -26,7 +27,7 @@ def choose_command(self, msg):
             logging.error("General error in einkaufen(), #2006")
             self.sender.sendMessage("Fehler #2006")
             return
-    if self.command[0] == "/eingekauft":
+    if self.command[0] == "/eingekauft" and self.chatid in LEGIT_IDS:
         # noinspection PyBroadException
         try:
             eingekauft(self, msg)
@@ -50,7 +51,8 @@ def choose_command(self, msg):
             logging.error("General error in help_commands(), #2009")
             self.sender.sendMessage("Fehler #2009")
             return
-    if self.command[0] in ["/muell", "/glas", "/bad", "/kueche", "/saugen", "/handtuecher", "/duschvorhang"]:
+    if self.command[0] in ["/muell", "/glas", "/bad", "/kueche", "/saugen", "/handtuecher", "/duschvorhang"] and \
+            self.chatid in LEGIT_IDS:
         # noinspection PyBroadException
         try:
             chores(self)
@@ -58,7 +60,7 @@ def choose_command(self, msg):
             logging.error("General error in chores(), #2010")
             self.sender.sendMessage("Fehler #2010")
             return
-    if self.command[0] == "/loc":
+    if self.command[0] == "/loc" and self.chatid in LEGIT_IDS:
         # noinspection PyBroadException
         try:
             loc(self)
@@ -74,7 +76,7 @@ def choose_command(self, msg):
             logging.error("General error in bahn(), #2012")
             self.sender.sendMessage("Fehler #2012")
             return
-    if self.command[0] == "/reboot":
+    if self.command[0] == "/reboot" and self.chatid in LEGIT_IDS:
         # noinspection PyBroadException
         try:
             reboot(self, msg)
@@ -82,7 +84,7 @@ def choose_command(self, msg):
             logging.error("General error in reboot(), #2013")
             self.sender.sendMessage("Fehler #2013")
             return
-    if self.command[0] == "/reload":
+    if self.command[0] == "/reload" and self.chatid in LEGIT_IDS:
         # noinspection PyBroadException
         try:
             reload(self, msg)
@@ -90,7 +92,7 @@ def choose_command(self, msg):
             logging.error("General error in reload(), #2014")
             self.sender.sendMessage("Fehler #2014")
             return
-    if self.command[0] == "/git pull":
+    if self.command[0] == "/git pull" and self.chatid in LEGIT_IDS:
         # noinspection PyBroadException
         try:
             git_pull(self, msg)
@@ -98,7 +100,7 @@ def choose_command(self, msg):
             logging.error("General error in git_pull(), #2015")
             self.sender.sendMessage("Fehler #2015")
             return
-    if self.command[0] == "/geld":
+    if self.command[0] == "/geld" and self.chatid in LEGIT_IDS:
         # noinspection PyBroadException
         try:
             geld(self)
@@ -111,7 +113,7 @@ def choose_command(self, msg):
         try:
             speiseplan(self)
         except Exception:
-            logging.error("General error in mensa(), #2017")
+            logging.error("General error in speiseplan(), #2017")
             self.sender.sendMessage("Fehler #2017")
             return
 

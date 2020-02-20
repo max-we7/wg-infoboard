@@ -27,6 +27,7 @@ class MessageHandler(telepot.helper.ChatHandler):
         self.command = ""
         self.query_data = ""
         self.current_message_id = ""
+        self.chatid = ""
 
         # Finance state variables
         self.betrag_flag = False
@@ -42,37 +43,18 @@ class MessageHandler(telepot.helper.ChatHandler):
         self.teilnehmerliste = []
 
     def on_chat_message(self, msg):
-        # IMPERSONATE USER
-        # ONLY FOR TESTING PURPOSES
-        ###################################
-        # msg['from']['first_name'] = "Max"
-        # msg['chat']['first_name'] = "Max"
-        ###################################
-
-        content_type, chat_type, chat_id = telepot.glance(msg)
-        if str(chat_id) in LEGIT_IDS:
+        content_type, chat_type, cid = telepot.glance(msg)
+        self.chatid = str(cid)
+        if str(self.chatid) in LEGIT_IDS:
             if content_type == "document":
                 handle_gif(self, msg)
             if content_type == "photo":
                 handle_img(self, msg)
-            if content_type == 'text':
-                self.command = msg['text'].split(" ")
-                choose_command(self, msg)
-        else:
-            self.sender.sendMessage(f"It seems you do not have access rights to this bot.\n\nYour Telegram ID "
-                                    f"is: <b>{msg['from']['id']}</b>.\n\nUse it to ask for permission to use "
-                                    f"this bot.", parse_mode="html")
-            logging.info(f"Not in legit IDs: {msg['from']['first_name']}, {msg['from']['id']}")
-            telepot.Bot(API_KEY).sendMessage("341986116", f"Warning: Access from unknown ID: {msg['from']['id']}, "
-                                                          f"name: {msg['from']['first_name']}")
+        if content_type == 'text':
+            self.command = msg['text'].split(" ")
+            choose_command(self, msg)
 
     def on_callback_query(self, msg):
-        # IMPERSONATE USER
-        # ONLY FOR TESTING PURPOSES
-        ###################################
-        # msg['from']['first_name'] = "Max"
-        # msg['message']['chat']['first_name'] = "Max"
-        ###################################
         query_id, from_id, query_data = telepot.glance(msg, flavor='callback_query')
         print(msg)
         self.query_data = query_data
