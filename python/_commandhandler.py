@@ -12,13 +12,10 @@ def choose_command(self, msg):
     """
     if self.artikel_flag or self.preis_flag or self.teilnehmer_flag:
         neuer_einkauf(self, msg)
-        return
     if self.delete_flag:
         delete_last_record(self, msg)
-        return
     if self.empfaenger_flag or self.betrag_flag:
         make_transaction(self, msg)
-        return
     if self.command[0] == "/einkaufen" and self.chatid in LEGIT_IDS:
         # noinspection PyBroadException
         try:
@@ -26,7 +23,6 @@ def choose_command(self, msg):
         except Exception:
             logging.error("General error in einkaufen(), #2006")
             self.sender.sendMessage("Fehler #2006")
-            return
     if self.command[0] == "/eingekauft" and self.chatid in LEGIT_IDS:
         # noinspection PyBroadException
         try:
@@ -34,7 +30,6 @@ def choose_command(self, msg):
         except Exception:
             logging.error("General error in eingekauft(), #2007")
             self.sender.sendMessage("Fehler #2007")
-            return
     if self.command[0] == "/insult":
         # noinspection PyBroadException
         try:
@@ -42,7 +37,6 @@ def choose_command(self, msg):
         except Exception:
             logging.error("General error in insult(), #2008")
             self.sender.sendMessage("Fehler #2008")
-            return
     if self.command[0] == "/help":
         # noinspection PyBroadException
         try:
@@ -50,7 +44,6 @@ def choose_command(self, msg):
         except Exception:
             logging.error("General error in help_commands(), #2009")
             self.sender.sendMessage("Fehler #2009")
-            return
     if self.command[0] in ["/muell", "/glas", "/bad", "/kueche", "/saugen", "/handtuecher", "/duschvorhang"] and \
             self.chatid in LEGIT_IDS:
         # noinspection PyBroadException
@@ -59,7 +52,6 @@ def choose_command(self, msg):
         except Exception:
             logging.error("General error in chores(), #2010")
             self.sender.sendMessage("Fehler #2010")
-            return
     if self.command[0] == "/loc" and self.chatid in LEGIT_IDS:
         # noinspection PyBroadException
         try:
@@ -67,7 +59,6 @@ def choose_command(self, msg):
         except Exception:
             logging.error("General error in loc(), #2011")
             self.sender.sendMessage("Fehler #2011")
-            return
     if self.command[0] == "/bahn":
         # noinspection PyBroadException
         try:
@@ -75,7 +66,6 @@ def choose_command(self, msg):
         except Exception:
             logging.error("General error in bahn(), #2012")
             self.sender.sendMessage("Fehler #2012")
-            return
     if self.command[0] == "/reboot" and self.chatid in LEGIT_IDS:
         # noinspection PyBroadException
         try:
@@ -83,7 +73,6 @@ def choose_command(self, msg):
         except Exception:
             logging.error("General error in reboot(), #2013")
             self.sender.sendMessage("Fehler #2013")
-            return
     if self.command[0] == "/reload" and self.chatid in LEGIT_IDS:
         # noinspection PyBroadException
         try:
@@ -91,7 +80,6 @@ def choose_command(self, msg):
         except Exception:
             logging.error("General error in reload(), #2014")
             self.sender.sendMessage("Fehler #2014")
-            return
     if self.command[0] == "/git pull" and self.chatid in LEGIT_IDS:
         # noinspection PyBroadException
         try:
@@ -99,7 +87,6 @@ def choose_command(self, msg):
         except Exception:
             logging.error("General error in git_pull(), #2015")
             self.sender.sendMessage("Fehler #2015")
-            return
     if self.command[0] == "/geld" and self.chatid in LEGIT_IDS:
         # noinspection PyBroadException
         try:
@@ -107,7 +94,6 @@ def choose_command(self, msg):
         except Exception:
             logging.error("General error in geld(), #2016")
             self.sender.sendMessage("Fehler #2016")
-            return
     if self.command[0] == "/mensa":
         # noinspection PyBroadException
         try:
@@ -115,7 +101,6 @@ def choose_command(self, msg):
         except Exception:
             logging.error("General error in speiseplan(), #2017")
             self.sender.sendMessage("Fehler #2017")
-            return
 
 
 def choose_callback_command(self, msg):
