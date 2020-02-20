@@ -87,7 +87,7 @@ def choose_command(self, msg):
     if self.command[0] == "/reload" and self.chatid in LEGIT_IDS:
         # noinspection PyBroadException
         try:
-            reload(self, msg)
+            reload(self)
         except Exception:
             logging.error("General error in reload(), #2014")
             self.sender.sendMessage("Fehler #2014")

@@ -3,7 +3,7 @@ import json
 from insults import insults
 import platform
 import subprocess
-from config import ADMIN_IDS
+from config import ADMIN_IDS, LEGIT_IDS
 import logging
 
 
@@ -147,22 +147,35 @@ def help_commands(self):
     """
     show user available commands
     """
-    self.sender.sendMessage(f"Verfügbare Befehle:\n\n"
-                            f"<b>/einkaufen</b> - Einkaufsliste einsehen und Artikel hinzufügen\n\n"
-                            f"<b>/einkaufen [Artikel]</b> - setze Artikel auf die Einkaufsliste\n\n"
-                            f"<b>/eingekauft [Artikel]</b> - lösche Artikel von der Einkaufsliste\n\n"
-                            f"<b>/eingekauft all</b> - lösche alle Artikel von der Einkaufsliste\n\n"
-                            f"<b>/geld</b> - Finanzeintrag erstellen, Kontostände abrufen, Überweisung tätigen\n\n"
-                            f"<b>/bahn</b> - zeige aktuelle Zugverbindungen\n\n"
-                            f"<b>/[Aufgabe]</b> - zeige, wer gerade mit einer Aufgabe dran ist, + Fälligkeit\n\n"
-                            f"<b>/[Aufgabe] erledigt</b> - eine Aufgabe abhaken\n\n"
-                            f"<b>/[Aufgabe] intervall</b> - Intervall einer Aufgabe anzeigen\n\n"
-                            f"<b>/[Aufgabe] vergangen</b> - Vergangene Tage einer Aufgabe anzeigen\n\n"
-                            f"<b>/[Aufgabe] intervall [Tage]</b> - Intervall einer Aufgabe setzen\n\n"
-                            f"<b>/[Aufgabe] vergangen [Tage]</b> - Vergangene Tage einer Aufgabe setzen\n\n"
-                            f"<b>/loc</b> - Anzahl Codezeilen des WG Infoboard Projekts anzeigen\n\n"
-                            f"<b>/insult [Person]</b> - Beleidige Person mit zufälliger Beleidigung ;)\n\n"
-                            , parse_mode="html")
+    if self.chatid in LEGIT_IDS:
+        self.sender.sendMessage(f"Verfügbare Befehle:\n\n"
+                                f"<b>/help</b> - zeige diesen Dialog\n\n"
+                                f"<b>/einkaufen</b> - Einkaufsliste einsehen und Artikel hinzufügen\n\n"
+                                f"<b>/einkaufen [Artikel]</b> - setze Artikel auf die Einkaufsliste\n\n"
+                                f"<b>/eingekauft [Artikel]</b> - lösche Artikel von der Einkaufsliste\n\n"
+                                f"<b>/eingekauft all</b> - lösche alle Artikel von der Einkaufsliste\n\n"
+                                f"<b>/geld</b> - Finanzeintrag erstellen, Kontostände abrufen, Überweisung tätigen\n\n"
+                                f"<b>/bahn</b> - zeige aktuelle Zugverbindungen\n\n"
+                                f"<b>/mensa</b> - zeige heutigen Speiseplan, TU Stadtmitte\n\n"
+                                f"<b>/mensa liwi</b> - zeige heutigen Speiseplan, TU Lichtwiese\n\n"
+                                f"<b>/[Aufgabe]</b> - zeige, wer gerade mit einer Aufgabe dran ist, + Fälligkeit\n\n"
+                                f"<b>/[Aufgabe] erledigt</b> - eine Aufgabe abhaken\n\n"
+                                f"<b>/[Aufgabe] intervall</b> - Intervall einer Aufgabe anzeigen\n\n"
+                                f"<b>/[Aufgabe] vergangen</b> - Vergangene Tage einer Aufgabe anzeigen\n\n"
+                                f"<b>/[Aufgabe] intervall [Tage]</b> - Intervall einer Aufgabe setzen\n\n"
+                                f"<b>/[Aufgabe] vergangen [Tage]</b> - Vergangene Tage einer Aufgabe setzen\n\n"
+                                f"<b>/loc</b> - Anzahl Codezeilen des WG Infoboard Projekts anzeigen\n\n"
+                                f"<b>/insult [Person]</b> - Beleidige Person mit zufälliger Beleidigung ;)\n\n"
+                                f"<b>/reload</b> - WG-Infoboard neu laden\n\n"
+                                f"<b>/reboot</b> - WG-Infoboard-Server neustarten\n\n"
+                                , parse_mode="html")
+    else:
+        self.sender.sendMessage(f"Öffentlich verfügbare Befehle:\n\n"
+                                f"<b>/help</b> - zeige diesen Dialog\n\n"
+                                f"<b>/bahn</b> - zeige aktuelle Zugverbindungen (Beta)\n\n"
+                                f"<b>/mensa</b> - zeige heutigen Speiseplan, TU Stadtmitte\n\n"
+                                f"<b>/mensa liwi</b> - zeige heutigen Speiseplan, TU Lichtwiese\n\n"
+                                , parse_mode="html")
 
 
 def loc(self):
@@ -211,15 +224,12 @@ def reboot(self, msg):
         self.sender.sendMessage("You do not have permission to use this command.")
 
 
-def reload(self, msg):
+def reload(self):
     """
     reload kiosk.sh service remotely via Telegram
     """
-    if str(msg['from']['id']) in ADMIN_IDS:
-        if platform.system() == "Linux":
-            self.sender.sendMessage("Reloading service kiosk.sh...")
-            subprocess.run(["sudo", "service", "kiosk.sh", "restart"])
-        else:
-            self.sender.sendMessage("Platform does not seem to be Linux.")
+    if platform.system() == "Linux":
+        self.sender.sendMessage("Reloading service kiosk.sh...")
+        subprocess.run(["sudo", "service", "kiosk.sh", "restart"])
     else:
-        self.sender.sendMessage("You do not have permission to use this command.")
+        self.sender.sendMessage("Platform does not seem to be Linux.")
