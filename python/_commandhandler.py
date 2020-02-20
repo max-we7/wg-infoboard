@@ -99,8 +99,18 @@ def choose_command(self, msg):
         try:
             speiseplan(self)
         except Exception:
-            logging.error("General error in speiseplan(), #2017")
-            self.sender.sendMessage("Fehler #2017")
+            i = 0
+            if i < 5:
+                # noinspection PyBroadException
+                try:
+                    speiseplan(self)
+                    i += 1
+                except Exception:
+                    pass
+            else:
+                self.sender.sendMessage("Fehler #2017")
+                logging.error("General error in speiseplan(), #2017")
+                raise
 
 
 def choose_callback_command(self, msg):

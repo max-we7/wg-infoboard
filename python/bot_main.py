@@ -9,7 +9,7 @@ from telepot.delegate import create_open, pave_event_space, include_callback_que
 from _putzplan import update_putzplan
 from insults import insults
 from zaw_query import update_muell
-from rmv_query import update_bahn
+from rmv import update_bahn
 from read_rss import update_news
 from config import API_KEY, LEGIT_IDS, GROUP_ID
 from media_handler import handle_img, handle_gif
@@ -98,5 +98,6 @@ try:
         time.sleep(10)
         schedule.run_pending()
 except Exception:
-    logging.critical("Program Crash in main, #0001")
     telepot.Bot(API_KEY).sendMessage("341986116", "Error: program failure, #0001")
+    logging.critical("Program Crash in main, #0001")
+    raise
