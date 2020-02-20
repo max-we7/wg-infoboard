@@ -37,7 +37,7 @@ def choose_command(self, msg):
         except Exception:
             logging.error("General error in insult(), #2008")
             self.sender.sendMessage("Fehler #2008")
-    if self.command[0] == "/help":
+    if self.command[0] == "/help" or self.command[0] == "/start":
         # noinspection PyBroadException
         try:
             help_commands(self)
