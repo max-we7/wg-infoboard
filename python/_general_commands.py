@@ -97,8 +97,11 @@ def bahn(self):
         print("Error - File Not Found")
     message = "DA --> Wiesbaden:\n"
     for entry in regio_times:
-        lines_raw = [line for line in entry['line']] if len(entry['line']) == 2 else entry['line']
-        lines = ", ".join(lines_raw)
+        if type(entry['line']) == type(str()):
+            lines = entry['line']
+        else:
+            lines_raw = [line for line in entry['line'] if line != ""]
+            lines = ", ".join(lines_raw)
         message += f"{entry['ab']}  {entry['an']}  {lines}\n"
     self.sender.sendMessage(message)
 
