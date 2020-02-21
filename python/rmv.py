@@ -71,6 +71,7 @@ def extract_from_request(request):
         # delay = (delay.seconds//60) % 60
 
         line = [schedule_raw['Trip'][i]['LegList']['Leg'][leg]['name'].strip() for leg in range(number_of_legs)]
+        line = [line for line in line if line != ""]
         # line = line[0] if len(line) == 1 else line
 
         schedule['trips'].append({
@@ -94,5 +95,6 @@ def dump_schedule(file_url, schedule):
 def update_bahn():
     nahverkehr = extract_from_request(make_request(hkp, schloss, 10))
     dump_schedule("../data/timetable.json", nahverkehr)
+    print("hi")
     regio = extract_from_request(make_request(da_hbf, wb_hbf, 25))
     dump_schedule("../data/timetable_regio.json", regio)
