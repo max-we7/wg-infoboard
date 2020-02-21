@@ -71,7 +71,7 @@ def extract_from_request(request):
         # delay = (delay.seconds//60) % 60
 
         line = [schedule_raw['Trip'][i]['LegList']['Leg'][leg]['name'].strip() for leg in range(number_of_legs)]
-        line = line[0] if len(line) == 1 else line
+        # line = line[0] if len(line) == 1 else line
 
         schedule['trips'].append({
             "id": i,
