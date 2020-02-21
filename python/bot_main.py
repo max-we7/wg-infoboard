@@ -1,3 +1,5 @@
+import platform
+import subprocess
 import time
 import telepot
 import schedule
@@ -77,6 +79,11 @@ def dinner_poll():
     telepot.Bot(API_KEY).sendMessage(GROUP_ID, f"Hallo ihr {random_insult}! Wer ist heute beim Abendessen am Start?")
 
 
+def reload_service():
+    if platform.system() == "Linux":
+        subprocess.run(["sudo", "service", "kiosk.sh", "restart"])
+
+
 # noinspection PyBroadException
 try:
     MessageLoop(bot).run_as_thread()
@@ -90,6 +97,7 @@ try:
         schedule.every().tuesday.at("14:00").do(dinner_poll)
         schedule.every(4).minutes.do(update_bahn)
         schedule.every(10).minutes.do(update_news)
+        schedule.every(50).minutes.do(reload_service)
     except Exception:
         logging.error("Error running scheduled tasks in main, #0002")
         telepot.Bot(API_KEY).sendMessage("341986116", "Error running scheduled tasks, #0002")
