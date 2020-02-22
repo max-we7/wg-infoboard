@@ -74,10 +74,9 @@ def extract_from_request(request):
                               int(planned_an_time[:2]), int(planned_an_time[3:]), 0)
         duration = str(planned_an - planned_ab)[:4]
 
-        line = [schedule_raw['Trip'][i]['LegList']['Leg'][leg]['name'].strip() for leg in range(number_of_legs)]
-        line = [[line for line in line if line != ""]]
-        if len(line) == 1:
-            line = f"{line[0]}"
+        line_formatted = []
+        line = [line_formatted.append(schedule_raw['Trip'][i]['LegList']['Leg'][leg]['name'].strip()) for leg in range(number_of_legs)]
+        # line = [line for line in line if line != ""]
 
         schedule['trips'].append({
             "id": i,
