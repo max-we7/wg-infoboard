@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-__author__ = "Maximilian Werner"
-
 from datetime import timedelta, datetime
 from config import RMV_API_KEY
 import requests
@@ -44,6 +41,7 @@ def make_request(origin_id, destination_id, delta_mins=0):
     delay = "&time=" + str(delay)[11:16]
 
     url = base_url + api_key + origin_id + dest + delay + response_format
+
     return requests.get(url)
 
 
@@ -53,34 +51,41 @@ def extract_from_request(request):
     for i in range(3):
         number_of_legs = len(schedule_raw['Trip'][i]['LegList']['Leg'])
 
-        planned_ab = schedule_raw['Trip'][i]['LegList']['Leg'][0]['Origin']['time'][:-3]
-        planned_ab_time = datetime(2020, 10, 10, int(planned_ab[:2]), int(planned_ab[3:]), 0)
+        planned_ab_time = schedule_raw['Trip'][i]['LegList']['Leg'][0]['Origin']['time'][:-3]
+        planned_ab_date = schedule_raw['Trip'][i]['LegList']['Leg'][0]['Origin']['date']
+        planned_ab = datetime(int(planned_ab_date[:4]), int(planned_ab_date[5:7]), int(planned_ab_date[8:10]),
+                              int(planned_ab_time[:2]), int(planned_ab_time[3:]), 0)
 
-        # actual_ab = schedule_raw['Trip'][i]['LegList']['Leg'][0]['Origin']['rtTime'][:-3]
-        # actual_ab_time = datetime(2020, 10, 10, int(actual_ab[:2]), int(actual_ab[3:]), 0)
+        # include day in date! otherwise overflow @midnight
+        try:
+            actual_ab_time = schedule_raw['Trip'][i]['LegList']['Leg'][0]['Origin']['rtTime'][:-3]
+            actual_ab = datetime(2020, 10, 10, int(actual_ab_time[:2]), int(actual_ab_time[3:]), 0)
+            delay = actual_ab - planned_ab
+            delay = (delay.seconds//60) % 60
+        except KeyError:
+            delay = 0
 
-        tz = planned_ab_time + timedelta(minutes=10)
+        tz = planned_ab + timedelta(minutes=10)
         tz = f"{tz.hour if len(str(tz.hour)) == 2 else '0' + str(tz.hour)}:{tz.minute if len(str(tz.minute)) == 2 else '0' + str(tz.minute)}"
 
-        planned_an = schedule_raw['Trip'][i]['LegList']['Leg'][number_of_legs - 1]['Destination']['time'][:-3]
-        planned_an_time = datetime(2020, 10, 10, int(planned_an[:2]), int(planned_an[3:]), 0)
-
-        duration = str(planned_an_time - planned_ab_time)[:4]
-
-        # delay = actual_ab_time - planned_ab_time
-        # delay = (delay.seconds//60) % 60
+        planned_an_time = schedule_raw['Trip'][i]['LegList']['Leg'][number_of_legs - 1]['Destination']['time'][:-3]
+        planned_an_date = schedule_raw['Trip'][i]['LegList']['Leg'][number_of_legs - 1]['Destination']['date']
+        planned_an = datetime(int(planned_an_date[:4]), int(planned_an_date[5:7]), int(planned_an_date[8:10]),
+                              int(planned_an_time[:2]), int(planned_an_time[3:]), 0)
+        duration = str(planned_an - planned_ab)[:4]
 
         line = [schedule_raw['Trip'][i]['LegList']['Leg'][leg]['name'].strip() for leg in range(number_of_legs)]
         line = [line for line in line if line != ""]
-        # line = line[0] if len(line) == 1 else line
+        if len(line) == 1:
+            line = f"{line[0]}"
 
         schedule['trips'].append({
             "id": i,
-            "ab": planned_ab,
+            "ab": planned_ab_time,
             "tz": tz,
-            "an": planned_an,
+            "an": planned_an_time,
             "duration": duration,
-            # "delay": delay,
+            "delay": delay,
             "line": line
         })
 
@@ -95,6 +100,5 @@ def dump_schedule(file_url, schedule):
 def update_bahn():
     nahverkehr = extract_from_request(make_request(hkp, schloss, 10))
     dump_schedule("../data/timetable.json", nahverkehr)
-    print("hi")
     regio = extract_from_request(make_request(da_hbf, wb_hbf, 25))
     dump_schedule("../data/timetable_regio.json", regio)
