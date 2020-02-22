@@ -75,7 +75,7 @@ def extract_from_request(request):
         duration = str(planned_an - planned_ab)[:4]
 
         line = [schedule_raw['Trip'][i]['LegList']['Leg'][leg]['name'].strip() for leg in range(number_of_legs)]
-        line = [line for line in line if line != ""]
+        line = [[line for line in line if line != ""]]
         if len(line) == 1:
             line = f"{line[0]}"
 
