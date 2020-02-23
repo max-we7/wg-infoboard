@@ -158,7 +158,7 @@ def help_commands(self):
                                 f"<b>/eingekauft [Artikel]</b> - lösche Artikel von der Einkaufsliste\n\n"
                                 f"<b>/eingekauft all</b> - lösche alle Artikel von der Einkaufsliste\n\n"
                                 f"<b>/geld</b> - Finanzeintrag erstellen, Kontostände abrufen, Überweisung tätigen\n\n"
-                                f"<b>/bahn</b> - zeige aktuelle Zugverbindungen\n\n"
+                                f"<b>/bahn</b> - suche nach aktuellen Zugverbindungen im RMV-Gebiet (Beta)\n\n"
                                 f"<b>/mensa</b> - zeige heutigen Speiseplan, TU Stadtmitte\n\n"
                                 f"<b>/mensa liwi</b> - zeige heutigen Speiseplan, TU Lichtwiese\n\n"
                                 f"<b>/[Aufgabe]</b> - zeige, wer gerade mit einer Aufgabe dran ist, + Fälligkeit\n\n"
@@ -175,7 +175,7 @@ def help_commands(self):
     else:
         self.sender.sendMessage(f"Öffentlich verfügbare Befehle:\n\n"
                                 f"<b>/help</b> - zeige diesen Dialog\n\n"
-                                f"<b>/bahn</b> - zeige aktuelle Zugverbindungen (Beta)\n\n"
+                                f"<b>/bahn</b> - suche nach aktuellen Zugverbindungen im RMV-Gebiet (Beta)\n\n"
                                 f"<b>/mensa</b> - zeige heutigen Speiseplan, TU Stadtmitte\n\n"
                                 f"<b>/mensa liwi</b> - zeige heutigen Speiseplan, TU Lichtwiese\n\n"
                                 , parse_mode="html")

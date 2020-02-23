@@ -77,7 +77,6 @@ class MessageHandler(telepot.helper.ChatHandler):
 
     def on_callback_query(self, msg):
         query_id, from_id, query_data = telepot.glance(msg, flavor='callback_query')
-        print(msg)
         self.query_data = query_data
         choose_callback_command(self, msg)
 
@@ -88,6 +87,7 @@ class MessageHandler(telepot.helper.ChatHandler):
                 self.cookies = json.load(f)
                 self.cookies['info']['last_seen'] = str(datetime.now())
         except FileNotFoundError:
+            self.sender.sendMessage(f"Hallo {msg['from']['first_name']}!\n\n>> /help <<")
             self.cookies = {
                 "info": {
                     "first_name": msg['from']['first_name'],
