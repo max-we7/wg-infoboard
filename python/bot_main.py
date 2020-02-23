@@ -6,12 +6,14 @@ import schedule
 import logging
 import random
 import telepot.helper
+from datetime import datetime
 from telepot.loop import MessageLoop
 from telepot.delegate import create_open, pave_event_space, include_callback_query_chat_id, per_chat_id
 from _putzplan import update_putzplan
 from insults import insults
 from zaw_query import update_muell
 from rmv import update_bahn
+import json
 from read_rss import update_news
 from config import API_KEY, LEGIT_IDS, GROUP_ID
 from media_handler import handle_img, handle_gif
@@ -30,6 +32,7 @@ class MessageHandler(telepot.helper.ChatHandler):
         self.query_data = ""
         self.current_message_id = ""
         self.chatid = ""
+        self.cookies = {}
 
         # Finance state variables
         self.betrag_flag = False
@@ -44,9 +47,24 @@ class MessageHandler(telepot.helper.ChatHandler):
         self.empfaenger = ""
         self.teilnehmerliste = []
 
+        # Bahn state variables
+        self.bahn_start = False
+        self.bahn_search = False
+        self.bahn_search2 = False
+        self.bahn_search3 = False
+        self.bahn_destination_flag = False
+        self.search_dest_flag = False
+        self.fav_flag1 = False
+        self.fav_flag2 = False
+        self.fav_flag3 = False
+        self.origin = ""
+        self.destination = ""
+        self.fav_to_be_modified = ""
+
     def on_chat_message(self, msg):
         content_type, chat_type, cid = telepot.glance(msg)
         self.chatid = str(cid)
+        self.load_cookies(msg)
         if str(self.chatid) in LEGIT_IDS:
             if content_type == "document":
                 handle_gif(self, msg)
@@ -55,12 +73,43 @@ class MessageHandler(telepot.helper.ChatHandler):
         if content_type == 'text':
             self.command = msg['text'].split(" ")
             choose_command(self, msg)
+        self.dump_cookies()
 
     def on_callback_query(self, msg):
         query_id, from_id, query_data = telepot.glance(msg, flavor='callback_query')
         print(msg)
         self.query_data = query_data
         choose_callback_command(self, msg)
+
+    def load_cookies(self, msg):
+        fileurl = f"../data/cookies/{self.chatid}.json"
+        try:
+            with open(fileurl, "r", encoding='utf-8') as f:
+                self.cookies = json.load(f)
+                self.cookies['info']['last_seen'] = str(datetime.now())
+        except FileNotFoundError:
+            self.cookies = {
+                "info": {
+                    "first_name": msg['from']['first_name'],
+                    "username": msg['from']['username'],
+                    "last_seen": str(datetime.now()),
+                    "language_code": msg['from']['language_code']
+                },
+                "bahn": {
+                    "fav1": {},
+                    "fav2": {},
+                    "fav3": {}
+                }
+            }
+
+    def dump_cookies(self):
+        fileurl = f"../data/cookies/{self.chatid}.json"
+        try:
+            with open(fileurl, "w") as f:
+                json.dump(self.cookies, f, indent=4)
+        except FileNotFoundError:
+            logging.error("Error dumping Cookie!, #0003")
+            self.sender.sendMessage("Fehler #0003")
 
 
 bot = telepot.DelegatorBot(API_KEY, [
@@ -100,12 +149,12 @@ try:
         schedule.every(50).minutes.do(reload_service)
     except Exception:
         logging.error("Error running scheduled tasks in main, #0002")
-        telepot.Bot(API_KEY).sendMessage("341986116", "Error running scheduled tasks, #0002")
+        telepot.Bot(API_KEY).sendMessage("341986116.json", "Error running scheduled tasks, #0002")
 
     while 1:
         time.sleep(10)
         schedule.run_pending()
 except Exception:
-    telepot.Bot(API_KEY).sendMessage("341986116", "Error: program failure, #0001")
+    telepot.Bot(API_KEY).sendMessage("341986116.json", "Error: program failure, #0001")
     logging.critical("Program Crash in main, #0001")
     raise

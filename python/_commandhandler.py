@@ -1,7 +1,8 @@
 from _putzplan import chores
-from _general_commands import insult, einkaufen, eingekauft, bahn, help_commands, reload, reboot, git_pull, loc
+from _general_commands import insult, einkaufen, eingekauft, help_commands, reload, reboot, git_pull, loc
 from _finances import geld, show_balance, make_transaction, neuer_einkauf, show_history, delete_last_record
 import logging
+from rmv import bahn, search_station, favoriten_bearbeiten
 from speiseplan import speiseplan
 from config import LEGIT_IDS
 
@@ -12,10 +13,20 @@ def choose_command(self, msg):
     """
     if self.artikel_flag or self.preis_flag or self.teilnehmer_flag:
         neuer_einkauf(self, msg)
+        return
     if self.delete_flag:
         delete_last_record(self, msg)
+        return
     if self.empfaenger_flag or self.betrag_flag:
         make_transaction(self, msg)
+        return
+    if self.bahn_start or self.bahn_destination_flag:
+        bahn(self)
+        return
+    if self.bahn_search or self.bahn_search2 or self.bahn_search3:
+        search_station(self)
+    if self.fav_flag1 or self.fav_flag2 or self.fav_flag3:
+        favoriten_bearbeiten(self)
     if self.command[0] == "/einkaufen" and self.chatid in LEGIT_IDS:
         # noinspection PyBroadException
         try:
@@ -61,11 +72,11 @@ def choose_command(self, msg):
             self.sender.sendMessage("Fehler #2011")
     if self.command[0] == "/bahn":
         # noinspection PyBroadException
-        try:
-            bahn(self)
-        except Exception:
-            logging.error("General error in bahn(), #2012")
-            self.sender.sendMessage("Fehler #2012")
+        # try:
+        bahn(self)
+        # except Exception:
+        #     logging.error("General error in bahn(), #2012")
+        #     self.sender.sendMessage("Fehler #2012")
     if self.command[0] == "/reboot" and self.chatid in LEGIT_IDS:
         # noinspection PyBroadException
         try:
@@ -99,18 +110,8 @@ def choose_command(self, msg):
         try:
             speiseplan(self)
         except Exception:
-            i = 0
-            if i < 5:
-                # noinspection PyBroadException
-                try:
-                    speiseplan(self)
-                    i += 1
-                except Exception:
-                    pass
-            else:
-                self.sender.sendMessage("Fehler #2017")
-                logging.error("General error in speiseplan(), #2017")
-                raise
+            self.sender.sendMessage("Fehler #2017, bitte erneut versuchen!")
+            logging.exception("General error in speiseplan(), #2017")
 
 
 def choose_callback_command(self, msg):

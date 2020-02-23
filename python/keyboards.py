@@ -46,3 +46,90 @@ kb_wg_bewohner = ReplyKeyboardMarkup(keyboard=[
         KeyboardButton(text="Noah"), KeyboardButton(text="Seb")
     ]
 ])
+
+
+def create_bahn_start_keyboard(self):
+    try:
+        fav1 = list(self.cookies['bahn']['fav1'].keys())[0]
+    except (KeyError, IndexError):
+        fav1 = "Favorit 1"
+    try:
+        fav2 = list(self.cookies['bahn']['fav2'].keys())[0]
+    except (KeyError, IndexError):
+        fav2 = "Favorit 2"
+    try:
+        fav3 = list(self.cookies['bahn']['fav3'].keys())[0]
+    except (KeyError, IndexError):
+        fav3 = "Favorit 3"
+    keyboard = ReplyKeyboardMarkup(keyboard=[
+        [
+            KeyboardButton(text=fav1)
+        ],
+        [
+            KeyboardButton(text=fav2)
+        ],
+        [
+            KeyboardButton(text=fav3)
+        ],
+        [
+            KeyboardButton(text="Suche"), KeyboardButton(text="Favoriten bearbeiten")
+        ]
+    ])
+    return keyboard
+
+
+def create_bahn_destination_keyboard(self):
+    try:
+        fav1 = list(self.cookies['bahn']['fav1'].keys())[0]
+    except (KeyError, IndexError):
+        fav1 = "Favorit 1"
+    try:
+        fav2 = list(self.cookies['bahn']['fav2'].keys())[0]
+    except (KeyError, IndexError):
+        fav2 = "Favorit 2"
+    try:
+        fav3 = list(self.cookies['bahn']['fav3'].keys())[0]
+    except (KeyError, IndexError):
+        fav3 = "Favorit 3"
+    keyboard = ReplyKeyboardMarkup(keyboard=[
+        [
+            KeyboardButton(text=fav1)
+        ],
+        [
+            KeyboardButton(text=fav2)
+        ],
+        [
+            KeyboardButton(text=fav3)
+        ],
+        [
+            KeyboardButton(text="Suche")
+        ]
+    ])
+    return keyboard
+
+
+def create_bahn_searchresult_keyboard(self, search_results):
+    kbs = []
+    for x in search_results.keys():
+        kbs = kbs + [KeyboardButton(text=x)]
+
+    keyboard = ReplyKeyboardMarkup(keyboard=[
+        [x] for x in kbs
+    ])
+    return keyboard
+
+
+kb_favoriten_bearbeiten = ReplyKeyboardMarkup(keyboard=[
+        [
+            KeyboardButton(text="Favorit 1")
+        ],
+        [
+            KeyboardButton(text="Favorit 2")
+        ],
+        [
+            KeyboardButton(text="Favorit 3")
+        ],
+        [
+            KeyboardButton(text="Abbrechen")
+        ]
+    ])
