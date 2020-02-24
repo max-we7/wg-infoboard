@@ -64,7 +64,7 @@ class MessageHandler(telepot.helper.ChatHandler):
     def on_chat_message(self, msg):
         content_type, chat_type, cid = telepot.glance(msg)
         self.chatid = str(cid)
-        self.load_cookies(msg)
+        if chat_type == "private": self.load_cookies(msg)
         if str(self.chatid) in LEGIT_IDS:
             if content_type == "document":
                 handle_gif(self, msg)
@@ -73,7 +73,7 @@ class MessageHandler(telepot.helper.ChatHandler):
         if content_type == 'text':
             self.command = msg['text'].split(" ")
             choose_command(self, msg)
-        self.dump_cookies()
+        if chat_type == "private": self.dump_cookies()
 
     def on_callback_query(self, msg):
         query_id, from_id, query_data = telepot.glance(msg, flavor='callback_query')
