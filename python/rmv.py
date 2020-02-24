@@ -141,7 +141,7 @@ def make_api_request(origin_id, destination_id, delta_mins=0):
 def extract_from_api_request(request):
     schedule_raw = request.json()
     schedule = {"trips": []}
-    for i in range(3):
+    for i in range(5):
         number_of_legs = len(schedule_raw['Trip'][i]['LegList']['Leg'])
 
         planned_ab_time = schedule_raw['Trip'][i]['LegList']['Leg'][0]['Origin']['time'][:-3]

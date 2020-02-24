@@ -70,7 +70,9 @@ def wer_ist_dran(self, putzplan, chore):
         elif days == 1: faellig = "morgen"
         elif days == -1: faellig = "gestern"
         elif days > 1: faellig = f"in {days} Tagen"
-        else: faellig = f"seit {days} Tagen"
+        else:
+            days = days * -1
+            faellig = f"seit {days} Tagen"
     self.sender.sendMessage(f"<b>{putzplan[chore]['dran']}</b> ist aktuell mit {putzplan[chore]['bezeichnung']} "
                             f"dran. Fällig: {faellig}", parse_mode="html")
 
