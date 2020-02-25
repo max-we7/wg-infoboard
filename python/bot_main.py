@@ -4,13 +4,11 @@ import time
 import telepot
 import schedule
 import logging
-import random
 import telepot.helper
 from datetime import datetime
 from telepot.loop import MessageLoop
 from telepot.delegate import create_open, pave_event_space, include_callback_query_chat_id, per_chat_id
 from _putzplan import update_putzplan
-from insults import insults
 from zaw_query import update_muell
 from rmv import update_bahn
 import json
@@ -119,15 +117,6 @@ bot = telepot.DelegatorBot(API_KEY, [
 ])
 
 
-def dinner_poll():
-    insults_plural = []
-    for insulty in insults:
-        if str(insulty).endswith("er") or str(insulty).endswith("en"):
-            insults_plural.append(insulty)
-    random_insult = random.choice(insults_plural)
-    telepot.Bot(API_KEY).sendMessage(GROUP_ID, f"Hallo ihr {random_insult}! Wer ist heute beim Abendessen am Start?")
-
-
 def reload_service():
     if platform.system() == "Linux":
         subprocess.run(["sudo", "service", "kiosk.sh", "restart"])
@@ -142,8 +131,6 @@ try:
     try:
         schedule.every().day.at("00:02").do(update_putzplan)
         schedule.every().day.at("00:02").do(update_muell)
-        schedule.every().monday.at("14:00").do(dinner_poll)
-        schedule.every().tuesday.at("14:00").do(dinner_poll)
         schedule.every(4).minutes.do(update_bahn)
         schedule.every(10).minutes.do(update_news)
         schedule.every(50).minutes.do(reload_service)
