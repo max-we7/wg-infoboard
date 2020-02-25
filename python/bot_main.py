@@ -156,5 +156,4 @@ try:
         schedule.run_pending()
 except Exception:
     telepot.Bot(API_KEY).sendMessage("341986116.json", "Error: program failure, #0001")
-    logging.critical("Program Crash in main, #0001")
-    raise
+    logging.exception("Program Crash in main, #0001")

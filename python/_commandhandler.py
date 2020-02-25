@@ -123,7 +123,7 @@ def choose_callback_command(self, msg):
         try:
             show_balance(self)
         except Exception:
-            logging.error("General error in show_balance(), #2001")
+            logging.exception("General error in show_balance(), #2001")
             self.sender.sendMessage("Fehler #2001")
             return
     if self.query_data == "transaction":
@@ -131,7 +131,7 @@ def choose_callback_command(self, msg):
         try:
             make_transaction(self, msg)
         except Exception:
-            logging.error("General error in make_transaction(), #2002")
+            logging.exception("General error in make_transaction(), #2002")
             self.sender.sendMessage("Fehler #2002")
             return
     if self.query_data == "billing":
@@ -139,7 +139,7 @@ def choose_callback_command(self, msg):
         try:
             neuer_einkauf(self, msg)
         except Exception:
-            logging.error("General error in neuer_einkauf(), #2003")
+            logging.exception("General error in neuer_einkauf(), #2003")
             self.sender.sendMessage("Fehler #2003")
             return
     if self.query_data == "history":
@@ -147,7 +147,7 @@ def choose_callback_command(self, msg):
         try:
             show_history(self)
         except Exception:
-            logging.error("General error in show_history(), #2004")
+            logging.exception("General error in show_history(), #2004")
             self.sender.sendMessage("Fehler #2004")
             return
     if self.query_data == "delete":
@@ -155,6 +155,6 @@ def choose_callback_command(self, msg):
         try:
             delete_last_record(self, msg)
         except Exception:
-            logging.error("General error in delete_last_record(), #2005")
+            logging.exception("General error in delete_last_record(), #2005")
             self.sender.sendMessage("Fehler #2005")
             return
