@@ -17,8 +17,6 @@ def dump_to_json(data):
 
 def update_news():
     # Topics: WORLD NATION BUSINESS TECHNOLOGY ENTERTAINMENT SPORTS SCIENCE HEALTH
-    # https://news.google.com/rss/topics/{id}?hl={lang}
-    # NewsFeed = feedparser.parse("https://news.google.com/news/rss?hl=de&gl=DE&ceid=DE%3Asv")
     feed1 = feedparser.parse("https://news.google.com/news/rss/headlines/section/topic/WORLD?hl=de&gl=DE&ceid=DE%3Asv").entries
     feed2 = feedparser.parse("https://news.google.com/news/rss/headlines/section/topic/NATION?hl=de&gl=DE&ceid=DE%3Asv").entries
     feed3 = feedparser.parse("https://news.google.com/news/rss/headlines/section/topic/BUSINESS?hl=de&gl=DE&ceid=DE%3Asv").entries
