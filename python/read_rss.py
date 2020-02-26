@@ -31,9 +31,6 @@ def update_news():
         for i in range(len(feed)):
             if not str(feed[i].title).__contains__("BILD"):
                 titles.append(feed[i].title)
-            else:
-                titles.append("An dieser Stelle wurde ein BILD-Artikel zensiert ;-)")
-
     shuffle(titles)
 
     dump_to_json(titles)

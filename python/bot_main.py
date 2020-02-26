@@ -13,7 +13,7 @@ from zaw_query import update_muell
 from rmv import update_bahn
 import json
 from read_rss import update_news
-from config import API_KEY, LEGIT_IDS, GROUP_ID
+from config import API_KEY, LEGIT_IDS, GROUP_ID, ADMIN_IDS
 from media_handler import handle_img, handle_gif
 from _commandhandler import choose_command, choose_callback_command
 
@@ -63,7 +63,7 @@ class MessageHandler(telepot.helper.ChatHandler):
         content_type, chat_type, cid = telepot.glance(msg)
         self.chatid = str(cid)
         if chat_type == "private": self.load_cookies(msg)
-        if str(self.chatid) in LEGIT_IDS:
+        if self.chatid in LEGIT_IDS:
             if content_type == "document":
                 handle_gif(self, msg)
             if content_type == "photo":
@@ -136,11 +136,11 @@ try:
         schedule.every(50).minutes.do(reload_service)
     except Exception:
         logging.error("Error running scheduled tasks in main, #0002")
-        telepot.Bot(API_KEY).sendMessage("341986116.json", "Error running scheduled tasks, #0002")
+        telepot.Bot(API_KEY).sendMessage(ADMIN_IDS[0], "Error running scheduled tasks, #0002")
 
     while 1:
         time.sleep(10)
         schedule.run_pending()
 except Exception:
-    telepot.Bot(API_KEY).sendMessage("341986116.json", "Error: program failure, #0001")
+    telepot.Bot(API_KEY).sendMessage(ADMIN_IDS[0], "Error: program failure, #0001")
     logging.exception("Program Crash in main, #0001")

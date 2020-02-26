@@ -27,6 +27,7 @@ def get_food(self, mensa_id, date="today"):
         meals = defaultdict(list)
 
         for meal in meal_plan_raw:
+            print(meal)
             if float(meal['prices']['students'] > 1):
                 category = meal['category']
                 meals[category].append(f"{meal['name']}\n<b>Preis: {meal['prices']['students']}0€</b>\n")
