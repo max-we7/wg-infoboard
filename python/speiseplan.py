@@ -27,10 +27,14 @@ def get_food(self, mensa_id, date="today"):
         meals = defaultdict(list)
 
         for meal in meal_plan_raw:
-            print(meal)
-            if float(meal['prices']['students'] > 1):
+            try:
+                price = float(meal['prices']['students'])
+                if price > 1:
+                    category = meal['category']
+                    meals[category].append(f"{meal['name']}\n<b>Preis: {meal['prices']['students']}0€</b>\n")
+            except TypeError:
                 category = meal['category']
-                meals[category].append(f"{meal['name']}\n<b>Preis: {meal['prices']['students']}0€</b>\n")
+                meals[category].append(f"{meal['name']}\n<b>Preis: unbekannt</b>\n")
 
         message = "-- Das gibt es heute zu essen --\n\n"
 

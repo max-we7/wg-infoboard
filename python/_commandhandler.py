@@ -72,11 +72,11 @@ def choose_command(self, msg):
             self.sender.sendMessage("Fehler #2011")
     if self.command[0] == "/bahn":
         # noinspection PyBroadException
-        # try:
-        bahn(self)
-        # except Exception:
-        #     logging.error("General error in bahn(), #2012")
-        #     self.sender.sendMessage("Fehler #2012")
+        try:
+            bahn(self)
+        except Exception:
+            logging.error("General error in bahn(), #2012")
+            self.sender.sendMessage("Fehler #2012")
     if self.command[0] == "/reboot" and self.chatid in LEGIT_IDS:
         # noinspection PyBroadException
         try:
