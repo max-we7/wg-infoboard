@@ -61,6 +61,7 @@ class MessageHandler(telepot.helper.ChatHandler):
 
     def on_chat_message(self, msg):
         content_type, chat_type, cid = telepot.glance(msg)
+        logging.debug(f"{content_type}, {chat_type}, {cid}")
         self.chatid = str(cid)
         if chat_type == "private": self.load_cookies(msg)
         if self.chatid in LEGIT_IDS:
@@ -80,11 +81,13 @@ class MessageHandler(telepot.helper.ChatHandler):
 
     def load_cookies(self, msg):
         fileurl = f"../data/cookies/{self.chatid}.json"
+        logging.debug(f"Cookie file path (load): {fileurl}")
         try:
             with open(fileurl, "r", encoding='utf-8') as f:
                 self.cookies = json.load(f)
                 self.cookies['info']['last_seen'] = str(datetime.now())
         except FileNotFoundError:
+            logging.debug("no cookie file found. Creating cookie dict!")
             self.sender.sendMessage(f"Hallo {msg['from']['first_name']}!\n\n>> /help <<")
             self.cookies = {
                 "info": {
@@ -99,12 +102,15 @@ class MessageHandler(telepot.helper.ChatHandler):
                     "fav3": {}
                 }
             }
+            logging.debug("cookie dic created")
 
     def dump_cookies(self):
         fileurl = f"../data/cookies/{self.chatid}.json"
+        logging.debug(f"Cookie file path (dump): {fileurl}")
         try:
             with open(fileurl, "w") as f:
                 json.dump(self.cookies, f, indent=4)
+                logging.debug("dumped cookie. no errors.")
         except FileNotFoundError:
             logging.error("Error dumping Cookie!, #0003")
             self.sender.sendMessage("Fehler #0003")

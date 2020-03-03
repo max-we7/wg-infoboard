@@ -140,6 +140,7 @@ def make_api_request(origin_id, destination_id, delta_mins=0):
 
 def extract_from_api_request(request):
     schedule_raw = request.json()
+    # check if response is internal server error!
     schedule = {"trips": []}
     for i in range(5):
         number_of_legs = len(schedule_raw['Trip'][i]['LegList']['Leg'])
@@ -178,7 +179,6 @@ def extract_from_api_request(request):
             "delay": delay,
             "line": line
         })
-
     return schedule
 
 
@@ -192,7 +192,7 @@ def update_bahn():
     schloss = "3016016"
     da_hbf = "3004734"
     wb_hbf = "3006907"
-    nahverkehr = extract_from_api_request(make_api_request(hkp, schloss, 10))
+    nahverkehr = extract_from_api_request(make_api_request(hkp, schloss, 8))
     dump_schedule("../data/timetable.json", nahverkehr)
     regio = extract_from_api_request(make_api_request(da_hbf, wb_hbf, 25))
     dump_schedule("../data/timetable_regio.json", regio)
