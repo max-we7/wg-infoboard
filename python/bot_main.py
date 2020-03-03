@@ -20,7 +20,7 @@ from _commandhandler import choose_command, choose_callback_command
 # TODO: git_pull(), handle_img()
 
 logging.basicConfig(filename="wg-infoboard.log", filemode="a+", format='%(asctime)s - %(levelname)s - %(message)s',
-                    level=logging.INFO)
+                    level=logging.DEBUG)
 
 
 class MessageHandler(telepot.helper.ChatHandler):
@@ -60,6 +60,7 @@ class MessageHandler(telepot.helper.ChatHandler):
         self.fav_to_be_modified = ""
 
     def on_chat_message(self, msg):
+        logging.debug(f"{msg}")
         content_type, chat_type, cid = telepot.glance(msg)
         logging.debug(f"{content_type}, {chat_type}, {cid}")
         self.chatid = str(cid)
@@ -72,6 +73,7 @@ class MessageHandler(telepot.helper.ChatHandler):
         if content_type == 'text':
             self.command = msg['text'].split(" ")
             choose_command(self, msg)
+        logging.debug("breakpoint 1")
         if chat_type == "private": self.dump_cookies()
 
     def on_callback_query(self, msg):
@@ -85,15 +87,17 @@ class MessageHandler(telepot.helper.ChatHandler):
         try:
             with open(fileurl, "r", encoding='utf-8') as f:
                 self.cookies = json.load(f)
-                self.cookies['info']['last_seen'] = str(datetime.now())
+                # self.cookies['info']['last_seen'] = str(datetime.now())
         except FileNotFoundError:
             logging.debug("no cookie file found. Creating cookie dict!")
             self.sender.sendMessage(f"Hallo {msg['from']['first_name']}!\n\n>> /help <<")
+            logging.debug("Welcome message sent")
+            logging.debug(f"{msg['from']['first_name']}, {msg['from']['username']}, {msg['from']['language_code']}")
             self.cookies = {
                 "info": {
                     "first_name": msg['from']['first_name'],
                     "username": msg['from']['username'],
-                    "last_seen": str(datetime.now()),
+                    # "last_seen": str(datetime.now()),
                     "language_code": msg['from']['language_code']
                 },
                 "bahn": {
@@ -103,6 +107,7 @@ class MessageHandler(telepot.helper.ChatHandler):
                 }
             }
             logging.debug("cookie dic created")
+            logging.debug(f"Cookie dic content: {self.cookies}")
 
     def dump_cookies(self):
         fileurl = f"../data/cookies/{self.chatid}.json"
