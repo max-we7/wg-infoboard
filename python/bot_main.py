@@ -93,19 +93,22 @@ class MessageHandler(telepot.helper.ChatHandler):
             self.sender.sendMessage(f"Hallo {msg['from']['first_name']}!\n\n>> /help <<")
             logging.debug("Welcome message sent")
             logging.debug(f"{msg['from']['first_name']}, {msg['from']['username']}, {msg['from']['language_code']}")
-            self.cookies = {
-                "info": {
-                    "first_name": msg['from']['first_name'],
-                    "username": msg['from']['username'],
-                    # "last_seen": str(datetime.now()),
-                    "language_code": msg['from']['language_code']
-                },
-                "bahn": {
-                    "fav1": {},
-                    "fav2": {},
-                    "fav3": {}
+            try:
+                self.cookies = {
+                    "info": {
+                        # "first_name": msg['from']['first_name'],
+                        # "username": msg['from']['username'],
+                        # "last_seen": str(datetime.now()),
+                        # "language_code": msg['from']['language_code']
+                    },
+                    "bahn": {
+                        "fav1": {},
+                        "fav2": {},
+                        "fav3": {}
+                    }
                 }
-            }
+            except Exception:
+                logging.exception("exception!!")
             logging.debug("cookie dic created")
             logging.debug(f"Cookie dic content: {self.cookies}")
 
