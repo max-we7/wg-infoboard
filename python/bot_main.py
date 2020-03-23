@@ -10,7 +10,7 @@ from telepot.loop import MessageLoop
 from telepot.delegate import create_open, pave_event_space, include_callback_query_chat_id, per_chat_id
 from _putzplan import update_putzplan
 from zaw_query import update_muell
-from rmv import update_bahn
+from rmv import update_infoboard_bahn
 import json
 from read_rss import update_news
 from config import API_KEY, LEGIT_IDS, GROUP_ID, ADMIN_IDS
@@ -59,12 +59,20 @@ class MessageHandler(telepot.helper.ChatHandler):
         self.destination = ""
         self.fav_to_be_modified = ""
 
+        # Speiseplan state variables
+        self.speiseplan_flag1 = False
+        self.speiseplan_flag2 = False
+        self.speiseplan_flag3 = False
+        self.fav_flag1_speiseplan = False
+        self.fav_flag2_speiseplan = False
+        self.fav_flag3_speiseplan = False
+
     def on_chat_message(self, msg):
         logging.debug(f"{msg}")
         content_type, chat_type, cid = telepot.glance(msg)
         logging.debug(f"{content_type}, {chat_type}, {cid}")
         self.chatid = str(cid)
-        # if chat_type == "private": self.load_cookies(msg)
+        if chat_type == "private": self.load_cookies(msg)
         if self.chatid in LEGIT_IDS:
             if content_type == "document":
                 handle_gif(self, msg)
@@ -73,10 +81,10 @@ class MessageHandler(telepot.helper.ChatHandler):
         if content_type == 'text':
             self.command = msg['text'].split(" ")
             choose_command(self, msg)
-        logging.debug("breakpoint 1")
-        # if chat_type == "private": self.dump_cookies()
+        if chat_type == "private": self.dump_cookies()
 
     def on_callback_query(self, msg):
+        logging.debug(f"{msg}")
         query_id, from_id, query_data = telepot.glance(msg, flavor='callback_query')
         self.query_data = query_data
         choose_callback_command(self, msg)
@@ -87,30 +95,33 @@ class MessageHandler(telepot.helper.ChatHandler):
         try:
             with open(fileurl, "r", encoding='utf-8') as f:
                 self.cookies = json.load(f)
-                # self.cookies['info']['last_seen'] = str(datetime.now())
+                self.cookies['info']['last_seen'] = str(datetime.now())
         except FileNotFoundError:
-            logging.debug("no cookie file found. Creating cookie dict!")
+            logging.info("no cookie file found. Creating cookie dictionary!")
             self.sender.sendMessage(f"Hallo {msg['from']['first_name']}!\n\n>> /help <<")
             logging.debug("Welcome message sent")
-            logging.debug(f"{msg['from']['first_name']}, {msg['from']['username']}, {msg['from']['language_code']}")
             try:
-                self.cookies = {
-                    "info": {
-                        # "first_name": msg['from']['first_name'],
-                        # "username": msg['from']['username'],
-                        # "last_seen": str(datetime.now()),
-                        # "language_code": msg['from']['language_code']
-                    },
-                    "bahn": {
-                        "fav1": {},
-                        "fav2": {},
-                        "fav3": {}
-                    }
+                username = msg['from']['username']
+            except KeyError:
+                username = "None"
+            self.cookies = {
+                "info": {
+                    "first_name": msg['from']['first_name'],
+                    "username": username,
+                    "last_seen": str(datetime.now()),
+                    "language_code": msg['from']['language_code']
+                },
+                "bahn": {
+                    "fav1": {},
+                    "fav2": {},
+                    "fav3": {}
+                },
+                "mensa": {
+                    "fav1": {},
+                    "fav2": {}
                 }
-            except Exception:
-                logging.exception("exception!!")
-            logging.debug("cookie dic created")
-            logging.debug(f"Cookie dic content: {self.cookies}")
+            }
+            logging.debug("New cookie dictionary created")
 
     def dump_cookies(self):
         fileurl = f"../data/cookies/{self.chatid}.json"
@@ -145,7 +156,7 @@ try:
     try:
         schedule.every().day.at("00:02").do(update_putzplan)
         schedule.every().day.at("00:02").do(update_muell)
-        schedule.every(4).minutes.do(update_bahn)
+        schedule.every(4).minutes.do(update_infoboard_bahn)
         schedule.every(10).minutes.do(update_news)
         schedule.every(50).minutes.do(reload_service)
     except Exception:

@@ -125,7 +125,7 @@ def set_intervall(self, putzplan, chore):
         self.sender.sendMessage("Ungültige Eingabe - Parameter 2 ungültig")
         return
     putzplan[chore]['intervall_tage'] = days
-    self.sender.sendMessage(f"Intervall der Aufgabe {putzplan[chore]['bezeichnung']} wurde auf {days} Tage"
+    self.sender.sendMessage(f"Intervall der Aufgabe {putzplan[chore]['bezeichnung']} wurde auf {days} Tage "
                             f"gesetzt.")
     dump_putzplan(putzplan)
 

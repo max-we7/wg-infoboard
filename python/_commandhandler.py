@@ -1,9 +1,10 @@
 from _putzplan import chores
-from _general_commands import insult, einkaufen, eingekauft, help_commands, reload, reboot, git_pull, loc
+from _general_commands import insult, einkaufen, eingekauft, help_commands, reload, reboot, git_pull, loc, deinemudda, \
+    impersonate
 from _finances import geld, show_balance, make_transaction, neuer_einkauf, show_history, delete_last_record
 import logging
-from rmv import bahn, search_station, favoriten_bearbeiten
-from speiseplan import speiseplan
+from rmv import bahn, search_station, edit_station_favorites
+from speiseplan import speiseplan, search_canteen_skeleton, edit_canteen_favorites
 from config import LEGIT_IDS
 
 
@@ -11,6 +12,7 @@ def choose_command(self, msg):
     """
     route chat message to corresponding function
     """
+    # --------------- FLAGS ----------------
     if self.artikel_flag or self.preis_flag or self.teilnehmer_flag:
         neuer_einkauf(self, msg)
         return
@@ -26,7 +28,17 @@ def choose_command(self, msg):
     if self.bahn_search or self.bahn_search2 or self.bahn_search3:
         search_station(self)
     if self.fav_flag1 or self.fav_flag2 or self.fav_flag3:
-        favoriten_bearbeiten(self)
+        edit_station_favorites(self)
+    if self.fav_flag1_speiseplan or self.fav_flag2_speiseplan or self.fav_flag3_speiseplan:
+        edit_canteen_favorites(self)
+    if self.speiseplan_flag3:
+        speiseplan(self)
+    if self.speiseplan_flag2:
+        search_canteen_skeleton(self)
+    if self.speiseplan_flag1:
+        speiseplan(self)
+
+    # ---------------- COMMANDS ---------------------
     if self.command[0] == "/einkaufen" and self.chatid in LEGIT_IDS:
         # noinspection PyBroadException
         try:
@@ -42,12 +54,11 @@ def choose_command(self, msg):
             logging.error("General error in eingekauft(), #2007")
             self.sender.sendMessage("Fehler #2007")
     if self.command[0] == "/insult":
-        # noinspection PyBroadException
-        try:
-            insult(self, msg)
-        except Exception:
-            logging.error("General error in insult(), #2008")
-            self.sender.sendMessage("Fehler #2008")
+        insult(self, msg)
+    if self.command[0] == "/deinemudda":
+        deinemudda(self)
+    if self.command[0] == "/impersonate":
+        impersonate(self, msg)
     if self.command[0] == "/help" or self.command[0] == "/start":
         # noinspection PyBroadException
         try:

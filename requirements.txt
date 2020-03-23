@@ -1,3 +1,4 @@
+beautifulsoup4
 telepot
 requests
 gspread oauth2client

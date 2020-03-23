@@ -1,10 +1,12 @@
 import random
 import json
+import telepot
 from insults import insults
 import platform
 import subprocess
-from config import ADMIN_IDS, LEGIT_IDS
+from config import ADMIN_IDS, LEGIT_IDS, API_KEY, GROUP_ID
 import logging
+from muddawitze import muddawitze
 
 
 def einkaufen(self, msg):
@@ -66,46 +68,6 @@ def eingekauft(self, msg):
             dump_einkaufsliste(self, einkaufsliste)
 
 
-def bahn(self):
-    """
-    returns current train times to user
-    """
-    train_times = []
-    try:
-        with open("../data/timetable.json", "r") as f:
-            data = json.load(f)
-            for item in data['trips']:
-                train_times.append(item)
-    except FileNotFoundError:
-        print("Error - File Not Found")
-    message = "Griesheim --> DA:\n"
-    for entry in train_times:
-        if type(entry['line']) == type(str()):
-            lines = entry['line']
-        else:
-            lines_raw = [line for line in entry['line']]
-            lines = ", ".join(lines_raw)
-        message += f"{entry['ab']}  {entry['an']}  {lines}\n"
-    self.sender.sendMessage(message)
-    regio_times = []
-    try:
-        with open("../data/timetable_regio.json", "r") as f:
-            data = json.load(f)
-            for item in data['trips']:
-                regio_times.append(item)
-    except FileNotFoundError:
-        print("Error - File Not Found")
-    message = "DA --> Wiesbaden:\n"
-    for entry in regio_times:
-        if type(entry['line']) == type(str()):
-            lines = entry['line']
-        else:
-            lines_raw = [line for line in entry['line'] if line != ""]
-            lines = ", ".join(lines_raw)
-        message += f"{entry['ab']}  {entry['an']}  {lines}\n"
-    self.sender.sendMessage(message)
-
-
 def load_einkaufsliste(self):
     """
     load einkaufsliste from JSON file
@@ -144,6 +106,22 @@ def insult(self, msg):
     """
     random_insult = random.choice(insults)
     self.sender.sendMessage(f"{msg['text'][8:]} du {random_insult}")
+
+
+def impersonate(self, msg):
+    """
+    send message through bot account
+    """
+    if self.chatid in ADMIN_IDS:
+        telepot.Bot(API_KEY).sendMessage(GROUP_ID, msg['text'][12:])
+
+
+def deinemudda(self):
+    """
+    returns random deinemudda-joke
+    """
+    random_muddawitz = random.choice(muddawitze)
+    self.sender.sendMessage(f"{random_muddawitz}")
 
 
 def help_commands(self):
