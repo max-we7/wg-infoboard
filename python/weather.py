@@ -5,7 +5,7 @@ import logging
 import json
 import time
 from datetime import datetime
-# from babel.dates import format_date
+from babel.dates import format_date
 from keyboards import create_weather_start_keyboard, create_weather_searchresult_keyboard, \
     kb_wetter_favoriten_bearbeiten
 from telepot.namedtuple import ReplyKeyboardRemove
@@ -100,7 +100,7 @@ def return_weather(self, location_id):
         i = 8
         for entry in data['daily']:
             if i != 0 and i != 8:
-                # msg += f"{format_date(datetime.fromtimestamp(entry['dt']), 'EEE, d.M.', locale='de_DE')}: "
+                msg += f"{format_date(datetime.fromtimestamp(entry['dt']), 'EEE, d.M.', locale='de_DE')}: "
                 msg += f" \U0001F321 {int(round(entry['temp']['min']))}\u00B0C / "
                 msg += f"{int(round(entry['temp']['max']))}\u00B0C -"
                 msg += f" {entry['weather'][0]['description']}\n"
