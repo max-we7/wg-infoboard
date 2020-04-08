@@ -1,8 +1,10 @@
 
 muddawitze = [
-    "Deine Mudda heißt Dieter und ist der Haarigste im Zoo.Deine Mudda legt sich zum Schlafen auf´s Bett. Das Bett sagt mit letzter Kraft zum Sessel: 'Rächt mich.'",
+    "Deine Mudda heißt Dieter und ist der Haarigste im Zoo.",
+    "Deine Mudda legt sich zum Schlafen auf´s Bett. Das Bett sagt mit letzter Kraft zum Sessel: 'Rächt mich.'",
     "Deine Mudda ist so fett, als sie das letzte mal im Meer baden war, kam ein japanisches Fischerboot, um sie zu harpunieren.",
-    "Deine Mudda stinkt sogar auf Fotos! Deine Mudda schreit von der Toilette: „Schaut mal Kinder, ich bin ein 3D Drucker.”",
+    "Deine Mudda stinkt sogar auf Fotos!",
+    "Deine Mudda schreit von der Toilette: „Schaut mal Kinder, ich bin ein 3D Drucker.”",
     "Wenn deine Mudda tanzen geht, bekommt der Begriff „Walzer“ eine ganz neue Bedeutung.",
     "Was passiert, wenn deine Mudda einen Polizisten ansieht? - Sie bekommt eine Strafanzeige wegen Beamtenbeleidigung",
     "Deine Mudda ist so arm, sie rennt, mit einer Einkaufliste, dem Müllwagen hinterher.",

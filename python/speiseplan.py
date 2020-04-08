@@ -54,15 +54,15 @@ def send_meal_plan(self, canteen_id):
     if int(datetime.now().strftime("%H")) > 14:
         tomorrow = current_time + timedelta(days=1)
         date = tomorrow.strftime("%Y-%m-%d")
-        msg = f"Speiseplan für morgen, den {tomorrow.strftime('%d.%m.%Y')}: "
+        msg = f"Speiseplan für morgen, den {tomorrow.strftime('%d.%m.%Y')}: \n\n"
     else:
         date = "today"
-        msg = f"Speiseplan für heute, den {current_time.strftime('%d.%m.%Y')}: "
+        msg = f"Speiseplan für heute, den {current_time.strftime('%d.%m.%Y')}: \n\n"
     meal_plan = extract_from_api_request(make_api_request(str(canteen_id), date))
     if meal_plan == -2:
-        msg = msg + "\n\nLeider kein Angebot!"
+        msg = msg + "Leider kein Angebot!"
     elif meal_plan == -1:
-        msg = msg + "\n\nFehler beim Abrufen des Speiseplans!"
+        msg = msg + "Fehler beim Abrufen des Speiseplans!"
     else:
         for key in meal_plan.keys():
             msg += f"<b>{key}:</b>\n\n"

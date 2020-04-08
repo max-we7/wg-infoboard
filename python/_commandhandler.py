@@ -1,10 +1,11 @@
-from _putzplan import chores
+from _putzplan import chores, show_putzplan
 from _general_commands import insult, einkaufen, eingekauft, help_commands, reload, reboot, git_pull, loc, deinemudda, \
     impersonate
 from _finances import geld, show_balance, make_transaction, neuer_einkauf, show_history, delete_last_record
 import logging
 from rmv import bahn, search_station, edit_station_favorites
 from speiseplan import speiseplan, search_canteen_skeleton, edit_canteen_favorites
+from weather import weather, search_weather_skeleton, edit_weather_favorites
 from config import LEGIT_IDS
 
 
@@ -37,6 +38,14 @@ def choose_command(self, msg):
         search_canteen_skeleton(self)
     if self.speiseplan_flag1:
         speiseplan(self)
+    if self.fav_flag1_wetter or self.fav_flag2_wetter or self.fav_flag3_wetter:
+        edit_weather_favorites(self)
+    if self.wetter_flag3:
+        weather(self)
+    if self.wetter_flag2:
+        search_weather_skeleton(self)
+    if self.wetter_flag1:
+        weather(self)
 
     # ---------------- COMMANDS ---------------------
     if self.command[0] == "/einkaufen" and self.chatid in LEGIT_IDS:
@@ -66,10 +75,19 @@ def choose_command(self, msg):
         except Exception:
             logging.error("General error in help_commands(), #2009")
             self.sender.sendMessage("Fehler #2009")
-    if self.command[0] in ["/muell", "/glas", "/bad", "/kueche", "/saugen", "/handtuecher", "/duschvorhang"] and \
+    if self.command[0] == "/putzplan":
+        show_putzplan(self)
+    if self.command[0] in ["/muell", "/müll", "/glas", "/bad", "/kueche", "/küche", "/saugen", "/handtuecher",
+                           "/handtücher", "/duschvorhang"] and \
             self.chatid in LEGIT_IDS:
         # noinspection PyBroadException
         try:
+            if self.command[0] == "/müll":
+                self.command[0] = "/muell"
+            if self.command[0] == "/küche":
+                self.command[0] = "/kueche"
+            if self.command[0] == "/handtücher":
+                self.command[0] = "/handtuecher"
             chores(self)
         except Exception:
             logging.error("General error in chores(), #2010")
@@ -109,7 +127,7 @@ def choose_command(self, msg):
         except Exception:
             logging.error("General error in git_pull(), #2015")
             self.sender.sendMessage("Fehler #2015")
-    if self.command[0] == "/geld" and self.chatid in LEGIT_IDS:
+    if self.command[0] in ["/geld", "/Geld"] and self.chatid in LEGIT_IDS:
         # noinspection PyBroadException
         try:
             geld(self)
@@ -123,6 +141,13 @@ def choose_command(self, msg):
         except Exception:
             self.sender.sendMessage("Fehler #2017, bitte erneut versuchen!")
             logging.exception("General error in speiseplan(), #2017")
+    if self.command[0] == "/wetter":
+        # noinspection PyBroadException
+        try:
+            weather(self)
+        except Exception:
+            self.sender.sendMessage("Fehler #2018, bitte erneut versuchen!")
+            logging.exception("General error in weather(), #2018")
 
 
 def choose_callback_command(self, msg):

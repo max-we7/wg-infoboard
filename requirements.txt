@@ -1,5 +1,7 @@
 beautifulsoup4
 telepot
 requests
-gspread oauth2client
+gspread
+oauth2client
 schedule
+babel

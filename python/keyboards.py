@@ -181,3 +181,51 @@ def create_canteen_searchresult_keyboard(search_results):
         [x] for x in kbs
     ])
     return keyboard
+
+
+def create_weather_start_keyboard(self):
+    try:
+        fav1 = list(self.cookies['wetter']['fav1'].keys())[0]
+    except (KeyError, IndexError):
+        fav1 = "Favorit 1"
+    try:
+        fav2 = list(self.cookies['wetter']['fav2'].keys())[0]
+    except (KeyError, IndexError):
+        fav2 = "Favorit 2"
+
+    keyboard = ReplyKeyboardMarkup(keyboard=[
+        [
+            KeyboardButton(text=fav1)
+        ],
+        [
+            KeyboardButton(text=fav2)
+        ],
+        [
+            KeyboardButton(text="Suche"), KeyboardButton(text="Favoriten bearbeiten")
+        ]
+    ])
+    return keyboard
+
+
+def create_weather_searchresult_keyboard(search_results):
+    kbs = []
+    for x in search_results.keys():
+        kbs = kbs + [KeyboardButton(text=x)]
+
+    keyboard = ReplyKeyboardMarkup(keyboard=[
+        [x] for x in kbs
+    ])
+    return keyboard
+
+
+kb_wetter_favoriten_bearbeiten = ReplyKeyboardMarkup(keyboard=[
+        [
+            KeyboardButton(text="Favorit 1")
+        ],
+        [
+            KeyboardButton(text="Favorit 2")
+        ],
+        [
+            KeyboardButton(text="Abbrechen")
+        ]
+    ])

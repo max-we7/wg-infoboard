@@ -23,8 +23,8 @@ def einkaufen(self, msg):
                                     parse_mode='html')
         else:
             einkaufsliste.append(item)
-            self.sender.sendMessage(f"{msg['from']['first_name']} hat <b>{item}</b> auf die Einkaufsliste "
-                                    f"gesetzt", parse_mode='html')
+            telepot.Bot(API_KEY).sendMessage(GROUP_ID, f"{msg['from']['first_name']} hat <b>{item}</b> auf die "
+                                                       f"Einkaufsliste gesetzt \U0001F4C4\U0001F6D2", parse_mode='html')
             dump_einkaufsliste(self, einkaufsliste)
 
 
@@ -34,9 +34,9 @@ def return_einkaufsliste(self):
     """
     einkaufsliste = load_einkaufsliste(self)
     if len(einkaufsliste) > 0:
-        liste_pretty = "<b>Einkaufsliste:</b>\n"
+        liste_pretty = "\U0001F4C4\U0001F6D2 <b>Einkaufsliste</b> \U0001F6D2\U0001F4C4\n\n"
         for item in einkaufsliste:
-            liste_pretty += (item + "\n")
+            liste_pretty += ("\U0001F538" + item + "\n")
         self.sender.sendMessage(liste_pretty, parse_mode='html')
     else:
         self.sender.sendMessage("Die Einkaufsliste ist leer. Hinzufügen eines Artikels "
@@ -57,14 +57,14 @@ def eingekauft(self, msg):
             if item == "All":
                 einkaufsliste = []
                 dump_einkaufsliste(self, einkaufsliste)
-                self.sender.sendMessage("Einkaufsliste wurde geleert")
+                self.sender.sendMessage("Einkaufsliste wurde geleert \U0001F4DC\u2705")
             else:
                 self.sender.sendMessage(f"<b>{item}</b> befindet sich nicht auf der Einkaufsliste",
                                         parse_mode='html')
         else:
             einkaufsliste.remove(item)
-            self.sender.sendMessage(f"{msg['from']['first_name']} hat <b>{item}</b> von der Einkaufsliste "
-                                    f"entfernt", parse_mode='html')
+            telepot.Bot(API_KEY).sendMessage(GROUP_ID, f"{msg['from']['first_name']} hat <b>{item}</b> von der "
+                                                       f"Einkaufsliste entfernt \U0001F4DC\u2705", parse_mode='html')
             dump_einkaufsliste(self, einkaufsliste)
 
 
@@ -105,7 +105,7 @@ def insult(self, msg):
     insults given person, usage "/insult person"
     """
     random_insult = random.choice(insults)
-    self.sender.sendMessage(f"{msg['text'][8:]} du {random_insult}")
+    self.sender.sendMessage(f"{msg['text'][8:]} du {random_insult}\U0001F595")
 
 
 def impersonate(self, msg):
@@ -121,7 +121,7 @@ def deinemudda(self):
     returns random deinemudda-joke
     """
     random_muddawitz = random.choice(muddawitze)
-    self.sender.sendMessage(f"{random_muddawitz}")
+    self.sender.sendMessage(f"{random_muddawitz}\U0001F61C")
 
 
 def help_commands(self):
@@ -129,33 +129,40 @@ def help_commands(self):
     show user available commands
     """
     if self.chatid in LEGIT_IDS:
-        self.sender.sendMessage(f"Verfügbare Befehle:\n\n"
-                                f"<b>/help</b> - zeige diesen Dialog\n\n"
+        self.sender.sendMessage(f"\u2753<b>Verfügbare Befehle</b>\u2753\n\n"
+                                f"<b>/help</b> - Hilfe-Dialog anzeigen\n\n"
                                 f"<b>/einkaufen</b> - Einkaufsliste einsehen und Artikel hinzufügen\n\n"
-                                f"<b>/einkaufen [Artikel]</b> - setze Artikel auf die Einkaufsliste\n\n"
-                                f"<b>/eingekauft [Artikel]</b> - lösche Artikel von der Einkaufsliste\n\n"
-                                f"<b>/eingekauft all</b> - lösche alle Artikel von der Einkaufsliste\n\n"
+                                f"<b>/einkaufen [Artikel]</b> - Artikel auf die Einkaufsliste setzen\n\n"
+                                f"<b>/eingekauft [Artikel]</b> - Artikel von der Einkaufsliste löschen\n\n"
+                                f"<b>/eingekauft all</b> - alle Artikel von der Einkaufsliste löschen\n\n"
                                 f"<b>/geld</b> - Finanzeintrag erstellen, Kontostände abrufen, Überweisung tätigen\n\n"
-                                f"<b>/bahn</b> - suche nach aktuellen Zugverbindungen im RMV-Gebiet (Beta)\n\n"
-                                f"<b>/mensa</b> - zeige heutigen Speiseplan, TU Stadtmitte\n\n"
-                                f"<b>/mensa liwi</b> - zeige heutigen Speiseplan, TU Lichtwiese\n\n"
-                                f"<b>/[Aufgabe]</b> - zeige, wer gerade mit einer Aufgabe dran ist, + Fälligkeit\n\n"
+                                f"<b>/bahn</b> - nach aktuellen Zugverbindungen im RMV-Gebiet suchen\n\n"
+                                f"<b>/mensa</b> - zeige heutigen Mensa-Speiseplan. Unterstützt alle Mensen, deren "
+                                f"Speiseplan über OpenMensa verfügbar ist\n\n"
+                                f"Verfügbare Aufgaben: <b>muell | müll, glas, bad, kueche | küche, saugen, handtuecher"
+                                f" | handtücher, duschvorhang</b>\n\n"
+                                f"<b>/[Aufgabe]</b> - anzeigen, wer gerade mit einer Aufgabe dran ist + Fälligkeit\n\n"
                                 f"<b>/[Aufgabe] erledigt</b> - eine Aufgabe abhaken\n\n"
                                 f"<b>/[Aufgabe] intervall</b> - Intervall einer Aufgabe anzeigen\n\n"
                                 f"<b>/[Aufgabe] vergangen</b> - Vergangene Tage einer Aufgabe anzeigen\n\n"
                                 f"<b>/[Aufgabe] intervall [Tage]</b> - Intervall einer Aufgabe setzen\n\n"
                                 f"<b>/[Aufgabe] vergangen [Tage]</b> - Vergangene Tage einer Aufgabe setzen\n\n"
+                                f"<b>/putzplan</b> - Putzplan anzeigen\n\n"
                                 f"<b>/loc</b> - Anzahl Codezeilen des WG Infoboard Projekts anzeigen\n\n"
-                                f"<b>/insult [Person]</b> - Beleidige Person mit zufälliger Beleidigung ;)\n\n"
-                                f"<b>/reload</b> - WG-Infoboard neu laden\n\n"
+                                f"<b>/insult [Person]</b> - Beleidige Person mit zufälliger Beleidigung\n\n"
+                                f"<b>/deinemudda</b> - zufälligen DeineMudda-Witz anzeigen\n\n"
+                                f"<b>/reload</b> - WG-Infoboard neu laden\n\n\n"
+                                f"<b>Admin-Befehle:</b>\n\n"
                                 f"<b>/reboot</b> - WG-Infoboard-Server neustarten\n\n"
+                                f"<b>/impersonate</b> - als Bot schreiben\n\n"
+                                f"<b>/git pull</b> - Bot auf neuste Version aktualisieren"
                                 , parse_mode="html")
     else:
-        self.sender.sendMessage(f"Öffentlich verfügbare Befehle:\n\n"
+        self.sender.sendMessage(f"\u2753<b>Öffentlich verfügbare Befehle</b>\u2753\n\n"
                                 f"<b>/help</b> - zeige diesen Dialog\n\n"
                                 f"<b>/bahn</b> - suche nach aktuellen Zugverbindungen im RMV-Gebiet (Beta)\n\n"
-                                f"<b>/mensa</b> - zeige heutigen Speiseplan, TU Stadtmitte\n\n"
-                                f"<b>/mensa liwi</b> - zeige heutigen Speiseplan, TU Lichtwiese\n\n"
+                                f"<b>/mensa</b> - zeige Speiseplan von versch. Mensen\n\n"
+                                f"<b>/insult [Person]</b> - Beleidige Person mit zufälliger Beleidigung ;)\n\n"
                                 , parse_mode="html")
 
 
@@ -166,7 +173,7 @@ def loc(self):
     try:
         with open("../data/loc.json", "r") as f:
             data = json.load(f)
-            self.sender.sendMessage(f"Lines of Code: {data['header']['n_lines']}")
+            self.sender.sendMessage(f"Lines of Code: {data['header']['n_lines']}\u200D")
     except FileNotFoundError:
         logging.error("Error - File Not Found, #3001")
         self.sender.sendMessage("Fehler #3001")
@@ -210,7 +217,7 @@ def reload(self):
     reload kiosk.sh service remotely via Telegram
     """
     if platform.system() == "Linux":
-        self.sender.sendMessage("Reloading service kiosk.sh...")
+        self.sender.sendMessage("\U0001F504Reloading service kiosk.sh\U0001F504")
         subprocess.run(["sudo", "service", "kiosk.sh", "restart"])
     else:
         self.sender.sendMessage("Platform does not seem to be Linux.")

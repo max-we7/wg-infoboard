@@ -1,5 +1,7 @@
 import json
 import logging
+import telepot
+from config import GROUP_ID, API_KEY
 
 
 def load_putzplan():
@@ -39,7 +41,7 @@ def chores(self):
         wer_ist_dran(self, putzplan, chore)
     elif len(self.command) == 2:
         if arg1 == "erledigt":
-            aufgabe_erledigen(self, putzplan, chore)
+            aufgabe_erledigen(putzplan, chore)
         elif arg1 == "intervall":
             show_intervall(self, putzplan, chore)
         elif arg1 == "vergangen":
@@ -77,7 +79,7 @@ def wer_ist_dran(self, putzplan, chore):
                             f"dran. Fällig: {faellig}", parse_mode="html")
 
 
-def aufgabe_erledigen(self, putzplan, chore):
+def aufgabe_erledigen(putzplan, chore):
     """
     check off a chore and show who's turn it is next
     """
@@ -85,8 +87,9 @@ def aufgabe_erledigen(self, putzplan, chore):
     index = putzplan[chore]["reihenfolge"].index(putzplan[chore]["dran"])
     putzplan[chore]["dran"] = putzplan[chore]["reihenfolge"][(index + 1) % 4]
     dump_putzplan(putzplan)
-    self.sender.sendMessage(f"Aufgabe {putzplan[chore]['bezeichnung']} wurde erledigt. <b>"
-                            f"{putzplan[chore]['dran']}</b> ist als nächster dran.", parse_mode="html")
+    telepot.Bot(API_KEY).sendMessage(GROUP_ID, f"\u2705Aufgabe {putzplan[chore]['bezeichnung']} wurde erledigt\u2705\n"
+                                               f"\n<b>{putzplan[chore]['dran']}</b> ist als nächster dran.",
+                                     parse_mode="html")
 
 
 def show_intervall(self, putzplan, chore):
@@ -125,8 +128,8 @@ def set_intervall(self, putzplan, chore):
         self.sender.sendMessage("Ungültige Eingabe - Parameter 2 ungültig")
         return
     putzplan[chore]['intervall_tage'] = days
-    self.sender.sendMessage(f"Intervall der Aufgabe {putzplan[chore]['bezeichnung']} wurde auf {days} Tage "
-                            f"gesetzt.")
+    telepot.Bot(API_KEY).sendMessage(GROUP_ID, f"Intervall der Aufgabe {putzplan[chore]['bezeichnung']} wurde auf "
+                                               f"{days} Tage gesetzt.")
     dump_putzplan(putzplan)
 
 
@@ -144,9 +147,32 @@ def set_vergangene_tage(self, putzplan, chore):
         self.sender.sendMessage("Ungültige Eingabe - Parameter 2 ungültig")
         return
     putzplan[chore]['tage_vergangen'] = days
-    self.sender.sendMessage(f"Vergangene Tage der Aufgabe {putzplan[chore]['bezeichnung']} wurde auf {days} Tage"
-                            f"gesetzt.")
+    telepot.Bot(API_KEY).sendMessage(GROUP_ID, f"Vergangene Tage der Aufgabe {putzplan[chore]['bezeichnung']} wurde "
+                                               f"auf {days} Tage gesetzt.")
     dump_putzplan(putzplan)
+
+
+def show_putzplan(self):
+    putzplan = load_putzplan()
+    msg = "\U0001F9F9\U0001F9F9<b>Putzplan</b>\U0001F9F9\U0001F9F9\n\n"
+    for chore in ["muell", "glas", "bad", "kueche", "saugen", "handtuecher", "duschvorhang"]:
+        try:
+            days = int(putzplan[chore]['intervall_tage']) - int(putzplan[chore]['tage_vergangen'])
+            if days == 0:
+                faellig = "heute"
+            elif days == 1:
+                faellig = "morgen"
+            elif days == -1:
+                faellig = "gestern\u2757"
+            elif days > 1:
+                faellig = f"in {days} Tagen"
+            else:
+                days = days * -1
+                faellig = f"seit {days} Tagen\u203C"
+        except KeyError:
+            faellig = "bei Bedarf"
+        msg += f"<b>{putzplan[chore]['bezeichnung']}:</b> {putzplan[chore]['dran']}, fällig: {faellig}\n\n"
+    self.sender.sendMessage(msg, parse_mode='html')
 
 
 def update_putzplan():
@@ -156,11 +182,12 @@ def update_putzplan():
     putzplan = load_putzplan()
     # noinspection PyBroadException
     try:
-        putzplan['bad']['tage_vergangen'] += 1
-        putzplan['kueche']['tage_vergangen'] += 1
-        putzplan['saugen']['tage_vergangen'] += 1
-        putzplan['handtuecher']['tage_vergangen'] += 1
-        putzplan['duschvorhang']['tage_vergangen'] += 1
+        for chore in ["bad", "kueche", "saugen", "handtuecher", "duschvorhang"]:
+            putzplan[chore]['tage_vergangen'] += 1
+            if putzplan[chore]['tage_vergangen'] == putzplan[chore]['intervall_tage']:
+                telepot.Bot(API_KEY).sendMessage(GROUP_ID, f"\u2757Folgende Aufgabe ist heute fällig: "
+                                                           f"{putzplan[chore]['bezeichnung']} ("
+                                                           f"{putzplan[chore]['dran']})\u2757")
         dump_putzplan(putzplan)
     except Exception:
         logging.error("Error incrementing 'tage_vergangen', #4003")

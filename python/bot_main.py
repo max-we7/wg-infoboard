@@ -67,7 +67,16 @@ class MessageHandler(telepot.helper.ChatHandler):
         self.fav_flag2_speiseplan = False
         self.fav_flag3_speiseplan = False
 
+        # Wetter state variables
+        self.wetter_flag1 = False
+        self.wetter_flag2 = False
+        self.wetter_flag3 = False
+        self.fav_flag1_wetter = False
+        self.fav_flag2_wetter = False
+        self.fav_flag3_wetter = False
+
     def on_chat_message(self, msg):
+        print(msg)
         logging.debug(f"{msg}")
         content_type, chat_type, cid = telepot.glance(msg)
         logging.debug(f"{content_type}, {chat_type}, {cid}")
@@ -111,6 +120,7 @@ class MessageHandler(telepot.helper.ChatHandler):
                     "last_seen": str(datetime.now()),
                     "language_code": msg['from']['language_code']
                 },
+                # TODO: move to favorite creation function
                 "bahn": {
                     "fav1": {},
                     "fav2": {},

@@ -1,6 +1,7 @@
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime
+from config import wg_members
 
 
 def init_google_sheet():
@@ -20,16 +21,11 @@ def get_balances():
     returns list of balances for all users
     """
     sheet = init_google_sheet()
-    balances_raw = [[name, sheet.cell(3, i).value] for name, i in [("Max", 7), ("Noah", 8), ("Nawid", 9), ("Seb", 10)]]
-    balances = {
-        "Max": int(balances_raw[0][1].replace(',', '')[:-2]),
-        "Nawid": int(balances_raw[1][1].replace(',', '')[:-2]),
-        "Noah": int(balances_raw[2][1].replace(',', '')[:-2]),
-        "Seb": int(balances_raw[3][1].replace(',', '')[:-2])
-    }
-    now = datetime.now()
-    date = now.strftime("%d.%m.%Y")
-    return balances, date
+    balances_raw = [sheet.cell(3, i).value for i in [7, 8, 9, 10]]
+    balances = {}
+    for i in range(4):
+        balances.update({wg_members[i]: int(balances_raw[i].replace(',', '')[:-2])})
+    return balances
 
 
 def get_balances_raw():
@@ -37,7 +33,8 @@ def get_balances_raw():
     returns list of balances for all users
     """
     sheet = init_google_sheet()
-    return [[name, sheet.cell(3, i).value] for name, i in [("Max", 7), ("Noah", 8), ("Nawid", 9), ("Seb", 10)]]
+    return [[name, sheet.cell(3, i).value] for name, i in [(wg_members[0], 7), (wg_members[1], 8),
+                                                           (wg_members[2], 9), (wg_members[3], 10)]]
 
 
 def get_history():
@@ -61,5 +58,8 @@ def add_entry(new_row):
 
 
 def delete_entry():
+    """
+    delete the most recently added entry
+    """
     sheet = init_google_sheet()
     sheet.delete_row(3)
