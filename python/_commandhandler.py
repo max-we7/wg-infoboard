@@ -11,7 +11,7 @@ from config import LEGIT_IDS
 
 def choose_command(self, msg):
     """
-    route chat message to corresponding function
+    route chat messages to corresponding functions
     """
     # --------------- FLAGS ----------------
     if self.artikel_flag or self.preis_flag or self.teilnehmer_flag:
