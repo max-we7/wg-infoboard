@@ -116,7 +116,7 @@ def neuer_einkauf(self, msg):
                     logging.error("Error calculating transaction, #1001")
                     self.sender.sendMessage("Fehler #1001")
                     return
-                self.sender.sendMessage(f"Finanzeintrag <b>{self.artikel} (\U0001F926{self.preis} €) "
+                self.sender.sendMessage(f"Finanzeintrag <b>{self.artikel} (\U0001F4B0{self.preis} €) "
                                         f"</b>wurde angelegt!", parse_mode='html')
                 teilnehmer = ""
                 for person in self.teilnehmerliste:
