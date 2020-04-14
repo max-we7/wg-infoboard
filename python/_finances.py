@@ -155,7 +155,7 @@ def calculate_money(self):
     beteiligte = []
 
     if "Alle" in self.teilnehmerliste:
-        beteiligte = wg_members
+        beteiligte = wg_members[:]
     else:
         for teilnehmer in self.teilnehmerliste:
             beteiligte.append(teilnehmer)
