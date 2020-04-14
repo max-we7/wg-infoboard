@@ -122,7 +122,7 @@ def neuer_einkauf(self, msg):
                 for person in self.teilnehmerliste:
                     teilnehmer = teilnehmer + person + ", "
                 self._bot.sendMessage(GROUP_ID, f"{self.einkaeufer} hat den Finanzeintrag <b>{self.artikel} "
-                                                f"(\U0001F926{self.preis} €) </b>für {teilnehmer[:-2]} angelegt!",
+                                                f"(\U0001F4B0{self.preis} €) </b>für {teilnehmer[:-2]} angelegt!",
                                       parse_mode='html')
                 self.teilnehmerliste.clear()
     elif self.preis_flag:
