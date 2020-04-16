@@ -87,6 +87,8 @@ class MessageHandler(telepot.helper.ChatHandler):
                 handle_gif(self, msg)
             if content_type == "photo":
                 handle_img(self, msg)
+        else:
+            logging.debug(f"Not in legit IDs: {self.chatid}")
         if content_type == 'text':
             self.command = msg['text'].split(" ")
             choose_command(self, msg)
