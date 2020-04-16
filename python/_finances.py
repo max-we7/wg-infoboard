@@ -111,11 +111,17 @@ def neuer_einkauf(self, msg):
                 self.sender.sendMessage(f"Eintrag wird angelegt... bitte warten", reply_markup=ReplyKeyboardRemove())
                 # noinspection PyBroadException
                 try:
+                    logging.debug("entering method calculate_money") # TODO: debug only
                     calculate_money(self)
+                    logging.debug("exited method calculate_money") # TODO: debug only
                 except Exception:
-                    logging.error("Error calculating transaction, #1001")
-                    self.sender.sendMessage("Fehler #1001")
-                    return
+                    try:    # TODO: remove try except, debug only
+                        logging.error("Error calculating transaction, #1001")
+                        self.sender.sendMessage("Fehler #1001")
+                        return
+                    except Exception:
+                        pass
+                logging.debug("breakpoint 1")
                 self.sender.sendMessage(f"Finanzeintrag <b>{self.artikel} (\U0001F4B0{self.preis} €) "
                                         f"</b>wurde angelegt!", parse_mode='html')
                 teilnehmer = ""
