@@ -138,8 +138,10 @@ def help_commands(self):
                                 f"<b>/eingekauft all</b> - alle Artikel von der Einkaufsliste löschen\n\n"
                                 f"<b>/geld</b> - Finanzeintrag erstellen, Kontostände abrufen, Überweisung tätigen\n\n"
                                 f"<b>/bahn</b> - nach aktuellen Zugverbindungen im RMV-Gebiet suchen\n\n"
+                                f"<b>/wetter</b> - Wettervorhersage für beliebigen Ort in Deutschland abrufen\n\n"
                                 f"<b>/mensa</b> - zeige heutigen Mensa-Speiseplan. Unterstützt alle Mensen, deren "
                                 f"Speiseplan über OpenMensa verfügbar ist\n\n"
+                                f"<b>/putzplan</b> - Putzplan anzeigen\n\n"
                                 f"Verfügbare Aufgaben: <b>muell | müll, glas, bad, kueche | küche, saugen, handtuecher"
                                 f" | handtücher, duschvorhang</b>\n\n"
                                 f"<b>/[Aufgabe]</b> - anzeigen, wer gerade mit einer Aufgabe dran ist + Fälligkeit\n\n"
@@ -162,6 +164,7 @@ def help_commands(self):
         self.sender.sendMessage(f"\u2753<b>Öffentlich verfügbare Befehle</b>\u2753\n\n"
                                 f"<b>/help</b> - zeige diesen Dialog\n\n"
                                 f"<b>/bahn</b> - suche nach aktuellen Zugverbindungen im RMV-Gebiet (Beta)\n\n"
+                                f"<b>/wetter</b> - Wettervorhersage für beliebigen Ort in Deutschland abrufen\n\n"
                                 f"<b>/mensa</b> - zeige Speiseplan von versch. Mensen\n\n"
                                 f"<b>/insult [Person]</b> - Beleidige Person mit zufälliger Beleidigung ;)\n\n"
                                 , parse_mode="html")
