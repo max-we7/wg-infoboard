@@ -57,7 +57,8 @@ def eingekauft(self, msg):
             if item == "All":
                 einkaufsliste = []
                 dump_einkaufsliste(self, einkaufsliste)
-                self.sender.sendMessage("Einkaufsliste wurde geleert \U0001F4DC\u2705")
+                telepot.Bot(API_KEY).sendMessage(GROUP_ID, f"{msg['from']['first_name']} hat die Einkaufsliste geleert "
+                                                           f"\U0001F4DC\u2705", parse_mode='html')
             else:
                 self.sender.sendMessage(f"<b>{item}</b> befindet sich nicht auf der Einkaufsliste",
                                         parse_mode='html')
