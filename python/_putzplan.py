@@ -1,7 +1,7 @@
 import json
 import logging
 import telepot
-from config import GROUP_ID, API_KEY
+from config import GROUP_ID, API_KEY, ADMIN_IDS
 
 
 def load_putzplan():
@@ -68,10 +68,14 @@ def wer_ist_dran(self, putzplan, chore):
         faellig = "bei Bedarf"
     else:
         days = int(putzplan[chore]['intervall_tage']) - int(putzplan[chore]['tage_vergangen'])
-        if days == 0: faellig = "heute"
-        elif days == 1: faellig = "morgen"
-        elif days == -1: faellig = "gestern"
-        elif days > 1: faellig = f"in {days} Tagen"
+        if days == 0:
+            faellig = "heute"
+        elif days == 1:
+            faellig = "morgen"
+        elif days == -1:
+            faellig = "gestern"
+        elif days > 1:
+            faellig = f"in {days} Tagen"
         else:
             days = days * -1
             faellig = f"seit {days} Tagen"
@@ -183,11 +187,18 @@ def update_putzplan():
     # noinspection PyBroadException
     try:
         for chore in ["bad", "kueche", "saugen", "handtuecher", "duschvorhang"]:
+            logging.debug(f"... incrementing chore {chore} ...")
             putzplan[chore]['tage_vergangen'] += 1
+            logging.debug(f"... incremented chore {chore} ...")
             if putzplan[chore]['tage_vergangen'] == putzplan[chore]['intervall_tage']:
-                telepot.Bot(API_KEY).sendMessage(GROUP_ID, f"\u2757Folgende Aufgabe ist heute fällig: "
-                                                           f"{putzplan[chore]['bezeichnung']} ("
-                                                           f"{putzplan[chore]['dran']})\u2757")
+                try:
+                    telepot.Bot(API_KEY).sendMessage(GROUP_ID, f"\u2757Folgende Aufgabe ist heute fällig: "
+                                                               f"{putzplan[chore]['bezeichnung']} ("
+                                                               f"{putzplan[chore]['dran']})\u2757")
+                except Exception:
+                    logging.error(f"Error sending message << chore due >>")
+                    telepot.Bot(API_KEY).sendMessage(ADMIN_IDS[0], "Error sending << chore due today >> message")
         dump_putzplan(putzplan)
     except Exception:
         logging.error("Error incrementing 'tage_vergangen', #4003")
+        telepot.Bot(API_KEY).sendMessage(ADMIN_IDS[0], "Error incrementing 'tage_vergangen', #4003")
