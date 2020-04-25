@@ -9,7 +9,7 @@ from datetime import datetime
 from telepot.loop import MessageLoop
 from telepot.delegate import create_open, pave_event_space, include_callback_query_chat_id, per_chat_id
 from _putzplan import update_putzplan
-from zaw_query import update_muell
+from zaw_query import update_muell, check_muell_due
 from rmv import update_infoboard_bahn
 import json
 from read_rss import update_news
@@ -168,6 +168,7 @@ try:
     try:
         schedule.every().day.at("00:02").do(update_putzplan)
         schedule.every().day.at("00:03").do(update_muell)
+        schedule.every().day.at("22:00").do(check_muell_due)
         schedule.every(4).minutes.do(update_infoboard_bahn)
         schedule.every(10).minutes.do(update_news)
         schedule.every(50).minutes.do(reload_service)

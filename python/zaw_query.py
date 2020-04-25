@@ -4,6 +4,8 @@ __author__ = "Maximilian Werner"
 from datetime import *
 import logging
 import json
+import telepot
+from config import API_KEY, GROUP_ID
 
 
 def load_raw():
@@ -63,3 +65,21 @@ def update_muell():
     })
 
     dump_to_json(muell_upcoming)
+
+
+def check_muell_due():
+    dic = {
+        "gelb": "Gelber Sack",
+        "schwarz": "Restmüll",
+        "blau": "Papiermüll",
+        "gruen": "Biomüll"
+    }
+    # noinspection PyBroadException
+    try:
+        with open("../data/zaw.json", "r") as f:
+            muell = json.load(f)
+        for item in ["gelb", "schwarz", "blau", "gruen"]:
+            if int(muell[item]) == 1:
+                telepot.Bot(API_KEY).sendMessage(GROUP_ID, f"Erinnerung: {dic[item]} wird morgen abgeholt!")
+    except Exception:
+        logging.error("Error sending garbage notification message: in check_muell_due")
