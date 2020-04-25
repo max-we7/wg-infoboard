@@ -2,6 +2,7 @@
 	# Load putzplan from JSON
     $str = file_get_contents('../data/putzplan.json');
     $json = json_decode($str, true);
+    $row_color = "";
 
     # bad
     $bad_vergangen = $json['bad']['tage_vergangen'];
@@ -12,11 +13,11 @@
     elseif ($bad_verbleibend == 1)
         $bad_faellig = "morgen";
     elseif ($bad_verbleibend == 0)
-        $bad_faellig = "<span class='due'>heute</span>";
+        $bad_faellig = "<span>heute</span>";
     elseif ($bad_verbleibend == -1)
-        $bad_faellig = "<span class='overdue'>gestern</span>";
+        $bad_faellig = "<span>gestern</span>";
     else
-        $bad_faellig = "<span class='overdue'>seit " . abs($bad_verbleibend) . " Tagen</span>";
+        $bad_faellig = "<span>seit " . abs($bad_verbleibend) . " Tagen</span>";
 
     # kueche
     $kueche_vergangen = $json['kueche']['tage_vergangen'];
@@ -27,11 +28,11 @@
     elseif ($kueche_verbleibend == 1)
         $kueche_faellig = "morgen";
     elseif ($kueche_verbleibend == 0)
-        $kueche_faellig = "<span class='due'>heute</span>";
+        $kueche_faellig = "<span>heute</span>";
     elseif ($kueche_verbleibend == -1)
-        $kueche_faellig = "<span class='overdue'>gestern</span>";
+        $kueche_faellig = "<span'>gestern</span>";
     else
-        $kueche_faellig = "<span class='overdue'>seit " . abs($kueche_verbleibend) . " Tagen</span>";
+        $kueche_faellig = "<span>seit " . abs($kueche_verbleibend) . " Tagen</span>";
 
     # saugen
     $saugen_vergangen = $json['saugen']['tage_vergangen'];
@@ -42,11 +43,11 @@
     elseif ($saugen_verbleibend == 1)
         $saugen_faellig = "morgen";
     elseif ($saugen_verbleibend == 0)
-        $saugen_faellig = "<span class='due'>heute</span>";
+        $saugen_faellig = "<span>heute</span>";
     elseif ($saugen_verbleibend == -1)
-        $saugen_faellig = "<span class='overdue'>gestern</span>";
+        $saugen_faellig = "<span>gestern</span>";
     else
-        $saugen_faellig = "<span class='overdue'>seit " . abs($saugen_verbleibend) . " Tagen</span>";
+        $saugen_faellig = "<span>seit " . abs($saugen_verbleibend) . " Tagen</span>";
 
     # handtuecher
     $handtuecher_vergangen = $json['handtuecher']['tage_vergangen'];
@@ -57,11 +58,11 @@
     elseif ($handtuecher_verbleibend == 1)
         $handtuecher_faellig = "morgen";
     elseif ($handtuecher_verbleibend == 0)
-        $handtuecher_faellig = "<span class='due'>heute</span>";
+        $handtuecher_faellig = "<span>heute</span>";
     elseif ($handtuecher_verbleibend == -1)
-        $handtuecher_faellig = "<span class='overdue'>gestern</span>";
+        $handtuecher_faellig = "<span>gestern</span>";
     else
-        $handtuecher_faellig = "<span class='overdue'>seit " . abs($handtuecher_verbleibend) . " Tagen</span>";
+        $handtuecher_faellig = "<span>seit " . abs($handtuecher_verbleibend) . " Tagen</span>";
 
     # duschvorhang
     $duschvorhang_vergangen = $json['duschvorhang']['tage_vergangen'];
@@ -72,59 +73,65 @@
     elseif ($duschvorhang_verbleibend == 1)
         $duschvorhang_faellig = "morgen";
     elseif ($duschvorhang_verbleibend == 0)
-        $duschvorhang_faellig = "<span class='due'>heute</span>";
+        $duschvorhang_faellig = "<span>heute</span>";
     elseif ($duschvorhang_verbleibend == -1)
-        $duschvorhang_faellig = "<span class='overdue'>gestern</span>";
+        $duschvorhang_faellig = "<span>gestern</span>";
     else
-        $duschvorhang_faellig = "<span class='overdue'>seit " . abs($duschvorhang_verbleibend) . " Tagen</span>";
+        $duschvorhang_faellig = "<span>seit " . abs($duschvorhang_verbleibend) . " Tagen</span>";
 ?>
 
-	<table class="putztabelle">
+  <table id='clean_table' class="table table-striped">
+    <thead class="<?php $currentTime = idate("H"); if ($currentTime < 18) {echo 'thead-light';} elseif ($currentTime > 18) {echo 'thead-dark';} ?>">
 	    <tr>
-	        <th>Aufgabe</th>
-	        <th>Wer?</th>
-	        <th>Fällig</th>
-	        <th>Chatbot-Befehl</th>
-		<tr>
-		    <td class="task" id="korrektur">Müll rausbringen</td>
+	        <th scope="col">Aufgabe</th>
+	        <th scope="col">Wer?</th>
+	        <th scope="col">Fällig</th>
+	        <th scope="col">Chatbot-Befehl</th>
+      </tr>
+      </thead>
+
+      <tbody>
+		<tr class="table-info">
+		    <td scope="row" class="task" id="korrektur">Müll rausbringen</td>
 		    <td><?php echo $json['muell']['dran']; ?></td>
 		    <td>bei Bedarf</td>
 		    <td>/muell</td>
 		</tr>
-		<tr>
-		    <td class="task">Glas wegbringen</td>
+		<tr class="table-info">
+		    <td scope="row" class="task">Glas wegbringen</td>
 		    <td><?php echo $json['glas']['dran']; ?></td>
 		    <td>bei Bedarf</td>
 		    <td>/glas</td>
 		</tr>
-		<tr>
-		    <td class="task">Bäder putzen</td>
+		<tr class="<?php if ($bad_verbleibend == 1) {echo 'table-warning';} elseif ($bad_verbleibend == 0) {echo 'table-danger';} elseif ($bad_verbleibend < 0) {echo 'table-danger';} else {echo 'table-success';} ?>">
+		    <td scope="row" class="task">Bäder putzen</td>
 		    <td><?php echo $json['bad']['dran']; ?></td>
 		    <td><?php echo $bad_faellig; ?></td>
 		    <td>/bad</td>
 		</tr>
-		<tr>
-		    <td class="task">Küche putzen</td>
+		<tr class="<?php if ($kueche_verbleibend == 1) {echo 'table-warning';} elseif ($kueche_verbleibend == 0) {echo 'table-danger';} elseif ($kueche_verbleibend < 0) {echo 'table-danger';} else {echo 'table-success';} ?>">
+		    <td scope="row" class="task">Küche putzen</td>
 		    <td><?php echo $json['kueche']['dran']; ?></td>
 		    <td><?php echo $kueche_faellig; ?></td>
 		    <td>/kueche</td>
 		</tr>
-		<tr>
-		    <td class="task">Staubsaugen</td>
+	  <tr class="<?php if ($saugen_verbleibend == 1) {echo 'table-warning';} elseif ($saugen_verbleibend == 0) {echo 'table-danger';} elseif ($saugen_verbleibend < 0) {echo 'table-danger';} else {echo 'table-success';} ?>">
+		    <td scope="row" class="task">Staubsaugen</td>
 		    <td><?php echo $json['saugen']['dran']; ?></td>
 		    <td><?php echo $saugen_faellig; ?></td>
 		    <td>/saugen</td>
 		</tr>
-		<tr>
-		    <td class="task">Handtücher waschen</td>
+		<tr class="<?php if ($handtuecher_verbleibend == 1) {echo 'table-warning';} elseif ($handtuecher_verbleibend == 0) {echo 'table-danger';} elseif ($handtuecher_verbleibend < 0) {echo 'table-danger';} else {echo 'table-success';} ?>">
+		    <td scope="row" class="task">Handtücher waschen</td>
 		    <td><?php echo $json['handtuecher']['dran']; ?></td>
 		    <td><?php echo $handtuecher_faellig; ?></td>
 		    <td>/handtuecher</td>
 		</tr>
-		<tr>
-		    <td class="task">Duschvorhänge waschen</td>
+		<tr class="<?php if ($duschvorhang_verbleibend == 1) {echo 'table-warning';} elseif ($duschvorhang_verbleibend  == 0) {echo 'table-danger';} elseif ($duschvorhang_verbleibend < 0) {echo 'table-danger';} else {echo 'table-success';} ?>">
+		    <td scope="row" class="task">Duschvorhänge waschen</td>
 		    <td><?php echo $json['duschvorhang']['dran']; ?></td>
 		    <td><?php echo $duschvorhang_faellig; ?></td>
 		    <td>/duschvorhang</td>
 		</tr>
+  </tbody>
 	</table>

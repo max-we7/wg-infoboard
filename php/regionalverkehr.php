@@ -17,41 +17,49 @@
 
 	$fahrt1_line = $json['trips'][0]['line'];
 	$fahrt2_line = $json['trips'][1]['line'];
-	$fahrt3_line = $json['trips'][2]['line'];	
+	$fahrt3_line = $json['trips'][2]['line'];
 ?>
-  
-<div id="table_header">Regionalverkehr</div>
-  
-<table class="fahrttabelle">
+
+<h5 id="table_header">Regionalverkehr</h5>
+
+<table id='regio_table' class="<?php $currentTime = idate("H"); if ($currentTime < 18) {echo 'table table-striped';} elseif ($currentTime > 18) {echo 'table table-dark table-striped';} ?>">
+  <thead>
 	<tr>
-		<th>Darmstadt HBF</th>
-		<th>Wiesbaden HBF</th>
-		<th>Dauer</th>
-		<th>Verbindung</th>
+    <th scope="col">Verbindung</th>
+		<th scope="col">Darmstadt HBF</th>
+		<th scope="col">Wiesbaden HBF</th>
+		<th scope="col">Dauer</th>
+
 	</tr>
+</thead>
+<tbody>
 	<tr>
-		<td>ab: <?php echo $fahrt1_abfahrt;?></td>
-		<td>an: <?php echo $fahrt1_ankunft;?></td>
-		<td><?php echo $fahrt1_duration;?></td>
-		<td><?php if (count($fahrt1_line) == 2){ echo $fahrt1_line[0]; echo ", "; echo $fahrt1_line[1];}
+    <td><?php if (count($fahrt1_line) == 2){ echo $fahrt1_line[0]; echo ", "; echo $fahrt1_line[1];}
 		    elseif (count($fahrt1_line) == 3){ echo $fahrt1_line[0]; echo ", "; echo $fahrt1_line[1]; echo ", ";
 		    echo $fahrt1_line[2];} else{ echo $fahrt1_line[0];}?>
 		</td>
+		<td scope="row">ab: <?php echo $fahrt1_abfahrt;?></td>
+		<td>an: <?php echo $fahrt1_ankunft;?></td>
+		<td><?php echo $fahrt1_duration;?></td>
+
 	</tr>
 		<tr>
-		<td>ab: <?php echo $fahrt2_abfahrt;?></td>
+      <td><?php if (count($fahrt2_line) == 2){ echo $fahrt2_line[0]; echo ", "; echo $fahrt2_line[1];}
+  		    elseif (count($fahrt2_line) == 3){ echo $fahrt2_line[0]; echo ", "; echo $fahrt2_line[1]; echo ", ";
+  		    echo $fahrt2_line[2];} else{ echo $fahrt2_line[0];}?></td>
+		<td scope="row">ab: <?php echo $fahrt2_abfahrt;?></td>
 		<td>an: <?php echo $fahrt2_ankunft;?></td>
 		<td><?php echo $fahrt2_duration;?></td>
-		<td><?php if (count($fahrt2_line) == 2){ echo $fahrt2_line[0]; echo ", "; echo $fahrt2_line[1];}
-		    elseif (count($fahrt2_line) == 3){ echo $fahrt2_line[0]; echo ", "; echo $fahrt2_line[1]; echo ", ";
-		    echo $fahrt2_line[2];} else{ echo $fahrt2_line[0];}?>
+
 	</tr>
 	<tr>
-		<td>ab: <?php echo $fahrt3_abfahrt;?></td>
+    <td><?php if (count($fahrt3_line) == 2){ echo $fahrt3_line[0]; echo ", "; echo $fahrt3_line[1];}
+		    elseif (count($fahrt3_line) == 3){ echo $fahrt3_line[0]; echo ", "; echo $fahrt3_line[1]; echo ", ";
+		    echo $fahrt3_line[2];} else{ echo $fahrt3_line[0];}?></td>
+		<td scope="row">ab: <?php echo $fahrt3_abfahrt;?></td>
 		<td>an: <?php echo $fahrt3_ankunft;?></td>
 		<td><?php echo $fahrt3_duration;?></td>
-		<td><?php if (count($fahrt3_line) == 2){ echo $fahrt3_line[0]; echo ", "; echo $fahrt3_line[1];}
-		    elseif (count($fahrt3_line) == 3){ echo $fahrt3_line[0]; echo ", "; echo $fahrt3_line[1]; echo ", ";
-		    echo $fahrt3_line[2];} else{ echo $fahrt3_line[0];}?>
+
 	</tr>
+</tbody>
 </table>

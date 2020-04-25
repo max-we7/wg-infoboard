@@ -5,53 +5,208 @@
   <meta name="author" content="Maximilian Werner"/>
   <meta name="google" content="notranslate">
   <link href="https://fonts.googleapis.com/css?family=PT+Serif|Josefin+Sans" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+
   <script src="http://code.jquery.com/jquery-latest.js"></script>
   <script src="js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
 
   <!-- Hidden refresh links -->
   <a href="#" id="refresh_onesecond" hidden="">refresh</a>
   <a href="#" id="refresh_tenminutes" hidden="">refresh</a>
 
 </head>
-<body>
+<body id="bg">
+  <div class="alert alert-secondary" role="alert" style="margin-bottom:0px;">
+    <span>
+      <marquee id="news" style="font-size:20px" scrollamount="10" scrolldelay="1"></marquee>
+    </span>
+  </div>
+  <div class="tradingview-widget-container__widget"></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+  {
+  "symbols": [
+    {
+      "proName": "FOREXCOM:SPXUSD",
+      "title": "S&P 500"
+    },
+    {
+      "proName": "FOREXCOM:NSXUSD",
+      "title": "Nasdaq 100"
+    },
+    {
+      "proName": "FX_IDC:EURUSD",
+      "title": "EUR/USD"
+    },
+    {
+      "proName": "BITSTAMP:BTCUSD",
+      "title": "BTC/USD"
+    },
+    {
+      "description": "DAX",
+      "proName": "INDEX:DEU30"
+    },
+    {
+      "description": "Gold",
+      "proName": "OANDA:XAUUSD"
+    },
+    {
+      "description": "DOW JONES",
+      "proName": "CURRENCYCOM:US30"
+    },
+    {
+      "description": "Adidas",
+      "proName": "XETR:ADS"
+    },
+    {
+      "description": "Apple",
+      "proName": "NASDAQ:AAPL"
+    },
+    {
+      "description": "Microsoft",
+      "proName": "NASDAQ:MSFT"
+    },
+    {
+      "description": "Tesla",
+      "proName": "NASDAQ:TSLA"
+    },
+    {
+      "description": "Amazon",
+      "proName": "NASDAQ:AMZN"
+    },
+    {
+      "description": "Netflix",
+      "proName": "NASDAQ:NFLX"
+    },
+    {
+      "description": "Alphabet Inc.",
+      "proName": "NASDAQ:GOOGL"
+    },
+    {
+      "proName": "XETR:ALV",
+      "title": "Allianz"
+    },
+    {
+      "proName": "XETR:BAS",
+      "title": "BASF"
+    },
+    {
+      "proName": "XETR:MUV2",
+      "title": "Munich RE"
+    },
+    {
+      "proName": "XETR:HEI",
+      "title": "Heidelberg Cement"
+    },
+    {
+      "proName": "XETR:LHA",
+      "title": "Lufthansa"
+    },
+    {
+      "proName": "XETR:1COV",
+      "title": "Covestro"
+    },
+    {
+      "proName": "NYSE:BNS",
+      "title": "Bank of Nova Scotia"
+    },
+    {
+      "proName": "NYSE:T",
+      "title": "AT&T"
+    },
+    {
+      "proName": "XETR:QDVS",
+      "title": "iShares Emerging Markets SRI"
+    },
+    {
+      "proName": "XETR:ISPA",
+      "title": "iShares G.S.D. 100"
+    },
+    {
+      "proName": "XETR:UIMM",
+      "title": "UBS MSCI World SRI"
+    },
+    {
+      "proName": "XETR:LYYA",
+      "title": "Lyxor MSCI World"
+    }
+  ],
+  "colorTheme": "light",
+  "isTransparent": false,
+  "displayMode": "adaptive",
+  "locale": "de_DE"
+  }
+  </script>
+<!-- TradingView Widget END -->
 
-	<div class="box" id="einseins">
-	    <div id="nahverkehr"></div>
-	</div>
-	<div class="box" id="einszwei">
-	    <div id="clock"></div>
-	</div>
+  <div class="container-fluid" style="margin:0px">
+    <div class="row align-items-start">
+      <div class="col-9">
+        <section id="nahverkehr"></section>
+      </div>
+      <div class="col-3">
+        <section id="clock"></section>
+      </div>
+    </div>
 
-	<div class="box" id="zweieins">
-	    <div id="regionalverkehr"></div>
-	</div>
-	<div class="box" id="zweizwei">
-	    <div id="zaw"></div>
-	</div>
-	<div class="box" id="zweidrei">
-	</div>
+    <div class="row align-items-start">
+      <div class="col-9">
+        <section id="regionalverkehr" style="font-size:50px"></section>
+      </div>
+      <div class="col-3">
+        <section id="zaw" style="font-size:50px"></section>
+      </div>
+    </div>
+    <div class="row align-items-start">
+      <div class="col-5">
+        <section id="putzen" style="font-size:50px"></section>
+        <p>&copy; 2020 Engineered by Max Werner and Designed by Nawid Rassti</p>
+      </div>
+      <div class="col-2">
+        <section id="einkaufen" style="font-size:50px"></section>
+      </div>
+      <div class="col-2">
+        <section id="image"></section>
+      </div>
+      <div class="col-3">
+        <section id="weather"></section>
+        <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+        </script>
+        <div class="elfsight-app-bf28f450-711b-4349-a125-4f5720526e90"></div>
+        <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+      <!-- TradingView Widget END -->
+      </div>
+    </div>
+  </div>
+  <script>
+  function getStylesheet() {
+      var currentTime = new Date().getHours();
+      console.log(currentTime)
+      if (0 <= currentTime&&currentTime < 8) {
+        document.getElementById("bg").style.background = "black";
+        document.getElementById("bg").style.color = "white";
+        document.getElementById("news").style.color = "white";
+        console.log("0-8")
+      }
+      if (8 <= currentTime&&currentTime < 18) {
+        document.getElementById("bg").style.background = "white";
+        document.getElementById("bg").style.color = "black";
+        document.getElementById("news").style.color = "black";
+        console.log("8-18")
+      }
+      if (18 <= currentTime&&currentTime <= 24) {
+        document.getElementById("bg").style.background = "black";
+        document.getElementById("bg").style.color = "white";
+        document.getElementById("news").style.color = "white";
+        console.log("18-24")
+      }
+  }
 
-	<div class="box" id="dreieins">
-	    <div id="putzen"></div>
-	</div>
-	<div class="box" id="dreizwei">
-	    <div id="weather">
-		</div>
-		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');</script>
-	</div>
-	<div class="box" id="dreidrei">
-	    <div id="einkaufen"></div>
-	</div>
-	<div class="box" id="dreivier">
-	    <div id="image"></div>
-	</div>
-
-	<marquee id="news"></marquee>
-
-	<footer>
-	<p>&copy; 2020 Designed and Engineered by Max Werner</p>
-	</footer>
-
+getStylesheet();
+  </script>
 </body>
 </html>
