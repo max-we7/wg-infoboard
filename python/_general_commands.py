@@ -1,6 +1,5 @@
 import random
 import json
-from collections import defaultdict
 
 import telepot
 from insults import insults
@@ -255,11 +254,12 @@ def essen(self):
     elif self.command[1] == "add":
         item = ' '.join(self.command[2:])
         recipes["liste"].append(item)
-        self.sender.sendMessage(f"Du hast {item} zur Essensliste hinzugefügt!")
-        telepot.Bot(API_KEY).sendMessage(GROUP_ID, f"{wg[self.chatid]} hat {item} zur Essensliste hinzugefügt!")
+        self.sender.sendMessage(f"Du hast <b>{item}</b> zur Essensliste hinzugefügt!", parse_mode="html")
+        telepot.Bot(API_KEY).sendMessage(GROUP_ID, f"{wg[self.chatid]} hat <b>{item}</b> zur Essensliste hinzugefügt!",
+                                         parse_mode="html")
     elif self.command[1] == "remove":
         pass
-        # TODO: remove item
+        # TODO: implement removal
     try:
         with open("../data/recipes.json", "w") as f:
             json.dump(recipes, f, indent=2)
