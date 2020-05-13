@@ -1,10 +1,12 @@
 import random
 import json
+from collections import defaultdict
+
 import telepot
 from insults import insults
 import platform
 import subprocess
-from config import ADMIN_IDS, LEGIT_IDS, API_KEY, GROUP_ID
+from config import ADMIN_IDS, LEGIT_IDS, API_KEY, GROUP_ID, wg
 import logging
 from muddawitze import muddawitze
 
@@ -225,3 +227,39 @@ def reload(self):
         subprocess.run(["sudo", "service", "kiosk.sh", "restart"])
     else:
         self.sender.sendMessage("Platform does not seem to be Linux.")
+
+
+def essen(self):
+    """
+    manage recipe list
+    """
+    recipes = {"liste": []}
+    try:
+        with open("../data/recipes.json", "r") as f:
+            recipes = json.load(f)
+    except FileNotFoundError:
+        pass
+    if len(self.command) == 1:
+        item = random.choice(recipes["liste"])
+        self.sender.sendMessage(f"Wie wäre es mit:\n\n{item}?")
+    elif self.command[1] == "liste":
+        msg = "<b>Essenswünsche und Rezeptesammlung:</b>\n\n"
+        for item in recipes["liste"]:
+            msg += "\U0001F538" + item + "\n"
+        self.sender.sendMessage(msg, parse_mode="html")
+        pass
+    elif self.command[1] == "add":
+        item = ' '.join(self.command[2:]).capitalize()
+        recipes["liste"].append(item)
+        self.sender.sendMessage(f"Du hast {item} zur Essensliste hinzugefügt!")
+        telepot.Bot(API_KEY).sendMessage(GROUP_ID, f"{wg[self.chatid]} hat {item} zur Essensliste hinzugefügt!")
+    elif self.command[1] == "remove":
+        pass
+        # TODO: remove item
+    try:
+        with open("../data/recipes.json", "w") as f:
+            json.dump(recipes, f, indent=2)
+    except FileNotFoundError:
+        pass
+
+

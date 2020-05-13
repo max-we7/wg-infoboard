@@ -1,6 +1,6 @@
 from _putzplan import chores, show_putzplan
 from _general_commands import insult, einkaufen, eingekauft, help_commands, reload, reboot, git_pull, loc, deinemudda, \
-    impersonate
+    impersonate, essen
 from _finances import geld, show_balance, make_transaction, neuer_einkauf, show_history, delete_last_record
 import logging
 from rmv import bahn, search_station, edit_station_favorites
@@ -148,6 +148,13 @@ def choose_command(self, msg):
         except Exception:
             self.sender.sendMessage("Fehler #2018, bitte erneut versuchen!")
             logging.exception("General error in weather(), #2018")
+    if self.command[0] == "/essen":
+        # noinspection PyBroadException
+        try:
+            essen(self)
+        except Exception:
+            self.sender.sendMessage("Fehler #2019, bitte erneut versuchen!")
+            logging.exception("General error in essen(), #2019")
 
 
 def choose_callback_command(self, msg):
