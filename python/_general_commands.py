@@ -249,7 +249,7 @@ def essen(self):
         self.sender.sendMessage(msg, parse_mode="html")
         pass
     elif self.command[1] == "add":
-        item = ' '.join(self.command[2:]).capitalize()
+        item = ' '.join(self.command[2:])
         recipes["liste"].append(item)
         self.sender.sendMessage(f"Du hast {item} zur Essensliste hinzugefügt!")
         telepot.Bot(API_KEY).sendMessage(GROUP_ID, f"{wg[self.chatid]} hat {item} zur Essensliste hinzugefügt!")
