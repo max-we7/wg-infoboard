@@ -148,7 +148,7 @@ def choose_command(self, msg):
         except Exception:
             self.sender.sendMessage("Fehler #2018, bitte erneut versuchen!")
             logging.exception("General error in weather(), #2018")
-    if self.command[0] == "/essen":
+    if self.command[0] == "/essen" and self.chatid in LEGIT_IDS:
         # noinspection PyBroadException
         try:
             essen(self)
