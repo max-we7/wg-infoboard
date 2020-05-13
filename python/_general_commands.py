@@ -1,6 +1,5 @@
 import random
 import json
-
 import telepot
 from insults import insults
 import platform
