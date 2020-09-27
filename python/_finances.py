@@ -12,7 +12,7 @@ from datetime import datetime
 
 def geld(self):
     """
-    show finance start dialogue
+    show finance start dialog
     """
     self.current_message_id = self.sender.sendMessage("Was möchtest du tun?", reply_markup=kb_finance_start)
 
