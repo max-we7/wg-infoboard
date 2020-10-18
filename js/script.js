@@ -8,7 +8,7 @@ $(document).ready(function() {
 	 $("#putzen").load("php/putzplan.php");
 	 $("#xkcd").load("php/xkcd.php");
 	 $("#zaw").load("php/muell.php");
-	 $("#dreivier").load("php/gif.html");
+	 $("#image").load("php/gif.html");
 
 
 
@@ -26,15 +26,15 @@ $(document).ready(function() {
 
     return false;
     });
-			
+
 });
 
 function refresh_onesecond() {
-$("#refresh_onesecond").click();  
+$("#refresh_onesecond").click();
 }
 
 function refresh_tenminutes() {
-$("#refresh_tenminutes").click();  
+$("#refresh_tenminutes").click();
 }
 
 setInterval(refresh_onesecond, 1000); // jede Sekunde

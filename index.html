@@ -20,129 +20,51 @@
 
 </head>
 <body id="bg">
-  <div class="alert alert-secondary" role="alert" style="margin-bottom:0px;">
+  <div id="news_bg" class="alert alert-secondary" role="alert" style="margin-bottom:0px;">
     <span>
       <marquee id="news" style="font-size:20px" scrollamount="10" scrolldelay="1"></marquee>
     </span>
   </div>
   <div class="tradingview-widget-container__widget"></div>
-  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-  {
-  "symbols": [
-    {
-      "proName": "FOREXCOM:SPXUSD",
-      "title": "S&P 500"
-    },
-    {
-      "proName": "FOREXCOM:NSXUSD",
-      "title": "Nasdaq 100"
-    },
-    {
-      "proName": "FX_IDC:EURUSD",
-      "title": "EUR/USD"
-    },
-    {
-      "proName": "BITSTAMP:BTCUSD",
-      "title": "BTC/USD"
-    },
-    {
-      "description": "DAX",
-      "proName": "INDEX:DEU30"
-    },
-    {
-      "description": "Gold",
-      "proName": "OANDA:XAUUSD"
-    },
-    {
-      "description": "DOW JONES",
-      "proName": "CURRENCYCOM:US30"
-    },
-    {
-      "description": "Adidas",
-      "proName": "XETR:ADS"
-    },
-    {
-      "description": "Apple",
-      "proName": "NASDAQ:AAPL"
-    },
-    {
-      "description": "Microsoft",
-      "proName": "NASDAQ:MSFT"
-    },
-    {
-      "description": "Tesla",
-      "proName": "NASDAQ:TSLA"
-    },
-    {
-      "description": "Amazon",
-      "proName": "NASDAQ:AMZN"
-    },
-    {
-      "description": "Netflix",
-      "proName": "NASDAQ:NFLX"
-    },
-    {
-      "description": "Alphabet Inc.",
-      "proName": "NASDAQ:GOOGL"
-    },
-    {
-      "proName": "XETR:ALV",
-      "title": "Allianz"
-    },
-    {
-      "proName": "XETR:BAS",
-      "title": "BASF"
-    },
-    {
-      "proName": "XETR:MUV2",
-      "title": "Munich RE"
-    },
-    {
-      "proName": "XETR:HEI",
-      "title": "Heidelberg Cement"
-    },
-    {
-      "proName": "XETR:LHA",
-      "title": "Lufthansa"
-    },
-    {
-      "proName": "XETR:1COV",
-      "title": "Covestro"
-    },
-    {
-      "proName": "NYSE:BNS",
-      "title": "Bank of Nova Scotia"
-    },
-    {
-      "proName": "NYSE:T",
-      "title": "AT&T"
-    },
-    {
-      "proName": "XETR:QDVS",
-      "title": "iShares Emerging Markets SRI"
-    },
-    {
-      "proName": "XETR:ISPA",
-      "title": "iShares G.S.D. 100"
-    },
-    {
-      "proName": "XETR:UIMM",
-      "title": "UBS MSCI World SRI"
-    },
-    {
-      "proName": "XETR:LYYA",
-      "title": "Lyxor MSCI World"
-    }
-  ],
-  "colorTheme": "light",
-  "isTransparent": false,
-  "displayMode": "adaptive",
-  "locale": "de_DE"
-  }
+  <script id='tradingTicker' type='text/javascript' src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+          {
+            "symbols":[
+              {"proName":"FOREXCOM:SPXUSD","title":"S&P 500"},
+              {"proName":"FOREXCOM:NSXUSD","title":"Nasdaq 100"},
+              {"proName":"FX_IDC:EURUSD","title":"EUR/USD"},
+              {"proName":"BITSTAMP:BTCUSD","title":"BTC/USD"},
+              {"proName":"BITSTAMP:ETHUSD","title":"ETH/USD"},
+              {"description":"DAX","proName":"INDEX:DEU30"},
+              {"description":"Gold","proName":"OANDA:XAUUSD"},
+              {"description":"DOW JONES","proName":"CURRENCYCOM:US30"},
+              {"description":"Adidas","proName":"XETR:ADS"},
+              {"description":"Apple","proName":"NASDAQ:AAPL"},
+              {"description":"Microsoft","proName":"NASDAQ:MSFT"},
+              {"description":"Tesla","proName":"NASDAQ:TSLA"},
+              {"description":"Amazon","proName":"NASDAQ:AMZN"},
+              {"description":"Netflix","proName":"NASDAQ:NFLX"},
+              {"description":"Alphabet Inc.","proName":"NASDAQ:GOOGL"},
+              {"proName":"XETR:ALV","title":"Allianz"},
+              {"proName":"XETR:BAS","title":"BASF"},
+              {"proName":"XETR:MUV2","title":"Munich RE"},
+              {"proName":"XETR:HEI","title":"Heidelberg Cement"},
+              {"proName":"XETR:LHA","title":"Lufthansa"},
+              {"proName":"XETR:1COV","title":"Covestro"},
+	          {"proName":"XETR:R6C3","title":"RDS B"},
+              {"proName":"NYSE:BNS","title":"Bank of Nova Scotia"},
+              {"proName":"NYSE:T","title":"AT&T"},
+              {"proName":"XETR:QDVS","title":"iShares Emerging Markets SRI"},
+              {"proName":"XETR:ISPA","title":"iShares G.S.D. 100"},
+              {"proName":"XETR:UIMM","title":"UBS MSCI World SRI"},
+              {"proName":"XETR:LYYA","title":"Lyxor MSCI World"}],
+              "colorTheme":"light",
+              "isTransparent":false,
+              "displayMode":"adaptive",
+              "locale":"de_DE"
+            }
   </script>
-<!-- TradingView Widget END -->
 
-  <div class="container-fluid" style="margin:0px">
+  <div class="container-fluid" style="margin:0px; padding-top:10px;">
     <div class="row align-items-start">
       <div class="col-9">
         <section id="nahverkehr"></section>
@@ -163,7 +85,7 @@
     <div class="row align-items-start">
       <div class="col-5">
         <section id="putzen" style="font-size:50px"></section>
-        <p>&copy; 2020 Engineered by Max Werner and Designed by Nawid Rassti</p>
+        <p style="font-size:12px;">&copy; 2020 Engineered by Max Werner and Designed by Nawid Rassti</p>
       </div>
       <div class="col-2">
         <section id="einkaufen" style="font-size:50px"></section>
@@ -176,37 +98,41 @@
         <script>
         !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
         </script>
-        <div class="elfsight-app-bf28f450-711b-4349-a125-4f5720526e90"></div>
+        <div id="corona_stat" class="elfsight-app-bf28f450-711b-4349-a125-4f5720526e90"></div>
         <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-      <!-- TradingView Widget END -->
       </div>
     </div>
   </div>
   <script>
-  function getStylesheet() {
-      var currentTime = new Date().getHours();
-      console.log(currentTime)
-      if (0 <= currentTime&&currentTime < 8) {
-        document.getElementById("bg").style.background = "black";
-        document.getElementById("bg").style.color = "white";
-        document.getElementById("news").style.color = "white";
-        console.log("0-8")
-      }
-      if (8 <= currentTime&&currentTime < 18) {
-        document.getElementById("bg").style.background = "white";
-        document.getElementById("bg").style.color = "black";
-        document.getElementById("news").style.color = "black";
-        console.log("8-18")
-      }
-      if (18 <= currentTime&&currentTime <= 24) {
-        document.getElementById("bg").style.background = "black";
-        document.getElementById("bg").style.color = "white";
-        document.getElementById("news").style.color = "white";
-        console.log("18-24")
-      }
-  }
+    function day_night() {
+        var currentTime = new Date().getHours();
+        if (0 <= currentTime&&currentTime < 8) {
+          document.getElementById("bg").style.background = "black";
+          document.getElementById("bg").style.color = "white";
+          document.getElementById("news").style.background = "black";
+          document.getElementById("news").style.color = "white";
+          document.getElementById("news_bg").style.background = "black";
+          document.getElementById("news_bg").style.border = "black";
+          document.getElementById("corona_stat").setAttribute("class", "elfsight-app-fef116ac-0d73-4ec4-a889-d94d2635eeca");
+        }
+        else if (8 <= currentTime&&currentTime < 18) {
+          document.getElementById("bg").style.background = "white";
+          document.getElementById("bg").style.color = "black";
+          document.getElementById("news").style.color = "black";
+          document.getElementById("corona_stat").setAttribute("class", "elfsight-app-bf28f450-711b-4349-a125-4f5720526e90");
+        }
+        else if (18 <= currentTime&&currentTime <= 24) {
+          document.getElementById("bg").style.background = "black";
+          document.getElementById("bg").style.color = "white";
+          document.getElementById("news").style.background = "black";
+          document.getElementById("news").style.color = "white";
+          document.getElementById("news_bg").style.background = "black";
+          document.getElementById("news_bg").style.border = "black";
+          document.getElementById("corona_stat").setAttribute("class", "elfsight-app-fef116ac-0d73-4ec4-a889-d94d2635eeca");
+        }
+    }
 
-getStylesheet();
+    day_night();
   </script>
 </body>
 </html>
