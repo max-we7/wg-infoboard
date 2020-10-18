@@ -191,9 +191,7 @@ def make_api_request(origin_id, destination_id, delta_mins=0):
         error = request.json()['errorCode']
         logging.error(f"RMV API internal server error: {error}. Used query URL: {url}")
         return -1
-    except KeyError:
-        pass
-    except JSONDecodeError:
+    except Exception:
         pass
 
     return request
