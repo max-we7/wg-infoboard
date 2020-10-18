@@ -1,6 +1,6 @@
 from _putzplan import chores, show_putzplan
 from _general_commands import insult, einkaufen, eingekauft, help_commands, reload, reboot, git_pull, loc, deinemudda, \
-    impersonate, essen
+    impersonate, essen, eingekauft
 from _finances import geld, show_balance, make_transaction, neuer_einkauf, show_history, delete_last_record
 import logging
 from rmv import bahn, search_station, edit_station_favorites
@@ -46,6 +46,8 @@ def choose_command(self, msg):
         search_weather_skeleton(self)
     if self.wetter_flag1:
         weather(self)
+    if self.eingekauft_flag1:
+        eingekauft(self, msg)
 
     # ---------------- COMMANDS ---------------------
     if self.command[0] == "/einkaufen" and self.chatid in LEGIT_IDS:

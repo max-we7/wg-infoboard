@@ -229,3 +229,15 @@ kb_wetter_favoriten_bearbeiten = ReplyKeyboardMarkup(keyboard=[
             KeyboardButton(text="Abbrechen")
         ]
     ])
+
+
+def create_eingekauft_keyboard(items_available):
+    kbs = ["Alle"]
+    for x in items_available:
+        kbs = kbs + [KeyboardButton(text=x)]
+    kbs = kbs + [KeyboardButton(text="Abbrechen")]
+
+    keyboard = ReplyKeyboardMarkup(keyboard=[
+        [x] for x in kbs
+    ])
+    return keyboard

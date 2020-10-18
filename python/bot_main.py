@@ -75,6 +75,9 @@ class MessageHandler(telepot.helper.ChatHandler):
         self.fav_flag2_wetter = False
         self.fav_flag3_wetter = False
 
+        # Einkauf state variables
+        self.eingekauft_flag1 = False
+
     def on_chat_message(self, msg):
         print(msg)
         logging.debug(f"{msg}")

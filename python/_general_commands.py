@@ -1,12 +1,14 @@
 import random
 import json
 import telepot
+from telepot.namedtuple import ReplyKeyboardRemove
 from insults import insults
 import platform
 import subprocess
 from config import ADMIN_IDS, LEGIT_IDS, API_KEY, GROUP_ID, wg
 import logging
 from muddawitze import muddawitze
+from keyboards import create_eingekauft_keyboard
 
 
 def einkaufen(self, msg):
@@ -48,25 +50,35 @@ def eingekauft(self, msg):
     remove given items from the shopping list
     """
     einkaufsliste = load_einkaufsliste(self)
-    if len(self.command) == 1:
-        self.sender.sendMessage("Löschen eines Artikels von der Einkaufsliste mit <b>/eingekauft X"
-                                "</b>", parse_mode='html')
-    else:
-        item = ' '.join(self.command[1:]).lower().capitalize()
-        if item not in einkaufsliste:
-            if item == "All":
-                einkaufsliste = []
-                dump_einkaufsliste(self, einkaufsliste)
-                telepot.Bot(API_KEY).sendMessage(GROUP_ID, f"{msg['from']['first_name']} hat die Einkaufsliste geleert "
-                                                           f"\U0001F4DC\u2705", parse_mode='html')
-            else:
-                self.sender.sendMessage(f"<b>{item}</b> befindet sich nicht auf der Einkaufsliste",
-                                        parse_mode='html')
-        else:
-            einkaufsliste.remove(item)
-            telepot.Bot(API_KEY).sendMessage(GROUP_ID, f"{msg['from']['first_name']} hat <b>{item}</b> von der "
-                                                       f"Einkaufsliste entfernt \U0001F4DC\u2705", parse_mode='html')
+    if self.eingekauft_flag1:
+        item = " ".join(self.command)
+        if item == "Alle":
+            einkaufsliste = []
             dump_einkaufsliste(self, einkaufsliste)
+            self.sender.sendMessage("Einkaufsliste wurde geleert!", reply_markup=ReplyKeyboardRemove())
+            telepot.Bot(API_KEY).sendMessage(GROUP_ID, f"{msg['from']['first_name']} hat die Einkaufsliste geleert "
+                                                       f"\U0001F4DC\u2705", parse_mode='html')
+        elif item == "Abbrechen":
+            self.sender.sendMessage("Vorgang abgebrochen.", reply_markup=ReplyKeyboardRemove())
+        else:
+            try:
+                einkaufsliste.remove(item)
+                dump_einkaufsliste(self, einkaufsliste)
+                self.sender.sendMessage(f"{item} wurde von der Einkaufsliste entfernt!",
+                                        reply_markup=ReplyKeyboardRemove())
+                telepot.Bot(API_KEY).sendMessage(GROUP_ID, f"{msg['from']['first_name']} hat <b>{item}</b> von der "
+                                                           f"Einkaufsliste entfernt \U0001F4DC\u2705",
+                                                 parse_mode='html')
+            except ValueError:
+                {}
+        self.eingekauft_flag1 = False
+    else:
+        if len(einkaufsliste) == 0:
+            self.sender.sendMessage("Einkaufsliste ist leer!")
+            return
+        self.eingekauft_flag1 = True
+        self.sender.sendMessage("Welchen Artikel möchtest du entfernen?",
+                                reply_markup=create_eingekauft_keyboard(einkaufsliste))
 
 
 def load_einkaufsliste(self):
@@ -264,5 +276,3 @@ def essen(self):
             json.dump(recipes, f, indent=2)
     except FileNotFoundError:
         pass
-
-
