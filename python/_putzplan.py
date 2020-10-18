@@ -192,9 +192,10 @@ def update_putzplan():
             logging.debug(f"... incremented chore {chore} ...")
             if putzplan[chore]['tage_vergangen'] == putzplan[chore]['intervall_tage']:
                 try:
+                    chore = putzplan[chore]['bezeichnung']
+                    who = putzplan[chore]['dran']
                     telepot.Bot(API_KEY).sendMessage(GROUP_ID, f"\u2757Folgende Aufgabe ist heute fällig: "
-                                                               f"{putzplan[chore]['bezeichnung']} ("
-                                                               f"{putzplan[chore]['dran']})\u2757")
+                                                               f"{chore} ({who})\u2757")
                 except Exception:
                     logging.error(f"Error sending message << chore due >>")
                     telepot.Bot(API_KEY).sendMessage(ADMIN_IDS[0], "Error sending << chore due today >> message")

@@ -177,6 +177,9 @@ def make_api_request(origin_id, destination_id, delta_mins=0):
 
     try:
         request = requests.get(url)
+    except requests.exceptions.HTTPError:
+        logging.exception(f"RMV API request failed! Used query URL: {url}")
+        return -1
     except requests.RequestException:
         logging.exception(f"RMV API request failed! Used query URL: {url}")
         return -1
