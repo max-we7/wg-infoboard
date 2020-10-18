@@ -206,7 +206,10 @@ def extract_from_api_request(request):
     # check if request was made successfully
     if request == -1: return -1
 
-    schedule_raw = request.json()
+    try:
+        schedule_raw = request.json()
+    except Exception:
+        return -1
     schedule = {"trips": []}
 
     for i in range(5):
