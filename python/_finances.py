@@ -21,7 +21,6 @@ def show_balance(self):
     """
     show balance of all users
     """
-    # self._editor = telepot.helper.Editor(self.bot, self.current_message_id)
     # noinspection PyBroadException
     try:
         balances = get_balances_raw()
@@ -29,10 +28,6 @@ def show_balance(self):
         logging.error("Error loading balances, #1003")
         self.sender.sendMessage("Fehler #1003")
         return
-    # self._editor.editMessageText(f"Aktuelle Kontostände:\n\n"
-    #                            f"{wg_members[0]}: <b>{balances[0][1]}</b>\n{wg_members[1]}: <b>{balances[1][1]}</b>\n"
-    #                            f"{wg_members[2]}: <b>{balances[2][1]}</b>\n{wg_members[3]}: <b>{balances[3][1]}</b>",
-    #                              parse_mode='html')
     telepot.Bot(API_KEY).editMessageText(message_identifier(self.current_message_id),
                                          f"Aktuelle Kontostände:\n\n"
                                          f"{wg_members[0]}: \U0001F4B0<b>{balances[0][1]}</b>\n{wg_members[1]}: "
@@ -80,8 +75,6 @@ def make_transaction(self, msg):
             self.empfaenger_flag = False
     else:
         self.empfaenger_flag = True
-        # self._editor3 = telepot.helper.Editor(self.bot, self.current_message_id)
-        # self._editor3.editMessageText("Neue Überweisung.")
         telepot.Bot(API_KEY).editMessageText(message_identifier(self.current_message_id), "Neue Überweisung.")
         self.sender.sendMessage("An wen möchtest du Geld überwiesen?", reply_markup=kb_wg_bewohner)
 
@@ -230,8 +223,8 @@ def calculate_transaction(self):
     """
     balances = get_balances()
     transaction_value = int(self.preis.replace(',', ''))
-    balances[self.einkaeufer] -= transaction_value
-    balances[self.empfaenger] += transaction_value
+    balances[self.einkaeufer] += transaction_value
+    balances[self.empfaenger] -= transaction_value
 
     # Integrity Variable
     integrity = 0
