@@ -1,5 +1,7 @@
 from collections import defaultdict
 from datetime import timedelta, datetime
+from json.decoder import JSONDecodeError
+
 from config import RMV_API_KEY
 import requests
 import json
@@ -190,6 +192,8 @@ def make_api_request(origin_id, destination_id, delta_mins=0):
         logging.error(f"RMV API internal server error: {error}. Used query URL: {url}")
         return -1
     except KeyError:
+        pass
+    except JSONDecodeError:
         pass
 
     return request
