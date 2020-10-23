@@ -137,5 +137,5 @@
 	</table>
 
 <?php $cpu_temp = file_get_contents('../data/cpu_temp.txt'); ?>
-<?php echo $cpu_temp; ?>
+<?php echo "CPU Temperatur: $cpu_temp"; ?>
 
