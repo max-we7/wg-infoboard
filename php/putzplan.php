@@ -135,8 +135,3 @@
 		</tr>
   </tbody>
 	</table>
-
-#<?php $cpu_temp = file_get_contents('../data/cpu_temp.txt'); ?
-#<?php echo "CPU Temperatur: $cpu_temp;"?
-#<?php echo '<div style="font-size:12px;">CPU Temperatur: '$cpu_temp'</div>';?
-
