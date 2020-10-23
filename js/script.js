@@ -38,4 +38,4 @@ $("#refresh_tenminutes").click();
 }
 
 setInterval(refresh_onesecond, 1000); // jede Sekunde
-setInterval(refresh_tenminutes, 3000000); // alle 60 min
+setInterval(refresh_tenminutes, 3000000); // alle 50 min

@@ -135,3 +135,7 @@
 		</tr>
   </tbody>
 	</table>
+
+$cpu_temp = file_get_contents('../data/cpu_temp.txt');
+<?php echo $cpu_temp; ?>
+
