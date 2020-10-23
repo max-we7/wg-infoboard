@@ -94,13 +94,6 @@ def choose_command(self, msg):
         except Exception:
             logging.error("General error in chores(), #2010")
             self.sender.sendMessage("Fehler #2010")
-    if self.command[0] == "/loc" and self.chatid in LEGIT_IDS:
-        # noinspection PyBroadException
-        try:
-            loc(self)
-        except Exception:
-            logging.error("General error in loc(), #2011")
-            self.sender.sendMessage("Fehler #2011")
     if self.command[0] == "/bahn":
         # noinspection PyBroadException
         try:

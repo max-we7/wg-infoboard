@@ -186,19 +186,6 @@ def help_commands(self):
                                 , parse_mode="html")
 
 
-def loc(self):
-    """
-    returns current Lines of Code of the WG-Infoboard project
-    """
-    try:
-        with open("../data/loc.json", "r") as f:
-            data = json.load(f)
-            self.sender.sendMessage(f"Lines of Code: {data['header']['n_lines']}\u200D")
-    except FileNotFoundError:
-        logging.error("Error - File Not Found, #3001")
-        self.sender.sendMessage("Fehler #3001")
-
-
 def git_pull(self, msg):
     # TODO: implement
     """
