@@ -138,6 +138,5 @@
 
 <?php $cpu_temp = file_get_contents('../data/cpu_temp.txt'); ?>
 <?php echo "CPU Temperatur: $cpu_temp";?>
-<?php echo '<div style=font-size=1.25em;>'"Test"'</div>';?>
 
 
