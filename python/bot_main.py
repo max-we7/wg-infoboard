@@ -20,7 +20,7 @@ from _commandhandler import choose_command, choose_callback_command
 # TODO: git_pull(), handle_img()
 
 logging.basicConfig(filename="wg-infoboard.log", filemode="a+", format='%(asctime)s - %(levelname)s - %(message)s',
-                    level=logging.DEBUG)
+                    level=logging.INFO)
 
 
 class MessageHandler(telepot.helper.ChatHandler):
@@ -91,7 +91,7 @@ class MessageHandler(telepot.helper.ChatHandler):
             if content_type == "photo":
                 handle_img(self, msg)
         else:
-            logging.debug(f"Not in legit IDs: {self.chatid}")
+            logging.info(f"Not in legit IDs: {self.chatid}")
         if content_type == 'text':
             self.command = msg['text'].split(" ")
             choose_command(self, msg)

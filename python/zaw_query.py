@@ -41,6 +41,7 @@ def update_muell():
                 month = int(entry["date"][:2])
                 day = int(entry["date"][2:])
                 today = date.today()
+                # TODO: integrate 2021 plan, this program crashes on December 22, 2020
                 future = date(2020, month, day)
                 diff = future - today
                 if diff.days > -1:
@@ -75,11 +76,16 @@ def check_muell_due():
         "gruen": "Biomüll"
     }
     # noinspection PyBroadException
-    try:
-        with open("../data/zaw.json", "r") as f:
-            muell = json.load(f)
-        for item in ["gelb", "schwarz", "blau", "gruen"]:
-            if int(muell[item]) == 1:
-                telepot.Bot(API_KEY).sendMessage(GROUP_ID, f"Erinnerung: {dic[item]} wird morgen abgeholt!")
-    except Exception:
-        logging.error("Error sending garbage notification message: in check_muell_due")
+    attempts = 0
+    while attempts < 5:
+        try:
+            with open("../data/zaw.json", "r") as f:
+                muell = json.load(f)
+            for item in ["gelb", "schwarz", "blau", "gruen"]:
+                if int(muell[item]) == 1:
+                    telepot.Bot(API_KEY).sendMessage(GROUP_ID, f"Erinnerung: {dic[item]} wird morgen abgeholt!")
+                    logging.info("Garbage notification message successfully sent")
+            break
+        except Exception:
+            attempts += 1
+            logging.error("Could not send garbage notification message")

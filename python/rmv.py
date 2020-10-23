@@ -241,7 +241,7 @@ def extract_from_api_request(request):
             delay = (delay.seconds // 60) % 60
         except KeyError:
             delay = 0
-            logging.info("No 'rtTime' field found in response of RMV API request")
+            logging.debug("No 'rtTime' field found in response of RMV API request")
 
         tz = planned_ab + timedelta(minutes=10)
         tz = f"{tz.hour if len(str(tz.hour)) == 2 else '0' + str(tz.hour)}:{tz.minute if len(str(tz.minute)) == 2 else '0' + str(tz.minute)}"
