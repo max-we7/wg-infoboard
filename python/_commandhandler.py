@@ -1,5 +1,5 @@
 from _putzplan import chores, show_putzplan
-from _general_commands import insult, einkaufen, eingekauft, help_commands, reload, reboot, git_pull, loc, deinemudda, \
+from _general_commands import insult, einkaufen, eingekauft, help_commands, reload, reboot, git_pull, deinemudda, \
     impersonate, essen, eingekauft
 from _finances import geld, show_balance, make_transaction, neuer_einkauf, show_history, delete_last_record
 import logging
