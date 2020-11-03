@@ -8,9 +8,9 @@ while True:
         # Print the values to the serial port
         temperature_c = dhtDevice.temperature
         humidity = dhtDevice.humidity
-        output = "Temp: {:.1f} C    Humidity: {}% ".format(temperature_c, humidity)
+        output = "Raumtemperatur: {:.1f}°C    Feuchtigkeit: {}% ".format(temperature_c, humidity)
         print(output)
-        with open("temp.txt", "w") as f:
+        with open("../data/temp.txt", "w") as f:
             f.write(output)
 
     except RuntimeError as error:
