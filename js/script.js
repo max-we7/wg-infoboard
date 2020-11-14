@@ -99,6 +99,7 @@ function updateGarbage(){
             if (days_remaining > 1){
                 $(selector).html("in " + days_remaining + " Tagen");
                 $(selector).css( "background-color", "#28a745" );
+                $(selector + "-image").css( "background-color", "inherit");
             } else if (days_remaining == 1){
                 $(selector).html("morgen");
                 $(selector).css( "background-color", "#ffc107" );
@@ -109,12 +110,6 @@ function updateGarbage(){
                 $(selector).css( "background-color", "#dc3545" );
                 $(selector + "-image").css( "background-color", "#dc3545" );
                 blink(selector + "-image")
-            } else if (days_remaining == -1){
-                $(selector).html("gestern");
-                $(selector).css( "background-color", "#28a745" );
-            } else {
-                $(selector).html("seit " + String(days_remaining).substring(1) + " Tagen");
-                $(selector).css( "background-color", "#dc3545" );
             }
         }
 
