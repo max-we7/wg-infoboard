@@ -107,7 +107,7 @@ function updateGarbage(){
                 $(selector).html("heute");
                 $(selector).css( "background-color", "#dc3545" );
                 $(selector + "-image").css( "background-color", "#dc3545" );
-                $(selector + "-image").css("animation", "blink 700ms infinite alternate");
+                blink(selector + "-image")
             } else if (days_remaining == -1){
                 $(selector).html("gestern");
                 $(selector).css( "background-color", "#28a745" );
@@ -115,6 +115,14 @@ function updateGarbage(){
                 $(selector).html("seit " + String(days_remaining).substring(1) + " Tagen");
                 $(selector).css( "background-color", "#dc3545" );
             }
+        }
+
+        function blink(selector){
+            $(selector).fadeOut('slow', function(){
+                $(this).fadeIn('slow', function(){
+                    blink(this);
+                });
+            });
         }
         }
     };
