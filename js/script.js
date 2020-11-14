@@ -90,10 +90,10 @@ function updateGarbage(){
         response = xhttp.responseText;
         var garbage = JSON.parse(this.response);
 
-        calculateDueDate(selector="#garbage-black", garbage.schwarz);
-        calculateDueDate(selector="#garbage-blue", garbage.blau);
-        calculateDueDate(selector="#garbage-green", garbage.gruen);
-        calculateDueDate(selector="#garbage-yellow", garbage.gelb);
+        calculateDueDate(selector=".garbage-black", garbage.schwarz);
+        calculateDueDate(selector=".garbage-blue", garbage.blau);
+        calculateDueDate(selector=".garbage-green", garbage.gruen);
+        calculateDueDate(selector=".garbage-yellow", garbage.gelb);
 
         function calculateDueDate(selector, days_remaining){
             if (days_remaining > 1){
