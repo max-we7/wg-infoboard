@@ -128,6 +128,7 @@
 }
 
 #gif {
+  background-color: black;
   width: 20%;
   height: 100%;
   border: 5px solid black;
