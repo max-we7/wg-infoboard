@@ -107,6 +107,7 @@ function updateGarbage(){
                 $(selector).html("heute");
                 $(selector).css( "background-color", "#dc3545" );
                 $(selector + "-image").css( "background-color", "#dc3545" );
+                $(selector + "-image").css("animation", "blink 700ms infinite alternate");
             } else if (days_remaining == -1){
                 $(selector).html("gestern");
                 $(selector).css( "background-color", "#28a745" );
