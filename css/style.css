@@ -99,6 +99,7 @@
 }
 
 #temperature {
+  background-color: black;
   width: 40%;
   height: 100%;
   border: 5px solid black;
@@ -145,6 +146,7 @@
 }
 
 #weather-widget {
+  background-color: black;
   width: 40%;
   height: 100%;
   border: 5px solid black;
