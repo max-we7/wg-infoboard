@@ -1,4 +1,5 @@
 slick/* -linguist-detectable
 python/rmv_stations.py -linguist-detectable
-python/insults.py -linguist-detectable
+
 python/openmensa_canteens.py -linguist-detectable
+python/insults.py -linguist-detectable
