@@ -99,6 +99,7 @@ function updateGarbage(){
             if (days_remaining > 1){
                 $(selector).html("in " + days_remaining + " Tagen");
                 $(selector).css( "background-color", "#28a745" );
+                $(selector + "-image").css( "background-color", "#28a745" );
             } else if (days_remaining == 1){
                 $(selector).html("morgen");
                 $(selector).css( "background-color", "#ffc107" );
