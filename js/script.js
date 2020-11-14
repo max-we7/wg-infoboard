@@ -113,10 +113,10 @@ function updateGarbage(){
                 $(selector).css( "background-color", "#dc3545" );
             }
         }
+        }
     };
     xhttp.open("GET", "data/zaw.json", true);
     xhttp.send();
-    }
 }
 
 // UPDATE SHOPPING LIST
