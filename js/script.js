@@ -1,8 +1,10 @@
 // ON PAGE READY
 $( document ).ready(function() {
+    updateTime();
     updateShoppingList();
     updateTrainSchedule();
     updateChores();
+
     setInterval(updateTime, 1000);
     setInterval(updateShoppingList, 3000);
     setInterval(updateTrainSchedule, 5000);
