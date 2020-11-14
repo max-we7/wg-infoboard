@@ -4,12 +4,13 @@ $( document ).ready(function() {
     updateShoppingList();
     updateTrainSchedule();
     updateChores();
+    updateGarbage();
 
     setInterval(updateTime, 1000);
     setInterval(updateShoppingList, 3000);
     setInterval(updateTrainSchedule, 5000);
     setInterval(updateChores, 3000);
-    setInterval(updateGarbage, 5000);
+    setInterval(updateGarbage, 4000);
     
 })
 
