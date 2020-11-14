@@ -116,6 +116,7 @@ function updateGarbage(){
     };
     xhttp.open("GET", "data/zaw.json", true);
     xhttp.send();
+    }
 }
 
 // UPDATE SHOPPING LIST
