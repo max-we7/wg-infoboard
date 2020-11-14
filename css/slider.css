@@ -1,0 +1,62 @@
+.slider-container {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 13.15%;
+}
+
+.slider {
+  width: 100%;
+  height: auto;
+}
+
+body {
+  margin: 0;
+}
+
+.slide {
+  background-color: white;
+  color: black;
+  overflow: hidden;
+}
+
+.image {
+  width: 40%;
+  height: 100%;
+  float: left;
+  text-align: center;
+  margin-right: 2%;
+}
+
+img {
+  width: auto;
+  height: auto;
+  max-height: 100%;
+  /* for vertical images, but causes white stripe for normal images */
+  /*display: block;
+  margin-left: auto;
+  margin-right: auto;*/
+}
+
+.content {
+  height: inherit;
+  padding-right: 2%;
+  max-height: 142px;
+}
+
+.title {
+  width: 100%;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.description {
+  padding-top: 0.5%;
+  /* BLOCKSATZ */
+  text-align: justify;
+  /* SILBENTRENNUNG */
+  hyphens: auto;
+  font-size: 92%;
+  line-height: 1.2;
+}

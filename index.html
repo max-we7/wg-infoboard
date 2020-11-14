@@ -1,53 +1,43 @@
 <html>
-<head>
-  <title>Infoboard WG68</title>
-  <meta charset="utf-8" />
-  <meta name="author" content="Maximilian Werner"/>
-  <meta name="google" content="notranslate">
-  <link href="https://fonts.googleapis.com/css?family=PT+Serif|Josefin+Sans" rel="stylesheet">
+    <head>
+        <!-- GENERAL -->
+        <title>Infoboard WG68</title>
+        <meta charset="utf-8" />
+        <meta name="author" content="Maximilian Werner"/>
+        <meta name="google" content="notranslate">
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
 
-  <script src="http://code.jquery.com/jquery-latest.js"></script>
-  <script src="js/script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <!-- STYLESHEETS -->
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/slider.css">
+        <link rel="stylesheet" type="text/css" href="slick/slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="slick/slick/slick-theme.css"/>
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/style.css">
+        <!-- JQUERY / JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" src="slick/slick/slick.min.js"></script>
+        <script src="js/script.js"></script>
+        <script src="js/slider.js"></script>
 
-  <!-- Hidden refresh links -->
-  <a href="#" id="refresh_onesecond" hidden="">refresh</a>
-  <a href="#" id="refresh_tenminutes" hidden="">refresh</a>
-
-</head>
-<body id="bg">
-  <div id="news_bg" class="alert alert-secondary" role="alert" style="margin-bottom:0px;">
-    <span>
-      <marquee id="news" style="font-size:20px" scrollamount="10" scrolldelay="1"></marquee>
-    </span>
-  </div>
-  <div class="tradingview-widget-container__widget"></div>
-  <script id='tradingTicker' type='text/javascript' src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-          {
+        <!-- BOOTSTRAP -->
+        <!--script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script-->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  
+        
+    </head>
+    <body>
+        <!-- STOCK MARKET TICKER -->
+        <div id="stock-market-ticker">
+            <script id='tradingTicker' type='text/javascript' src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+            {
             "symbols":[
               {"proName":"FOREXCOM:SPXUSD","title":"S&P 500"},
               {"proName":"FOREXCOM:NSXUSD","title":"Nasdaq 100"},
               {"proName":"FX_IDC:EURUSD","title":"EUR/USD"},
               {"proName":"BITSTAMP:BTCUSD","title":"BTC/USD"},
               {"proName":"BITSTAMP:ETHUSD","title":"ETH/USD"},
-              {"description":"DAX","proName":"INDEX:DEU30"},
-              {"description":"Gold","proName":"OANDA:XAUUSD"},
-              {"description":"DOW JONES","proName":"CURRENCYCOM:US30"},
-              {"description":"Apple","proName":"NASDAQ:AAPL"},
-              {"description":"Microsoft","proName":"NASDAQ:MSFT"},
-              {"description":"Tesla","proName":"NASDAQ:TSLA"},
-              {"description":"Amazon","proName":"NASDAQ:AMZN"},
-              {"description":"Netflix","proName":"NASDAQ:NFLX"},
-              {"description":"Alphabet Inc.","proName":"NASDAQ:GOOGL"},
-              {"proName":"XETR:ALV","title":"Allianz"},
-              {"proName":"XETR:BAS","title":"BASF"},
-              {"proName":"XETR:MUV2","title":"Munich RE"},
-              {"proName":"XETR:HEI","title":"Heidelberg Cement"},
-              {"proName":"XETR:LHA","title":"Lufthansa"},
               {"proName":"XETR:1COV","title":"Covestro"},
               {"proName":"XETR:QDVS","title":"iShares Emerging Markets SRI"},
               {"proName":"XETR:ISPA","title":"iShares G.S.D. 100"},
@@ -58,77 +48,235 @@
               "displayMode":"adaptive",
               "locale":"de_DE"
             }
-  </script>
+            </script>
+        </div>
 
-  <div class="container-fluid" style="margin:0px; padding-top:10px;">
-    <div class="row align-items-start">
-      <div class="col-9">
-        <section id="nahverkehr"></section>
-      </div>
-      <div class="col-3">
-        <section id="clock"></section>
-      </div>
-    </div>
+        <!-- TOP WIDGETS -->
+        <div id="top-container">
 
-    <div class="row align-items-start">
-      <div class="col-9">
-        <section id="regionalverkehr" style="font-size:50px"></section>
-      </div>
-      <div class="col-3">
-        <section id="zaw" style="font-size:50px"></section>
-      </div>
-    </div>
-    <div class="row align-items-start">
-      <div class="col-5">
-        <section id="putzen" style="font-size:16px"></section>
-        <p style="font-size:12px;">&copy; 2020 Engineered by Max Werner and Designed by Nawid Rassti</p>
-      </div>
-      <div class="col-2">
-        <section id="einkaufen" style="font-size:50px"></section>
-      </div>
-      <div class="col-2">
-        <section id="image"></section>
-      </div>
-      <div class="col-3">
-        <section id="weather"></section>
-        <script>
-        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-        </script>
-        <div id="corona_stat" class="elfsight-app-bf28f450-711b-4349-a125-4f5720526e90"></div>
-        <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-      </div>
-    </div>
-  </div>
-  <script>
-    function day_night() {
-        var currentTime = new Date().getHours();
-        if (0 <= currentTime&&currentTime < 8) {
-          document.getElementById("bg").style.background = "black";
-          document.getElementById("bg").style.color = "white";
-          document.getElementById("news").style.background = "black";
-          document.getElementById("news").style.color = "white";
-          document.getElementById("news_bg").style.background = "black";
-          document.getElementById("news_bg").style.border = "black";
-          document.getElementById("corona_stat").setAttribute("class", "elfsight-app-fef116ac-0d73-4ec4-a889-d94d2635eeca");
-        }
-        else if (8 <= currentTime&&currentTime < 18) {
-          document.getElementById("bg").style.background = "white";
-          document.getElementById("bg").style.color = "black";
-          document.getElementById("news").style.color = "black";
-          document.getElementById("corona_stat").setAttribute("class", "elfsight-app-bf28f450-711b-4349-a125-4f5720526e90");
-        }
-        else if (18 <= currentTime&&currentTime <= 24) {
-          document.getElementById("bg").style.background = "black";
-          document.getElementById("bg").style.color = "white";
-          document.getElementById("news").style.background = "black";
-          document.getElementById("news").style.color = "white";
-          document.getElementById("news_bg").style.background = "black";
-          document.getElementById("news_bg").style.border = "black";
-          document.getElementById("corona_stat").setAttribute("class", "elfsight-app-fef116ac-0d73-4ec4-a889-d94d2635eeca");
-        }
-    }
+            <!-- CHORES -->
+            <div id="chores">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Aufgabe</th>
+                            <th>Wer?</th>
+                            <th>Fällig</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Müll rausbringen</td>
+                            <td id="garbage-who"></td>
+                            <td>bei Bedarf</td>
+                        </tr>
+                        <tr>
+                            <td>Glas wegbringen</td>
+                            <td id="glas-who"></td>
+                            <td>bei Bedarf</td>
+                        </tr>
+                        <tr>
+                            <td>Bäder putzen</td>
+                            <td id="bathroom-who"></td>
+                            <td id="bathroom-due"></td>
+                        </tr>
+                        <tr>
+                            <td>Küche putzen</td>
+                            <td id="kitchen-who"></td>
+                            <td id="kitchen-due"></td>
+                        </tr>
+                        <tr>
+                            <td>Staubsaugen</td>
+                            <td id="vacuum-who"></td>
+                            <td id="vacuum-due"></td>
+                        </tr>
+                        <tr>
+                            <td>Handtücher waschen</td>
+                            <td id="towels-who"></td>
+                            <td id="towels-due"></td>
+                        </tr>
+                        <tr>
+                            <td>Duschvorhänge waschen</td>
+                            <td id="curtains-who"></td>
+                            <td id="curtains-due"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-    day_night();
-  </script>
-</body>
+            <div id="right-container">
+                <div id="upper-container">
+
+                    <!-- TIME AND DATE -->
+                    <div id="clock">
+                        <div id="time">
+                            <p id="hours">Hours</p>
+                            <p id="seconds">Seconds</p>
+                        </div>
+                        <p id="date">Date</p>
+                    </div>
+
+                    <!-- GARBAGE -->
+                    <div id="garbage">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>Restmüll</th>
+                                <th>Papiermüll</th>
+                                <th>Biomüll</th>
+                                <th>Gelber Sack</th>
+                            </tr>
+                            <tr>
+                                <td>in X Tagen</td>
+                                <td>in X Tagen</td>
+                                <td>in X Tagen</td>
+                                <td>in X Tagen</td>
+                            </tr>
+                            <tr>
+                                <td><div class="garbage-icons"><img src="img/black_garbage_can.jpg" alt=""></div></td>
+                                <td><div class="garbage-icons"><img src="img/blue_garbage_can.jpg" alt=""></div></td>
+                                <td><div class="garbage-icons"><img src="img/green_garbage_can.jpg" alt=""></div></td>
+                                <td><div class="garbage-icons"><img src="img/yellow_garbage_can.jpg" alt=""></div></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+                <div id="lower-container">
+
+                    <!-- SHOPPING LIST -->
+                    <div id="shopping">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Einkaufsliste</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+
+                    <!-- TRAIN SCHEDULE -->
+                    <div id="train-schedule">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Verbindung</th>
+                                    <th>HKP/Am Markt (zu Fuß: 9min)</th>
+                                    <th>TZ Rhein Main (HBF)</th>
+                                    <th>Darmstadt Schloss</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="trip1-lines">Tram 9, Bus KU</td>
+                                    <td id="trip1-ab">ab: 22:56</td>
+                                    <td id="trip1-tz">an: 23:06</td>
+                                    <td id="trip1-an">an: 23:16</td>
+                                </tr>
+                                <tr>
+                                    <td id="trip2-lines">Tram 9, Bus KU</td>
+                                    <td id="trip2-ab">ab: 22:56</td>
+                                    <td id="trip2-tz">an: 23:06</td>
+                                    <td id="trip2-an">an: 23:16</td>
+                                </tr>
+                                <tr>
+                                    <td id="trip3-lines">Tram 9, Bus KU</td>
+                                    <td id="trip3-ab">ab: 22:56</td>
+                                    <td id="trip3-tz">an: 23:06</td>
+                                    <td id="trip3-an">an: 23:16</td>
+                                </tr>
+                                <tr>
+                                    <td id="trip4-lines">Tram 9, Bus KU</td>
+                                    <td id="trip4-ab">ab: 22:56</td>
+                                    <td id="trip4-tz">an: 23:06</td>
+                                    <td id="trip4-an">an: 23:16</td>
+                                </tr>
+                                <tr>
+                                    <td id="trip5-lines">Tram 9, Bus KU</td>
+                                    <td id="trip5-ab">ab: 22:56</td>
+                                    <td id="trip5-tz">an: 23:06</td>
+                                    <td id="trip5-an">an: 23:16</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- BOTTOM WIDGETS -->
+        <div id="bot-container">
+
+            <!-- TEMPERATURE -->
+            <div id="temperature">Temperature</div>
+
+            <!-- IMAGE / GIF -->
+            <div id="gif"><img src="img/wg69-1.jpg" alt="Feuertonne"></div>
+
+            <!-- WEATHER -->
+            <div id="weather-widget">Weather</div>
+        </div>
+
+        <!-- NEWS SLIDER -->
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slide">
+                    <div class="image">
+                        <img src="https://www.tagesschau.de/ardimport/regional/bayern/br-image-29599~_v-mittel16x9.jpg" alt="">
+                    </div>
+                    <div class="content">
+                        <div class="title">Corona in Garmisch: Kein Beleg für "Superspreader"-Vorwurf</div>
+                        <div class="description">Nach einem Corona-Ausbruch in Garmisch stand rasch eine infizierte 26-jährige Frau im Fokus. Die Amerikanerin galt den Behörden als "Superspreaderin" doch Infektionen können ihr nicht nachgewiesen werden, wie eine Untersuchung ergab.</div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="image">
+                        <img src="https://www.tagesschau.de/multimedia/bilder/tuerkei-macron-101~_v-mittel16x9.jpg" alt="">
+                    </div>
+                    <div class="content">
+                        <div class="title">Macron und Erdogan: Die Kaliber im Streit werden größer</div>
+                        <div class="description">Die Aufforderung Erdogans, französische Produkte in der Türkei zu boykottieren, löst in Paris mit Blick auf die muslimische Bevölkerung Sorge aus. Frankreich blickt nun auf Berlin. Von Marcel Wagner.</div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="image">
+                        <img src="https://www.tagesschau.de/multimedia/bilder/fledermaus-105~_v-mittel16x9.jpg" alt="">
+                    </div>
+                    <div class="content">
+                        <div class="title">Social Distancing: Auch Fledermäuse halten Abstand</div>
+                        <div class="description">Was vielen Menschen in diesen Corona-Tagen trotz aller Appelle schwerfällt, machen Fledermäuse freiwillig: Sie gehen auf Distanz zu ihren Artgenossen, wenn sie krank sind.</div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="image">
+                        <img src="https://www.tagesschau.de/multimedia/bilder/corona-weltkarte-109~_v-mittel16x9.jpg" alt="">
+                    </div>
+                    <div class="content">
+                        <div class="title">Corona-Krise: Wie Europa mit dem Virus ringt</div>
+                        <div class="description">EU-weit steigen die Corona-Infektionen rapide, vielerorts droht ein Lockdown: Wie gehen Deutschlands Nachbarstaaten mit der Krise um? Wie behaupten sich die Sonderwege in Schweden und Großbritannien? Ein Überblick.</div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="image">
+                        <img src="https://www.tagesschau.de/multimedia/bilder/soeder-463~_v-mittel16x9.jpg" alt="">
+                    </div>
+                    <div class="content">
+                        <div class="title">Corona-Beschlüsse in Bayern: Hilfe für Kultur, Prämien für Lehrer</div>
+                        <div class="description">Mit Hilfen in Höhe von etwa 370 Millionen Euro will Bayern die Kulturbranche unterstützen. Zudem beschloss das Kabinett eine Prämie für Schulleiter und engagierte Lehrer. Das kündigte Ministerpräsident Söder an.</div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="image">
+                        <img src="https://www.tagesschau.de/wirtschaft/boerse/hr-boerse-image-22233~_v-mittel16x9.jpg" alt="">
+                    </div>
+                    <div class="content">
+                        <div class="title">Corona-Forschung: Pfizer und die Impfhoffnungen</div>
+                        <div class="description">Mehrere große Pharmakonzerne arbeiten an einem Impfstoff gegen das Corona-Virus. Dazu gehört der US-Gigant Pfizer, Partner der deutschen Biotechfirma BioNTech. Zur  Wirksamkeit des Serums sagt der Konzern noch nichts.</div>
+                    </div>
+                </div>    
+            </div>
+        </div>
+        
+    </body>
 </html>
