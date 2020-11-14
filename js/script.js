@@ -9,6 +9,7 @@ $( document ).ready(function() {
     setInterval(updateShoppingList, 3000);
     setInterval(updateTrainSchedule, 5000);
     setInterval(updateChores, 3000);
+    setInterval(updateGarbage, 5000);
     
 })
 
@@ -78,6 +79,42 @@ function updateChores(){
         }
     };
     xhttp.open("GET", "data/putzplan.json", true);
+    xhttp.send();
+}
+
+// UPDATE GARBAGE
+function updateGarbage(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+        response = xhttp.responseText;
+        var garbage = JSON.parse(this.response);
+
+        calculateDueDate(selector="#garbage-black", garbage.schwarz);
+        calculateDueDate(selector="#garbage-blue", garbage.blau);
+        calculateDueDate(selector="#garbage-green", garbage.gruen);
+        calculateDueDate(selector="#garbage-yellow", garbage.gelb);
+
+        function calculateDueDate(selector, days_remaining){
+            if (days_remaining > 1){
+                $(selector).html("in " + days_remaining + " Tagen");
+                $(selector).css( "background-color", "#28a745" );
+            } else if (days_remaining == 1){
+                $(selector).html("morgen");
+                $(selector).css( "background-color", "#ffc107" );
+            } else if (days_remaining == 0){
+                $(selector).html("heute");
+                $(selector).css( "background-color", "#dc3545" );
+            } else if (days_remaining == -1){
+                $(selector).html("gestern");
+                $(selector).css( "background-color", "#dc3545" );
+            } else {
+                $(selector).html("seit " + String(days_remaining).substring(1) + " Tagen");
+                $(selector).css( "background-color", "#dc3545" );
+            }
+        }
+    };
+    xhttp.open("GET", "data/zaw.json", true);
     xhttp.send();
 }
 
