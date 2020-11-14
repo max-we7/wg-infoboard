@@ -121,7 +121,7 @@ function updateGarbage(){
         function blink(selector){
             $(selector).fadeOut(2000, function(){
                 $(this).fadeIn(2000, function(){
-                    blink(this);
+                    //blink(this);
                 });
             });
         }
