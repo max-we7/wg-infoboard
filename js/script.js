@@ -103,6 +103,7 @@ function updateGarbage(){
                 $(selector).html("morgen");
                 $(selector).css( "background-color", "#ffc107" );
                 $(selector + "-image").css( "background-color", "#ffc107" );
+                blink(selector + "-image")
             } else if (days_remaining == 0){
                 $(selector).html("heute");
                 $(selector).css( "background-color", "#dc3545" );
