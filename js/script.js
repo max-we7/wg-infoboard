@@ -240,11 +240,13 @@ function initializeWeather() {
 }
 
 function turnOnNightMode(){
-    $("*").css("background-color", "black");
-    $(".slide").css("background-color", "black");
-    $(".slide").css("font-color", "white");
+    //$("*").css("background-color", "black");
+    $("#top-container").css("background-color", "black");
+    $("#bot-container").css("background-color", "black");
+    $(".slide").css("background-color", "black");;
+    $(".description").css("font-color", "white");
 }
 
 function turnOffNightMode(){
-    $("*").css("background-color", "white");
+    //$("*").css("background-color", "white");
 }
