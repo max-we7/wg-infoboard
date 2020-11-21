@@ -213,5 +213,5 @@ function updateTrainSchedule(){
 }
 
 function changeWeatherTheme(){
-    $("weatherwidget-io").css("data-theme", "dark");
+    $('.weatherwidget-io').css("data-theme", "dark");
 }
