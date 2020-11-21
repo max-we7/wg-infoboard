@@ -31,10 +31,11 @@ function updateTime() {
     $('#hours').html(h + ":" + m );
     $('#date').html(weekday + ", " + day + ". " + month);
     $('#seconds').html(s);
-    if(h == 21 && m == 1 && s == 10){
-        reloadPage();
+
+    // Reload Page at Day/Night change to adjust weather widget
+    if((h == 7 && m == 0 && s == 3) || (h == 17 && m == 0 && s == 3)){
+        window.location.reload(true);
     }
-}
 
 // UPDATE CHORES
 function updateChores(){
@@ -215,24 +216,18 @@ function updateTrainSchedule(){
     xhttp.send();
 }
 
-function reloadPage(){
-    window.location.reload(true);
-}
-
+// ADJUST WEATHER WIDGET COLOR TO DAY/NIGHT MODE
 function initializeWeather() {
-     var currentTime = new Date().getMinutes();
-     $("#weatherwid").empty();
-     if (0 <= currentTime&&currentTime < 1) {
+     var currentTime = new Date().getHours();
+     //$("#weatherwid").empty();
+     if (0 <= currentTime&&currentTime < 7) {
          document.getElementById("weatherwid").setAttribute("data-theme", "dark");
      }
-     if (1 <= currentTime&&currentTime < 59) {
+     if (7 <= currentTime&&currentTime < 17) {
          document.getElementById("weatherwid").setAttribute("data-theme", "gray");
      }
-     //if (50 <= currentTime&&currentTime <= 59) {
-     //    document.getElementById("weatherwid").setAttribute("data-theme", "orange");
-     //}
+     if (17 <= currentTime&&currentTime <= 24) {
+         document.getElementById("weatherwid").setAttribute("data-theme", "dark");
+     }
      !function wid(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
 }
-
-
-
