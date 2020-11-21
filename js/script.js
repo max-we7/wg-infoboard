@@ -1,5 +1,3 @@
-changeWeatherTheme();
-
 // ON PAGE READY
 $( document ).ready(function() {
     updateTime();
@@ -7,6 +5,7 @@ $( document ).ready(function() {
     updateTrainSchedule();
     updateChores();
     updateGarbage();
+    initializeWeather();
 
     setInterval(updateTime, 1000);
     setInterval(updateShoppingList, 3000);
@@ -217,6 +216,21 @@ function updateTrainSchedule(){
 function changeWeatherTheme(){
     //$(".weatherwid").attr("data-theme", "dark");
     $("#weatherwid").setAttribute("data-theme", "orange");
-    //$("#weather-widget").toggle().toggle();
+    $("#weather-widget").toggle().toggle();
     //window.location.reload(true);
 }
+
+function initializeWeather() {
+     var currentTime = new Date().getHours();
+     if (0 <= currentTime&&currentTime < 7) {
+         document.getElementById("weatherwid").setAttribute("data-theme", "dark");
+     }
+     if (7 <= currentTime&&currentTime < 17) {
+         document.getElementById("weatherwid").setAttribute("data-theme", "gray");
+     }
+     if (17 <= currentTime&&currentTime <= 24) {
+         document.getElementById("weatherwid").setAttribute("data-theme", "orange");
+     }
+     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+}
+
