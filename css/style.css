@@ -61,8 +61,6 @@
 }
 
 #clock {
-  background-color: black;
-  color: white;
   border: 5px solid black;
   width: calc(100% / 3);
   height: 100%;
