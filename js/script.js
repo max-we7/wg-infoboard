@@ -216,9 +216,8 @@ function updateTrainSchedule(){
 function changeWeatherTheme(){
     //$(".weatherwid").attr("data-theme", "dark");
     //$("#weatherwid").setAttribute("data-theme", "dark");
-    alert("hi");
     $("#weather-widget").toggle().toggle();
-    //window.location.reload(true);
+    window.location.reload(true);
 }
 
 function darkMode(cb) {
