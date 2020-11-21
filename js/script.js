@@ -240,9 +240,9 @@ function initializeWeather() {
 }
 
 function turnOnNightMode(){
-    $("*").css("background-color": "black");
+    $("*").css("background-color", "black");
 }
 
 function turnOffNightMode(){
-    $("*").css("background-color": "white");
+    $("*").css("background-color", "white");
 }
