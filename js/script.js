@@ -11,6 +11,7 @@ $( document ).ready(function() {
     setInterval(updateTrainSchedule, 5000);
     setInterval(updateChores, 3000);
     setInterval(updateGarbage, 4000);
+    setInterval(changeWeatherTheme, 8000);
     
 })
 
@@ -209,4 +210,8 @@ function updateTrainSchedule(){
     };
     xhttp.open("GET", "data/timetable.json", true);
     xhttp.send();
+}
+
+function changeWeatherTheme(){
+    $("weatherwidget-io").css("data-theme", "dark");
 }
