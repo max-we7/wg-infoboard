@@ -222,11 +222,12 @@
 
                 <script>
                 function day_night() {
-                    var currentTime = new Date().getHours();
-                    if (0 <= currentTime&&currentTime < 8) {
+                    alert("functiondaynight");
+                    var currentTime = new Date().getMinutes();
+                    if (0 <= currentTime&&currentTime < 52) {
                       document.getElementById("weatherwid").setAttribute("data-theme", "dark");
                     }
-                    if (8 <= currentTime&&currentTime < 18) {
+                    if (52 <= currentTime&&currentTime < 59) {
                       document.getElementById("weatherwid").setAttribute("data-theme", "orange");
                     }
                     if (18 <= currentTime&&currentTime <= 24) {

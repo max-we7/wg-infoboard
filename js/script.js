@@ -12,7 +12,7 @@ $( document ).ready(function() {
     setInterval(updateTrainSchedule, 5000);
     setInterval(updateChores, 3000);
     setInterval(updateGarbage, 4000);
-    setInterval(changeWeatherTheme, 8000);
+    setInterval(changeWeatherTheme, 5000);
     
 })
 
@@ -215,9 +215,10 @@ function updateTrainSchedule(){
 
 function changeWeatherTheme(){
     //$(".weatherwid").attr("data-theme", "dark");
-    $("#weatherwid").setAttribute("data-theme", "dark");
+    //$("#weatherwid").setAttribute("data-theme", "dark");
     alert("hi");
-    window.location.reload(true);
+    $("#weather-widget").toggle().toggle();
+    //window.location.reload(true);
 }
 
 function darkMode(cb) {
