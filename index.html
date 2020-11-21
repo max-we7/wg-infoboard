@@ -222,8 +222,8 @@
 
                 <script>
                 function day_night() {
-                    alert("functiondaynight");
                     var currentTime = new Date().getMinutes();
+                    alert(currentTime);
                     if (0 <= currentTime&&currentTime < 52) {
                       document.getElementById("weatherwid").setAttribute("data-theme", "dark");
                     }

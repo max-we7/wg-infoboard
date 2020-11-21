@@ -12,7 +12,7 @@ $( document ).ready(function() {
     setInterval(updateTrainSchedule, 5000);
     setInterval(updateChores, 3000);
     setInterval(updateGarbage, 4000);
-    setInterval(changeWeatherTheme, 5000);
+    setInterval(changeWeatherTheme, 10000);
     
 })
 
