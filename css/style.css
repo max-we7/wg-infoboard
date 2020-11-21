@@ -158,12 +158,12 @@
   top: 0%;
 }
 
-/*#weatherwid{
- height: 100%;
+#weatherwid{
+ height: 10%;
  width: 100%;
  margin: 0;
  padding: 0;
-}*/
+}
 
 #chores {
   border: 5px solid black;
