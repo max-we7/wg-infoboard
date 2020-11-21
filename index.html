@@ -224,10 +224,10 @@
                 function day_night() {
                     var currentTime = new Date().getMinutes();
                     alert(currentTime);
-                    if (0 <= currentTime&&currentTime < 52) {
+                    if (0 <= currentTime&&currentTime < 56) {
                       document.getElementById("weatherwid").setAttribute("data-theme", "dark");
                     }
-                    if (52 <= currentTime&&currentTime < 59) {
+                    if (56 <= currentTime&&currentTime < 59) {
                       document.getElementById("weatherwid").setAttribute("data-theme", "orange");
                     }
                     if (18 <= currentTime&&currentTime <= 24) {
