@@ -244,6 +244,7 @@ function turnOnNightMode(){
     $("#clock").css("color", "white");
     $("#top-container").css("background-color", "black");
     $("#bot-container").css("background-color", "black");
+    $(".slider-container").css("background-color", "green");
 
 
     // SLIDER
