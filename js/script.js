@@ -21,16 +21,19 @@ function updateTime() {
         return (i < 10) ? "0" + i : i;
     }
     var today = new Date(),
-        h = checkTime(today.getHours()),
-        m = checkTime(today.getMinutes()),
-        s = checkTime(today.getSeconds());
-        weekday = today.toLocaleDateString('de', {weekday:'long'});
-        day = today.toLocaleDateString('de', {day:'numeric'});
-        month = today.toLocaleDateString('de', {month:'long'});
+    h = checkTime(today.getHours()),
+    m = checkTime(today.getMinutes()),
+    s = checkTime(today.getSeconds());
+    weekday = today.toLocaleDateString('de', {weekday:'long'});
+    day = today.toLocaleDateString('de', {day:'numeric'});
+    month = today.toLocaleDateString('de', {month:'long'});
 
     $('#hours').html(h + ":" + m );
     $('#date').html(weekday + ", " + day + ". " + month);
     $('#seconds').html(s);
+    if(h == 20 && m == 47 && s == 30){
+        reloadPage();
+    }
 }
 
 // UPDATE CHORES
@@ -212,11 +215,8 @@ function updateTrainSchedule(){
     xhttp.send();
 }
 
-function changeWeatherTheme(){
-    //$(".weatherwid").attr("data-theme", "dark");
-    $("#weatherwid").setAttribute("data-theme", "orange");
-    $("#weather-widget").toggle().toggle();
-    //window.location.reload(true);
+function reloadPage(){
+    window.location.reload(true);
 }
 
 function initializeWeather() {
