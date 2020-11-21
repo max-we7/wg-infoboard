@@ -222,13 +222,14 @@ function changeWeatherTheme(){
 
 function initializeWeather() {
      var currentTime = new Date().getMinutes();
-     if (0 <= currentTime&&currentTime < 27) {
+     $("#weatherwid").empty();
+     if (0 <= currentTime&&currentTime < 30) {
          document.getElementById("weatherwid").setAttribute("data-theme", "dark");
      }
-     if (27 <= currentTime&&currentTime < 50) {
+     if (30 <= currentTime&&currentTime < 50) {
          document.getElementById("weatherwid").setAttribute("data-theme", "gray");
      }
-     if (17 <= currentTime&&currentTime <= 24) {
+     if (50 <= currentTime&&currentTime <= 59) {
          document.getElementById("weatherwid").setAttribute("data-theme", "orange");
      }
      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
