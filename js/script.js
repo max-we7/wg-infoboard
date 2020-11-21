@@ -31,7 +31,7 @@ function updateTime() {
     $('#hours').html(h + ":" + m );
     $('#date').html(weekday + ", " + day + ". " + month);
     $('#seconds').html(s);
-    if(h == 20 && m == 55 && s == 00){
+    if(h == 20 && m == 57 && s == 00){
         reloadPage();
     }
 }
@@ -222,15 +222,15 @@ function reloadPage(){
 function initializeWeather() {
      var currentTime = new Date().getMinutes();
      $("#weatherwid").empty();
-     if (0 <= currentTime&&currentTime < 54) {
+     if (0 <= currentTime&&currentTime < 56) {
          document.getElementById("weatherwid").setAttribute("data-theme", "dark");
      }
-     if (54 <= currentTime&&currentTime < 59) {
+     if (56 <= currentTime&&currentTime < 59) {
          document.getElementById("weatherwid").setAttribute("data-theme", "gray");
      }
-     if (50 <= currentTime&&currentTime <= 59) {
-         document.getElementById("weatherwid").setAttribute("data-theme", "orange");
-     }
+     //if (50 <= currentTime&&currentTime <= 59) {
+     //    document.getElementById("weatherwid").setAttribute("data-theme", "orange");
+     //}
      !function wid(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
 }
 
