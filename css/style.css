@@ -158,11 +158,9 @@
   top: 0%;
 }
 
-#weatherwid{
+#weatherwid iframe{
  height: 10%;
- width: 100%;
- margin: 0;
- padding: 0;
+
 }
 
 #chores {
