@@ -1,3 +1,5 @@
+changeWeatherTheme();
+
 // ON PAGE READY
 $( document ).ready(function() {
     updateTime();
@@ -5,14 +7,13 @@ $( document ).ready(function() {
     updateTrainSchedule();
     updateChores();
     updateGarbage();
-    //darkMode(changeWeatherTheme);
 
     setInterval(updateTime, 1000);
     setInterval(updateShoppingList, 3000);
     setInterval(updateTrainSchedule, 5000);
     setInterval(updateChores, 3000);
     setInterval(updateGarbage, 4000);
-    setInterval(changeWeatherTheme, 10000);
+    //setInterval(changeWeatherTheme, 10000);
     
 })
 
@@ -215,19 +216,7 @@ function updateTrainSchedule(){
 
 function changeWeatherTheme(){
     //$(".weatherwid").attr("data-theme", "dark");
-    //$("#weatherwid").setAttribute("data-theme", "dark");
-    $("#weather-widget").toggle().toggle();
-    window.location.reload(true);
-}
-
-function darkMode(cb) {
-    (function loop() {
-        var now = new Date();
-        if (now.getHours() === 19 && now.getMinutes() === 39) {
-            cb();
-        }
-        now = new Date();                  // allow for time passing
-        var delay = 60000 - (now % 60000); // exact ms to next minute interval
-        setTimeout(loop, delay);
-    })();
+    $("#weatherwid").setAttribute("data-theme", "orange");
+    //$("#weather-widget").toggle().toggle();
+    //window.location.reload(true);
 }
