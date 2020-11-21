@@ -225,7 +225,7 @@ function initializeWeather() {
      if (0 <= currentTime&&currentTime < 54) {
          document.getElementById("weatherwid").setAttribute("data-theme", "dark");
      }
-     if (5 <= currentTime&&currentTime < 59) {
+     if (54 <= currentTime&&currentTime < 59) {
          document.getElementById("weatherwid").setAttribute("data-theme", "gray");
      }
      if (50 <= currentTime&&currentTime <= 59) {
