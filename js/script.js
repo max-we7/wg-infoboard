@@ -31,7 +31,7 @@ function updateTime() {
     $('#hours').html(h + ":" + m );
     $('#date').html(weekday + ", " + day + ". " + month);
     $('#seconds').html(s);
-    if(h == 20 && m == 47 && s == 30){
+    if(h == 20 && m == 55 && s == 00){
         reloadPage();
     }
 }
@@ -222,10 +222,10 @@ function reloadPage(){
 function initializeWeather() {
      var currentTime = new Date().getMinutes();
      $("#weatherwid").empty();
-     if (0 <= currentTime&&currentTime < 30) {
+     if (0 <= currentTime&&currentTime < 54) {
          document.getElementById("weatherwid").setAttribute("data-theme", "dark");
      }
-     if (30 <= currentTime&&currentTime < 50) {
+     if (5 <= currentTime&&currentTime < 59) {
          document.getElementById("weatherwid").setAttribute("data-theme", "gray");
      }
      if (50 <= currentTime&&currentTime <= 59) {
