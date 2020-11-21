@@ -36,6 +36,7 @@ function updateTime() {
     if((h == 7 && m == 0 && s == 3) || (h == 17 && m == 0 && s == 3)){
         window.location.reload(true);
     }
+}
 
 // UPDATE CHORES
 function updateChores(){
