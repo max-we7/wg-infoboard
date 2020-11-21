@@ -12,7 +12,7 @@ $( document ).ready(function() {
     setInterval(updateTrainSchedule, 5000);
     setInterval(updateChores, 3000);
     setInterval(updateGarbage, 4000);
-    //setInterval(changeWeatherTheme, 10000);
+    setInterval(initializeWeather, 10000);
     
 })
 
@@ -221,11 +221,11 @@ function changeWeatherTheme(){
 }
 
 function initializeWeather() {
-     var currentTime = new Date().getHours();
-     if (0 <= currentTime&&currentTime < 7) {
+     var currentTime = new Date().getMinutes();
+     if (0 <= currentTime&&currentTime < 27) {
          document.getElementById("weatherwid").setAttribute("data-theme", "dark");
      }
-     if (7 <= currentTime&&currentTime < 17) {
+     if (27 <= currentTime&&currentTime < 50) {
          document.getElementById("weatherwid").setAttribute("data-theme", "gray");
      }
      if (17 <= currentTime&&currentTime <= 24) {
