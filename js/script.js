@@ -223,7 +223,7 @@ function changeWeatherTheme(){
 function darkMode(cb) {
     (function loop() {
         var now = new Date();
-        if (now.getHours() === 19 && now.getMinutes() === 36) {
+        if (now.getHours() === 19 && now.getMinutes() === 39) {
             cb();
         }
         now = new Date();                  // allow for time passing
