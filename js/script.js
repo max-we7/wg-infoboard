@@ -12,6 +12,7 @@ $( document ).ready(function() {
     setInterval(updateTrainSchedule, 5000);
     setInterval(updateChores, 3000);
     setInterval(updateGarbage, 4000);
+    setInterval(turnOnNightMode, 10000);
     
 })
 
@@ -33,7 +34,12 @@ function updateTime() {
     $('#seconds').html(s);
 
     // Reload Page at Day/Night change to adjust weather widget
-    if((h == 7 && m == 0 && s == 3) || (h == 17 && m == 0 && s == 3)){
+    if (h == 7 && m == 0 && s == 3){
+        turnOffNightMode();
+        window.location.reload(true);
+    }
+    if (h == 17 && m == 0 && s == 3){
+        turnOnNightMode();
         window.location.reload(true);
     }
 }
@@ -231,4 +237,12 @@ function initializeWeather() {
          document.getElementById("weatherwid").setAttribute("data-theme", "dark");
      }
      !function wid(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+}
+
+function turnOnNightMode(){
+    $("*").css("background-color": "black");
+}
+
+function turnOffNightMode(){
+    $("*").css("background-color": "white");
 }
