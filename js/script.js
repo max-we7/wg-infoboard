@@ -5,7 +5,7 @@ $( document ).ready(function() {
     updateTrainSchedule();
     updateChores();
     updateGarbage();
-    darkMode(changeWeatherTheme);
+    //darkMode(changeWeatherTheme);
 
     setInterval(updateTime, 1000);
     setInterval(updateShoppingList, 3000);
