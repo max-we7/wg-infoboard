@@ -243,7 +243,10 @@ function turnOnNightMode(){
     //$("*").css("background-color", "black");
     $("#top-container").css("background-color", "black");
     $("#bot-container").css("background-color", "black");
-    $(".slide").css("background-color", "black");;
+
+    // SLIDER
+    $(".slide").css("background-color", "black");
+    $(".title").css("color", "white");
     $(".description").css("color", "white");
 }
 
