@@ -100,10 +100,10 @@
 }
 
 #temperature {
-  background-color: black;
+  /*background-color: black;*/
   width: 40%;
   height: 100%;
-  border: 5px solid black;
+  /*border: 5px solid black;*/
   float: left;
   left: 0%;
   top: 0%;
@@ -133,10 +133,10 @@
 }
 
 #gif {
-  background-color: black;
+  /*background-color: black;*/
   width: 20%;
   height: 100%;
-  border: 5px solid black;
+  /*border: 5px solid black;*/
   display: inline-block;
   text-align: center;
   left: 40%;
@@ -150,10 +150,10 @@
 }
 
 #weather-widget {
-  background-color: black;
+  /*background-color: black;*/
   width: 40%;
   height: 100%;
-  border: 5px solid black;
+  /*border: 5px solid black;*/
   float: right;
   left: 70%;
   top: 0%;
@@ -162,7 +162,7 @@
 }
 
 #chores {
-  border: 5px solid black;
+  /*border: 5px solid black;*/
   width: 40%;
   height: 100%;
   float: left;

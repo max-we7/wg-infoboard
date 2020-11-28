@@ -12,8 +12,8 @@ $( document ).ready(function() {
     setInterval(updateTrainSchedule, 5000);
     setInterval(updateChores, 3000);
     setInterval(updateGarbage, 4000);
-    setInterval(turnOnNightMode, 5000); // development only
-    setInterval(turnOffNightMode, 12000); // development only
+    setTimeout(turnOnNightMode, 5000); // development only
+    setTimeout(turnOffNightMode, 12000); // development only
     
 })
 
