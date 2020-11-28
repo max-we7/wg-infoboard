@@ -124,7 +124,7 @@
 
 #train-schedule {
   display: inline-block;
-  border: 5px solid black;
+  /*border: 5px solid black;*/
   width: calc(100% / 1.5);
   height: 100%;
   padding-left: 20px;
