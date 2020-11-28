@@ -241,7 +241,7 @@ function initializeWeather() {
 // CHECK IF DARK MODE APPLIES AT PAGE LOAD
 function checkDarkMode(){
     var today = new Date();
-    hour = checkTime(today.getHours());
+    hour = today.getHours();
 
     if (hour < 7 && hour > 16){
         turnOnNightMode();
