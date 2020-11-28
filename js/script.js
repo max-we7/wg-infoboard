@@ -244,7 +244,6 @@ function checkDarkMode(){
     hour = today.getHours();
 
     if (hour < 7 || hour > 16){
-        alert("turning on");
         turnOnNightMode();
     }
 }
