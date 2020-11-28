@@ -229,7 +229,7 @@ function initializeWeather() {
      var currentTime = new Date().getHours();
      //$("#weatherwid").empty();
      if (0 <= currentTime&&currentTime < 23) { // 7
-         document.getElementById("weatherwid").setAttribute("data-theme", "dark");
+         document.getElementById("weatherwid").setAttribute("data-theme", "gray"); // dark
      }
      if (7 <= currentTime&&currentTime < 12) { // 17
          document.getElementById("weatherwid").setAttribute("data-theme", "gray");
