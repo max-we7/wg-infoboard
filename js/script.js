@@ -242,8 +242,9 @@ function initializeWeather() {
 function checkDarkMode(){
     var today = new Date();
     hour = today.getHours();
-    alert(hour);
+
     if (hour < 7 && hour > 16){
+        alert("turning on");
         turnOnNightMode();
     }
 }
