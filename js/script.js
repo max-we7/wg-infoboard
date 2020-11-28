@@ -12,7 +12,7 @@ $( document ).ready(function() {
     setInterval(updateTrainSchedule, 5000);
     setInterval(updateChores, 3000);
     setInterval(updateGarbage, 4000);
-    setInterval(turnOnNightMode, 10000);
+    setInterval(turnOnNightMode, 10000); // development only
     
 })
 
@@ -240,10 +240,11 @@ function initializeWeather() {
 }
 
 function turnOnNightMode(){
-    //$("*").css("background-color", "black");
+
     $("#clock").css("color", "white");
     $("#top-container").css("background-color", "black");
     $("#bot-container").css("background-color", "black");
+    $("#train-schedule").css("color", "white");
 
 
     // SLIDER
@@ -253,5 +254,13 @@ function turnOnNightMode(){
 }
 
 function turnOffNightMode(){
-    //$("*").css("background-color", "white");
+    $("#clock").css("color", "black");
+    $("#top-container").css("background-color", "white");
+    $("#bot-container").css("background-color", "white");
+
+
+    // SLIDER
+    $(".slide").css("background-color", "white");
+    $(".title").css("color", "black");
+    $(".description").css("color", "black");
 }
