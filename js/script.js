@@ -250,7 +250,7 @@ function turnOnNightMode(){
 
     //
     $("#clean-table").removeClass('table table-striped');
-    $("#clean-table").removeClass('table-dark table-striped');
+    $("#clean-table").addClass('table-dark table-striped');
 
     // SLIDER
     $(".slide").css("background-color", "black");
