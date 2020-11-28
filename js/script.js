@@ -13,6 +13,7 @@ $( document ).ready(function() {
     setInterval(updateChores, 3000);
     setInterval(updateGarbage, 4000);
     setInterval(turnOnNightMode, 5000); // development only
+    setInterval(turnOffNightMode, 12000); // development only
     
 })
 
@@ -240,16 +241,16 @@ function initializeWeather() {
 }
 
 function turnOnNightMode(){
-
-    //$("#clock").css("color", "white");
+    // MAIN CONTAINERS
     $("#top-container").css("background-color", "black");
     $("#bot-container").css("background-color", "black");
     $("#top-container").css("color", "white");
     $("#bot-container").css("color", "white");
-    $("#trip1-lines").css("color", "white");
 
-    //
-    //$("table").removeClass('table table-striped');
+    // CLOCK
+    $("#clock").css("background-color", "gray");
+
+    // TABLES
     $("table").addClass('table-dark');
 
     // SLIDER
@@ -259,10 +260,17 @@ function turnOnNightMode(){
 }
 
 function turnOffNightMode(){
-    $("#clock").css("color", "black");
+    // MAIN CONTAINERS
     $("#top-container").css("background-color", "white");
     $("#bot-container").css("background-color", "white");
+    $("#top-container").css("color", "black");
+    $("#bot-container").css("color", "black");
 
+    // CLOCK
+    $("#clock").css("background-color", "white");
+
+    // TABLES
+    $("table").removeClass('table-dark');
 
     // SLIDER
     $(".slide").css("background-color", "white");
