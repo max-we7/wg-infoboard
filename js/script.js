@@ -6,14 +6,13 @@ $( document ).ready(function() {
     updateChores();
     updateGarbage();
     initializeWeather();
+    checkDarkMode();
 
     setInterval(updateTime, 1000);
     setInterval(updateShoppingList, 3000);
     setInterval(updateTrainSchedule, 5000);
     setInterval(updateChores, 3000);
     setInterval(updateGarbage, 4000);
-    setTimeout(turnOnNightMode, 5000); // development only
-    setTimeout(turnOffNightMode, 12000); // development only
     
 })
 
@@ -227,17 +226,26 @@ function updateTrainSchedule(){
 // ADJUST WEATHER WIDGET COLOR TO DAY/NIGHT MODE
 function initializeWeather() {
      var currentTime = new Date().getHours();
-     //$("#weatherwid").empty();
-     if (0 <= currentTime&&currentTime < 23) { // 7
-         document.getElementById("weatherwid").setAttribute("data-theme", "orange"); // dark
+     if (0 <= currentTime&&currentTime < 7) {
+         document.getElementById("weatherwid").setAttribute("data-theme", "dark");
      }
-     if (7 <= currentTime&&currentTime < 12) { // 17
-         document.getElementById("weatherwid").setAttribute("data-theme", "gray");
+     if (7 <= currentTime&&currentTime < 17) {
+         document.getElementById("weatherwid").setAttribute("data-theme", "orange");
      }
-     if (17 <= currentTime&&currentTime <= 18) { // 24
+     if (17 <= currentTime&&currentTime <= 24) {
          document.getElementById("weatherwid").setAttribute("data-theme", "dark");
      }
      !function wid(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+}
+
+// CHECK IF DARK MODE APPLIES AT PAGE LOAD
+function checkDarkMode(){
+    var today = new Date(),
+    h = checkTime(today.getHours()),
+
+    if (h < 7 && h > 16){
+        turnOnNightMode();
+    }
 }
 
 function turnOnNightMode(){
