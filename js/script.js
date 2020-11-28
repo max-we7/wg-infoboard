@@ -6,7 +6,7 @@ $( document ).ready(function() {
     updateChores();
     updateGarbage();
     initializeWeather();
-    //checkDarkMode();
+    checkDarkMode();
 
     setInterval(updateTime, 1000);
     setInterval(updateShoppingList, 3000);
