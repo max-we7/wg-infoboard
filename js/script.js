@@ -249,8 +249,8 @@ function turnOnNightMode(){
     $("#trip1-lines").css("color", "white");
 
     //
-    $("table").removeClass('table table-striped');
-    $("table").addClass('table-dark table-striped');
+    //$("table").removeClass('table table-striped');
+    $("table").addClass('table-dark');
 
     // SLIDER
     $(".slide").css("background-color", "black");
