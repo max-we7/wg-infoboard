@@ -12,7 +12,7 @@ $( document ).ready(function() {
     setInterval(updateTrainSchedule, 5000);
     setInterval(updateChores, 3000);
     setInterval(updateGarbage, 4000);
-    setInterval(turnOnNightMode, 10000); // development only
+    setInterval(turnOnNightMode, 5000); // development only
     
 })
 
@@ -244,7 +244,7 @@ function turnOnNightMode(){
     $("#clock").css("color", "white");
     $("#top-container").css("background-color", "black");
     $("#bot-container").css("background-color", "black");
-    $("#train-schedule table table-striped tr td").css("color", "white");
+    $("#trip1-lines").css("color", "white");
 
 
     // SLIDER
