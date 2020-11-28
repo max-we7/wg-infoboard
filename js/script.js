@@ -248,6 +248,9 @@ function turnOnNightMode(){
     $("#bot-container").css("color", "white");
     $("#trip1-lines").css("color", "white");
 
+    //
+    $("#clean-table").removeClass('table table-striped');
+    $("#clean-table").removeClass('table-dark table-striped');
 
     // SLIDER
     $(".slide").css("background-color", "black");
