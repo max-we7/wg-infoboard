@@ -241,7 +241,7 @@ function initializeWeather() {
 
 function turnOnNightMode(){
 
-    $("#clock").css("color", "white");
+    //$("#clock").css("color", "white");
     $("#top-container").css("background-color", "black");
     $("#bot-container").css("background-color", "black");
     $("#top-container").css("color", "white");
