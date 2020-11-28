@@ -228,13 +228,13 @@ function updateTrainSchedule(){
 function initializeWeather() {
      var currentTime = new Date().getHours();
      //$("#weatherwid").empty();
-     if (0 <= currentTime&&currentTime < 7) {
+     if (0 <= currentTime&&currentTime < 23) { // 7
          document.getElementById("weatherwid").setAttribute("data-theme", "dark");
      }
-     if (7 <= currentTime&&currentTime < 17) {
+     if (7 <= currentTime&&currentTime < 12) { // 17
          document.getElementById("weatherwid").setAttribute("data-theme", "gray");
      }
-     if (17 <= currentTime&&currentTime <= 24) {
+     if (17 <= currentTime&&currentTime <= 18) { // 24
          document.getElementById("weatherwid").setAttribute("data-theme", "dark");
      }
      !function wid(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');

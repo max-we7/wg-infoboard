@@ -62,7 +62,7 @@
 }
 
 #clock {
-  border: 5px solid black;
+  /*border: 5px solid black;*/
   width: calc(100% / 3);
   height: 100%;
   left: 0;
