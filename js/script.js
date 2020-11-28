@@ -21,9 +21,9 @@ function updateTime() {
     function checkTime(i) {
         return (i < 10) ? "0" + i : i;
     }
-    var today = new Date(),
-    h = checkTime(today.getHours()),
-    m = checkTime(today.getMinutes()),
+    var today = new Date();
+    h = checkTime(today.getHours());
+    m = checkTime(today.getMinutes());
     s = checkTime(today.getSeconds());
     weekday = today.toLocaleDateString('de', {weekday:'long'});
     day = today.toLocaleDateString('de', {day:'numeric'});
@@ -240,10 +240,10 @@ function initializeWeather() {
 
 // CHECK IF DARK MODE APPLIES AT PAGE LOAD
 function checkDarkMode(){
-    var hoy = new Date(),
-    hour = checkTime(hoy.getHours()),
+    var today = new Date();
+    hour = checkTime(today.getHours());
 
-    if (hour <= 6 && hour >= 17){
+    if (hour < 7 && hour > 16){
         turnOnNightMode();
     }
 }
