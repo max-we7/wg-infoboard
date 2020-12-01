@@ -7,6 +7,11 @@ import json
 import telepot
 from config import API_KEY, GROUP_ID
 
+# UPDATING TO NEW YEAR
+# save ical file from zaw website to a textfile
+# run: cat zaw.txt | grep 'DTSTART\|SUMMARY'
+# do "replace all"-magic in pycharm
+
 
 def load_raw():
     try:
@@ -38,11 +43,12 @@ def update_muell():
     for muell_art in ["Gelber Sack", "Biomüll", "Restmüll", "Papiertonne"]:
         for entry in plan["muell"]:
             if str(entry["category"]).startswith(muell_art):
-                month = int(entry["date"][:2])
-                day = int(entry["date"][2:])
+                year = int(entry["date"][:4])
+                month = int(entry["date"][4:6])
+                day = int(entry["date"][6:])
                 today = date.today()
                 # TODO: integrate 2021 plan, this program crashes on December 22, 2020
-                future = date(2020, month, day)
+                future = date(year, month, day)
                 diff = future - today
                 if diff.days > -1:
                     muell_dates.append({
