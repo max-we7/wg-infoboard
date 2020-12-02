@@ -7,7 +7,9 @@ $( document ).ready(function() {
     updateGarbage();
     initializeWeather();
     checkDarkMode();
+    updateTemperature();
 
+    setInterval(updateTemperature, 5000);
     setInterval(updateTime, 1000);
     setInterval(updateShoppingList, 3000);
     setInterval(updateTrainSchedule, 5000);
@@ -236,6 +238,20 @@ function initializeWeather() {
          document.getElementById("weatherwid").setAttribute("data-theme", "dark");
      }
      !function wid(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+}
+
+// UPDATE TEMPERATURE SENSOR READINGS
+function updateTemperature(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+        response = xhttp.responseText;
+
+        $("#temperature").html(response);
+        }
+    };
+    xhttp.open("GET", "data/temp.txt", true);
+    xhttp.send();
 }
 
 // CHECK IF DARK MODE APPLIES AT PAGE LOAD
