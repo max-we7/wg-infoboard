@@ -47,9 +47,11 @@ def update_muell():
                 month = int(entry["date"][4:6])
                 day = int(entry["date"][6:])
                 today = date.today()
+                logging.error(f"year: {year}, month: {month}, day: {day}")
                 # TODO: integrate 2021 plan, this program crashes on December 22, 2020
                 future = date(year, month, day)
                 diff = future - today
+                logging.error(f"difference: {diff.days}")
                 if diff.days > -1:
                     muell_dates.append({
                         "art": muell_art,
