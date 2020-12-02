@@ -170,7 +170,7 @@ try:
     # noinspection PyBroadException
     try:
         schedule.every().day.at("00:01").do(update_putzplan)
-        schedule.every().day.at("17:36").do(update_muell)
+        schedule.every().day.at("17:44").do(update_muell)
         schedule.every().day.at("22:00").do(check_muell_due)
         schedule.every(4).minutes.do(update_infoboard_bahn)
         schedule.every(10).minutes.do(update_news)

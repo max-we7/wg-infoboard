@@ -44,7 +44,7 @@ def update_muell():
         for entry in plan["muell"]:
             if str(entry["category"]).startswith(muell_art):
                 year = int(entry["date"][:4])
-                month = int(entry["date"][4:6])
+                month = int(entry["date"][4:6]) #20201202
                 day = int(entry["date"][6:])
                 today = date.today()
                 logging.error(f"year: {year}, month: {month}, day: {day}")
