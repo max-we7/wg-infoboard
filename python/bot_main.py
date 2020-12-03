@@ -8,14 +8,14 @@ import telepot.helper
 from datetime import datetime
 from telepot.loop import MessageLoop
 from telepot.delegate import create_open, pave_event_space, include_callback_query_chat_id, per_chat_id
-from _putzplan import update_putzplan
+from putzplan import update_putzplan
 from zaw_query import update_muell, check_muell_due
 from rmv import update_infoboard_bahn
 import json
 from read_rss import update_news
 from config import API_KEY, LEGIT_IDS, GROUP_ID, ADMIN_IDS
 from media_handler import handle_img, handle_gif
-from _commandhandler import choose_command, choose_callback_command
+from commandhandler import choose_command, choose_callback_command
 
 # TODO: git_pull(), handle_img()
 
