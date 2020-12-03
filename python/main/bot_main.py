@@ -16,8 +16,6 @@ from config import API_KEY, LEGIT_IDS, ADMIN_IDS
 from python.media_handler import handle_img, handle_gif
 from commandhandler import choose_command, choose_callback_command
 
-# TODO: git_pull(), handle_img()
-
 logging.basicConfig(filename="../wg-infoboard.log", filemode="a+", format='%(asctime)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
 
@@ -123,7 +121,6 @@ class MessageHandler(telepot.helper.ChatHandler):
                     "last_seen": str(datetime.now()),
                     "language_code": msg['from']['language_code']
                 },
-                # TODO: move to favorite creation function
                 "bahn": {
                     "fav1": {},
                     "fav2": {},

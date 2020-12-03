@@ -1,6 +1,6 @@
 from putzplan import chores, show_putzplan
-from general_commands import insult, einkaufen, help_commands, reload, reboot, git_pull, deinemudda, \
-    impersonate, essen, eingekauft
+from general_commands import einkaufen, help_commands, reload, reboot, \
+    impersonate, eingekauft
 from finances import geld, show_balance, make_transaction, neuer_einkauf, show_history, delete_last_record
 import logging
 from python.api.rmv import bahn, search_station, edit_station_favorites
@@ -64,8 +64,6 @@ def choose_command(self, msg):
         except Exception:
             logging.error("General error in eingekauft(), #2007")
             self.sender.sendMessage("Fehler #2007")
-    if self.command[0] == "/insult":
-        insult(self, msg)
     if self.command[0] == "/impersonate":
         impersonate(self, msg)
     if self.command[0] == "/help" or self.command[0] == "/start":
@@ -113,13 +111,6 @@ def choose_command(self, msg):
         except Exception:
             logging.error("General error in reload(), #2014")
             self.sender.sendMessage("Fehler #2014")
-    if self.command[0] == "/git pull" and self.chatid in LEGIT_IDS:
-        # noinspection PyBroadException
-        try:
-            git_pull(self, msg)
-        except Exception:
-            logging.error("General error in git_pull(), #2015")
-            self.sender.sendMessage("Fehler #2015")
     if self.command[0] in ["/geld", "/Geld"] and self.chatid in LEGIT_IDS:
         # noinspection PyBroadException
         try:
@@ -141,13 +132,6 @@ def choose_command(self, msg):
         except Exception:
             self.sender.sendMessage("Fehler #2018, bitte erneut versuchen!")
             logging.exception("General error in weather(), #2018")
-    if self.command[0] == "/essen" and self.chatid in LEGIT_IDS:
-        # noinspection PyBroadException
-        try:
-            essen(self)
-        except Exception:
-            self.sender.sendMessage("Fehler #2019, bitte erneut versuchen!")
-            logging.exception("General error in essen(), #2019")
 
 
 def choose_callback_command(self, msg):

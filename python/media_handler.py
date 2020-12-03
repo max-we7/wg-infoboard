@@ -21,13 +21,6 @@ def handle_gif(self, msg):
 def handle_img(self, msg):
     # TODO: implement
     pass
-    # bot.download_file(msg['photo'][0]['file_id'], '../data/video.gif')
-    # bot.sendMessage(msg['chat']['id'], "downloading file... done!")
-    # if platform.system() == "Linux":
-    #     subprocess.run(["sudo", "service", "kiosk.sh", "restart"])
-    #     bot.sendMessage(msg['chat']['id'], "flushing browser cache... done!")
-    # else:
-    #     bot.sendMessage(msg['chat']['id'], "cache flushing failed.")
 
 
 def convert_to_gif(self):

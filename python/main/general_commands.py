@@ -2,7 +2,6 @@ import random
 import json
 import telepot
 from telepot.namedtuple import ReplyKeyboardRemove
-from python.insults import insults
 import platform
 import subprocess
 from config import ADMIN_IDS, LEGIT_IDS, API_KEY, GROUP_ID, wg
@@ -112,14 +111,6 @@ def dump_einkaufsliste(self, einkaufsliste):
         self.sender.sendMessage("Fehler #3002")
 
 
-def insult(self, msg):
-    """
-    insults given person, usage "/insult person"
-    """
-    random_insult = random.choice(insults)
-    self.sender.sendMessage(f"{msg['text'][8:]} du {random_insult}\U0001F595")
-
-
 def impersonate(self, msg):
     """
     send message through bot account
@@ -159,12 +150,10 @@ def help_commands(self):
                                 f"<b>/[Aufgabe] vergangen [Tage]</b> - Vergangene Tage einer Aufgabe setzen\n\n"
                                 f"<b>/putzplan</b> - Putzplan anzeigen\n\n"
                                 f"<b>/loc</b> - Anzahl Codezeilen des WG Infoboard Projekts anzeigen\n\n"
-                                f"<b>/insult [Person]</b> - Beleidige Person mit zufälliger Beleidigung\n\n"
                                 f"<b>/reload</b> - WG-Infoboard neu laden\n\n\n"
                                 f"<b>Admin-Befehle:</b>\n\n"
                                 f"<b>/reboot</b> - WG-Infoboard-Server neustarten\n\n"
                                 f"<b>/impersonate</b> - als Bot schreiben\n\n"
-                                f"<b>/git pull</b> - Bot auf neuste Version aktualisieren"
                                 , parse_mode="html")
     else:
         self.sender.sendMessage(f"\u2753<b>Öffentlich verfügbare Befehle</b>\u2753\n\n"
@@ -172,16 +161,7 @@ def help_commands(self):
                                 f"<b>/bahn</b> - suche nach aktuellen Zugverbindungen im RMV-Gebiet (Beta)\n\n"
                                 f"<b>/wetter</b> - Wettervorhersage für beliebigen Ort in Deutschland abrufen\n\n"
                                 f"<b>/mensa</b> - zeige Speiseplan von versch. Mensen\n\n"
-                                f"<b>/insult [Person]</b> - Beleidige Person mit zufälliger Beleidigung ;)\n\n"
                                 , parse_mode="html")
-
-
-def git_pull(self, msg):
-    # TODO: implement
-    """
-    pull current version remotely via Telegram
-    """
-    pass
 
 
 def reboot(self, msg):
@@ -200,45 +180,11 @@ def reboot(self, msg):
 
 def reload(self):
     """
-    reload kiosk.sh service remotely via Telegram
+    clear chromium cache and reload kiosk.sh service remotely via Telegram
     """
     if platform.system() == "Linux":
         self.sender.sendMessage("\U0001F504Reloading service kiosk.sh\U0001F504")
+        subprocess.run(["sudo", "rm", "-rf", "/home/pi/.cache/chromium"])
         subprocess.run(["sudo", "service", "kiosk.sh", "restart"])
     else:
-        self.sender.sendMessage("Platform does not seem to be Linux.")
-
-
-def essen(self):
-    """
-    manage recipe list
-    """
-    recipes = {"liste": []}
-    try:
-        with open("../../data/recipes.json", "r") as f:
-            recipes = json.load(f)
-    except FileNotFoundError:
-        pass
-    if len(self.command) == 1:
-        item = random.choice(recipes["liste"])
-        self.sender.sendMessage(f"Wie wäre es mit:\n\n{item}?")
-    elif self.command[1] == "liste":
-        msg = "<b>Essenswünsche und Rezeptesammlung:</b>\n\n"
-        for item in recipes["liste"]:
-            msg += "\U0001F538" + item + "\n"
-        self.sender.sendMessage(msg, parse_mode="html")
-        pass
-    elif self.command[1] == "add":
-        item = ' '.join(self.command[2:])
-        recipes["liste"].append(item)
-        self.sender.sendMessage(f"Du hast <b>{item}</b> zur Essensliste hinzugefügt!", parse_mode="html")
-        telepot.Bot(API_KEY).sendMessage(GROUP_ID, f"{wg[self.chatid]} hat <b>{item}</b> zur Essensliste hinzugefügt!",
-                                         parse_mode="html")
-    elif self.command[1] == "remove":
-        pass
-        # TODO: implement removal
-    try:
-        with open("../../data/recipes.json", "w") as f:
-            json.dump(recipes, f, indent=2)
-    except FileNotFoundError:
-        pass
+        self.sender.sendMessage("Platform does not seem to be Linux, reloading not possible.")
