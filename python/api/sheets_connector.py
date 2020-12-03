@@ -16,7 +16,7 @@ def init_google_sheet():
     print("3")
     print(os.getcwd())
     try:
-        creds = ServiceAccountCredentials.from_json_keyfile_name("google_sheets_creds.json", scope)
+        creds = ServiceAccountCredentials.from_json_keyfile_name("../api/google_sheets_creds.json", scope)
     except Exception as e:
         print(e)
     print("4")
