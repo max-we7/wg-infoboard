@@ -33,6 +33,7 @@ def get_balances_raw():
     """
     returns list of balances for all users
     """
+    print("2")
     sheet = init_google_sheet()
     return [[name, sheet.cell(3, i).value] for name, i in [(wg_members[0], 7), (wg_members[1], 8),
                                                            (wg_members[2], 9), (wg_members[3], 10)]]
