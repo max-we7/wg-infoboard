@@ -1,7 +1,7 @@
 import json
 import logging
 import telepot
-from config import GROUP_ID, API_KEY, ADMIN_IDS
+from python.main.config import GROUP_ID, API_KEY, ADMIN_IDS
 
 
 def load_putzplan():

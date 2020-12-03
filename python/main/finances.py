@@ -6,7 +6,7 @@ import logging
 from keyboards import kb_finance_start, kb_teilnehmer, kb_ja_nein, kb_wg_bewohner
 from python.api.sheets_connector import get_balances, get_history, add_entry, delete_entry, get_balances_raw
 import random
-from config import GROUP_ID, wg_members, wg, finanz_spreadsheet_link, API_KEY
+from python.main.config import GROUP_ID, wg_members, wg, finanz_spreadsheet_link, API_KEY
 from datetime import datetime
 
 

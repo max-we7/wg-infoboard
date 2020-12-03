@@ -3,7 +3,7 @@ import telepot
 from telepot.namedtuple import ReplyKeyboardRemove
 import platform
 import subprocess
-from config import ADMIN_IDS, LEGIT_IDS, API_KEY, GROUP_ID, wg
+from python.main.config import ADMIN_IDS, LEGIT_IDS, API_KEY, GROUP_ID, wg
 import logging
 from keyboards import create_eingekauft_keyboard
 
