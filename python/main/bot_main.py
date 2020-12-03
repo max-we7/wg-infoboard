@@ -100,7 +100,7 @@ class MessageHandler(telepot.helper.ChatHandler):
         choose_callback_command(self, msg)
 
     def load_cookies(self, msg):
-        fileurl = f"../data/cookies/{self.chatid}.json"
+        fileurl = f"../../data/cookies/{self.chatid}.json"
         logging.debug(f"Cookie file path (load): {fileurl}")
         try:
             with open(fileurl, "r", encoding='utf-8') as f:
@@ -134,7 +134,7 @@ class MessageHandler(telepot.helper.ChatHandler):
             logging.debug("New cookie dictionary created")
 
     def dump_cookies(self):
-        fileurl = f"../data/cookies/{self.chatid}.json"
+        fileurl = f"../../data/cookies/{self.chatid}.json"
         logging.debug(f"Cookie file path (dump): {fileurl}")
         try:
             with open(fileurl, "w") as f:

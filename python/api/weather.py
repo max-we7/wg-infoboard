@@ -117,7 +117,7 @@ def check_cache(location_id):
     check if there is cached data newer than 10 minutes ago
     """
     try:
-        with open(f"../data/weather_cache/{location_id}.json", "r", encoding='utf-8') as f:
+        with open(f"../../data/weather_cache/{location_id}.json", "r", encoding='utf-8') as f:
             data = json.load(f)
             time_of_cache = data['current']['dt']
             current_time = int(time.time())
@@ -222,7 +222,7 @@ def load_from_cache(location_id):
     :param location_id: location for which the query data is loaded
     """
     try:
-        with open(f"../data/weather_cache/{location_id}.json", "r", encoding='utf-8') as f:
+        with open(f"../../data/weather_cache/{location_id}.json", "r", encoding='utf-8') as f:
             data = json.load(f)
             return data
     except FileNotFoundError:
@@ -234,7 +234,7 @@ def dump_to_cache(query_result, location_id):
     dump query result to cache
     """
     try:
-        with open(f"../data/weather_cache/{location_id}.json", "w") as f:
+        with open(f"../../data/weather_cache/{location_id}.json", "w") as f:
             json.dump(query_result, f, indent=4)
     except FileNotFoundError:
         logging.error("Error - File Not Found! weather.py, dump_to_cache()")

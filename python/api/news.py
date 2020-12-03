@@ -24,7 +24,7 @@ for entry in feed.entries:
 news += "</news>"
 
 try:
-    with open(f"../data/newsfeed.xml", "w") as f:
+    with open(f"../../data/newsfeed.xml", "w") as f:
         f.write(news)
 except FileNotFoundError:
     pass
