@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(1, '/var/www/rmv/wg-infoboard/python')
+sys.path.insert(1, '../../')
 import platform
 import subprocess
 import time

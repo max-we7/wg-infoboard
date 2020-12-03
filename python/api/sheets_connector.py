@@ -21,6 +21,7 @@ def get_balances():
     returns list of balances for all users
     """
     sheet = init_google_sheet()
+    print("1")
     balances_raw = [sheet.cell(3, i).value for i in [7, 8, 9, 10]]
     balances = {}
     for i in range(4):
