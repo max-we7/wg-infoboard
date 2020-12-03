@@ -1,8 +1,5 @@
-import os
-
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
-from datetime import datetime
 from python.main.config import wg_members
 
 
@@ -13,15 +10,8 @@ def init_google_sheet():
     """
     scope = ["https://spreadsheets.google.com/feeds", 'https://www.googleapis.com/auth/spreadsheets',
              "https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/drive"]
-    print("3")
-    print(os.getcwd())
-    try:
-        creds = ServiceAccountCredentials.from_json_keyfile_name("../api/google_sheets_creds.json", scope)
-    except Exception as e:
-        print(e)
-    print("4")
+    creds = ServiceAccountCredentials.from_json_keyfile_name("../api/google_sheets_creds.json", scope)
     client = gspread.authorize(creds)
-    print("5")
     return client.open("finances").sheet1
 
 
@@ -41,7 +31,6 @@ def get_balances_raw():
     """
     returns list of balances for all users
     """
-    print("2")
     sheet = init_google_sheet()
     return [[name, sheet.cell(3, i).value] for name, i in [(wg_members[0], 7), (wg_members[1], 8),
                                                            (wg_members[2], 9), (wg_members[3], 10)]]
