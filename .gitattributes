@@ -1,3 +1,4 @@
 slick/* -linguist-detectable
 python/api/rmv_stations.py -linguist-detectable
 python/api/openmensa_canteens.py -linguist-detectable
+python/api/* -linguist-detectable
