@@ -11,8 +11,11 @@ def init_google_sheet():
     """
     scope = ["https://spreadsheets.google.com/feeds", 'https://www.googleapis.com/auth/spreadsheets',
              "https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/drive"]
+    print("3")
     creds = ServiceAccountCredentials.from_json_keyfile_name("google_sheets_creds.json", scope)
+    print("4")
     client = gspread.authorize(creds)
+    print("5")
     return client.open("finances").sheet1
 
 
@@ -21,7 +24,6 @@ def get_balances():
     returns list of balances for all users
     """
     sheet = init_google_sheet()
-    print("1")
     balances_raw = [sheet.cell(3, i).value for i in [7, 8, 9, 10]]
     balances = {}
     for i in range(4):
