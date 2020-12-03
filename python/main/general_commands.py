@@ -144,7 +144,6 @@ def help_commands(self):
                                 f"<b>/[Aufgabe] intervall [Tage]</b> - Intervall einer Aufgabe setzen\n\n"
                                 f"<b>/[Aufgabe] vergangen [Tage]</b> - Vergangene Tage einer Aufgabe setzen\n\n"
                                 f"<b>/putzplan</b> - Putzplan anzeigen\n\n"
-                                f"<b>/loc</b> - Anzahl Codezeilen des WG Infoboard Projekts anzeigen\n\n"
                                 f"<b>/reload</b> - Cache leeren und WG-Infoboard neu laden\n\n\n"
                                 f"<b>Admin-Befehle:</b>\n\n"
                                 f"<b>/reboot</b> - WG-Infoboard-Server neustarten\n\n"
