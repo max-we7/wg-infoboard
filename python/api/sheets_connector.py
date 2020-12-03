@@ -15,7 +15,10 @@ def init_google_sheet():
              "https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/drive"]
     print("3")
     print(os.getcwd())
-    creds = ServiceAccountCredentials.from_json_keyfile_name("google_sheets_creds.json", scope)
+    try:
+        creds = ServiceAccountCredentials.from_json_keyfile_name("google_sheets_creds.json", scope)
+    except Exception as e:
+        print(e)
     print("4")
     client = gspread.authorize(creds)
     print("5")
