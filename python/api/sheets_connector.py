@@ -1,3 +1,5 @@
+import os
+
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime
@@ -12,7 +14,8 @@ def init_google_sheet():
     scope = ["https://spreadsheets.google.com/feeds", 'https://www.googleapis.com/auth/spreadsheets',
              "https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/drive"]
     print("3")
-    creds = ServiceAccountCredentials.from_json_keyfile_name("google_sheets_creds.json", scope)
+    print(os.getcwd())
+    creds = ServiceAccountCredentials.from_json_keyfile_name("api/google_sheets_creds.json", scope)
     print("4")
     client = gspread.authorize(creds)
     print("5")
