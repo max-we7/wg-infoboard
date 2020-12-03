@@ -6,7 +6,7 @@ import logging
 from python.api.rmv import bahn, search_station, edit_station_favorites
 from python.api.speiseplan import speiseplan, search_canteen_skeleton, edit_canteen_favorites
 from python.api.weather import weather, search_weather_skeleton, edit_weather_favorites
-from python.main.config import LEGIT_IDS
+from config import LEGIT_IDS
 
 
 def choose_command(self, msg):

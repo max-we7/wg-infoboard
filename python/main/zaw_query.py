@@ -5,7 +5,7 @@ from datetime import *
 import logging
 import json
 import telepot
-from python.main.config import API_KEY, GROUP_ID
+from config import API_KEY, GROUP_ID
 
 # UPDATING TO NEW YEAR
 # save ical file from zaw website to a textfile
