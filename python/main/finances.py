@@ -4,7 +4,7 @@ from telepot.namedtuple import ReplyKeyboardRemove
 import re
 import logging
 from keyboards import kb_finance_start, kb_teilnehmer, kb_ja_nein, kb_wg_bewohner
-from sheets_connector import get_balances, get_history, add_entry, delete_entry, get_balances_raw
+from python.api.sheets_connector import get_balances, get_history, add_entry, delete_entry, get_balances_raw
 import random
 from config import GROUP_ID, wg_members, wg, finanz_spreadsheet_link, API_KEY
 from datetime import datetime
@@ -104,11 +104,10 @@ def neuer_einkauf(self, msg):
                 self.sender.sendMessage(f"Eintrag wird angelegt... bitte warten", reply_markup=ReplyKeyboardRemove())
                 # noinspection PyBroadException
                 try:
-                    logging.debug("entering method calculate_money") # TODO: debug only
                     calculate_money(self)
-                    logging.debug("exited method calculate_money") # TODO: debug only
                 except Exception:
-                    try:    # TODO: remove try except, debug only
+                    # noinspection PyBroadException
+                    try:
                         logging.error("Error calculating transaction, #1001")
                         self.sender.sendMessage("Fehler #1001")
                         return
@@ -137,8 +136,6 @@ def neuer_einkauf(self, msg):
         self.artikel_flag, self.preis_flag = False, True
         self.sender.sendMessage(f"Was hast du für <b>{self.artikel}</b> bezahlt?", parse_mode='html')
     else:
-        # self._editor2 = telepot.helper.Editor(self.bot, self.current_message_id)
-        # self._editor2.editMessageText("Neuer Eintrag:\nWas hast du eingekauft?")
         telepot.Bot(API_KEY).editMessageText(message_identifier(self.current_message_id), "Neuer Eintrag:\nWas hast "
                                                                                           "du eingekauft?")
         self.artikel_flag = True
@@ -199,7 +196,8 @@ def calculate_money(self):
         balances[person] = f"{balances[person][:-2]},{balances[person][-2:]} €"
 
     # Integrity Check
-    if integrity != 0: self.sender.sendMessage("Integritätscheck fehlgeschlagen. Bitte Transaktionen prüfen!")
+    if integrity != 0:
+        self.sender.sendMessage("Integritätscheck fehlgeschlagen. Bitte Transaktionen prüfen!")
 
     anteilig_wert = str(int(item_preis / preis_anteil))
     if re.match('^[0-9]{2}$', anteilig_wert):
@@ -238,7 +236,8 @@ def calculate_transaction(self):
         balances[person] = f"{balances[person][:-2]},{balances[person][-2:]} €"
 
     # Integrity Check
-    if integrity != 0: self.sender.sendMessage("Integritätscheck fehlgeschlagen. Bitte Transaktionen prüfen!")
+    if integrity != 0:
+        self.sender.sendMessage("Integritätscheck fehlgeschlagen. Bitte Transaktionen prüfen!")
 
     if re.match('^[0-9]{2}$', str(transaction_value)):
         transaction_value = f"0{transaction_value}"
@@ -254,8 +253,6 @@ def show_history(self):
     """
     return the three most recent transactions for the user to see
     """
-    # self._editor3 = telepot.helper.Editor(self.bot, self.current_message_id)
-    # self._editor3.editMessageText("Rufe Daten ab ... bitte warten")
     telepot.Bot(API_KEY).editMessageText(message_identifier(self.current_message_id), "Rufe Daten ab ... bitte warten")
     # noinspection PyBroadException
     try:
@@ -270,7 +267,6 @@ def show_history(self):
                                 f"{wg_members[0]}: \U0001F4B0{history[6]} - {wg_members[1]}: \U0001F4B0{history[7]}\n"
                                 f"{wg_members[2]}: \U0001F4B0{history[8]} - {wg_members[3]}: \U0001F4B0{history[9]}",
                                 parse_mode='html')
-    # self._editor3.editMessageText("Kürzliche Transaktionen (neuste zuerst):")
     telepot.Bot(API_KEY).editMessageText(message_identifier(self.current_message_id), "Kürzliche Transaktionen "
                                                                                       "(neuste zuerst):")
     self.sender.sendMessage(f"Kompletter Verlauf verfügbar unter: {finanz_spreadsheet_link}")
@@ -298,8 +294,6 @@ def delete_last_record(self, msg):
             self.delete_flag = False
     else:
         self.delete_flag = True
-        # self._editor = telepot.helper.Editor(self.bot, self.current_message_id)
-        # self._editor.deleteMessage()
         telepot.Bot(API_KEY).deleteMessage(message_identifier(self.current_message_id))
         self.sender.sendMessage("Bist du sicher, dass du den letzten Eintrag löschen möchtest?",
                                 reply_markup=kb_ja_nein)

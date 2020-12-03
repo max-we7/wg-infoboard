@@ -10,7 +10,7 @@ def load_putzplan():
     :return: putzplan in dictionary format
     """
     try:
-        with open("../data/putzplan.json", "r", encoding='utf-8') as f:
+        with open("../../data/putzplan.json", "r", encoding='utf-8') as f:
             data = json.load(f)
     except FileNotFoundError:
         logging.error("Error - File Not Found, #4001")
@@ -24,7 +24,7 @@ def dump_putzplan(plan):
     :param plan: putzplan in dictionary format
     """
     try:
-        with open("../data/putzplan.json", "w") as f:
+        with open("../../data/putzplan.json", "w") as f:
             json.dump(plan, f, indent=4)
     except FileNotFoundError:
         logging.error("Error - File Not Found, #4002")

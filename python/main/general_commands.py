@@ -2,12 +2,11 @@ import random
 import json
 import telepot
 from telepot.namedtuple import ReplyKeyboardRemove
-from insults import insults
+from python.insults import insults
 import platform
 import subprocess
 from config import ADMIN_IDS, LEGIT_IDS, API_KEY, GROUP_ID, wg
 import logging
-from muddawitze import muddawitze
 from keyboards import create_eingekauft_keyboard
 
 
@@ -87,7 +86,7 @@ def load_einkaufsliste(self):
     """
     einkaufsliste = []
     try:
-        with open("../data/einkaufsliste.json", "r") as f:
+        with open("../../data/einkaufsliste.json", "r") as f:
             data = json.load(f)
             for item in data['liste']:
                 einkaufsliste.append(item)
@@ -106,7 +105,7 @@ def dump_einkaufsliste(self, einkaufsliste):
     for i in range(len(einkaufsliste)):
         data["liste"].append(einkaufsliste[i])
     try:
-        with open("../data/einkaufsliste.json", "w") as f:
+        with open("../../data/einkaufsliste.json", "w") as f:
             json.dump(data, f, indent=2)
     except FileNotFoundError as exception:
         logging.error("Error - File Not Found, #3002")
@@ -127,14 +126,6 @@ def impersonate(self, msg):
     """
     if self.chatid in ADMIN_IDS:
         telepot.Bot(API_KEY).sendMessage(GROUP_ID, msg['text'][12:])
-
-
-def deinemudda(self):
-    """
-    returns random deinemudda-joke
-    """
-    random_muddawitz = random.choice(muddawitze)
-    self.sender.sendMessage(f"{random_muddawitz}\U0001F61C")
 
 
 def help_commands(self):
@@ -169,7 +160,6 @@ def help_commands(self):
                                 f"<b>/putzplan</b> - Putzplan anzeigen\n\n"
                                 f"<b>/loc</b> - Anzahl Codezeilen des WG Infoboard Projekts anzeigen\n\n"
                                 f"<b>/insult [Person]</b> - Beleidige Person mit zufälliger Beleidigung\n\n"
-                                f"<b>/deinemudda</b> - zufälligen DeineMudda-Witz anzeigen\n\n"
                                 f"<b>/reload</b> - WG-Infoboard neu laden\n\n\n"
                                 f"<b>Admin-Befehle:</b>\n\n"
                                 f"<b>/reboot</b> - WG-Infoboard-Server neustarten\n\n"
@@ -191,17 +181,6 @@ def git_pull(self, msg):
     """
     pull current version remotely via Telegram
     """
-    # if str(msg['from']['id']) in ADMIN_IDS:
-    #     if platform.system() == "Linux":
-    #         message_id = bot.sendMessage(msg['chat']['id'], "Pulling Git Repository...")
-    #         # os.chdir("/var/www/rmw/wg-infoboard")
-    #         subprocess.Popen(["sudo", "git", "pull", "https://github.com/max-we7/wg-infoboard.git"],
-    #         cwd="/var/www/rmw/wg-infoboard")
-    #         bot.editMessageText(message_id, "Pulling Git Repository... Done!")
-    #     else:
-    #         bot.sendMessage(msg['chat']['id'], "Platform does not seem to be Linux.")
-    # else:
-    #     bot.sendMessage(msg['chat']['id'], "You do not have permission to use this command.")
     pass
 
 
@@ -236,7 +215,7 @@ def essen(self):
     """
     recipes = {"liste": []}
     try:
-        with open("../data/recipes.json", "r") as f:
+        with open("../../data/recipes.json", "r") as f:
             recipes = json.load(f)
     except FileNotFoundError:
         pass
@@ -259,7 +238,7 @@ def essen(self):
         pass
         # TODO: implement removal
     try:
-        with open("../data/recipes.json", "w") as f:
+        with open("../../data/recipes.json", "w") as f:
             json.dump(recipes, f, indent=2)
     except FileNotFoundError:
         pass

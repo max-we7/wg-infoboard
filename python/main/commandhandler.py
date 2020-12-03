@@ -1,11 +1,11 @@
 from putzplan import chores, show_putzplan
-from general_commands import insult, einkaufen, eingekauft, help_commands, reload, reboot, git_pull, deinemudda, \
+from general_commands import insult, einkaufen, help_commands, reload, reboot, git_pull, deinemudda, \
     impersonate, essen, eingekauft
 from finances import geld, show_balance, make_transaction, neuer_einkauf, show_history, delete_last_record
 import logging
-from rmv import bahn, search_station, edit_station_favorites
-from speiseplan import speiseplan, search_canteen_skeleton, edit_canteen_favorites
-from weather import weather, search_weather_skeleton, edit_weather_favorites
+from python.api.rmv import bahn, search_station, edit_station_favorites
+from python.api.speiseplan import speiseplan, search_canteen_skeleton, edit_canteen_favorites
+from python.api.weather import weather, search_weather_skeleton, edit_weather_favorites
 from config import LEGIT_IDS
 
 
@@ -66,8 +66,6 @@ def choose_command(self, msg):
             self.sender.sendMessage("Fehler #2007")
     if self.command[0] == "/insult":
         insult(self, msg)
-    if self.command[0] == "/deinemudda":
-        deinemudda(self)
     if self.command[0] == "/impersonate":
         impersonate(self, msg)
     if self.command[0] == "/help" or self.command[0] == "/start":
