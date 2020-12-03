@@ -1,4 +1,3 @@
-import random
 import json
 import telepot
 from telepot.namedtuple import ReplyKeyboardRemove
