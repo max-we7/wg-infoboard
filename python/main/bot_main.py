@@ -79,7 +79,6 @@ class MessageHandler(telepot.helper.ChatHandler):
 
     def on_chat_message(self, msg):
         logging.debug(f"{msg}")
-        print(msg)
         content_type, chat_type, cid = telepot.glance(msg)
         logging.debug(f"{content_type}, {chat_type}, {cid}")
         self.chatid = str(cid)
@@ -97,7 +96,6 @@ class MessageHandler(telepot.helper.ChatHandler):
         if chat_type == "private": self.dump_cookies()
 
     def on_callback_query(self, msg):
-        print(msg)
         logging.debug(f"{msg}")
         query_id, from_id, query_data = telepot.glance(msg, flavor='callback_query')
         self.query_data = query_data
@@ -170,7 +168,7 @@ try:
     try:
         schedule.every().day.at("00:01").do(update_putzplan)
         schedule.every().day.at("00:02").do(update_muell)
-        schedule.every().day.at("22:04").do(check_muell_due)
+        schedule.every().day.at("20:30").do(check_muell_due)
         schedule.every(4).minutes.do(update_infoboard_bahn)
         # TODO: run news updating with schedule instead of cronjob
 
