@@ -83,7 +83,7 @@ def check_muell_due():
     }
 
     attempts = 0
-    while attempts < 5:
+    while attempts < 50:
         # noinspection PyBroadException
         try:
             with open("../../data/zaw.json", "r") as f:

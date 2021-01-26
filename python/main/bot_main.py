@@ -18,8 +18,8 @@ from config import API_KEY, LEGIT_IDS, ADMIN_IDS
 from python.media_handler import handle_img, handle_gif
 from commandhandler import choose_command, choose_callback_command
 
-logging.basicConfig(filename="../wg-infoboard.log", filemode="a+", format='%(asctime)s - %(levelname)s - %(message)s',
-                    level=logging.INFO)
+logging.basicConfig(filename="main/wg-infoboard.log", filemode="a+", format='%(asctime)s - %(levelname)s - %(message)s',
+                    level=logging.DEBUG)
 
 
 class MessageHandler(telepot.helper.ChatHandler):
@@ -79,6 +79,7 @@ class MessageHandler(telepot.helper.ChatHandler):
 
     def on_chat_message(self, msg):
         logging.debug(f"{msg}")
+        print(msg)
         content_type, chat_type, cid = telepot.glance(msg)
         logging.debug(f"{content_type}, {chat_type}, {cid}")
         self.chatid = str(cid)
@@ -96,6 +97,7 @@ class MessageHandler(telepot.helper.ChatHandler):
         if chat_type == "private": self.dump_cookies()
 
     def on_callback_query(self, msg):
+        print(msg)
         logging.debug(f"{msg}")
         query_id, from_id, query_data = telepot.glance(msg, flavor='callback_query')
         self.query_data = query_data
@@ -168,7 +170,7 @@ try:
     try:
         schedule.every().day.at("00:01").do(update_putzplan)
         schedule.every().day.at("00:02").do(update_muell)
-        schedule.every().day.at("21:30").do(check_muell_due)
+        schedule.every().day.at("22:00").do(check_muell_due)
         schedule.every(4).minutes.do(update_infoboard_bahn)
         # TODO: run news updating with schedule instead of cronjob
 

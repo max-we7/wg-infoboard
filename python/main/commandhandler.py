@@ -181,8 +181,24 @@ def choose_callback_command(self, msg):
     if self.query_data == "garbage_take_responsibility":
         # noinspection PyBroadException
         try:
-            self.sender.sendMessage("Ehrenmann")
+            self.sender.sendMessage(f"{msg['from']['first_name']} übernimmt. Ehrenmann!")
         except Exception:
-            logging.exception("General error in delete_last_record(), #2005")
+            logging.exception("General error , #20005")
+            self.sender.sendMessage("Fehler #2005")
+            return
+    if self.query_data == "garbage_not_full":
+        # noinspection PyBroadException
+        try:
+            self.sender.sendMessage(f"{msg['from']['first_name']} meint: Müll ist noch nicht voll.")
+        except Exception:
+            logging.exception("General error , #20005")
+            self.sender.sendMessage("Fehler #2005")
+            return
+    if self.query_data == "garbage_already_done":
+        # noinspection PyBroadException
+        try:
+            self.sender.sendMessage(f"{msg['from']['first_name']} meint: Müll ist schon draußen. Nice!")
+        except Exception:
+            logging.exception("General error , #20005")
             self.sender.sendMessage("Fehler #2005")
             return
