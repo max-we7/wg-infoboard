@@ -18,8 +18,8 @@ from config import API_KEY, LEGIT_IDS, ADMIN_IDS
 from python.media_handler import handle_img, handle_gif
 from commandhandler import choose_command, choose_callback_command
 
-logging.basicConfig(filename="main/wg-infoboard.log", filemode="a+", format='%(asctime)s - %(levelname)s - %(message)s',
-                    level=logging.DEBUG)
+logging.basicConfig(filename="../wg-infoboard.log", filemode="a+", format='%(asctime)s - %(levelname)s - %(message)s',
+                    level=logging.INFO)
 
 
 class MessageHandler(telepot.helper.ChatHandler):
@@ -170,7 +170,7 @@ try:
     try:
         schedule.every().day.at("00:01").do(update_putzplan)
         schedule.every().day.at("00:02").do(update_muell)
-        schedule.every().day.at("22:00").do(check_muell_due)
+        schedule.every().day.at("22:04").do(check_muell_due)
         schedule.every(4).minutes.do(update_infoboard_bahn)
         # TODO: run news updating with schedule instead of cronjob
 
