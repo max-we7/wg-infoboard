@@ -6,6 +6,7 @@ import logging
 import json
 import telepot
 from config import API_KEY, GROUP_ID
+from keyboards import kb_muell_due
 
 # UPDATING TO NEW YEAR
 # save ical file from zaw website to a textfile
@@ -89,7 +90,8 @@ def check_muell_due():
                 muell = json.load(f)
             for item in ["gelb", "schwarz", "blau", "gruen"]:
                 if int(muell[item]) == 1:
-                    telepot.Bot(API_KEY).sendMessage(GROUP_ID, f"Erinnerung: {dic[item]} wird morgen abgeholt!")
+                    telepot.Bot(API_KEY).sendMessage(GROUP_ID, f"Erinnerung: {dic[item]} wird morgen abgeholt!",
+                                                     reply_markup=kb_muell_due)
                     logging.info("Garbage notification message successfully sent")
             break
         except Exception:

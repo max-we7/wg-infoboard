@@ -168,7 +168,7 @@ try:
     try:
         schedule.every().day.at("00:01").do(update_putzplan)
         schedule.every().day.at("00:02").do(update_muell)
-        schedule.every().day.at("22:00").do(check_muell_due)
+        schedule.every().day.at("21:30").do(check_muell_due)
         schedule.every(4).minutes.do(update_infoboard_bahn)
         # TODO: run news updating with schedule instead of cronjob
 

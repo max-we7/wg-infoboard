@@ -241,3 +241,14 @@ def create_eingekauft_keyboard(items_available):
         [x] for x in kbs
     ])
     return keyboard
+
+
+kb_muell_due = InlineKeyboardMarkup(inline_keyboard=[
+    [
+        InlineKeyboardButton(text='Muss nicht raus', callback_data='garbage_not_full')
+    ],
+    [
+        InlineKeyboardButton(text='Ist schon draußen', callback_data='garbage_already_done'),
+        InlineKeyboardButton(text='Ich mach das', callback_data='garbage_take_responsibility')
+    ]
+])
