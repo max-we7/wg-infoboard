@@ -181,7 +181,7 @@ def choose_callback_command(self, msg):
     if self.query_data == "garbage_take_responsibility":
         # noinspection PyBroadException
         try:
-            self.sender.sendMessage(f"{msg['from']['first_name']} übernimmt. Ehrenmann!")
+            self.sender.sendMessage(f"{msg['from']['first_name']} übernimmt. Ehre!")
         except Exception:
             logging.exception("General error , #20005")
             self.sender.sendMessage("Fehler #2005")

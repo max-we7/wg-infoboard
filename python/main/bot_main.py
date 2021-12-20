@@ -1,4 +1,5 @@
 import sys
+
 sys.path.insert(1, '../../')
 import platform
 import subprocess
@@ -173,7 +174,7 @@ try:
         # TODO: run news updating with schedule instead of cronjob
 
         # check if weather widget still updates
-        #schedule.every(50).minutes.do(reload_service)
+        # schedule.every(50).minutes.do(reload_service)
     except Exception:
         logging.error("Error running scheduled tasks in main, #0002")
         telepot.Bot(API_KEY).sendMessage(ADMIN_IDS[0], "Error running scheduled tasks, #0002")

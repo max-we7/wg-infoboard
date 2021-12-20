@@ -11,7 +11,16 @@ from keyboards import kb_muell_due
 # UPDATING TO NEW YEAR
 # save ical file from zaw website to a textfile
 # run: cat zaw.txt | grep 'DTSTART\|SUMMARY'
-# do regex magic in pycharm
+# do regex magic in pycharm:
+
+# replace DTSTART;VALUE=DATE: with {\n      "date": "
+# replace \nSUMMARY: with ",\n      "category": "
+# replace  -alle Größen- (with leading space) with "\n    },
+# replace  Tonnen und Container 14-täglich (with leading space) with "
+# replace  Tonnen und Container (with leading space) with "
+# replace Restmüll" with Restmüll"\n    },
+# replace Papier" with Papier"\n    },
+# replace ü with \\u00fc
 
 
 def load_raw():
