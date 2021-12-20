@@ -16,7 +16,7 @@ kb_finance_start = InlineKeyboardMarkup(inline_keyboard=[
 
 kb_teilnehmer = ReplyKeyboardMarkup(keyboard=[
     [
-        KeyboardButton(text="Max"), KeyboardButton(text="x")
+        KeyboardButton(text="Max"), KeyboardButton(text="Karina")
     ],
     [
         KeyboardButton(text="Noah"), KeyboardButton(text="Seb")
@@ -40,7 +40,7 @@ kb_ja_nein = ReplyKeyboardMarkup(keyboard=[
 
 kb_wg_bewohner = ReplyKeyboardMarkup(keyboard=[
     [
-        KeyboardButton(text="Max"), KeyboardButton(text="x")
+        KeyboardButton(text="Max"), KeyboardButton(text="Karina")
     ],
     [
         KeyboardButton(text="Noah"), KeyboardButton(text="Seb")
