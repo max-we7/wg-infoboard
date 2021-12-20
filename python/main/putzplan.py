@@ -89,7 +89,7 @@ def aufgabe_erledigen(putzplan, chore):
     """
     putzplan[chore]["tage_vergangen"] = 0
     index = putzplan[chore]["reihenfolge"].index(putzplan[chore]["dran"])
-    putzplan[chore]["dran"] = putzplan[chore]["reihenfolge"][(index + 1) % 4]
+    putzplan[chore]["dran"] = putzplan[chore]["reihenfolge"][(index + 1) % len(putzplan[chore]["reihenfolge"])]
     dump_putzplan(putzplan)
     telepot.Bot(API_KEY).sendMessage(GROUP_ID, f"\u2705Aufgabe {putzplan[chore]['bezeichnung']} wurde erledigt\u2705\n"
                                                f"\n<b>{putzplan[chore]['dran']}</b> ist als nächster dran.",
