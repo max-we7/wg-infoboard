@@ -144,7 +144,7 @@ class MessageHandler(telepot.helper.ChatHandler):
                 json.dump(self.cookies, f, indent=4)
                 logging.debug("dumped cookie. no errors.")
         except FileNotFoundError:
-            logging.error("Error dumping Cookie!, #0003")
+            logging.error("Error dumping cookie!, #0003")
             self.sender.sendMessage("Fehler #0003")
 
 
@@ -182,6 +182,6 @@ try:
     while 1:
         time.sleep(10)
         schedule.run_pending()
-except Exception:
-    telepot.Bot(API_KEY).sendMessage(ADMIN_IDS[0], "Error: program failure, #0001")
+except Exception as e:
+    telepot.Bot(API_KEY).sendMessage(ADMIN_IDS[0], f"Error: program failure, #0001\n\nDetails:\n\n{e}")
     logging.exception("Program Crash in main, #0001")

@@ -183,7 +183,7 @@ def choose_callback_command(self, msg):
         try:
             self.sender.sendMessage(f"{msg['from']['first_name']} übernimmt. Ehre!")
         except Exception:
-            logging.exception("General error , #20005")
+            logging.exception("General error , #2005")
             self.sender.sendMessage("Fehler #2005")
             return
     if self.query_data == "garbage_not_full":
@@ -191,7 +191,7 @@ def choose_callback_command(self, msg):
         try:
             self.sender.sendMessage(f"{msg['from']['first_name']} meint: Müll ist noch nicht voll.")
         except Exception:
-            logging.exception("General error , #20005")
+            logging.exception("General error , #2005")
             self.sender.sendMessage("Fehler #2005")
             return
     if self.query_data == "garbage_already_done":
