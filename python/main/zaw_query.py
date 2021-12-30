@@ -50,7 +50,7 @@ def update_muell():
     plan = load_raw()
 
     muell_dates = []
-    for muell_art in ["Gelber Sack", "Biomüll", "Restmüll", "Papiertonne"]:
+    for muell_art in ["Gelber Sack", "Biomüll", "Restmüll", "Papier"]:
         for entry in plan["muell"]:
             if str(entry["category"]).startswith(muell_art):
                 year = int(entry["date"][:4])
@@ -68,7 +68,7 @@ def update_muell():
 
     gelb = [entry for entry in muell_dates if entry["art"].startswith("Gelber Sack")]
     schwarz = [entry for entry in muell_dates if entry["art"].startswith("Restmüll")]
-    blau = [entry for entry in muell_dates if entry["art"].startswith("Papiertonne")]
+    blau = [entry for entry in muell_dates if entry["art"].startswith("Papier")]
     gruen = [entry for entry in muell_dates if entry["art"].startswith("Biomüll")]
 
     muell_upcoming = {}
