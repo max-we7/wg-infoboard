@@ -82,6 +82,8 @@ def update_muell():
 
     dump_to_json(muell_upcoming)
 
+    logging.info(f"updated garbage schedule: {muell_upcoming}")
+
 
 def check_muell_due():
     dic = {
