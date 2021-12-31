@@ -4,7 +4,7 @@ requests~=2.24.0
 gspread~=3.6.0
 oauth2client~=4.1.3
 schedule~=0.6.0
-babel~=2.8.0
+babel~=2.9.1
 feedparser~=6.0.2
 adafruit-circuitpython-dht
 imageio~=2.9.0
