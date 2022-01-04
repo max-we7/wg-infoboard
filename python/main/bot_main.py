@@ -168,7 +168,18 @@ try:
     # noinspection PyBroadException
     try:
         schedule.every().day.at("00:01").do(update_putzplan)
+        schedule.every().day.at("18:56").do(update_muell)
         schedule.every().day.at("00:02").do(update_muell)
+        schedule.every().day.at("00:08").do(update_muell)
+        schedule.every().day.at("06:02").do(update_muell)
+        schedule.every().day.at("07:02").do(update_muell)
+        schedule.every().day.at("08:02").do(update_muell)
+        schedule.every().day.at("09:02").do(update_muell)
+        schedule.every().day.at("10:02").do(update_muell)
+        schedule.every().day.at("11:02").do(update_muell)
+        schedule.every().day.at("12:02").do(update_muell)
+        schedule.every().day.at("13:02").do(update_muell)
+        schedule.every().day.at("14:02").do(update_muell)
         schedule.every().day.at("20:30").do(check_muell_due)
         schedule.every(4).minutes.do(update_infoboard_bahn)
         # TODO: run news updating with schedule instead of cronjob
