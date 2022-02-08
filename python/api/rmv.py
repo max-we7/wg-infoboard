@@ -162,7 +162,7 @@ def make_api_request(origin_id, destination_id, delta_mins=0):
     :param delta_mins: offset to current time to search with, in minutes
     :return: request object
     """
-    base_url = "https://www.rmv.de/hapi/trip"
+    base_url = "https://www.rmv.de/hapi/latest/trip"
     api_key = "?accessId=" + RMV_API_KEY
     response_format = "&format=json"
 
