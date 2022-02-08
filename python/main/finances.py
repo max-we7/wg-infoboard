@@ -197,7 +197,8 @@ def calculate_money(self):
 
     # Integrity Check
     if integrity != 0:
-        self.sender.sendMessage("Integritätscheck fehlgeschlagen. Bitte Transaktionen prüfen!")
+        self.sender.sendMessage(f"Integritätscheck fehlgeschlagen. Bitte Transaktionen prüfen! Integrity value: "
+                                f"{integrity}")
 
     anteilig_wert = str(int(item_preis / preis_anteil))
     if re.match('^[0-9]{2}$', anteilig_wert):
