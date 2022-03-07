@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 __author__ = "Maximilian Werner"
 
+import time
 from datetime import *
 import logging
 import json
@@ -86,6 +87,7 @@ def update_muell():
 
 
 def check_muell_due():
+    logging.info("Checking if garbage is due...")
     dic = {
         "gelb": "Gelber Sack",
         "schwarz": "Restmüll",
@@ -108,3 +110,4 @@ def check_muell_due():
         except Exception:
             attempts += 1
             logging.error("Could not send garbage notification message")
+        time.sleep(60)

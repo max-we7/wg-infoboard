@@ -76,7 +76,7 @@ def choose_command(self, msg):
     if self.command[0] == "/putzplan":
         show_putzplan(self)
     if self.command[0] in ["/muell", "/müll", "/glas", "/bad", "/kueche", "/küche", "/saugen", "/handtuecher",
-                           "/handtücher", "/duschvorhang", "garten"] and \
+                           "/handtücher", "/duschvorhang", "/garten"] and \
             self.chatid in LEGIT_IDS:
         # noinspection PyBroadException
         try:
