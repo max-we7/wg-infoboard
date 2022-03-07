@@ -186,7 +186,7 @@ def update_putzplan():
     putzplan = load_putzplan()
     # noinspection PyBroadException
     try:
-        for chore in ["bad", "kueche", "saugen", "handtuecher", "duschvorhang"]:
+        for chore in ["bad", "kueche", "saugen", "handtuecher", "duschvorhang", "garten"]:
             logging.info(f"... incrementing chore {chore} ...")
             putzplan[chore]['tage_vergangen'] += 1
             logging.info(f"... incremented chore {chore} ...")
