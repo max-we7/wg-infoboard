@@ -61,6 +61,7 @@ function updateChores(){
         $('#vacuum-who').html(chores.saugen.dran);
         $('#towels-who').html(chores.handtuecher.dran);
         $('#curtains-who').html(chores.duschvorhang.dran);
+        $('#garden-who').html(chores.garten.dran);
 
         $('#garbage-who').parent().css("background-color", "#17a2b8"); // light blue
         $('#glas-who').parent().css("background-color", "#17a2b8"); // light blue
@@ -70,6 +71,7 @@ function updateChores(){
         calculateDueDate(selector="#vacuum-due", chores.saugen.intervall_tage, chores.saugen.tage_vergangen);
         calculateDueDate(selector="#towels-due", chores.handtuecher.intervall_tage, chores.handtuecher.tage_vergangen);
         calculateDueDate(selector="#curtains-due", chores.duschvorhang.intervall_tage, chores.duschvorhang.tage_vergangen);
+        calculateDueDate(selector="#garden-due", chores.garten.intervall_tage, chores.garten.tage_vergangen);
 
         function calculateDueDate(selector, interval, days_passed){
             days_remaining = interval - days_passed;

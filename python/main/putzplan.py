@@ -159,7 +159,7 @@ def set_vergangene_tage(self, putzplan, chore):
 def show_putzplan(self):
     putzplan = load_putzplan()
     msg = "\U0001F9F9\U0001F9F9<b>Putzplan</b>\U0001F9F9\U0001F9F9\n\n"
-    for chore in ["muell", "glas", "bad", "kueche", "saugen", "handtuecher", "duschvorhang"]:
+    for chore in ["muell", "glas", "bad", "kueche", "saugen", "handtuecher", "duschvorhang", "garten"]:
         try:
             days = int(putzplan[chore]['intervall_tage']) - int(putzplan[chore]['tage_vergangen'])
             if days == 0:
