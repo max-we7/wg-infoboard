@@ -70,8 +70,8 @@ def choose_command(self, msg):
         # noinspection PyBroadException
         try:
             help_commands(self)
-        except Exception:
-            logging.error("General error in help_commands(), #2009")
+        except Exception as e:
+            logging.error(f"General error in help_commands() {e}, #2009")
             self.sender.sendMessage("Fehler #2009")
     if self.command[0] == "/putzplan":
         show_putzplan(self)

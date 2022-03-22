@@ -136,7 +136,7 @@ def help_commands(self):
                                 f"Speiseplan über OpenMensa verfügbar ist\n\n"
                                 f"<b>/putzplan</b> - Putzplan anzeigen\n\n"
                                 f"Verfügbare Aufgaben: <b>muell | müll, glas, bad, kueche | küche, saugen, handtuecher"
-                                f" | handtücher, duschvorhang<, garten/b>\n\n"
+                                f" | handtücher, duschvorhang, garten</b>\n\n"
                                 f"<b>/[Aufgabe]</b> - anzeigen, wer gerade mit einer Aufgabe dran ist + Fälligkeit\n\n"
                                 f"<b>/[Aufgabe] erledigt</b> - eine Aufgabe abhaken\n\n"
                                 f"<b>/[Aufgabe] intervall</b> - Intervall einer Aufgabe anzeigen\n\n"

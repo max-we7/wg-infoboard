@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 __author__ = "Maximilian Werner"
 
-import time
+import time as timetime
 from datetime import *
 import logging
 import json
@@ -110,4 +110,4 @@ def check_muell_due():
         except Exception:
             attempts += 1
             logging.error("Could not send garbage notification message")
-        time.sleep(60)
+        timetime.sleep(60)
