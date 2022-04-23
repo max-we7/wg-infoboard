@@ -194,10 +194,10 @@ def update_putzplan():
                 attempts = 0
                 while attempts < 5:
                     try:
-                        chore = putzplan[chore]['bezeichnung']
+                        todo = putzplan[chore]['bezeichnung']
                         who = putzplan[chore]['dran']
                         telepot.Bot(API_KEY).sendMessage(GROUP_ID, f"\u2757Folgende Aufgabe ist heute fällig: "
-                                                                   f"{chore} ({who})\u2757")
+                                                                   f"{todo} ({who})\u2757")
                         break
                     except Exception:
                         attempts += 1
