@@ -167,7 +167,7 @@ try:
     # Define Scheduled Jobs
     # noinspection PyBroadException
     try:
-        schedule.every().day.at("00:01").do(update_putzplan)
+        # schedule.every().day.at("00:01").do(update_putzplan)
         schedule.every().day.at("19:00").do(update_muell)
         schedule.every().day.at("00:02").do(update_muell)
         schedule.every().day.at("00:08").do(update_muell)
