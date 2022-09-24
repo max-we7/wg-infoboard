@@ -249,7 +249,7 @@ function updateTemperature(){
         if (this.readyState == 4 && this.status == 200) {
         response = xhttp.responseText;
 
-        $("#temperature").html(response);
+        // $("#temperature").html(response);
         }
     };
     xhttp.open("GET", "data/temp.txt", true);
