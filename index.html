@@ -213,19 +213,30 @@
         <!-- BOTTOM WIDGETS -->
         <div id="bot-container">
 
-            <!-- TEMPERATURE -->
-            <div id="temperature">
-             <iframe src="http://192.168.2.39:8082/flot/index.html?l%5B0%5D%5Bid%5D=mqtt.0.DHT11_Kueche.temperature&l%5B0%5D%5Binstance%5D=history.0&l%5B0%5D%5Boffset%5D=0&l%5B0%5D%5Baggregate%5D=minmax&l%5B0%5D%5Bcolor%5D=%23FF0000&l%5B0%5D%5Bmin%5D=14&l%5B0%5D%5Bmax%5D=25&l%5B0%5D%5Bthickness%5D=3&l%5B0%5D%5Bshadowsize%5D=3&l%5B0%5D%5Bxmove%5D=0&l%5B0%5D%5BchartType%5D=line&l%5B0%5D%5Bfill%5D=0.2&l%5B0%5D%5Bpoints%5D=false&l%5B0%5D%5Byaxe%5D=right&l%5B0%5D%5Bxaxe%5D=bottom&l%5B0%5D%5BignoreNull%5D=false&l%5B0%5D%5BafterComma%5D=2&l%5B0%5D%5Bdashes%5D=false&l%5B0%5D%5BdashLength%5D=10&l%5B0%5D%5BspaceLength%5D=10&l%5B0%5D%5Bmultiplicator%5D=1&l%5B0%5D%5Bxticks%5D=12&l%5B0%5D%5Byticks%5D=10&timeType=relative&relativeEnd=now&range=1440&live=30&aggregateType=step&aggregateSpan=300&width=500&height=300&title=Temperatur+K%C3%BCche&titlePos=top%3A35%3Bleft%3A50&hoverDetail=true&timeFormat=%25H%3A%25M&useComma=false&zoom=false&noedit=false&animation=0" height="350" width="650" style="border:none; padding-left: 100px;" title="temperature_graph">
+            <!-- SMART HOME -->
+
+             <iframe src="http://192.168.2.39:8082/flot/index.html?l%5B0%5D%5Bid%5D=mqtt.0.DHT11_Kueche.temperature&l%5B0%5D%5Binstance%5D=history.0&l%5B0%5D%5Boffset%5D=0&l%5B0%5D%5Baggregate%5D=minmax&l%5B0%5D%5Bcolor%5D=%23FF0000&l%5B0%5D%5Bmin%5D=12&l%5B0%5D%5Bmax%5D=21&l%5B0%5D%5Bthickness%5D=2&l%5B0%5D%5Bshadowsize%5D=3&l%5B0%5D%5Bxmove%5D=0&l%5B0%5D%5BchartType%5D=line&l%5B0%5D%5Bfill%5D=0.2&l%5B0%5D%5Bpoints%5D=false&l%5B0%5D%5Byaxe%5D=right&l%5B0%5D%5Bxaxe%5D=bottom&l%5B0%5D%5BignoreNull%5D=true&l%5B0%5D%5BafterComma%5D=0&l%5B0%5D%5Bdashes%5D=false&l%5B0%5D%5BdashLength%5D=10&l%5B0%5D%5BspaceLength%5D=10&l%5B0%5D%5Bmultiplicator%5D=1&l%5B0%5D%5Bxticks%5D=6&l%5B0%5D%5Byticks%5D=10&l%5B0%5D%5Bunit%5D=%C2%B0&l%5B0%5D%5Bname%5D=Temperatur&l%5B1%5D%5Bid%5D=mqtt.0.DHT11_Kueche.humidity&l%5B1%5D%5Boffset%5D=0&l%5B1%5D%5Baggregate%5D=minmax&l%5B1%5D%5Bcolor%5D=%23646ff7&l%5B1%5D%5Bmin%5D=30&l%5B1%5D%5Bmax%5D=90&l%5B1%5D%5Bthickness%5D=1&l%5B1%5D%5Bshadowsize%5D=3&l%5B1%5D%5Bunit%5D=%25&l%5B1%5D%5Bname%5D=Luftfeuchtigkeit&l%5B1%5D%5Bxmove%5D=0&l%5B1%5D%5BignoreNull%5D=true&l%5B1%5D%5BafterComma%5D=0&l%5B1%5D%5Bdashes%5D=false&l%5B1%5D%5BdashLength%5D=10&l%5B1%5D%5BspaceLength%5D=10&l%5B1%5D%5Bmultiplicator%5D=1&l%5B1%5D%5Byticks%5D=10&l%5B1%5D%5Bxaxe%5D=off&l%5B1%5D%5Byaxe%5D=right&l%5B1%5D%5BchartType%5D=line&l%5B1%5D%5Bpoints%5D=false&timeType=relative&relativeEnd=now&range=1440&live=30&aggregateType=step&aggregateSpan=300&width=450&height=270&title=K%C3%BCche&titlePos=top%3A35%3Bleft%3A50&hoverDetail=true&timeFormat=%25H%3A%25M&useComma=false&zoom=false&noedit=false&animation=0&legend=nw" height="270" width="450" style="border:none; padding-left: 0px;" title="temperature_graph">
              </iframe>
-            </div>
+             <iframe src="http://192.168.2.39:8082/vis/index.html#Gas" height="270" width="350" style="border:none; background-color=lightgrey">
+             </iframe>
+             <iframe src="http://192.168.2.39:8082/vis/index.html#Strom" height="270" width="350" style="border:none; background-color=lightgrey">
+             </iframe>
+             <iframe src="http://192.168.2.39:8082/vis/index.html#Temp" height="270" width="350" style="border:none; background-color=lightgrey">
+             </iframe>
+             <iframe src="http://192.168.2.39:8082/vis/index.html#Wetter_today" height="270" width="350" style="border:none; background-color=lightgrey">
+             </iframe>
+
+
+
+
 
             <!-- IMAGE / GIF -->
-            <div id="gif"><img src="img/feuertonne.gif" alt="Feuertonne"></div>
+            <!--div id="gif"><img src="img/feuertonne.gif" alt="Feuertonne"></div-->
 
             <!-- WEATHER -->
-            <div id="weather-widget">
+            <!--div id="weather-widget">
                 <a id="weatherwid" class="weatherwidget-io" href="https://forecast7.com/de/49d868d55/64347/" data-label_1="Griesheim" data-label_2="Wetter" data-font="Open Sans" data-icons="Climacons Animated" data-theme="gray">64347 WEATHER</a>
-            </div>
+            </div-->
         </div>
 
         <!-- NEWS SLIDER -->
