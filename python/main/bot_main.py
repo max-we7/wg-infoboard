@@ -91,6 +91,8 @@ class MessageHandler(telepot.helper.ChatHandler):
                 handle_img(self, msg)
         else:
             logging.info(f"Not in legit IDs: {self.chatid}")
+            telepot.Bot(API_KEY).sendMessage(ADMIN_IDS[0], f"New user detected: {msg['from']['first_name']}, "
+                                                           f"{self.chatid}")
         if content_type == 'text':
             self.command = msg['text'].split(" ")
             choose_command(self, msg)

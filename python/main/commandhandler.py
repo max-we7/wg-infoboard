@@ -6,7 +6,7 @@ import logging
 from python.api.rmv import bahn, search_station, edit_station_favorites
 from python.api.speiseplan import speiseplan, search_canteen_skeleton, edit_canteen_favorites
 from python.api.weather import weather, search_weather_skeleton, edit_weather_favorites
-from config import LEGIT_IDS
+from config import LEGIT_IDS, ADMIN_IDS
 
 
 def choose_command(self, msg):
@@ -64,7 +64,7 @@ def choose_command(self, msg):
         except Exception:
             logging.error("General error in eingekauft(), #2007")
             self.sender.sendMessage("Fehler #2007")
-    if self.command[0] == "/impersonate":
+    if self.command[0] == "/impersonate" and self.chatid in ADMIN_IDS:
         impersonate(self, msg)
     if self.command[0] == "/help" or self.command[0] == "/start":
         # noinspection PyBroadException
@@ -73,7 +73,7 @@ def choose_command(self, msg):
         except Exception as e:
             logging.error(f"General error in help_commands() {e}, #2009")
             self.sender.sendMessage("Fehler #2009")
-    if self.command[0] == "/putzplan":
+    if self.command[0] == "/putzplan" and self.chatid in LEGIT_IDS:
         show_putzplan(self)
     if self.command[0] in ["/muell", "/müll", "/glas", "/bad", "/kueche", "/küche", "/saugen", "/handtuecher",
                            "/handtücher", "/duschvorhang", "/garten"] and \
