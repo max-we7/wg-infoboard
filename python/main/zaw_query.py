@@ -14,14 +14,16 @@ from keyboards import kb_muell_due
 # run: cat zaw.txt | grep 'DTSTART\|SUMMARY'
 # do regex magic in pycharm:
 
-# replace DTSTART;VALUE=DATE: with {\n      "date": "
-# replace \nSUMMARY: with ",\n      "category": "
-# replace  -alle Größen- (with leading space) with "\n    },
-# replace  Tonnen und Container 14-täglich (with leading space) with "
-# replace  Tonnen und Container (with leading space) with "
-# replace Restmüll" with Restmüll"\n    },
-# replace Papier" with Papier"\n    },
-# replace ü with \\u00fc
+# replace SUMMARY: with {\n      "category": "
+# replace DTSTART;VALUE=DATE: with  \t  "date": "
+# replace Gelber Sack - Hofmannstr. with Gelber Sack",
+# replace Biomüll - Hofmannstr. with Biom\\u00fcll",
+# replace Restmüll Tonnen und Container 14-tägig - Hofmannstr. with Restm\\u00fcll",
+# replace Papier Tonnen und Container - Hofmannstr. with Papier",
+# replace \{ with \t\},\n\t\{
+# replace "\d{8} with $&" (only works in notepad++)
+
+
 
 
 def load_raw():

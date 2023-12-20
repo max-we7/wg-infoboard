@@ -819,6 +819,370 @@
     {
       "date": "20231228",
       "category": "Biom\u00fcll"
+    },
+    {
+      "category": "Biom\u00fcll",
+ 	  "date": "20240108"
+	},
+	{
+      "category": "Restm\u00fcll",
+ 	  "date": "20240109"
+	},
+	{
+      "category": "Gelber Sack",
+ 	  "date": "20240110"
+	},
+	{
+      "category": "Papier",
+ 	  "date": "20240117"
+	},
+	{
+      "category": "Biom\u00fcll",
+ 	  "date": "20240122"
+	},
+	{
+      "category": "Restm\u00fcll",
+ 	  "date": "20240123"
+	},
+	{
+      "category": "Gelber Sack",
+ 	  "date": "20240124"
+	},
+	{
+      "category": "Biom\u00fcll",
+ 	  "date": "20240205"
+	},
+	{
+      "category": "Restm\u00fcll",
+ 	  "date": "20240206"
+	},
+	{
+      "category": "Gelber Sack",
+ 	  "date": "20240207"
+	},
+	{
+      "category": "Papier",
+ 	  "date": "20240214"
+	},
+	{
+      "category": "Biom\u00fcll",
+ 	  "date": "20240219"
+	},
+	{
+      "category": "Restm\u00fcll",
+ 	  "date": "20240220"
+	},
+	{
+      "category": "Gelber Sack",
+ 	  "date": "20240221"
+	},
+	{
+      "category": "Biom\u00fcll",
+ 	  "date": "20240304"
+	},
+	{
+      "category": "Restm\u00fcll",
+ 	  "date": "20240305"
+	},
+	{
+      "category": "Gelber Sack",
+ 	  "date": "20240306"
+	},
+	{
+      "category": "Papier",
+ 	  "date": "20240313"
+	},
+	{
+      "category": "Biom\u00fcll",
+ 	  "date": "20240318"
+	},
+	{
+      "category": "Restm\u00fcll",
+ 	  "date": "20240319"
+	},
+	{
+      "category": "Gelber Sack",
+ 	  "date": "20240320"
+	},
+	{
+      "category": "Biom\u00fcll",
+ 	  "date": "20240402"
+	},
+	{
+      "category": "Restm\u00fcll",
+ 	  "date": "20240403"
+	},
+	{
+      "category": "Gelber Sack",
+ 	  "date": "20240403"
+	},
+	{
+      "category": "Papier",
+ 	  "date": "20240410"
+	},
+	{
+      "category": "Biom\u00fcll",
+ 	  "date": "20240415"
+	},
+	{
+      "category": "Restm\u00fcll",
+ 	  "date": "20240416"
+	},
+	{
+      "category": "Gelber Sack",
+ 	  "date": "20240417"
+	},
+	{
+      "category": "Biom\u00fcll",
+ 	  "date": "20240429"
+	},
+	{
+      "category": "Restm\u00fcll",
+ 	  "date": "20240430"
+	},
+	{
+      "category": "Gelber Sack",
+ 	  "date": "20240503"
+	},
+	{
+      "category": "Papier",
+ 	  "date": "20240508"
+	},
+	{
+      "category": "Biom\u00fcll",
+ 	  "date": "20240513"
+	},
+	{
+      "category": "Restm\u00fcll",
+ 	  "date": "20240514"
+	},
+	{
+      "category": "Gelber Sack",
+ 	  "date": "20240515"
+	},
+	{
+      "category": "Biom\u00fcll",
+ 	  "date": "20240527"
+	},
+	{
+      "category": "Restm\u00fcll",
+ 	  "date": "20240528"
+	},
+	{
+      "category": "Gelber Sack",
+ 	  "date": "20240528"
+	},
+	{
+      "category": "Papier",
+ 	  "date": "20240605"
+	},
+	{
+      "category": "Biom\u00fcll",
+ 	  "date": "20240610"
+	},
+	{
+      "category": "Restm\u00fcll",
+ 	  "date": "20240611"
+	},
+	{
+      "category": "Gelber Sack",
+ 	  "date": "20240612"
+	},
+	{
+      "category": "Biom\u00fcll",
+ 	  "date": "20240624"
+	},
+	{
+      "category": "Restm\u00fcll",
+ 	  "date": "20240625"
+	},
+	{
+      "category": "Gelber Sack",
+ 	  "date": "20240626"
+	},
+	{
+      "category": "Papier",
+ 	  "date": "20240703"
+	},
+	{
+      "category": "Biom\u00fcll",
+ 	  "date": "20240708"
+	},
+	{
+      "category": "Restm\u00fcll",
+ 	  "date": "20240709"
+	},
+	{
+      "category": "Gelber Sack",
+ 	  "date": "20240710"
+	},
+	{
+      "category": "Biom\u00fcll",
+ 	  "date": "20240722"
+	},
+	{
+      "category": "Restm\u00fcll",
+ 	  "date": "20240723"
+	},
+	{
+      "category": "Gelber Sack",
+ 	  "date": "20240724"
+	},
+	{
+      "category": "Papier",
+ 	  "date": "20240731"
+	},
+	{
+      "category": "Biom\u00fcll",
+ 	  "date": "20240805"
+	},
+	{
+      "category": "Restm\u00fcll",
+ 	  "date": "20240806"
+	},
+	{
+      "category": "Gelber Sack",
+ 	  "date": "20240808"
+	},
+	{
+      "category": "Biom\u00fcll",
+ 	  "date": "20240819"
+	},
+	{
+      "category": "Restm\u00fcll",
+ 	  "date": "20240820"
+	},
+	{
+      "category": "Gelber Sack",
+ 	  "date": "20240821"
+	},
+	{
+      "category": "Papier",
+ 	  "date": "20240828"
+	},
+	{
+      "category": "Biom\u00fcll",
+ 	  "date": "20240902"
+	},
+	{
+      "category": "Restm\u00fcll",
+ 	  "date": "20240903"
+	},
+	{
+      "category": "Gelber Sack",
+ 	  "date": "20240904"
+	},
+	{
+      "category": "Biom\u00fcll",
+ 	  "date": "20240916"
+	},
+	{
+      "category": "Restm\u00fcll",
+ 	  "date": "20240917"
+	},
+	{
+      "category": "Gelber Sack",
+ 	  "date": "20240918"
+	},
+	{
+      "category": "Papier",
+ 	  "date": "20240925"
+	},
+	{
+      "category": "Gelber Sack",
+ 	  "date": "20240930"
+	},
+	{
+      "category": "Biom\u00fcll",
+ 	  "date": "20240930"
+	},
+	{
+      "category": "Restm\u00fcll",
+ 	  "date": "20241001"
+	},
+	{
+      "category": "Biom\u00fcll",
+ 	  "date": "20241014"
+	},
+	{
+      "category": "Restm\u00fcll",
+ 	  "date": "20241015"
+	},
+	{
+      "category": "Gelber Sack",
+ 	  "date": "20241016"
+	},
+	{
+      "category": "Papier",
+ 	  "date": "20241023"
+	},
+	{
+      "category": "Biom\u00fcll",
+ 	  "date": "20241028"
+	},
+	{
+      "category": "Restm\u00fcll",
+ 	  "date": "20241029"
+	},
+	{
+      "category": "Gelber Sack",
+ 	  "date": "20241030"
+	},
+	{
+      "category": "Biom\u00fcll",
+ 	  "date": "20241111"
+	},
+	{
+      "category": "Restm\u00fcll",
+ 	  "date": "20241112"
+	},
+	{
+      "category": "Gelber Sack",
+ 	  "date": "20241113"
+	},
+	{
+      "category": "Papier",
+ 	  "date": "20241120"
+	},
+	{
+      "category": "Biom\u00fcll",
+ 	  "date": "20241125"
+	},
+	{
+      "category": "Restm\u00fcll",
+ 	  "date": "20241126"
+	},
+	{
+      "category": "Gelber Sack",
+ 	  "date": "20241127"
+	},
+	{
+      "category": "Biom\u00fcll",
+ 	  "date": "20241209"
+	},
+	{
+      "category": "Restm\u00fcll",
+ 	  "date": "20241210"
+	},
+	{
+      "category": "Gelber Sack",
+ 	  "date": "20241211"
+	},
+	{
+      "category": "Papier",
+ 	  "date": "20241217"
+	},
+	{
+      "category": "Restm\u00fcll",
+ 	  "date": "20241221"
+	},
+	{
+      "category": "Biom\u00fcll",
+ 	  "date": "20241223"
+	},
+    {
+      "category": "Gelber Sack",
+      "date": "20241224"
     }
   ]
 }
